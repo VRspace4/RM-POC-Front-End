@@ -1,10 +1,10 @@
-import { POCFrontEndPage } from './app.po';
+import { InspiniaPage } from './app.po';
 
-describe('poc-front-end App', () => {
-  let page: POCFrontEndPage;
+describe('inspinia App', () => {
+  let page: InspiniaPage;
 
   beforeEach(() => {
-    page = new POCFrontEndPage();
+    page = new InspiniaPage();
   });
 
   it('should display message saying app works', () => {
