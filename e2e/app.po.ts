@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class POCFrontEndPage {
+export class InspiniaPage {
   navigateTo() {
     return browser.get('/');
   }
