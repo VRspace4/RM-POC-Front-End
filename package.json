@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "hmr": "ng serve --host 192.168.1.104 --hmr -e=hmr"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^4.0.1",
     "@angular/platform-server": "^4.0.1",
     "@angular/router": "^4.0.1",
+    "@angularclass/hmr": "^1.2.2",
     "animate.css": "3.1.1",
     "bootstrap": "^3.3.7",
     "chart.js": "^2.5.0",
