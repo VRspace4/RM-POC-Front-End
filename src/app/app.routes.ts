@@ -14,6 +14,8 @@ import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.comp
 import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
 import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationlayout.component";
 
+import {EsDemoComponent} from "./views/es-demo/es-demo.component";
+
 export const ROUTES:Routes = [
   // Main redirect
   {path: '', redirectTo: 'starterview', pathMatch: 'full'},
@@ -39,6 +41,12 @@ export const ROUTES:Routes = [
     path: '', component: BasicLayoutComponent,
     children: [
       {path: 'starterview', component: StarterViewComponent}
+    ]
+  },
+  {
+    path: '', component: BasicLayoutComponent,
+    children: [
+      {path: 'esdemo', component: EsDemoComponent}
     ]
   },
   {

@@ -14,10 +14,12 @@ import {AppviewsModule} from "./views/appviews/appviews.module";
 
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
+import { EsDemoComponent } from './views/es-demo/es-demo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EsDemoComponent
   ],
   imports: [
     BrowserModule,
