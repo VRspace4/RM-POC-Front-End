@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "hmr": "ng serve --host 192.168.1.104 --hmr -e=hmr"
+    "hmr": "ng serve --sourcemaps true --hmr -e=hmr"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +24,7 @@
     "@angular/platform-server": "^4.0.1",
     "@angular/router": "^4.0.1",
     "@angularclass/hmr": "^1.2.2",
+    "@types/whatwg-fetch": "^0.0.33",
     "animate.css": "3.1.1",
     "bootstrap": "^3.3.7",
     "chart.js": "^2.5.0",
@@ -37,7 +38,10 @@
     "ng2-charts": "^1.5.0",
     "ngx-bootstrap": "^1.6.6",
     "peity": "^3.2.1",
+    "raphael": "^2.2.7",
     "rxjs": "^5.1.0",
+    "treant-js": "^1.0.1",
+    "whatwg-fetch": "^2.0.3",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
