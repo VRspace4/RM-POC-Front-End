@@ -157,6 +157,10 @@
   version "2.53.42"
   resolved "https://registry.yarnpkg.com/@types/selenium-webdriver/-/selenium-webdriver-2.53.42.tgz#74cb77fb6052edaff2a8984ddafd88d419f25cac"
 
+"@types/vis@^4.18.2":
+  version "4.18.2"
+  resolved "https://registry.yarnpkg.com/@types/vis/-/vis-4.18.2.tgz#30b61622da0349b272357df6f55cc057cb4fb783"
+
 "@types/whatwg-fetch@^0.0.33":
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/@types/whatwg-fetch/-/whatwg-fetch-0.0.33.tgz#19c0d2863c8cb2380f21a1c736b79cbf7895bb13"
@@ -2871,9 +2875,19 @@ jquery-sparkline@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/jquery-sparkline/-/jquery-sparkline-2.4.0.tgz#1be8b7b704dd3857152708aefb1d4a4b3a69fb33"
 
-"jquery@>= 1.7", jquery@>=1.5, jquery@^3.1.0:
+jquery-validation@*:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/jquery-validation/-/jquery-validation-1.16.0.tgz#b6e5277ebbd67c1fabab213eb4454eea8a3095ca"
+  dependencies:
+    jquery "^1.7 || ^2.0 || ^3.1"
+
+jquery@*, "jquery@>= 1.7", jquery@>=1.5, "jquery@^1.7 || ^2.0 || ^3.1", jquery@^3.1.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+
+jqwidgets-framework@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/jqwidgets-framework/-/jqwidgets-framework-4.6.2.tgz#2e5f07c6e916191eb61fa6dec6a9d47f1ec5adf7"
 
 js-base64@^2.1.5, js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.1.9"
@@ -2967,6 +2981,12 @@ jsprim@^1.2.2:
     extsprintf "1.0.2"
     json-schema "0.2.3"
     verror "1.3.6"
+
+jsrender@*:
+  version v0.9.84
+  resolved "https://registry.yarnpkg.com/jsrender/-/jsrender-0.9.84.tgz#121a0c631149bb6eb0d68aeede3d5e7b271509fb"
+  dependencies:
+    through2 "^2.0.0"
 
 jvectormap@1.2.2:
   version "1.2.2"
@@ -3086,6 +3106,10 @@ lcid@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
+
+leaflet@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.0.3.tgz#1f401b98b45c8192134c6c8d69686253805007c8"
 
 less-loader@^4.0.2:
   version "4.0.3"
@@ -4316,7 +4340,7 @@ readable-stream@1.0, readable-stream@~1.0.2:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.2.6:
+readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.6:
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.9.tgz#cf78ec6f4a6d1eb43d26488cac97f042e74b7fc8"
   dependencies:
@@ -5113,6 +5137,19 @@ symbol-observable@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.4.tgz#29bf615d4aa7121bdd898b22d4b3f9bc4e2aa03d"
 
+syncfusion-ej-global@*:
+  version "15.2.40"
+  resolved "https://registry.yarnpkg.com/syncfusion-ej-global/-/syncfusion-ej-global-15.2.40.tgz#766720aee7e32e37f6d4d1b8593414c191f9e9b4"
+
+syncfusion-javascript@^15.2.41:
+  version "15.2.41"
+  resolved "https://registry.yarnpkg.com/syncfusion-javascript/-/syncfusion-javascript-15.2.41.tgz#ac20fbbd5c787e4e295d80a831b2c84c7131b66f"
+  dependencies:
+    jquery "*"
+    jquery-validation "*"
+    jsrender "*"
+    syncfusion-ej-global "*"
+
 tapable@^0.2.5, tapable@~0.2.5:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.6.tgz#206be8e188860b514425375e6f1ae89bfb01fd8d"
@@ -5150,6 +5187,13 @@ term-size@^0.1.0:
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-0.1.1.tgz#87360b96396cab5760963714cda0d0cbeecad9ca"
   dependencies:
     execa "^0.4.0"
+
+through2@^2.0.0:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.3.tgz#0004569b37c7c74ba39c43f3ced78d1ad94140be"
+  dependencies:
+    readable-stream "^2.1.5"
+    xtend "~4.0.1"
 
 through@X.X.X, through@^2.3.6, through@~2.3.8:
   version "2.3.8"
@@ -5740,7 +5784,7 @@ xmlhttprequest-ssl@1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/xmlhttprequest-ssl/-/xmlhttprequest-ssl-1.5.3.tgz#185a888c04eca46c3e4070d99f7b49de3528992d"
 
-xtend@^4.0.0:
+xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 

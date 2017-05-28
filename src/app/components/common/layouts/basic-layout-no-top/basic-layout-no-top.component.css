@@ -1,0 +1,11 @@
+.fh-mainContent {
+  height: calc(100% - 100px);
+  margin: 0 0px;
+  position: relative;
+}
+
+#page-wrapper {
+  padding: 0 0px;
+  min-height: 568px;
+  position: relative !important;
+}

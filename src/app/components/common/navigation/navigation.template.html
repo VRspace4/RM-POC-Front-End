@@ -1,7 +1,7 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
   <div class="sidebar-collapse">
     <ul class="nav metismenu" id="side-menu">
-      <li class="nav-header">
+      <li class="nav-header" (click)="toggleNavigation()">
         <div class="profile-element" dropdown>
           <!--<img alt="image" class="img-circle" src="assets/images/profile_small.jpg">-->
           <a dropdownToggle>
@@ -32,6 +32,9 @@
           <li [ngClass]="{active: activeRoute('dashboard4')}"><a [routerLink]="['/dashboards/dashboard4']">Dashboard v.4</a></li>
           <li [ngClass]="{active: activeRoute('dashboard5')}"><a [routerLink]="['/dashboards/dashboard5']">Dashboard v.5</a></li>
         </ul>
+      </li>
+      <li [ngClass]="{active: activeRoute('rm')}">
+        <a [routerLink]="['/rm']"><i class="fa fa-cubes"></i> <span class="nav-label">Resource manager</span></a>
       </li>
       <li [ngClass]="{active: activeRoute('esdemo')}">
         <a [routerLink]="['/esdemo']"><i class="fa fa-history"></i> <span class="nav-label">Event sourcing demo</span></a>
