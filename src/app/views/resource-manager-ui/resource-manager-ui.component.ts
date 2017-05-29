@@ -17,11 +17,11 @@ declare var ej: any;
   entryComponents: [BeamScheduleComponent, BeamMapComponent]
 })
 
-export class ResourceManagerUiComponent implements AfterViewInit {
+export class ResourceManagerUiComponent implements OnInit {
 
   constructor(private resolver: ComponentFactoryResolver) { }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.initRibbonControl();
     $(document).ready(function () {
       var layout = [

@@ -62,7 +62,7 @@
         "../node_modules/syncfusion-javascript/Scripts/ej/web/ej.slider.min.js",
         "../node_modules/syncfusion-javascript/Scripts/ej/web/ej.treeview.min.js",
         "../node_modules/leaflet/dist/leaflet.js",
-        "./custom-lib/visjs/dist/vis-timeline-graph2d.min.js"
+        "./custom-lib/visjs/dist/vis.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
