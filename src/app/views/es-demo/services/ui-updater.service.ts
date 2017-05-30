@@ -15,14 +15,30 @@ export class UiUpdaterService {
     localStorage.setItem('eventId', '35');
   }
 
-  static setCatalog(eventId: number): void {
+  static initialize(): void {
+    UiGraphService.initialize();
+    const eventId = localStorage.getItem('eventId');
+    this._eventId = parseInt(eventId, 10);
+    if (eventId) {
+      CatalogApiService.getCatalog(eventId).then((catalog) => {
+        this.applyUpdatesToTables(catalog);
+        CatalogApiService.getAllCatalogEvents(catalog.id).then((events) => {
+          UiGraphService.update(events, catalog.eventId, null);
+        });
+      });
+    } else {
+      console.log('No eventId!');
+    }
+  }
+
+  static updateTables(eventId: number): void {
     this._eventId = eventId;
     CatalogApiService.getCatalog(eventId).then((catalog) => {
-      this.update(catalog);
+      this.applyUpdatesToTables(catalog);
     });
   }
 
-  static update(catalog: Catalog): void {
+  static applyUpdatesToTables(catalog: Catalog): void {
     this.updateCategoryTable(catalog);
     this.updateProductTable(catalog);
 
@@ -33,17 +49,11 @@ export class UiUpdaterService {
       categoriesSelect.append($('<option></option>').val(category.id).html(category.name));
     });
     categoriesSelect.val('');
+  }
 
+  static updateEventsGraph(catalog: Catalog): void {
     CatalogApiService.getAllCatalogEvents(catalog.id).then((events) => {
-      UiGraphService.update(events, catalog.eventId, null, (event, ctrl) => {
-        // if (ctrl) {
-        //   this._secondEventId = event.id;
-        //   $('#mergeEvents').prop('disabled', false);
-        // } else {
-        //   $('#mergeEvents').prop('disabled', true);
-           this.setCatalog(event.id);
-        // }
-      });
+      UiGraphService.update(events, catalog.eventId, null);
     });
   }
 
@@ -77,7 +87,7 @@ export class UiUpdaterService {
 
   static updateProductTable(catalog: Catalog): void {
     const tbody = $('#tbody-products');
-
+    console.log(catalog);
     tbody.empty();
     catalog.products.forEach((product: Product) => {
       let categoryName = '';

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UiUpdaterService } from './services/ui-updater.service';
+import { UiGraphService } from './services/ui-graph.service';
 import { CatalogApiService } from '../../es-demo/services/catalog-api.service';
 import { VisNode } from '../../components/models/vis-node';
 import { VisEdge } from '../../components/models/vis-edge';
@@ -18,12 +19,9 @@ export class EsDemoComponent implements OnInit {
   }
 
   ngOnInit() {
-    const eventId = localStorage.getItem('eventId');
-    if (eventId) {
-      UiUpdaterService.setCatalog(35);
-    } else {
-      console.log('No eventId!');
-    }
+    UiUpdaterService.initialize();
+
+
 
     // // create an array with nodes
     // //const visNode1 = new VisNode(1, 'JP 1');

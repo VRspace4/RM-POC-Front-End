@@ -1,5 +1,6 @@
 import { VisNode } from '../../../components/models/vis-node';
 import { VisEdge } from '../../../components/models/vis-edge';
+import { UiUpdaterService } from './ui-updater.service';
 
 declare var $: any;
 declare var Treant: any;
@@ -11,10 +12,22 @@ export class UiGraphService {
   static _visEdges: VisEdge[];
   static _visNetworkCtrl: any;
 
-  static update(events, selectedEventId, selectedEventId2, callbackClick: (event, ctrl) => void) {
+  static initialize(): void {
+    $('#mynetwork').click((e) => {
+      const visNodeSelectedId: number = this._visNetworkCtrl.getSelectedNodes()[0];
+      if (visNodeSelectedId) {
+        const result = $.grep(this._events, function(e){ return e.id === visNodeSelectedId; });
+        UiUpdaterService.updateTables(result[0].id);
+      }
+    });
+  }
+
+  static update(events, selectedEventId, selectedEventId2) {
     this._events = events;
     this._visNodes = [];
     this._visEdges = [];
+
+    console.log('handle');
 
     const rootNode = this.eventsAsTree(events, selectedEventId, selectedEventId2);
     const simple_chart_config = {
@@ -44,19 +57,18 @@ export class UiGraphService {
     //   const event = this._events[index];
     //
     //   callbackClick(event, e.ctrlKey);
+    //   console.log(event);
     //
     //   if (e.ctrlKey) {
-    //     this.update(events, selectedEventId, event.id, callbackClick);
+    //     this.applyUpdatesToTables(events, selectedEventId, event.id, callbackClick);
     //   }
     // });
 
     this.convertToVisData(events, this._visNodes, this._visEdges);
     this.drawVisNetwork(this._visNodes, this._visEdges);
-    this.handleVisNetworkEvents(callbackClick);
   }
 
   static convertToVisData(events: any[], visNodes: VisNode[], visEdges: VisEdge[]): void {
-    console.log('In convertToVisData()');
     events.forEach((event: any, i: number) => {
       const id: number = parseInt(event.id, 10);
       const name = event.name.replace('Event', '-' + id);
@@ -109,15 +121,8 @@ export class UiGraphService {
     this._visNetworkCtrl = new vis.Network(container, data, options);
   }
 
-  static handleVisNetworkEvents(callback: (event, ctrl) => void): void {
-    console.log('In handleVisNetworkEvents()');
-    $('#mynetwork').click((e) => {
-      const visNodeSelectedId: number = this._visNetworkCtrl.getSelectedNodes()[0];
-      if (visNodeSelectedId) {
-        const result = $.grep(this._events, function(e){ return e.id === visNodeSelectedId; });
-        callback(result[0], e.ctrlKey);
-      }
-    });
+  static handleVisNetworkEvents(): void {
+
   }
 
   static eventsAsTree(events, selectedEventId, selectedEventId2) {
