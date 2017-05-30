@@ -29,8 +29,8 @@
         "../node_modules/syncfusion-javascript/Content/ej/web/responsive-css/ej.responsive.css",
         "../node_modules/syncfusion-javascript/Content/ej/web/default-theme/ej.web.all.min.css",
         "./custom-lib/visjs/dist/vis.css",
-        "styles.scss",
-        "./assets/styles/custom/custom-styles.scss"
+        "./assets/styles/custom/custom-styles.scss",
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",

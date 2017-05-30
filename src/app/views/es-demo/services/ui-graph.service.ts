@@ -8,46 +8,46 @@ declare var vis: any;
 
 export class UiGraphService {
   static _events: any[];
-  static _visNodes: VisNode[];
-  static _visEdges: VisEdge[];
   static _visNetworkCtrl: any;
+  static _visNodes: any;
+  static _visEdges: any;
+  static _lastNodeSelectedId: number;
 
   static initialize(): void {
     $('#mynetwork').click((e) => {
       const visNodeSelectedId: number = this._visNetworkCtrl.getSelectedNodes()[0];
       if (visNodeSelectedId) {
+        this._lastNodeSelectedId = visNodeSelectedId;
         const result = $.grep(this._events, function(e){ return e.id === visNodeSelectedId; });
         UiUpdaterService.updateTables(result[0].id);
+      } else if (this._lastNodeSelectedId) {
+        this._visNetworkCtrl.setSelection({nodes: [this._lastNodeSelectedId]});
       }
     });
   }
 
   static update(events, selectedEventId, selectedEventId2) {
     this._events = events;
-    this._visNodes = [];
-    this._visEdges = [];
 
-    console.log('handle');
-
-    const rootNode = this.eventsAsTree(events, selectedEventId, selectedEventId2);
-    const simple_chart_config = {
-      chart: {
-        container: '#graph',
-        rootOrientation: 'WEST',
-        nodeAlign: 'BOTTOM',
-        connectors: {
-          style: {
-            'stroke-width': 1,
-            'stroke': '#3C3C3A'
-          }
-        },
-        scrollbar: 'native'
-      },
-
-      nodeStructure: rootNode
-    };
-
-    new Treant(simple_chart_config);
+    //const rootNode = this.eventsAsTree(events, selectedEventId, selectedEventId2);
+    // const simple_chart_config = {
+    //   chart: {
+    //     container: '#graph',
+    //     rootOrientation: 'WEST',
+    //     nodeAlign: 'BOTTOM',
+    //     connectors: {
+    //       style: {
+    //         'stroke-width': 1,
+    //         'stroke': '#3C3C3A'
+    //       }
+    //     },
+    //     scrollbar: 'native'
+    //   },
+    //
+    //   nodeStructure: rootNode
+    // };
+    //
+    // new Treant(simple_chart_config);
 
     // $('#graph .node').click((e) => {
     //   let index = $(e.target).attr('event-index');
@@ -64,8 +64,13 @@ export class UiGraphService {
     //   }
     // });
 
-    this.convertToVisData(events, this._visNodes, this._visEdges);
-    this.drawVisNetwork(this._visNodes, this._visEdges);
+    const aryNodes: VisNode[] = [];
+    const aryEdges: VisEdge[] = [];
+    this.convertToVisData(events, aryNodes, aryEdges);
+    this.drawVisNetwork(aryNodes, aryEdges);
+
+    this._visNetworkCtrl.setSelection({nodes: [selectedEventId]});
+    this._lastNodeSelectedId = selectedEventId;
   }
 
   static convertToVisData(events: any[], visNodes: VisNode[], visEdges: VisEdge[]): void {
@@ -87,16 +92,15 @@ export class UiGraphService {
 
   static drawVisNetwork(visNodes: VisNode[], visEdges: VisEdge[]) {
     // create an array with nodes
-    const nodes = new vis.DataSet(visNodes);
-
+    this._visNodes = new vis.DataSet(visNodes);
     // create an array with edges
-    const edges = new vis.DataSet(visEdges);
+    this._visEdges = new vis.DataSet(visEdges);
 
     // create a network
     const container = document.getElementById('mynetwork');
     const data = {
-      nodes: nodes,
-      edges: edges
+      nodes: this._visNodes,
+      edges: this._visEdges
     };
     const options = {
       edges: {
@@ -115,14 +119,21 @@ export class UiGraphService {
       },
       nodes: {
         shape: 'box',
-        physics: false
+        physics: false,
+        font: {
+          color: 'white'
+        },
+        color: {
+          background: '#1B7BB9',
+          border: '#1B7BB9',
+          highlight: {
+            background: '#F8AC5A',
+            border: '#F8AC5A'
+          }
+        }
       }
     };
     this._visNetworkCtrl = new vis.Network(container, data, options);
-  }
-
-  static handleVisNetworkEvents(): void {
-
   }
 
   static eventsAsTree(events, selectedEventId, selectedEventId2) {

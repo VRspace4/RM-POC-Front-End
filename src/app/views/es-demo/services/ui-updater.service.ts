@@ -73,7 +73,7 @@ export class UiUpdaterService {
           .append($('<td>')
             .append($('<button/>', {
               text: 'remove',
-              class: 'btn btn-primary',
+              class: 'btn btn-primary btn-sm',
               click: () => {
                 //TODO
                 //this.processEvent(new RemoveCategoryEvent(catalog, category.id));
@@ -87,7 +87,6 @@ export class UiUpdaterService {
 
   static updateProductTable(catalog: Catalog): void {
     const tbody = $('#tbody-products');
-    console.log(catalog);
     tbody.empty();
     catalog.products.forEach((product: Product) => {
       let categoryName = '';
