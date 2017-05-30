@@ -800,7 +800,7 @@ export class ResourceManagerUiComponent implements OnInit {
 
 
     function ejRibbonCollapse(args) {
-      console.log("In Collapse!!!!!!!!!!!!!");
+      // console.log("In Collapse!!!!!!!!!!!!!");
       let ribbonHeight: number = parseInt($('#defaultRibbon').css("height"), 10);
       if (ribbonHeight < 50) {
         $('#jqxDockingLayoutContainer').css("height", "calc(100% - 70px)");
@@ -809,7 +809,7 @@ export class ResourceManagerUiComponent implements OnInit {
     }
 
     function ejRibbonExpand(args) {
-      console.log("expanded!!!!!!!!");
+      // console.log("expanded!!!!!!!!");
       let ribbonHeight: number = parseInt($('#defaultRibbon').css("height"), 10);
       if (ribbonHeight > 50) {
         $('#jqxDockingLayoutContainer').css("height", "calc(100% - 170px)");

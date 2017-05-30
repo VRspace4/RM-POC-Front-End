@@ -1,11 +1,20 @@
+import { VisNode } from '../../../components/models/vis-node';
+import { VisEdge } from '../../../components/models/vis-edge';
+
 declare var $: any;
 declare var Treant: any;
+declare var vis: any;
 
 export class UiGraphService {
   static _events: any[];
+  static _visNodes: VisNode[];
+  static _visEdges: VisEdge[];
+  static _visNetworkCtrl: any;
 
-  static update(events, selectedEventId, selectedEventId2, callbackClick) {
+  static update(events, selectedEventId, selectedEventId2, callbackClick: (event, ctrl) => void) {
     this._events = events;
+    this._visNodes = [];
+    this._visEdges = [];
 
     const rootNode = this.eventsAsTree(events, selectedEventId, selectedEventId2);
     const simple_chart_config = {
@@ -18,7 +27,8 @@ export class UiGraphService {
             'stroke-width': 1,
             'stroke': '#3C3C3A'
           }
-        }
+        },
+        scrollbar: 'native'
       },
 
       nodeStructure: rootNode
@@ -26,17 +36,86 @@ export class UiGraphService {
 
     new Treant(simple_chart_config);
 
-    $('#graph .node').click((e) => {
-      let index = $(e.target).attr('event-index');
-      if (!index) {
-        index = $(e.target).find('p').attr('event-index');
+    // $('#graph .node').click((e) => {
+    //   let index = $(e.target).attr('event-index');
+    //   if (!index) {
+    //     index = $(e.target).find('p').attr('event-index');
+    //   }
+    //   const event = this._events[index];
+    //
+    //   callbackClick(event, e.ctrlKey);
+    //
+    //   if (e.ctrlKey) {
+    //     this.update(events, selectedEventId, event.id, callbackClick);
+    //   }
+    // });
+
+    this.convertToVisData(events, this._visNodes, this._visEdges);
+    this.drawVisNetwork(this._visNodes, this._visEdges);
+    this.handleVisNetworkEvents(callbackClick);
+  }
+
+  static convertToVisData(events: any[], visNodes: VisNode[], visEdges: VisEdge[]): void {
+    console.log('In convertToVisData()');
+    events.forEach((event: any, i: number) => {
+      const id: number = parseInt(event.id, 10);
+      const name = event.name.replace('Event', '-' + id);
+      const parentId: number = parseInt(event.parentId, 10);
+      const visNode = new VisNode(parseInt(event.id, 10), name);
+      visNodes.push(visNode);
+      let visEdge: VisEdge;
+      if (event.parentId) {
+        visEdge = new VisEdge(parentId, id);
+      } else {
+        visEdge = new VisEdge(id, id + 1);
       }
-      const event = this._events[index];
+      visEdges.push(visEdge);
+    });
+  }
 
-      callbackClick(event, e.ctrlKey);
+  static drawVisNetwork(visNodes: VisNode[], visEdges: VisEdge[]) {
+    // create an array with nodes
+    const nodes = new vis.DataSet(visNodes);
 
-      if (e.ctrlKey) {
-        this.update(events, selectedEventId, event.id, callbackClick);
+    // create an array with edges
+    const edges = new vis.DataSet(visEdges);
+
+    // create a network
+    const container = document.getElementById('mynetwork');
+    const data = {
+      nodes: nodes,
+      edges: edges
+    };
+    const options = {
+      edges: {
+        smooth: {
+          enabled: false
+        }
+      },
+      layout: {
+        hierarchical: {
+          enabled: true,
+          direction: 'UD',
+          sortMethod: 'directed',
+          levelSeparation: 50,
+          nodeSpacing: 150
+        }
+      },
+      nodes: {
+        shape: 'box',
+        physics: false
+      }
+    };
+    this._visNetworkCtrl = new vis.Network(container, data, options);
+  }
+
+  static handleVisNetworkEvents(callback: (event, ctrl) => void): void {
+    console.log('In handleVisNetworkEvents()');
+    $('#mynetwork').click((e) => {
+      const visNodeSelectedId: number = this._visNetworkCtrl.getSelectedNodes()[0];
+      if (visNodeSelectedId) {
+        const result = $.grep(this._events, function(e){ return e.id === visNodeSelectedId; });
+        callback(result[0], e.ctrlKey);
       }
     });
   }
@@ -71,7 +150,7 @@ export class UiGraphService {
         name = event.branchName;
       }
 
-      let node = {
+      const node = {
         parentId: event.parentId,
         children: [],
         HTMLclass: '',

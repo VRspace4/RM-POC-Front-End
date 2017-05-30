@@ -36,13 +36,13 @@ export class UiUpdaterService {
 
     CatalogApiService.getAllCatalogEvents(catalog.id).then((events) => {
       UiGraphService.update(events, catalog.eventId, null, (event, ctrl) => {
-        if (ctrl) {
-          this._secondEventId = event.id;
-          $('#mergeEvents').prop('disabled', false);
-        } else {
-          $('#mergeEvents').prop('disabled', true);
-          this.setCatalog(event.id);
-        }
+        // if (ctrl) {
+        //   this._secondEventId = event.id;
+        //   $('#mergeEvents').prop('disabled', false);
+        // } else {
+        //   $('#mergeEvents').prop('disabled', true);
+           this.setCatalog(event.id);
+        // }
       });
     });
   }

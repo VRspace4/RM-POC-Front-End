@@ -1,7 +1,5 @@
-<div class="row  border-bottom white-bg dashboard-header">
-
-
-  <div class="container">
+<div class="row border-bottom white-bg" style="padding: 20px;">
+  <!--<div class="container">-->
     <div class="row">
       <div class="col-sm-12" style="padding-top: 5px;">
         <button type="button"  id="deleteEvent" class="btn btn-primary">Remove Event</button>
@@ -9,9 +7,8 @@
         <button type="button" data-toggle="modal" data-target="#branchFormModal" class="btn btn-primary">Add
           Branch
         </button>
-        <div id="graph">
+        <div id="mynetwork"></div>
 
-        </div>
       </div>
     </div>
     <div class="row">
@@ -38,6 +35,7 @@
         </div>
 
       </div>
+
       <div class="col-sm-8">
         <button type="button" data-toggle="modal" data-target="#productFormModal" class="btn btn-primary">Add
           Product
@@ -64,7 +62,8 @@
         </div>
       </div>
     </div>
-  </div>
+  <div id="graph"></div>
+  <!--</div>-->
 
 
   <!-- Modal -->
