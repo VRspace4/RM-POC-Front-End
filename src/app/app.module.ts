@@ -14,10 +14,18 @@ import {AppviewsModule} from "./views/appviews/appviews.module";
 
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
+import { EsDemoComponent } from './views/es-demo/es-demo.component';
+import { ResourceManagerUiComponent } from './views/resource-manager-ui/resource-manager-ui.component';
+import { BeamScheduleComponent } from './components/beam-schedule/beam-schedule.component';
+import { BeamMapComponent } from './components/beam-map/beam-map.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EsDemoComponent,
+    ResourceManagerUiComponent,
+    BeamScheduleComponent,
+    BeamMapComponent
   ],
   imports: [
     BrowserModule,

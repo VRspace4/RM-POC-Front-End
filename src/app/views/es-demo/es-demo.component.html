@@ -1,0 +1,336 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Event Sourcing Demo</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="#/starterview">Home</a>
+      </li>
+      <li class="active">
+        <strong>Event Sourcing Demo</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Events Graph</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#/starterview">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="#">Config option 1</a>
+              </li>
+              <li><a href="#">Config option 2</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <button type="button" id="btnRemoveSelectedEvent" class="ladda-button btn btn-primary btn-sm" data-style="expand-left">Remove Event</button>
+          <button type="button" id="mergeEvents" class="btn btn-primary btn-sm" disabled="true">Merge Events</button>
+          <button type="button" data-toggle="modal" data-target="#branchFormModal" class="btn btn-primary btn-sm">Add Branch</button>
+          <div id="mynetwork"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--kdfd-->
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Categories</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#/starterview">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="#">Config option 1</a>
+              </li>
+              <li><a href="#">Config option 2</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <button type="button" data-toggle="modal" data-target="#modalAddCategory" class="btn btn-primary btn-sm">Add Category</button>
+
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-categories">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Products</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#/starterview">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="#">Config option 1</a>
+              </li>
+              <li><a href="#">Config option 2</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <button type="button" data-toggle="modal" data-target="#productFormModal" class="btn btn-primary btn-sm" id="btnAddProduct">Add Product
+          </button>
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Visible</th>
+              <th>Color</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-products">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="row">-->
+    <!--<div class="col-sm-4">-->
+      <!--<button type="button" data-toggle="modal" data-target="#categoryFormModal" class="btn btn-primary">Add Category-->
+      <!--</button>-->
+
+
+    <!--</div>-->
+
+    <!--<div class="col-sm-8">-->
+
+      <!--<div class="panel panel-default">-->
+        <!--&lt;!&ndash; Default panel contents &ndash;&gt;-->
+        <!--<div class="panel-heading">Products</div>-->
+
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div id="graph"></div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-lg-4">-->
+      <!--<div class="ibox float-e-margins">-->
+        <!--<div class="ibox-title">-->
+          <!--<span class="label label-primary pull-right">Test title</span>-->
+          <!--<h5>visits</h5>-->
+        <!--</div>-->
+        <!--<div class="ibox-content">-->
+          <!--hello thereS-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-lg-8">-->
+      <!--<div class="ibox float-e-margins">-->
+        <!--<div class="ibox-title">-->
+          <!--<span class="label label-primary pull-right">Test title</span>-->
+          <!--<h5>visits</h5>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--Add Branch modal-->
+  <div class="modal inmodal fade" id="branchFormModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <i class="fa fa-vcard modal-icon"></i>
+          <h4 class="modal-title">Add Branch</h4>
+          <small class="font-bold">Enter in a name for the new branch.</small>
+        </div>
+        <form role="addBranch" id="addBranchForm">
+          <div class="modal-body">
+            <div class="form-group"><label>Name</label> <input type="text" placeholder="Enter branch name" class="form-control" id="branchName" name="branchName"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="btnAddBranch">Submit</button>
+            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--Add Category modal-->
+  <div class="modal inmodal fade" id="modalAddCategory" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <i class="fa fa-vcard modal-icon"></i>
+          <h4 class="modal-title">Add Category</h4>
+          <small class="font-bold">Enter in a name for the new category.</small>
+        </div>
+        <form role="addCategory" id="addCategoryForm">
+          <div class="modal-body">
+            <div class="form-group"><label>Name</label> <input type="text" placeholder="Enter category name" class="form-control" id="categoryName" name="categoryName"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="btnAddCategory">Submit</button>
+            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--Add Product modal-->
+  <div class="modal inmodal fade" id="productFormModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <i class="fa fa-vcard modal-icon"></i>
+          <h4 class="modal-title">Add Product</h4>
+          <small class="font-bold">Enter the following product information</small>
+        </div>
+        <input type="hidden" class="form-control" id="productId">
+        <form role="addProduct" id="addProductForm">
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Enter product name" class="form-control" id="productName" name="productName">
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <select class="form-control" id="productCategory" name="productCategory"></select>
+            </div>
+            <div class="form-group">
+              <label>Price</label>
+              <input type="number" placeholder="Enter price" class="form-control" id="productPrice" name="productPrice">
+            </div>
+            <div class="form-group">
+              <label>Visible</label>
+              <select class="form-control" id="productVisible" name="productVisible">
+                <option>yes</option>
+                <option>no</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Color</label>
+              <input type="text" placeholder="Enter product color" class="form-control" id="productColor" name="productColor">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="btnSubmitProduct">Submit</button>
+            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <!--<div class="modal fade" id="productFormModal" role="dialog">-->
+    <!--<input type="hidden" class="form-control" id="productId">-->
+
+    <!--<div class="modal-dialog">-->
+      <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+      <!--<div class="modal-content">-->
+        <!--<div class="modal-header">-->
+          <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+          <!--<h4 class="modal-title" id="productTitle"></h4>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+          <!--<div class="form-group">-->
+            <!--<label for="productName">Name</label>-->
+            <!--<input type="name" class="form-control" id="productName" placeholder="Enter name">-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="productCategory">Category</label>-->
+            <!--<select class="form-control" id="productCategory">-->
+            <!--</select>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="productPrice">Price</label>-->
+            <!--<input type="name" class="form-control" id="productPrice" placeholder="Enter price">-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="productVisible">Visible</label>-->
+            <!--<select class="form-control" id="productVisible">-->
+              <!--<option value="yes">yes</option>-->
+              <!--<option value="no">no</option>-->
+            <!--</select>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="productColor">Color</label>-->
+            <!--<input type="name" class="form-control" id="productColor" placeholder="Enter color">-->
+          <!--</div>-->
+          <!--<button type="submit" class="btn btn-primary" id="btnSubmitProduct">Submit</button>-->
+        <!--</div>-->
+        <!--<div class="modal-footer">-->
+          <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+        <!--</div>-->
+      <!--</div>-->
+
+    <!--</div>-->
+  <!--</div>-->
+
+  <!-- Modal -->
+
+
+  <!-- Modal -->
+  <!--<div class="modal fade" id="branchFormModal" role="dialog">-->
+    <!--<div class="modal-dialog">-->
+      <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+      <!--<div class="modal-content">-->
+        <!--<div class="modal-header">-->
+          <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+          <!--<h4 class="modal-title">Add Branch</h4>-->
+        <!--</div>-->
+        <!--<div class="modal-body">-->
+          <!--<div class="form-group">-->
+            <!--<label for="categoryName">Name</label>-->
+            <!--<input type="name" class="form-control" id="branchName" placeholder="Enter name">-->
+          <!--</div>-->
+          <!--<button type="submit" class="btn btn-primary" id="btnAddBranch">Submit</button>-->
+        <!--</div>-->
+        <!--<div class="modal-footer">-->
+          <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+        <!--</div>-->
+      <!--</div>-->
+
+    <!--</div>-->
+  <!--</div>-->
