@@ -6,7 +6,7 @@ export class Product {
               private _price: number,
               private _visible: boolean,
               private _color: string,
-              private _category: Category) {}
+              private _categoryId: string) {}
 
   get id(): string {
     return this._id;
@@ -48,11 +48,11 @@ export class Product {
     this._color = value;
   }
 
-  get category(): Category {
-    return this._category;
+  get categoryId(): string {
+    return this._categoryId;
   }
 
-  set category(value: Category) {
-    this._category = value;
+  set categoryId(value: string) {
+    this._categoryId = value;
   }
 }

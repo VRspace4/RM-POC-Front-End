@@ -6,6 +6,7 @@ import { Category } from '../models/category';
 import { Catalog } from '../models/catalog';
 import { CatalogEvent } from '../models/event-catalog';
 import * as appGlobal from '../../app.globals';
+import {UiUpdaterService} from "../../views/es-demo/services/ui-updater.service";
 
 @Injectable()
 export class CatalogApiService {
@@ -15,6 +16,18 @@ export class CatalogApiService {
       fetch(appGlobal.url + '/catalog/' + eventId).then(function (response) {
         return response.json();
       }).then(function (object: any) {
+        const catalog = CatalogApiService.deserializeCatalog(object);
+        UiUpdaterService._catalog = catalog;
+        resolve(catalog);
+      });
+    });
+  }
+
+  static getDefaultCatalog(): Promise<Catalog> {
+    return new Promise((resolve, reject) => {
+      fetch(appGlobal.url + '/default').then(function (response) {
+        return response.json();
+      }).then(function (object) {
         resolve(CatalogApiService.deserializeCatalog(object));
       });
     });
@@ -49,5 +62,50 @@ export class CatalogApiService {
     })
 
     return catalogEvents;
+  }
+
+  static appendEvents(events: any[], parentId: number): Promise<Catalog> {
+    const myHeaders = new Headers();
+
+    myHeaders.append('Content-Type', 'application/json');
+
+    events.forEach((event) => event.catalog = null);
+
+    return new Promise((resolve, reject) => {
+      const payload = {
+        method: 'post',
+        headers: myHeaders,
+        body: JSON.stringify({events: events, parentId})
+      };
+
+      fetch(appGlobal.url + '/events/', payload).then(function (response) {
+        return response.json();
+      }).then(function (object) {
+        const catalog = CatalogApiService.deserializeCatalog(object);
+
+        resolve(catalog);
+      })
+    });
+  }
+
+  static deleteEvent(eventId: number): Promise<Catalog> {
+    const myHeaders = new Headers();
+
+    myHeaders.append('Content-Type', 'application/json');
+
+    return new Promise((resolve, reject) => {
+      const payload = {
+        method: 'delete',
+        headers: myHeaders
+      };
+
+      fetch(appGlobal.url + '/events/' + eventId, payload).then(function (response) {
+        return response.json();
+      }).then(function (object: any) {
+        const catalog = CatalogApiService.deserializeCatalog(object);
+
+        resolve(catalog);
+      });
+    })
   }
 }

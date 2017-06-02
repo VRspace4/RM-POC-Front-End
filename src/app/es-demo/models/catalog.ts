@@ -67,4 +67,8 @@ export class Catalog {
   public getCategory(categoryId: string): Category {
     return this._categories.find((category: Category) => category.id === categoryId);
   }
+
+  public getProduct(productId: string) {
+    return this.products.find((product: Product) => product.id === productId);
+  }
 }

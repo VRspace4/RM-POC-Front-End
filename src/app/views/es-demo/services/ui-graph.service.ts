@@ -3,7 +3,6 @@ import { VisEdge } from '../../../components/models/vis-edge';
 import { UiUpdaterService } from './ui-updater.service';
 
 declare var $: any;
-declare var Treant: any;
 declare var vis: any;
 
 export class UiGraphService {
@@ -13,56 +12,23 @@ export class UiGraphService {
   static _visEdges: any;
   static _lastNodeSelectedId: number;
 
+
   static initialize(): void {
     $('#mynetwork').click((e) => {
       const visNodeSelectedId: number = this._visNetworkCtrl.getSelectedNodes()[0];
       if (visNodeSelectedId) {
         this._lastNodeSelectedId = visNodeSelectedId;
         const result = $.grep(this._events, function(e){ return e.id === visNodeSelectedId; });
-        UiUpdaterService.updateTables(result[0].id);
+        UiUpdaterService.changeCatalog(result[0].id);
       } else if (this._lastNodeSelectedId) {
         this._visNetworkCtrl.setSelection({nodes: [this._lastNodeSelectedId]});
+        this._visNetworkCtrl.focus({nodes: [this._lastNodeSelectedId]});
       }
     });
   }
 
-  static update(events, selectedEventId, selectedEventId2) {
+  static updateGraph(events, selectedEventId, selectedEventId2) {
     this._events = events;
-
-    //const rootNode = this.eventsAsTree(events, selectedEventId, selectedEventId2);
-    // const simple_chart_config = {
-    //   chart: {
-    //     container: '#graph',
-    //     rootOrientation: 'WEST',
-    //     nodeAlign: 'BOTTOM',
-    //     connectors: {
-    //       style: {
-    //         'stroke-width': 1,
-    //         'stroke': '#3C3C3A'
-    //       }
-    //     },
-    //     scrollbar: 'native'
-    //   },
-    //
-    //   nodeStructure: rootNode
-    // };
-    //
-    // new Treant(simple_chart_config);
-
-    // $('#graph .node').click((e) => {
-    //   let index = $(e.target).attr('event-index');
-    //   if (!index) {
-    //     index = $(e.target).find('p').attr('event-index');
-    //   }
-    //   const event = this._events[index];
-    //
-    //   callbackClick(event, e.ctrlKey);
-    //   console.log(event);
-    //
-    //   if (e.ctrlKey) {
-    //     this.applyUpdatesToTables(events, selectedEventId, event.id, callbackClick);
-    //   }
-    // });
 
     const aryNodes: VisNode[] = [];
     const aryEdges: VisEdge[] = [];
@@ -74,9 +40,15 @@ export class UiGraphService {
   }
 
   static convertToVisData(events: any[], visNodes: VisNode[], visEdges: VisEdge[]): void {
+    // console.log('events = ', events);
     events.forEach((event: any, i: number) => {
       const id: number = parseInt(event.id, 10);
-      const name = event.name.replace('Event', '-' + id);
+      let name = '';
+      if (event.name === "AddBranchEvent") {
+        name = '[' + event.branchName + ']';
+      } else {
+        name = event.name.replace('Event', '-' + id);
+      }
       const parentId: number = parseInt(event.parentId, 10);
       const visNode = new VisNode(parseInt(event.id, 10), name);
       visNodes.push(visNode);

@@ -4,34 +4,71 @@ import {Catalog} from '../../../es-demo/models/catalog';
 import {Category} from '../../../es-demo/models/category';
 import {Product} from '../../../es-demo/models/product';
 import * as appGlobal from '../../../app.globals';
+import {AddProductEvent} from "../../../es-demo/events/add-product-event";
+import {generateUUID} from "../../../app.helpers";
+import {RemoveCategoryEvent} from "../../../es-demo/events/remove-category-event";
+import {SetProductAttributeEvent} from "../../../es-demo/events/set-product-attribute-event";
+import {RemoveProductEvent} from "../../../es-demo/events/remove-product-event";
 
 declare var $: any;
 
 export class UiUpdaterService {
   static _eventId: number;
   static _secondEventId: number;
+  static _catalog: Catalog;
 
   static testFunc(): void {
-    localStorage.setItem('eventId', '35');
+    console.log('testFunc');
   }
 
   static initialize(): void {
     UiGraphService.initialize();
     const eventId = localStorage.getItem('eventId');
-    this._eventId = parseInt(eventId, 10);
     if (eventId) {
-      CatalogApiService.getCatalog(eventId).then((catalog) => {
-        this.applyUpdatesToTables(catalog);
-        CatalogApiService.getAllCatalogEvents(catalog.id).then((events) => {
-          UiGraphService.update(events, catalog.eventId, null);
-        });
+      this._eventId = parseInt(eventId, 10);
+      CatalogApiService.getCatalog(eventId).then((catalog: Catalog) => {
+        this._catalog = catalog;
+        this.updateGraphAndTables(catalog);
       });
     } else {
-      console.log('No eventId!');
+      CatalogApiService.getDefaultCatalog().then((catalog: Catalog) => {
+        this._eventId = catalog.eventId;
+        this._catalog = catalog;
+        this.updateGraphAndTables(catalog);
+
+      });
     }
   }
 
-  static updateTables(eventId: number): void {
+  static updateGraphAndTables(catalog: Catalog): void {
+    this.applyUpdatesToTables(catalog);
+    CatalogApiService.getAllCatalogEvents(catalog.id).then((events) => {
+      UiGraphService.updateGraph(events, catalog.eventId, null);
+    });
+  }
+
+  static processEvent(event: any) {
+    return this.processEvents([event]);
+  }
+
+  static processEvents(events: any[]): void {
+    CatalogApiService.appendEvents(events, this._eventId).then((catalog: Catalog) => {
+      this._catalog = catalog;
+      this._eventId = catalog.eventId;
+      this.updateGraphAndTables(catalog);
+    });
+  }
+
+  static deleteEvent(): void {
+    CatalogApiService.deleteEvent(UiUpdaterService._eventId).then((catalog: Catalog) => {
+      this._catalog = catalog;
+      this._eventId = catalog.eventId || null;
+
+      this.updateGraphAndTables(catalog);
+    })
+  }
+
+  static changeCatalog(eventId: number): void {
     this._eventId = eventId;
     CatalogApiService.getCatalog(eventId).then((catalog) => {
       this.applyUpdatesToTables(catalog);
@@ -39,6 +76,8 @@ export class UiUpdaterService {
   }
 
   static applyUpdatesToTables(catalog: Catalog): void {
+    localStorage.setItem('eventId', catalog.eventId.toString());
+
     this.updateCategoryTable(catalog);
     this.updateProductTable(catalog);
 
@@ -51,14 +90,11 @@ export class UiUpdaterService {
     categoriesSelect.val('');
   }
 
-  static updateEventsGraph(catalog: Catalog): void {
-    CatalogApiService.getAllCatalogEvents(catalog.id).then((events) => {
-      UiGraphService.update(events, catalog.eventId, null);
-    });
-  }
-
   static updateCategoryTable(catalog: Catalog): void {
     const tbody = $('#tbody-categories');
+
+    // Populate categoryId select fields in modal form(s)
+    $('#productCategory').val(this._catalog.categories);
 
     tbody.empty();
     catalog.categories.forEach((category) => {
@@ -73,11 +109,9 @@ export class UiUpdaterService {
           .append($('<td>')
             .append($('<button/>', {
               text: 'remove',
-              class: 'btn btn-primary btn-sm',
+              class: 'btn btn-default btn-sm',
               click: () => {
-                //TODO
-                //this.processEvent(new RemoveCategoryEvent(catalog, category.id));
-                console.log('no idea...');
+                this.processEvent(new RemoveCategoryEvent(catalog, category.id));
               }
             }))
           )
@@ -90,8 +124,8 @@ export class UiUpdaterService {
     tbody.empty();
     catalog.products.forEach((product: Product) => {
       let categoryName = '';
-      if (product.category) {
-        const category: Category = catalog.getCategory(product.category.id);
+      if (product.categoryId) {
+        const category: Category = catalog.getCategory(product.categoryId);
 
         if (category) {
           categoryName = category.name;
@@ -121,16 +155,16 @@ export class UiUpdaterService {
           .append($('<td>')
             .append($('<button/>', {
               text: 'edit',
-              class: 'btn btn-primary',
+              class: 'btn btn-default btn-sm',
               click: () => {
-                //TODO: UiUpdater.openUpdateForm(product);
+                this.openUpdateForm(product);
               }
             }))
             .append($('<button/>', {
               text: 'remove',
-              class: 'btn btn-primary',
+              class: 'btn btn-default btn-sm',
               click: () => {
-                //TODO: UiUpdater.processEvent(new RemoveProductEvent(catalog, product.id));
+                UiUpdaterService.processEvent(new RemoveProductEvent(this._catalog, product.id));
               }
             }))
           )
@@ -138,4 +172,53 @@ export class UiUpdaterService {
     });
   }
 
+  static changeProduct(id: string, name: string, price: number, visible: string, color: string, categoryId: string)
+  {
+    const product = this._catalog.getProduct(id);
+    let events: any[] = [];
+
+    if (name !== (product.name || ''))
+      events.push(new SetProductAttributeEvent(this._catalog, id, 'name', name));
+    if (price !== (product.price || ''))
+      events.push(new SetProductAttributeEvent(this._catalog, id, 'price', price.toString()));
+    if (visible !== (product.visible || ''))
+      events.push(new SetProductAttributeEvent(this._catalog, id, 'visible', visible));
+    if (color !== (product.color || ''))
+      events.push(new SetProductAttributeEvent(this._catalog, id, 'color', color));
+    if (categoryId !== (product.categoryId || ''))
+      events.push(new SetProductAttributeEvent(this._catalog, id, 'category', categoryId));
+
+    // console.log('events = ', events);
+    this.processEvents(events);
+  }
+
+  static openUpdateForm(product: Product) {
+    $('#productId').val(product.id);
+    $('#productName').val(product.name);
+    $('#productPrice').val(product.price);
+    $('#productVisible').val(product.visible);
+    $('#productColor').val(product.color);
+
+    if (product.categoryId) {
+      $('#productCategory').val(product.categoryId);
+    }
+
+    $('#productFormModal').modal('show');
+  }
+
+  static resetModalForms() {
+    $('#categoryName').val('');
+    $('#productName').val('');
+    $('#productCategory').val('');
+    $('#productPrice').val('');
+    $('#productvisible').val('');
+    $('#productColor').val('');
+    $('#branchName').val('');
+  }
+
+  static addProduct(name: string, price: number, visible: boolean, color: string, categoryId: string): void {
+    const event = new AddProductEvent(this._catalog, generateUUID(),
+                name, price, visible, color, categoryId);
+    UiUpdaterService.processEvent(event);
+  }
 }
