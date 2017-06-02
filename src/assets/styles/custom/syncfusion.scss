@@ -1,0 +1,172 @@
+/*!************ Syncfusion ***************!*/
+/*!****** Ribbon *******!*/
+/* Remove top white space */
+.e-ribbon .e-header > li {
+  margin-top: 0px !important;
+}
+.e-ribbon.e-js > .e-header {
+  height: 30px;
+  width: 101%;
+}
+
+/*Ribbon responsive header for small screens*/
+.e-ribbon.e-responsive .e-header {
+  height: 39px !important;
+  background: #f3f3f4 !important;
+}
+
+/*Ribbon responsive header tab color*/
+.e-ribbon.e-responsive .e-ribresmenu a {
+  color: #3f3f3f !important;
+}
+/*!* Selected tab color *!*/
+/*.e-ribbon.e-js .e-header .e-active.e-tab a, .e-ribbon.e-js .e-header .e-active.e-contextualtabset a {*/
+/*background: #f1f1f1;*/
+/*}*/
+
+/*FILE background color (not hovered over)*/
+.e-ribbon .e-header>.e-apptab .e-menu {
+  background: #1ab394;
+}
+
+/*!*FILE background color (hovered over)*!*/
+/*.e-menu.e-horizontal .e-active>.e-menulink {*/
+/*background: #1ab394;*/
+/*}*/
+
+/*!*FILE background color (hovered over)*!*/
+/*.e-menu.e-horizontal .e-list.e-active {*/
+/*background: #1ab394;*/
+/*}*/
+
+/*Ribbon divider color*/
+.e-ribbon .e-groupdiv>div:after {
+  background: #f3f3f4;
+  color: #ffffff;
+}
+
+/*!*Font Size for tabs*!*/
+/*.e-tab.e-js .e-header > .e-select, .e-tab.e-js .e-header > .e-active,*/
+/*.e-tab.e-js .e-left > .e-active, .e-tab.e-js .e-right > .e-active,*/
+/*.e-tab.e-js .e-left > .e-select, .e-tab.e-js .e-right > .e-select {*/
+/*font-size: 12px;*/
+/*}*/
+
+/*!*Font size for highlight tabs*!*/
+/*.e-ribbon .e-header .e-contextualtab, .e-ribbon .e-header .e-contextualtabset {*/
+/*font-size: 12px;*/
+/*}*/
+
+/*.e-ribbon.e-js .e-header .e-active.e-tab a, .e-ribbon.e-js .e-header .e-active.e-contextualtabset a {*/
+/*padding-top: 3px;*/
+/*}*/
+
+/*.e-ribbon .e-header .e-contextli ul, .e-ribbon .e-header .e-contextliset ul {*/
+/*margin-top: -17px;*/
+/*}*/
+
+/*Ribbon's tab background and border*/
+.e-ribbon.e-js .e-header, .e-ribbon.e-js .e-left, .e-ribbon.e-js .e-right {
+  border: 0;
+  /*border-bottom: 5px;*/
+  background: #f3f3f4;
+}
+
+/*Ribbon unselected tab color, but not FILE*/
+.e-ribbon.e-js .e-header > .e-select:not(.e-apptab) a,
+.e-ribbon.e-tab.e-js .e-header .e-select.e-disable a:hover {
+  color: #969697;
+}
+
+/*!*Ribbon selection outline padding and border*!*/
+/*.e-ribbon .e-header li a {*/
+/*padding: 5px 13px;*/
+/*border: 0px;*/
+/*padding-top: 5px;*/
+/*}*/
+
+/*Ribbon selected tab color, but not FILE*/
+.e-ribbon.e-js .e-header .e-active.e-tab a,
+.e-ribbon.e-js .e-header .e-active.e-contextualtabset a {
+  color: #3f3f3f;
+}
+
+/*Hover tab color*/
+.e-ribbon.e-js .e-header li.e-select:not(.e-apptab) a:hover {
+  color: #212121;
+}
+
+/*!*Ribbon icon background gray*!*/
+/*.e-ribbon .e-btn.e-select, .e-ribbon .e-btn.e-disable.e-select:hover, .e-ribbon .e-tbtn.e-disable {*/
+/*background: transparent;*/
+/*}*/
+
+/*.e-ribbon.e-js .e-content {*/
+/*background: #f1f1f1;*/
+/*border-color: #e4e4e4;*/
+/*}*/
+
+/*.e-tab .e-header li a {*/
+/*background-color: #2a579a;*/
+/*}*/
+
+/*!*Backstage*!*/
+/*!*Side color*!*/
+/*.e-ribbon .e-backstagetopcontent, .e-ribbon .e-backstageheader {*/
+/*background: #2a579a;*/
+/*}*/
+
+/*!*backstage border*!*/
+/*.e-ribbon .e-ribbonbackstagepage {*/
+/*border: 0px;*/
+/*}*/
+
+/*!******* Spreadsheet ********!*/
+/*.e-spreadsheet .e-rowcell {*/
+/*border-color: #dcdcdc;*/
+/*}*/
+
+/*!******** Splitter *********!*/
+/*.e-splitter .e-splitbar.e-h-bar {*/
+/*width: 1px;*/
+/*}*/
+
+/*.e-splitter .e-splitbar.e-v-bar {*/
+/*height: 1px;*/
+/*}*/
+
+/*!*Divider color*!*/
+/*.e-splitter .e-splitbar {*/
+/*border-color: #e6e6e6;*/
+/*}*/
+
+/*!******** Tabs ************!*/
+/*.e-tab.e-js > .e-content {*/
+/*font-size: 12px;*/
+/*}*/
+
+/*!* CONFLICT with ribbon's tab!*!*/
+/*!*.e-tab .e-header li a {*!*/
+/*!*background-color: #ececec;*!*/
+/*!*}*!*/
+
+/*.e-tab .e-header > .e-active a, .e-tab .e-left > .e-active a, .e-tab .e-right > .e-active a {*/
+/*font-weight: bold;*/
+/*}*/
+
+/*.e-tab.e-js > .e-content {*/
+/*border-width: 0px;*/
+/*}*/
+
+/*.e-ddl .e-input, .e-ddl .e-input[readonly], .e-ddl-popup, .e-ddl .e-options {*/
+/*font-size: 12px;*/
+/*}*/
+
+/*.e-tab.e-js > .e-content {*/
+/*padding: 0px;*/
+/*}*/
+
+/*!****** TreeView ******!*/
+/*.e-treeview .e-text {*/
+/*font-size: 12px;*/
+/*}*/
