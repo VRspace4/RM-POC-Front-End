@@ -62,6 +62,7 @@
         "../node_modules/syncfusion-javascript/Scripts/ej/web/ej.colorpicker.min.js",
         "../node_modules/syncfusion-javascript/Scripts/ej/web/ej.slider.min.js",
         "../node_modules/syncfusion-javascript/Scripts/ej/web/ej.treeview.min.js",
+        "../node_modules/syncfusion-javascript/Scripts/ej/datavisualization/ej.chart.min.js",
         "../node_modules/leaflet/dist/leaflet.js",
         "./custom-lib/visjs/dist/vis.min.js",
         "../node_modules/jquery-validation/dist/jquery.validate.js",

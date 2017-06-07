@@ -16,5 +16,15 @@
       "es2016",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "src/custom-lib",
+    "src/assets",
+    "src/environments",
+    "dist",
+    "e2e",
+    ".idea",
+    "vendor"
+  ]
 }

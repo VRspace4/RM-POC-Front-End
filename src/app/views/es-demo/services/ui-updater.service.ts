@@ -70,7 +70,7 @@ export class UiUpdaterService {
 
   static changeCatalog(eventId: number): void {
     this._eventId = eventId;
-    CatalogApiService.getCatalog(eventId).then((catalog) => {
+    CatalogApiService.getCatalog(eventId).then((catalog: Catalog) => {
       this.applyUpdatesToTables(catalog);
     });
   }

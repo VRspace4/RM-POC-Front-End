@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BasicLayoutNoTopComponent } from './basic-layout-no-top.component';
+import {NO_ERRORS_SCHEMA} from "@angular/core";
 
 describe('BasicLayoutNoTopComponent', () => {
   let component: BasicLayoutNoTopComponent;
@@ -8,7 +9,8 @@ describe('BasicLayoutNoTopComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BasicLayoutNoTopComponent ]
+      declarations: [ BasicLayoutNoTopComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
