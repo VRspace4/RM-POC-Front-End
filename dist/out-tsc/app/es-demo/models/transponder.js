@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var base_entity_1 = require("./base-entity");
 var app_helpers_1 = require("../../app.helpers");
+var transponder_service_1 = require("../services/transponder.service");
 var Transponder = (function (_super) {
     __extends(Transponder, _super);
     function Transponder(name, id, eventId, powerLimit, // W
@@ -47,7 +48,9 @@ var Transponder = (function (_super) {
         return this.allocations.find(function (allocation) { return allocation.id === allocationId; });
     };
     Transponder.prototype.addAllocation = function (allocation) {
-        this.allocations.push(allocation);
+        if (transponder_service_1.TransponderService.runAllNewAllocationVerifications(this.allocations, allocation)) {
+            this.allocations.push(allocation);
+        }
     };
     Transponder.prototype.removeAllocation = function (allocationId) {
         var index = this.allocations.findIndex(function (allocation) { return allocation.id === allocationId; });

@@ -86,19 +86,19 @@ describe('es-demo-models-events-services', () => {
       .toThrowError('The customer to be modified with id, diffId, does not exist!');
   });
 
-  it('[Service] TransponderService - runAllNewAllocationVerifications(), should fail', function() {
+  it('[Service] TransponderService - runAllNewAllocationVerifications(), should pass', function() {
     const newOriginator = new Originator('James Pham');
     const allocation1 = new Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
     const allocation2 = new Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
     const allocation3 = new Allocation(31, 40, 15, newOriginator.id, 'Allocation 3');
-    const newAllocation = new Allocation(15, 25, 15, newOriginator.id, 'New Allocation');
+    const newAllocation = new Allocation(15, 17, 15, newOriginator.id, 'New Allocation');
 
     transponder.addAllocation(allocation1);
     transponder.addAllocation(allocation2);
     transponder.addAllocation(allocation3);
 
     const verifyResult: boolean = TransponderService.runAllNewAllocationVerifications(transponder.allocations, newAllocation);
-    expect(verifyResult).toBe(false);
+    expect(verifyResult).toBe(true);
   });
 
   it('[Service] TransponderService - confirmAllocationHasNoConflict(), should pass', function() {

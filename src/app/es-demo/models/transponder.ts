@@ -2,6 +2,7 @@ import {Customer} from "./customer";
 import {Allocation} from "./allocation";
 import {BaseEntity} from "./base-entity";
 import {generateUUID} from "../../app.helpers";
+import {TransponderService} from "../services/transponder.service";
 
 export class Transponder extends BaseEntity {
   constructor(
@@ -38,8 +39,9 @@ export class Transponder extends BaseEntity {
   }
 
   public addAllocation(allocation: Allocation) {
-    
-    this.allocations.push(allocation);
+    if (TransponderService.runAllNewAllocationVerifications(this.allocations, allocation)) {
+      this.allocations.push(allocation);
+    }
   }
 
   public removeAllocation(allocationId: string) {

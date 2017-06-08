@@ -60,7 +60,7 @@ describe('es-demo-models-events-services', function () {
         expect(transponder.customers[0].id).toBe('KeyChanged');
         expect(transponder.customers[0].name).toBe('NameChanged');
     });
-    it('[Event] CustomerModifiedEvent - Process() (Throw Error)', function () {
+    it('[Event] CustomerModifiedEvent - Process(), should throw an error', function () {
         expect(transponder.customers.length).toBe(0);
         var customerId = 'id12345';
         var newCustomer = new customer_1.Customer('Intelsat', customerId);
@@ -70,19 +70,19 @@ describe('es-demo-models-events-services', function () {
         expect(function () { customerModifiedEvent.process(); })
             .toThrowError('The customer to be modified with id, diffId, does not exist!');
     });
-    it('[Service] TransponderService - verifyAllocation() (fail)', function () {
+    it('[Service] TransponderService - runAllNewAllocationVerifications(), should pass', function () {
         var newOriginator = new originator_1.Originator('James Pham');
         var allocation1 = new allocation_1.Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
         var allocation2 = new allocation_1.Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
         var allocation3 = new allocation_1.Allocation(31, 40, 15, newOriginator.id, 'Allocation 3');
-        var newAllocation = new allocation_1.Allocation(15, 25, 15, newOriginator.id, 'New Allocation');
+        var newAllocation = new allocation_1.Allocation(15, 17, 15, newOriginator.id, 'New Allocation');
         transponder.addAllocation(allocation1);
         transponder.addAllocation(allocation2);
         transponder.addAllocation(allocation3);
-        var verifyResult = transponder_service_1.TransponderService.verifyAllocation(transponder.allocations, newAllocation);
-        expect(verifyResult).toBe(false);
+        var verifyResult = transponder_service_1.TransponderService.runAllNewAllocationVerifications(transponder.allocations, newAllocation);
+        expect(verifyResult).toBe(true);
     });
-    it('[Service] TransponderService - verifyAllocation() (pass)', function () {
+    it('[Service] TransponderService - confirmAllocationHasNoConflict(), should pass', function () {
         var newOriginator = new originator_1.Originator('James Pham');
         var allocation1 = new allocation_1.Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
         var allocation2 = new allocation_1.Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
@@ -91,8 +91,47 @@ describe('es-demo-models-events-services', function () {
         transponder.addAllocation(allocation1);
         transponder.addAllocation(allocation2);
         transponder.addAllocation(allocation3);
-        var verifyResult = transponder_service_1.TransponderService.verifyAllocation(transponder.allocations, newAllocation);
+        var verifyResult = transponder_service_1.TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
         expect(verifyResult).toBe(true);
+    });
+    it('[Service] TransponderService - confirmAllocationHasNoConflict(), should throw an error, lower bound', function () {
+        var newOriginator = new originator_1.Originator('James Pham');
+        var allocation1 = new allocation_1.Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
+        var allocation2 = new allocation_1.Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
+        var allocation3 = new allocation_1.Allocation(31, 40, 15, newOriginator.id, 'Allocation 3');
+        var newAllocation = new allocation_1.Allocation(5, 19, 15, newOriginator.id, 'New Allocation');
+        transponder.addAllocation(allocation1);
+        transponder.addAllocation(allocation2);
+        transponder.addAllocation(allocation3);
+        expect(function () {
+            transponder_service_1.TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
+        }).toThrowError();
+    });
+    it('[Service] TransponderService - confirmAllocationHasNoConflict(), should throw an error, upper bound', function () {
+        var newOriginator = new originator_1.Originator('James Pham');
+        var allocation1 = new allocation_1.Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
+        var allocation2 = new allocation_1.Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
+        var allocation3 = new allocation_1.Allocation(31, 40, 15, newOriginator.id, 'Allocation 3');
+        var newAllocation = new allocation_1.Allocation(15, 25, 15, newOriginator.id, 'New Allocation');
+        transponder.addAllocation(allocation1);
+        transponder.addAllocation(allocation2);
+        transponder.addAllocation(allocation3);
+        expect(function () {
+            transponder_service_1.TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
+        }).toThrowError();
+    });
+    it('[Service] TransponderService - verifyAllocationFrequency(), should return true', function () {
+        var newOriginator = new originator_1.Originator('James Pham');
+        var newAllocation = new allocation_1.Allocation(10, 20, 15, newOriginator.id, 'New Allocation 1');
+        var result = transponder_service_1.TransponderService.verifyAllocationFrequency(newAllocation);
+        expect(result).toBe(true);
+    });
+    it('[Service] TransponderService - verifyAllocationFrequency(), should throw an error', function () {
+        var newOriginator = new originator_1.Originator('James Pham');
+        var newAllocation = new allocation_1.Allocation(30, 20, 15, newOriginator.id, 'New Allocation');
+        expect(function () {
+            transponder_service_1.TransponderService.verifyAllocationFrequency(newAllocation);
+        }).toThrowError();
     });
 });
 //# sourceMappingURL=es-demo-models-events.spec.js.map
