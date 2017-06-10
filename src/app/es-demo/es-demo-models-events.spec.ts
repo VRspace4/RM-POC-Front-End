@@ -8,28 +8,32 @@ import {AllocationAddedEvent} from "./events/allocation-added-event";
 import {Originator} from "./models/originator";
 import {Allocation} from "./models/allocation";
 import {TransponderService} from "./services/transponder.service";
+import {RootModel} from "./models/root-model";
 
 describe('es-demo-models-events-services', () => {
-  let transponder: Transponder;
+  let rootModel: RootModel;
 
   beforeEach(() => {
-    transponder = new Transponder('Transponder 1');
+    const transponder = new Transponder('Transponder 1');
+    rootModel = new RootModel('Production');
+    rootModel.addTransponder(transponder);
   });
 
   it('[Model] Transponder - Basic', function() {
-    expect(transponder.name).toBe('Transponder 1');
+    expect(rootModel.transponders[0].name).toBe('Transponder 1');
   });
 
   it('[Event] TransponderAddedEvent - Process()', function() {
-    expect(transponder.name).toBe('Transponder 1');
-    const transponderAddedEvent = new TransponderAddedEvent('Transponder 2');
-    transponder = transponderAddedEvent.process();
-    expect(transponder.name).toBe('Transponder 2');
-    expect(transponder.id).toBeDefined();
+    const transponderAddedEvent = new TransponderAddedEvent(rootModel, 'Transponder 2');
+    rootModel = transponderAddedEvent.process();
+    const matchedTransponder: Transponder = rootModel.getTransponder(transponderAddedEvent.transponderId);
+    expect(matchedTransponder.name).toBe('Transponder 2');
+    expect(matchedTransponder.id).toBeDefined();
   });
 
   it('[Event] TransponderModifiedEvent - Process()', function() {
-    const transponderModifiedEvent = new TransponderModifiedEvent(transponder,
+    const transponder: Transponder = rootModel.transponders[0];
+    const transponderModifiedEvent = new TransponderModifiedEvent(rootModel, transponder.id,
       ['name', 'id', 'powerLimit', 'bandwidth'], ['newName', 'newId', '111', '222']);
     transponderModifiedEvent.process();
     expect(transponder.name).toBe('newName');
@@ -40,9 +44,9 @@ describe('es-demo-models-events-services', () => {
 
   it('[Event] AllocationAddedEvent - Process() (Basic)', function() {
     const newOriginator = new Originator('James Pham');
-
-    const allocationAddedEvent = new AllocationAddedEvent(transponder,
-      5, 10, 15, newOriginator.id, 'Allocation 1');
+    const transponder = rootModel.transponders[0];
+    const allocationAddedEvent = new AllocationAddedEvent(rootModel,
+      transponder.id, 5, 10, 15, 'Customer1', newOriginator.id, 'Allocation 1');
     allocationAddedEvent.process();
 
     expect(transponder.allocations.length).toBe(1);
@@ -54,114 +58,95 @@ describe('es-demo-models-events-services', () => {
   });
 
   it('[Event] CustomerAddedEvent - Process()', function() {
-    const customerAddedEvent = new CustomerAddedEvent(transponder, 'Intelsat');
+    const customerAddedEvent = new CustomerAddedEvent(rootModel, 'Intelsat');
     customerAddedEvent.process();
-    expect(transponder.getCustomer(customerAddedEvent.id).name).toBe(customerAddedEvent.name);
+    expect(rootModel.getCustomer(customerAddedEvent.customerId).name).toBe(customerAddedEvent.customerName);
   });
 
   it('[Event] CustomerModifiedEvent - Process()', function() {
-    expect(transponder.customers.length).toBe(0);
+    expect(rootModel.customers.length).toBe(0);
     const customerId = 'id12345';
     const newCustomer = new Customer('Intelsat', customerId);
-    transponder.addCustomer(newCustomer);
-    const customerModifiedEvent = new CustomerModifiedEvent(transponder,
+    rootModel.addCustomer(newCustomer);
+    const customerModifiedEvent = new CustomerModifiedEvent(rootModel,
       customerId, ['name', 'id'], ['NameChanged', 'KeyChanged']);
     customerModifiedEvent.process();
 
-    expect(transponder.customers.length).toBe(1);
-    expect(transponder.customers[0].id).toBe('KeyChanged');
-    expect(transponder.customers[0].name).toBe('NameChanged');
+    expect(rootModel.customers.length).toBe(1);
+    expect(rootModel.customers[0].id).toBe('KeyChanged');
+    expect(rootModel.customers[0].name).toBe('NameChanged');
   });
 
   it('[Event] CustomerModifiedEvent - Process(), should throw an error', function() {
-    expect(transponder.customers.length).toBe(0);
+    expect(rootModel.customers.length).toBe(0);
     const customerId = 'id12345';
     const newCustomer = new Customer('Intelsat', customerId);
-    transponder.addCustomer(newCustomer);
+    rootModel.addCustomer(newCustomer);
     // Use a non-existing customer ID
-    const customerModifiedEvent = new CustomerModifiedEvent(transponder,
+    const customerModifiedEvent = new CustomerModifiedEvent(rootModel,
       'diffId', ['name', 'id'], ['NameChanged', 'KeyChanged']);
 
     expect(function() {customerModifiedEvent.process()})
       .toThrowError('The customer to be modified with id, diffId, does not exist!');
   });
 
-  it('[Service] TransponderService - runAllNewAllocationVerifications(), should pass', function() {
-    const newOriginator = new Originator('James Pham');
-    const allocation1 = new Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
-    const allocation2 = new Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
-    const allocation3 = new Allocation(31, 40, 15, newOriginator.id, 'Allocation 3');
-    const newAllocation = new Allocation(15, 17, 15, newOriginator.id, 'New Allocation');
+  describe('Es-demo services', () => {
+    describe('Transponder services', () => {
+      let transponder: Transponder;
+      beforeEach(() => {
+        const allocation1 = new Allocation(0, 10, 15, 'Customer1', 'JP1', 'Allocation 1');
+        const allocation2 = new Allocation(20, 30, 15, 'Customer1', 'JP1', 'Allocation 2');
+        const allocation3 = new Allocation(31, 40, 15, 'Customer1', 'JP1', 'Allocation 3');
+        transponder = rootModel.transponders[0];
+        transponder.addAllocation(allocation1);
+        transponder.addAllocation(allocation2);
+        transponder.addAllocation(allocation3);
+      });
 
-    transponder.addAllocation(allocation1);
-    transponder.addAllocation(allocation2);
-    transponder.addAllocation(allocation3);
+      it('[Service] TransponderService - runAllNewAllocationVerifications(), should pass', function() {
+        const newAllocation = new Allocation(15, 17, 15, 'Customer1', 'JP1', 'New Allocation');
 
-    const verifyResult: boolean = TransponderService.runAllNewAllocationVerifications(transponder.allocations, newAllocation);
-    expect(verifyResult).toBe(true);
-  });
+        const verifyResult: boolean = TransponderService.runAllNewAllocationVerifications(transponder.allocations, newAllocation);
+        expect(verifyResult).toBe(true);
+      });
 
-  it('[Service] TransponderService - confirmAllocationHasNoConflict(), should pass', function() {
-    const newOriginator = new Originator('James Pham');
-    const allocation1 = new Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
-    const allocation2 = new Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
-    const allocation3 = new Allocation(31, 40, 15, newOriginator.id, 'Allocation 3');
-    const newAllocation = new Allocation(15, 19, 15, newOriginator.id, 'New Allocation');
+      it('[Service] TransponderService - confirmAllocationHasNoConflict(), should pass', function() {
+        const newAllocation = new Allocation(15, 19, 15, 'Customer1', 'JP1', 'New Allocation');
 
-    transponder.addAllocation(allocation1);
-    transponder.addAllocation(allocation2);
-    transponder.addAllocation(allocation3);
+        const verifyResult: boolean = TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
+        expect(verifyResult).toBe(true);
+      });
 
-    const verifyResult: boolean = TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
-    expect(verifyResult).toBe(true);
-  });
+      it('[Service] TransponderService - confirmAllocationHasNoConflict(), should throw an error, lower bound', function() {
+        const newAllocation = new Allocation(5, 19, 15,  'Customer1', 'JP1', 'New Allocation');
 
-  it('[Service] TransponderService - confirmAllocationHasNoConflict(), should throw an error, lower bound', function() {
-    const newOriginator = new Originator('James Pham');
-    const allocation1 = new Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
-    const allocation2 = new Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
-    const allocation3 = new Allocation(31, 40, 15, newOriginator.id, 'Allocation 3');
-    const newAllocation = new Allocation(5, 19, 15, newOriginator.id, 'New Allocation');
+        expect(function() {
+          TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
+        }).toThrowError();
+      });
 
-    transponder.addAllocation(allocation1);
-    transponder.addAllocation(allocation2);
-    transponder.addAllocation(allocation3);
+      it('[Service] TransponderService - confirmAllocationHasNoConflict(), should throw an error, upper bound', function() {
+        const newAllocation = new Allocation(15, 25, 15,  'Customer1', 'JP1', 'New Allocation');
 
-    expect(function() {
-      TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
-    }).toThrowError();
-  });
+        expect(function() {
+          TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
+        }).toThrowError();
+      });
 
-  it('[Service] TransponderService - confirmAllocationHasNoConflict(), should throw an error, upper bound', function() {
-    const newOriginator = new Originator('James Pham');
-    const allocation1 = new Allocation(0, 10, 15, newOriginator.id, 'Allocation 1');
-    const allocation2 = new Allocation(20, 30, 15, newOriginator.id, 'Allocation 2');
-    const allocation3 = new Allocation(31, 40, 15, newOriginator.id, 'Allocation 3');
-    const newAllocation = new Allocation(15, 25, 15, newOriginator.id, 'New Allocation');
+      it('[Service] TransponderService - verifyAllocationFrequency(), should return true', function() {
+        const newAllocation = new Allocation(10, 20, 15, 'Customer1', 'JP1', 'New Allocation 1');
 
-    transponder.addAllocation(allocation1);
-    transponder.addAllocation(allocation2);
-    transponder.addAllocation(allocation3);
+        const result: boolean = TransponderService.verifyAllocationFrequency(newAllocation);
+        expect(result).toBe(true);
+      });
 
-    expect(function() {
-      TransponderService.confirmAllocationHasNoConflict(transponder.allocations, newAllocation);
-    }).toThrowError();
-  });
+      it('[Service] TransponderService - verifyAllocationFrequency(), should throw an error', function() {
+        const newAllocation = new Allocation(30, 20, 15, 'Customer1', 'JP1', 'New Allocation');
 
-  it('[Service] TransponderService - verifyAllocationFrequency(), should return true', function() {
-    const newOriginator = new Originator('James Pham');
-    const newAllocation = new Allocation(10, 20, 15, newOriginator.id, 'New Allocation 1');
-
-    const result: boolean = TransponderService.verifyAllocationFrequency(newAllocation);
-    expect(result).toBe(true);
-  });
-
-  it('[Service] TransponderService - verifyAllocationFrequency(), should throw an error', function() {
-    const newOriginator = new Originator('James Pham');
-    const newAllocation = new Allocation(30, 20, 15, newOriginator.id, 'New Allocation');
-
-    expect(function() {
-      TransponderService.verifyAllocationFrequency(newAllocation);
-    }).toThrowError();
+        expect(function() {
+          TransponderService.verifyAllocationFrequency(newAllocation);
+        }).toThrowError();
+      });
+    });
   });
 });

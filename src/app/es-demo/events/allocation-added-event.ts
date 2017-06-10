@@ -1,29 +1,35 @@
-import {EsEvent} from './es-event';
-import {Transponder} from "../models/transponder";
 import {generateUUID} from "../../app.helpers";
-import {IAllocation} from "../models/allocation-interface";
 import {Allocation} from "../models/allocation";
+import {EsEvent} from "./es-event.abstract";
+import {RootModel} from "../models/root-model";
+import {Transponder} from "../models/transponder";
+import {IAllocation} from "../models/allocation-interface";
 
-export class AllocationAddedEvent extends EsEvent implements IAllocation{
+export class AllocationAddedEvent extends EsEvent implements IAllocation {
   constructor(
-    transponder: Transponder,
+    rootModel: RootModel,
+    public transponderId: string,
     public startFrequency: number,
     public stopFrequency: number,
     public powerUsage: number,
+    public customerId: string,
     public originatorId: string,
-    public name: string = '',
-    public id: string = generateUUID())
-  {
-    super(transponder, 'AllocationAddedEvent');
+    public allocationName: string = '',
+    public allocationId: string = generateUUID()
+  ) {
+    super(rootModel, 'AllocationAddedEvent');
   }
 
-  process(): Transponder {
+  process(): RootModel {
     const newAllocation = new Allocation(
-      this.startFrequency, this.stopFrequency, this.powerUsage,
-      this.originatorId, this.name, this.id);
+      this.startFrequency, this.stopFrequency, this.powerUsage, this.customerId,
+      this.originatorId, this.allocationName, this.allocationId);
 
-    this.transponder.addAllocation(newAllocation);
-    return this.transponder;
+    const transponderToChange: Transponder = this.rootModel.getTransponder(this.transponderId);
+
+    transponderToChange.addAllocation(newAllocation);
+
+    return this.rootModel;
   }
 
 }

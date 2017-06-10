@@ -1,20 +1,21 @@
-import {EsEvent} from './es-event';
-import {Transponder} from "../models/transponder";
 import {generateUUID} from "../../app.helpers";
 import {Customer} from "../models/customer";
+import {EsEvent} from "./es-event.abstract";
+import {RootModel} from "../models/root-model";
 
-export class CustomerAddedEvent extends EsEvent{
+export class CustomerAddedEvent extends EsEvent {
   constructor(
-    transponder: Transponder,
-    public name: string,
-    public id: string = generateUUID())
-  {
-    super(transponder, 'CustomerAddedEvent');
+    rootModel: RootModel,
+    public customerName: string,
+    public customerId: string = generateUUID()
+  ) {
+    super(rootModel, 'CustomerAddedEvent');
   }
 
-  process(): Transponder {
-    this.transponder.addCustomer(new Customer(this.name, this.id));
-    return this.transponder;
+  process(): RootModel {
+    const newCustomer = new Customer(this.customerName, this.customerId);
+    this.rootModel.addCustomer(newCustomer);
+    return this.rootModel;
   }
 
 }

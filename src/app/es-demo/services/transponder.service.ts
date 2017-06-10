@@ -25,8 +25,8 @@ export class TransponderService {
         newAllocation.startFrequency < allocation.stopFrequency) ||
         (newAllocation.stopFrequency > allocation.startFrequency &&
         newAllocation.stopFrequency < allocation.stopFrequency)) {
-          throw(new Error("Proposed allocation conflicts with existing allocation with ID of [" +
-            allocation.id + "]."));
+          throw new Error("Proposed allocation conflicts with existing allocation with name and ID of [" +
+            allocation.name + ", " + allocation.id + "]");
       }
     });
     return true;
@@ -39,8 +39,8 @@ export class TransponderService {
    */
   static verifyAllocationFrequency(newAllocation: Allocation): boolean {
     if (newAllocation.startFrequency > newAllocation.stopFrequency) {
-      throw(new Error("Allocation's start frequency, [" + newAllocation.startFrequency +
-        "], should not be greater than stop frequency, [" + newAllocation.stopFrequency + "]."));
+      throw new Error("Allocation's start frequency, [" + newAllocation.startFrequency +
+        "], should not be greater than stop frequency, [" + newAllocation.stopFrequency + "].");
     } else {
       return true;
     }

@@ -1,23 +1,20 @@
-import {Transponder} from "../models/transponder";
 import {EsModificationEvent} from "./es-modification-event";
+import {RootModel} from "../models/root-model";
+import {Customer} from "../models/customer";
 
-export class CustomerModifiedEvent extends EsModificationEvent{
+export class CustomerModifiedEvent extends EsModificationEvent {
   constructor(
-    transponder: Transponder,
+    rootModel: RootModel,
     public customerId: string,
     key: string[],
     value: string[]
   ) {
-    super(transponder, key, value);
+    super(rootModel, key, value);
   }
 
-  process(): Transponder {
-    const customerToModify = this.transponder.getCustomer(this.customerId);
-    if (customerToModify) {
-      this.applyModifications(customerToModify);
-    } else {
-      throw new Error('The customer to be modified with id, ' + this.customerId + ', does not exist!');
-    }
-    return this.transponder;
+  process(): RootModel {
+    const customerToChange: Customer = this.rootModel.getCustomer(this.customerId);
+    this.applyModifications(customerToChange);
+    return this.rootModel;
   }
 }

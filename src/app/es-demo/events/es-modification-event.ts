@@ -1,14 +1,14 @@
-import {Transponder} from "../models/transponder";
-import {EsEvent} from "./es-event";
 import {BaseEntity} from "../models/base-entity";
+import {EsEvent} from "./es-event.abstract";
+import {RootModel} from "../models/root-model";
 
-export abstract class EsModificationEvent extends EsEvent{
+export abstract class EsModificationEvent extends EsEvent {
   constructor(
-    transponder: Transponder,
+    rootModel: RootModel,
     public key: string[],
     public value: string[]
   ) {
-    super(transponder, 'TransponderModified');
+    super(rootModel, 'TransponderModified');
   }
 
   applyModifications(entity: BaseEntity): void {
