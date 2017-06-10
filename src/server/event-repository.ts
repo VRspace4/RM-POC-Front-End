@@ -25,7 +25,7 @@ export class EventRepository {
 
   static serializeEvent(event: EsEvent): string {
     const cloneEvent = JSON.parse(JSON.stringify(event));
-    delete cloneEvent.transponder;
+    delete cloneEvent.rootModel;
     return JSON.stringify(cloneEvent).replace(/\"([^(\")"]+)\":/g, "$1:");
   }
 

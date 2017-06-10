@@ -86,8 +86,10 @@ describe('es-demo-models-events-services', () => {
     const customerModifiedEvent = new CustomerModifiedEvent(rootModel,
       'diffId', ['name', 'id'], ['NameChanged', 'KeyChanged']);
 
-    expect(function() {customerModifiedEvent.process()})
-      .toThrowError('The customer to be modified with id, diffId, does not exist!');
+    expect(function() {
+      customerModifiedEvent.process();
+    })
+      .toThrowError();
   });
 
   describe('Es-demo services', () => {

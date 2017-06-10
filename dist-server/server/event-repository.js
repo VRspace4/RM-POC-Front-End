@@ -21,7 +21,7 @@ var EventRepository = (function () {
     };
     EventRepository.serializeEvent = function (event) {
         var cloneEvent = JSON.parse(JSON.stringify(event));
-        delete cloneEvent.transponder;
+        delete cloneEvent.rootModel;
         return JSON.stringify(cloneEvent).replace(/\"([^(\")"]+)\":/g, "$1:");
     };
     EventRepository.deserializeEvent = function (event, rootModel) {

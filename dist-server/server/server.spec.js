@@ -24,10 +24,10 @@ describe('EventRepository class', function () {
      *
      */
     describe('serializeEvent() ', function () {
-        it('should remove transponder from the event object', function () {
+        it('should remove rootModel from the event object', function () {
             var customer = new customer_added_event_1.CustomerAddedEvent(rootModel, 'Intelsat', 'id123');
             var result = event_repository_1.EventRepository.serializeEvent(customer);
-            expect(result).not.toContain('transponder');
+            expect(result).not.toContain('rootModel');
         });
     });
     /**

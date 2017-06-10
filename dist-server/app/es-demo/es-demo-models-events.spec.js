@@ -72,8 +72,10 @@ describe('es-demo-models-events-services', function () {
         rootModel.addCustomer(newCustomer);
         // Use a non-existing customer ID
         var customerModifiedEvent = new customer_modified_event_1.CustomerModifiedEvent(rootModel, 'diffId', ['name', 'id'], ['NameChanged', 'KeyChanged']);
-        expect(function () { customerModifiedEvent.process(); })
-            .toThrowError('The customer to be modified with id, diffId, does not exist!');
+        expect(function () {
+            customerModifiedEvent.process();
+        })
+            .toThrowError();
     });
     describe('Es-demo services', function () {
         describe('Transponder services', function () {
