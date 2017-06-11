@@ -23,6 +23,7 @@ var es_demo_component_1 = require("./views/es-demo/es-demo.component");
 var resource_manager_ui_component_1 = require("./views/resource-manager-ui/resource-manager-ui.component");
 var beam_schedule_component_1 = require("./components/beam-schedule/beam-schedule.component");
 var beam_map_component_1 = require("./components/beam-map/beam-map.component");
+var rm_full_component_1 = require("./rm-demo/views/rm-full/rm-full.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -35,7 +36,8 @@ AppModule = __decorate([
             es_demo_component_1.EsDemoComponent,
             resource_manager_ui_component_1.ResourceManagerUiComponent,
             beam_schedule_component_1.BeamScheduleComponent,
-            beam_map_component_1.BeamMapComponent
+            beam_map_component_1.BeamMapComponent,
+            rm_full_component_1.RmFullComponent
         ],
         imports: [
             platform_browser_1.BrowserModule,

@@ -13,8 +13,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var es_event_abstract_1 = require("./es-event.abstract");
 var EsModificationEvent = (function (_super) {
     __extends(EsModificationEvent, _super);
-    function EsModificationEvent(rootModel, key, value) {
-        var _this = _super.call(this, rootModel, 'TransponderModified') || this;
+    function EsModificationEvent(rootModel, key, value, name) {
+        var _this = _super.call(this, rootModel, name) || this;
         _this.key = key;
         _this.value = value;
         return _this;

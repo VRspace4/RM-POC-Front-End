@@ -10,7 +10,7 @@ var Controller = (function () {
             var event_1 = event_repository_1.EventRepository.deserializeEvent(eventObjects.shift(), null);
             event_repository_1.EventRepository.processEvent(event_1, parentId).then(function (eventId) {
                 _this.insertEvents(eventObjects, eventId, resultCallback);
-            }).catch(function (e) { return resultCallback(e); });
+            });
         }
         else {
             this.getTransponder(parentId).then(function (rootModel) {

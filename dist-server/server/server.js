@@ -8,7 +8,6 @@ var event_repository_1 = require("./event-repository");
 var transponder_added_event_1 = require("../app/es-demo/events/transponder-added-event");
 var controller_1 = require("./controller");
 var customer_added_event_1 = require("../app/es-demo/events/customer-added-event");
-var allocation_added_event_1 = require("../app/es-demo/events/allocation-added-event");
 var root_model_added_event_1 = require("../app/es-demo/events/root-model-added-event");
 var root_model_modified_event_1 = require("../app/es-demo/events/root-model-modified-event");
 var originator_added_event_1 = require("../app/es-demo/events/originator-added-event");
@@ -21,22 +20,24 @@ function run(callback, debugFlag) {
             response.send(request.body);
         });
     });
+    //
     app.get('/test/getChainOfEvents', function (request, response) {
         event_repository_1.EventRepository.getChainOfEvents(140).then(function (events) {
             response.send(events);
+        }).catch(function (e) {
+            response.status(500).send(e.message);
         });
     });
-    app.get('/test/defaultTransponder', function (request, response) {
+    app.get('/test/defaultRootModel', function (request, response) {
         var events = [
-            new root_model_added_event_1.RootModelAddedEvent(this._rootModel, 'Root Model 1'),
-            new root_model_modified_event_1.RootModelModifiedEvent(this._rootModel, ['name'], ['Root Model name changed!']),
-            new transponder_added_event_1.TransponderAddedEvent(this._rootModel, 'Transponder 1'),
-            new customer_added_event_1.CustomerAddedEvent(this._rootModel, 'Intelsat'),
-            new originator_added_event_1.OriginatorAddedEvent(this._rootModel, 'James Pham'),
-            new allocation_added_event_1.AllocationAddedEvent(this._rootModel, this._rootModel.transponders[0].id, 0, 10, 15, this._rootModel.customers[0].id, this._rootModel.originators[0].id, 'Allocation 1')
+            new root_model_added_event_1.RootModelAddedEvent(null, 'Root Model 1'),
+            new root_model_modified_event_1.RootModelModifiedEvent(null, ['name'], ['Root Model name changed!']),
+            new transponder_added_event_1.TransponderAddedEvent(null, 'Transponder 1'),
+            new customer_added_event_1.CustomerAddedEvent(null, 'Intelsat'),
+            new originator_added_event_1.OriginatorAddedEvent(null, 'James Pham')
         ];
-        controller_1.Controller.insertEvents(events, null, function (transponder) {
-            response.send(transponder);
+        controller_1.Controller.insertEvents(events, null, function (rootModel) {
+            response.send(rootModel);
         });
     });
     //

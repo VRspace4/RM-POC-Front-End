@@ -1,1 +1,1 @@
-{"version":3,"file":"app.globals.js","sourceRoot":"","sources":["../../src/app/app.globals.ts"],"names":[],"mappings":";;AAAa,QAAA,GAAG,GAAG,kBAAkB,CAAC;AACzB,QAAA,UAAU,GAAG,EAAE,CAAC"}
+{"version":3,"file":"app.globals.js","sourceRoot":"","sources":["../../src/app/app.globals.ts"],"names":[],"mappings":";;AAAa,QAAA,GAAG,GAAG,kBAAkB,CAAC;AACzB,QAAA,UAAU,GAAG,IAAI,CAAC;AAClB,QAAA,WAAW,GAAG,IAAI,CAAC"}

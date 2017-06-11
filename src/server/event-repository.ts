@@ -8,6 +8,14 @@ import {CustomerModifiedEvent} from "../app/es-demo/events/customer-modified-eve
 import {AllocationAddedEvent} from "../app/es-demo/events/allocation-added-event";
 import {AllocationModifiedEvent} from "../app/es-demo/events/allocation-modified-event";
 import {RootModel} from "../app/es-demo/models/root-model";
+import {RootModelAddedEvent} from "../app/es-demo/events/root-model-added-event";
+import {RootModelModifiedEvent} from "../app/es-demo/events/root-model-modified-event";
+import {OriginatorAddedEvent} from "../app/es-demo/events/originator-added-event";
+import {OriginatorModifiedEvent} from "../app/es-demo/events/originator-modified-event";
+import {TransponderRemovedEvent} from "../app/es-demo/events/transponder-removed-event";
+import {CustomerRemovedEvent} from "../app/es-demo/events/customer-removed-event";
+import {OriginatorRemovedEvent} from "../app/es-demo/events/originator-removed-event";
+import {AllocationRemovedEvent} from "../app/es-demo/events/allocation-removed-event";
 
 const uri = 'bolt://localhost';
 
@@ -31,32 +39,80 @@ export class EventRepository {
 
   static deserializeEvent(event: EsEvent, rootModel: RootModel): EsEvent {
     switch (event.name) {
+
+      case 'RootModelAddedEvent':
+        const rootModelAddedEvent = <RootModelAddedEvent>event;
+        return new RootModelAddedEvent(rootModel, rootModelAddedEvent.rootModelName,
+          rootModelAddedEvent.rootModelId, rootModelAddedEvent.transponders,
+          rootModelAddedEvent.customers, rootModelAddedEvent.originators);
+
+      case 'RootModelModifiedEvent':
+        const rootModelModifiedEvent = <RootModelModifiedEvent>event;
+        return new RootModelModifiedEvent(rootModel,
+          rootModelModifiedEvent.key, rootModelModifiedEvent.value);
+
       case 'TransponderAddedEvent':
         const transponderAddedEvent = <TransponderAddedEvent>event;
         return new TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName,
           transponderAddedEvent.transponderId);
+
       case 'TransponderModifiedEvent':
         const transponderModifiedEvent = <TransponderModifiedEvent>event;
         return new TransponderModifiedEvent(rootModel, transponderModifiedEvent.transponderId,
           transponderModifiedEvent.key, transponderModifiedEvent.value);
+
+      case 'TransponderRemovedEvent':
+        const transponderRemovedEvent = <TransponderRemovedEvent>event;
+        return new TransponderRemovedEvent(rootModel, transponderRemovedEvent.transponderId);
+
       case 'CustomerAddedEvent':
         const customerAddedEvent = <CustomerAddedEvent>event;
         return new CustomerAddedEvent(rootModel, customerAddedEvent.customerName,
           customerAddedEvent.customerId);
+
       case 'CustomerModifiedEvent':
         const customerModifiedEvent = <CustomerModifiedEvent>event;
         return new CustomerModifiedEvent(rootModel, customerModifiedEvent.customerId,
           customerModifiedEvent.key, customerModifiedEvent.value);
+
+      case 'CustomerRemovedEvent':
+        const customerRemovedEvent = <CustomerRemovedEvent>event;
+        return new CustomerRemovedEvent(rootModel, customerRemovedEvent.customerId);
+
+      case 'OriginatorAddedEvent':
+        const originatorAddedEvent = <OriginatorAddedEvent>event;
+        return new OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName,
+          originatorAddedEvent.originatorId);
+
+      case 'OriginatorModifiedEvent':
+        const originatorModifiedEvent = <OriginatorModifiedEvent>event;
+        return new OriginatorModifiedEvent(rootModel, originatorModifiedEvent.originatorId,
+          originatorModifiedEvent.key, originatorModifiedEvent.value);
+
+      case 'OriginatorRemovedEvent':
+        const originatorRemovedEvent = <OriginatorRemovedEvent>event;
+        return new OriginatorRemovedEvent(rootModel, originatorRemovedEvent.originatorId);
+
       case 'AllocationAddedEvent':
         const allocationAddedEvent = <AllocationAddedEvent>event;
         return new AllocationAddedEvent(rootModel, allocationAddedEvent.transponderId, allocationAddedEvent.startFrequency,
           allocationAddedEvent.stopFrequency, allocationAddedEvent.powerUsage, allocationAddedEvent.customerId,
           allocationAddedEvent.originatorId, allocationAddedEvent.allocationName,
           allocationAddedEvent.allocationId);
+
       case 'AllocationModifiedEvent':
         const allocationModifiedEvent = <AllocationModifiedEvent>event;
         return new AllocationModifiedEvent(rootModel, allocationAddedEvent.transponderId, allocationAddedEvent.allocationId,
           allocationModifiedEvent.key, allocationModifiedEvent.value);
+
+      case 'AllocationRemovedEvent':
+        const allocationRemovedEvent = <AllocationRemovedEvent>event;
+        return new AllocationRemovedEvent(rootModel, allocationRemovedEvent.transponderId,
+          allocationRemovedEvent.allocationId);
+
+      default:
+        throw new Error('The event named, [' + event.name + '], has no handler. ' +
+          'Please report this error.');
     }
   }
 
@@ -65,13 +121,12 @@ export class EventRepository {
     if (parentId) {
       promise = this.appendEvent(event, parentId);
     } else {
-      promise = this.createNewTransponderEvent(<TransponderAddedEvent>event);
+      promise = this.createNewRootModelEvent(<TransponderAddedEvent>event);
     }
 
     return new Promise((resolve, reject) => {
       promise.then((result: any) => {
         const eventId = result.records[0].get(0).identity.low;
-        console.log('eventId = ', eventId);
         resolve(eventId);
       });
     });
@@ -85,7 +140,7 @@ export class EventRepository {
     return session.run(command);
   }
 
-  static createNewTransponderEvent(newTransponderAddedEvent: TransponderAddedEvent) {
+  static createNewRootModelEvent(newTransponderAddedEvent: TransponderAddedEvent) {
     const serializedEvent = this.serializeEvent(newTransponderAddedEvent);
     const command = `CREATE (e:Event ${serializedEvent}) RETURN e`;
     return session.run(command);
@@ -95,7 +150,6 @@ export class EventRepository {
 
   static getChainOfEvents(eventId): Promise<any> {
     const command = `MATCH (x:Event)-[:APPEND*0..]->(e:Event) where ID(e) = ${eventId} RETURN x order by id(x)`;
-    console.log(command);
     return new Promise((resolve, reject) => {
       session.run(command).then(result => {
         let rootModel: RootModel;
@@ -108,11 +162,10 @@ export class EventRepository {
         });
 
         resolve(events);
+      }).catch((e) => {
+        reject(e);
       });
     });
   }
 
-  static postTransponderCreatedEvent(event) {
-    const serializedEvent = this.serializeEvent(event);
-  }
 }

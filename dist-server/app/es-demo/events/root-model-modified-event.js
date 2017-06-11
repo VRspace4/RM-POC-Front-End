@@ -14,7 +14,7 @@ var es_modification_event_1 = require("./es-modification-event");
 var RootModelModifiedEvent = (function (_super) {
     __extends(RootModelModifiedEvent, _super);
     function RootModelModifiedEvent(rootModel, key, value) {
-        return _super.call(this, rootModel, key, value) || this;
+        return _super.call(this, rootModel, key, value, 'RootModelModifiedEvent') || this;
     }
     RootModelModifiedEvent.prototype.process = function () {
         this.applyModifications(this.rootModel);

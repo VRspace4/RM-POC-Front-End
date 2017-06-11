@@ -14,7 +14,7 @@ var es_modification_event_1 = require("./es-modification-event");
 var CustomerModifiedEvent = (function (_super) {
     __extends(CustomerModifiedEvent, _super);
     function CustomerModifiedEvent(rootModel, customerId, key, value) {
-        var _this = _super.call(this, rootModel, key, value) || this;
+        var _this = _super.call(this, rootModel, key, value, 'CustomerModifiedEvent') || this;
         _this.customerId = customerId;
         return _this;
     }

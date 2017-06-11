@@ -11,19 +11,19 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
-var OriginatorModified = (function (_super) {
-    __extends(OriginatorModified, _super);
-    function OriginatorModified(rootModel, originatorId, key, value) {
-        var _this = _super.call(this, rootModel, key, value) || this;
+var OriginatorModifiedEvent = (function (_super) {
+    __extends(OriginatorModifiedEvent, _super);
+    function OriginatorModifiedEvent(rootModel, originatorId, key, value) {
+        var _this = _super.call(this, rootModel, key, value, 'OriginatorModified') || this;
         _this.originatorId = originatorId;
         return _this;
     }
-    OriginatorModified.prototype.process = function () {
+    OriginatorModifiedEvent.prototype.process = function () {
         var originatorToChange = this.rootModel.getOriginator(this.originatorId);
         this.applyModifications(originatorToChange);
         return this.rootModel;
     };
-    return OriginatorModified;
+    return OriginatorModifiedEvent;
 }(es_modification_event_1.EsModificationEvent));
-exports.OriginatorModified = OriginatorModified;
+exports.OriginatorModifiedEvent = OriginatorModifiedEvent;
 //# sourceMappingURL=originator-modified-event.js.map

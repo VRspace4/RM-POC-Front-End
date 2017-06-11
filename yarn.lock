@@ -154,6 +154,10 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
+"@types/graphql@^0.9.0", "@types/graphql@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.9.1.tgz#b04ebe84bc997cc60dbea2ed4d0d4342c737f99d"
+
 "@types/jasmine@2.5.38":
   version "2.5.38"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.38.tgz#a4379124c4921d4e21de54ec74669c9e9b356717"
@@ -1586,6 +1590,10 @@ depd@1.1.0, depd@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.0.tgz#e1bd82c6aab6ced965b97b88b17ed3e528ca18c3"
 
+deprecated-decorator@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/deprecated-decorator/-/deprecated-decorator-0.1.6.tgz#00966317b7a12fe92f3cc831f7583af329b86c37"
+
 des.js@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/des.js/-/des.js-1.0.0.tgz#c074d2e2aa6a8a9a07dbd61f9a15c2cd83ec8ecc"
@@ -2384,6 +2392,42 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
+graphql-server-core@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/graphql-server-core/-/graphql-server-core-0.8.0.tgz#44cb0bc91c47fccbd1f6ccd60fcfaca4684c9fe3"
+  optionalDependencies:
+    "@types/graphql" "^0.9.0"
+
+graphql-server-express@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/graphql-server-express/-/graphql-server-express-0.8.0.tgz#cd7adae925296146ae313f7dc4b99dfc529b4325"
+  dependencies:
+    graphql-server-core "^0.8.0"
+    graphql-server-module-graphiql "^0.8.0"
+  optionalDependencies:
+    "@types/express" "^4.0.35"
+    "@types/graphql" "^0.9.1"
+
+graphql-server-module-graphiql@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/graphql-server-module-graphiql/-/graphql-server-module-graphiql-0.8.0.tgz#469c2dd2a8aeb9bb50971b283a11cc0876d3d281"
+
+graphql-tools@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-1.0.0.tgz#76b25e1dce0521b31d5566aac281b2f134bc49c8"
+  dependencies:
+    deprecated-decorator "^0.1.6"
+    lodash "^4.3.0"
+    uuid "^3.0.1"
+  optionalDependencies:
+    "@types/graphql" "^0.9.0"
+
+graphql@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.10.1.tgz#75c93c2ce73aeb5bae2eefb555a8e9e39c36027d"
+  dependencies:
+    iterall "^1.1.0"
+
 growl@~1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.7.0.tgz#de2d66136d002e112ba70f3f10c31cf7c350b2da"
@@ -2977,6 +3021,10 @@ istanbul-reports@^1.0.2:
   resolved "https://registry.yarnpkg.com/istanbul-reports/-/istanbul-reports-1.0.2.tgz#4e8366abe6fa746cc1cd6633f108de12cc6ac6fa"
   dependencies:
     handlebars "^4.0.3"
+
+iterall@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.1.1.tgz#f7f0af11e9a04ec6426260f5019d9fcca4d50214"
 
 jasmine-core@~2.5.2:
   version "2.5.2"
@@ -5918,7 +5966,7 @@ uuid@^2.0.1, uuid@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
 
-uuid@^3.0.0:
+uuid@^3.0.0, uuid@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"
 

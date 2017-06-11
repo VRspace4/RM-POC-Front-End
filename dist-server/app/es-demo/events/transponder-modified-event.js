@@ -14,7 +14,7 @@ var es_modification_event_1 = require("./es-modification-event");
 var TransponderModifiedEvent = (function (_super) {
     __extends(TransponderModifiedEvent, _super);
     function TransponderModifiedEvent(rootModel, transponderId, key, value) {
-        var _this = _super.call(this, rootModel, key, value) || this;
+        var _this = _super.call(this, rootModel, key, value, 'TransponderModifiedEvent') || this;
         _this.transponderId = transponderId;
         return _this;
     }

@@ -5,16 +5,13 @@ import * as appGlobal from '../app/app.globals';
 import {EventRepository} from './event-repository';
 import {TransponderAddedEvent} from "../app/es-demo/events/transponder-added-event";
 import {Controller} from "./controller";
-import {Transponder} from "../app/es-demo/models/transponder";
-import {Originator} from "../app/es-demo/models/originator";
 import {EsEvent} from "../app/es-demo/events/es-event.abstract";
-import {TransponderModifiedEvent} from "../app/es-demo/events/transponder-modified-event";
 import * as http from "http";
 import {CustomerAddedEvent} from "../app/es-demo/events/customer-added-event";
-import {AllocationAddedEvent} from "../app/es-demo/events/allocation-added-event";
 import {RootModelAddedEvent} from "../app/es-demo/events/root-model-added-event";
 import {RootModelModifiedEvent} from "../app/es-demo/events/root-model-modified-event";
 import {OriginatorAddedEvent} from "../app/es-demo/events/originator-added-event";
+import {RootModel} from "../app/es-demo/models/root-model";
 
 
 export function run(callback: () => void, debugFlag: boolean): http.Server {
@@ -27,31 +24,27 @@ export function run(callback: () => void, debugFlag: boolean): http.Server {
     Controller.insertEvents(request.body.events, request.body.parentId, (transponder) => {
       response.send(request.body);
     });
-
   });
-
+  //
   app.get('/test/getChainOfEvents', function(request, response) {
     EventRepository.getChainOfEvents(140).then((events: any) => {
       response.send(events);
+    }).catch((e: Error) => {
+      response.status(500).send(e.message);
     });
   });
 
-  app.get('/test/defaultTransponder', function(request, response) {
+  app.get('/test/defaultRootModel', function(request, response) {
     const events: EsEvent[] = [
-      new RootModelAddedEvent(this._rootModel, 'Root Model 1'),
-      new RootModelModifiedEvent(this._rootModel,
-        ['name'],
-        ['Root Model name changed!']),
-      new TransponderAddedEvent(this._rootModel, 'Transponder 1'),
-      new CustomerAddedEvent(this._rootModel, 'Intelsat'),
-      new OriginatorAddedEvent(this._rootModel, 'James Pham'),
-      new AllocationAddedEvent(this._rootModel, this._rootModel.transponders[0].id,
-        0, 10, 15, this._rootModel.customers[0].id, this._rootModel.originators[0].id,
-        'Allocation 1')
+      new RootModelAddedEvent(null, 'Root Model 1'),
+      new RootModelModifiedEvent(null, ['name'], ['Root Model name changed!']),
+      new TransponderAddedEvent(null, 'Transponder 1'),
+      new CustomerAddedEvent(null, 'Intelsat'),
+      new OriginatorAddedEvent(null, 'James Pham')
     ];
 
-    Controller.insertEvents(events, null, (transponder: Transponder) => {
-      response.send(transponder);
+    Controller.insertEvents(events, null, function(rootModel: RootModel) {
+      response.send(rootModel);
     });
   });
   //

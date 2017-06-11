@@ -9,7 +9,7 @@ export class TransponderModifiedEvent extends EsModificationEvent {
     key: string[],
     value: string[]
   ) {
-    super(rootModel, key, value);
+    super(rootModel, key, value, 'TransponderModifiedEvent');
   }
 
   process(): RootModel {

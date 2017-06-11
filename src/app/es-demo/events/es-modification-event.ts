@@ -6,9 +6,10 @@ export abstract class EsModificationEvent extends EsEvent {
   constructor(
     rootModel: RootModel,
     public key: string[],
-    public value: string[]
+    public value: string[],
+    name: string
   ) {
-    super(rootModel, 'TransponderModified');
+    super(rootModel, name);
   }
 
   applyModifications(entity: BaseEntity): void {

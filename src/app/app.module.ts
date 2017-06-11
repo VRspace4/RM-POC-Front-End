@@ -18,6 +18,7 @@ import { EsDemoComponent } from './views/es-demo/es-demo.component';
 import { ResourceManagerUiComponent } from './views/resource-manager-ui/resource-manager-ui.component';
 import { BeamScheduleComponent } from './components/beam-schedule/beam-schedule.component';
 import { BeamMapComponent } from './components/beam-map/beam-map.component';
+import { RmFullComponent } from './rm-demo/views/rm-full/rm-full.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BeamMapComponent } from './components/beam-map/beam-map.component';
     EsDemoComponent,
     ResourceManagerUiComponent,
     BeamScheduleComponent,
-    BeamMapComponent
+    BeamMapComponent,
+    RmFullComponent
   ],
   imports: [
     BrowserModule,

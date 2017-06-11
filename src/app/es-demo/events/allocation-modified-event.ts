@@ -11,7 +11,7 @@ export class AllocationModifiedEvent extends EsModificationEvent {
     key: string[],
     value: string[]
   ) {
-    super(rootModel, key, value);
+    super(rootModel, key, value, 'AllocationModifiedEvent');
   }
 
   process(): RootModel {

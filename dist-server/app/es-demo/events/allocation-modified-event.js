@@ -14,7 +14,7 @@ var es_modification_event_1 = require("./es-modification-event");
 var AllocationModifiedEvent = (function (_super) {
     __extends(AllocationModifiedEvent, _super);
     function AllocationModifiedEvent(rootModel, transponderId, allocationId, key, value) {
-        var _this = _super.call(this, rootModel, key, value) || this;
+        var _this = _super.call(this, rootModel, key, value, 'AllocationModifiedEvent') || this;
         _this.transponderId = transponderId;
         _this.allocationId = allocationId;
         return _this;

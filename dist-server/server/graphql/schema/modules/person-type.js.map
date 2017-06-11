@@ -1,0 +1,1 @@
+{"version":3,"file":"person-type.js","sourceRoot":"","sources":["../../../../../src/server/graphql/schema/modules/person-type.ts"],"names":[],"mappings":";;AAAa,QAAA,OAAO,GAAG,4GAOtB,CAAC;AAEW,QAAA,QAAQ,GAAG;IACtB,UAAU,EAAE;QACV,OAAO,YAAC,IAAI,EAAE,IAAI,EAAE,GAAG;YACrB,MAAM,CAAC,GAAG,CAAC,OAAO,CAAA;QACpB,CAAC;KACF;CACF,CAAA"}

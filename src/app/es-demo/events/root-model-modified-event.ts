@@ -7,7 +7,7 @@ export class RootModelModifiedEvent extends EsModificationEvent {
     key: string[],
     value: string[]
   ) {
-    super(rootModel, key, value);
+    super(rootModel, key, value, 'RootModelModifiedEvent');
   }
 
   process(): RootModel {

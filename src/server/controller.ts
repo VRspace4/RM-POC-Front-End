@@ -14,12 +14,13 @@ import {AllocationAddedEvent} from "../app/es-demo/events/allocation-added-event
 export class Controller {
   static _rootModel: RootModel;
 
-  static insertEvents(eventObjects: EsEvent [], parentId: number, resultCallback: (any) => void) {
+  static insertEvents(eventObjects: EsEvent [], parentId: number,
+                      resultCallback: (rootModel: RootModel) => void) {
     if (eventObjects.length > 0) {
       const event = EventRepository.deserializeEvent(eventObjects.shift(), null);
       EventRepository.processEvent(event, parentId).then((eventId: number) => {
         this.insertEvents(eventObjects, eventId, resultCallback);
-      }).catch((e) => resultCallback(e));
+      });
     } else {
       this.getTransponder(parentId).then((rootModel: RootModel) => {
         resultCallback(rootModel);

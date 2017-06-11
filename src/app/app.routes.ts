@@ -17,6 +17,7 @@ import {TopNavigationLayoutComponent} from './components/common/layouts/topNavig
 
 import {ResourceManagerUiComponent} from './views/resource-manager-ui/resource-manager-ui.component';
 import {EsDemoComponent} from './views/es-demo/es-demo.component';
+import {RmFullComponent} from './rm-demo/views/rm-full/rm-full.component';
 
 export const ROUTES: Routes = [
   // Main redirect
@@ -34,11 +35,17 @@ export const ROUTES: Routes = [
     ]
   },
   {
-    path: 'dashboards', component: TopNavigationLayoutComponent,
+    path: 'rmdemo', component: BasicLayoutComponent,
     children: [
-      {path: 'dashboard41', component: Dashboard41Component}
+      {path: 'apple', component: RmFullComponent}
     ]
   },
+  // {
+  //   path: 'dashboards', component: TopNavigationLayoutComponent,
+  //   children: [
+  //     {path: 'dashboard41', component: Dashboard41Component}
+  //   ]
+  // },
   {
     path: '', component: BasicLayoutComponent,
     children: [
@@ -48,7 +55,7 @@ export const ROUTES: Routes = [
   {
     path: '', component: BasicLayoutNoTopComponent,
     children: [
-      {path: 'rm', component: ResourceManagerUiComponent}
+      {path: 'complexui', component: ResourceManagerUiComponent}
     ]
   },
   {
