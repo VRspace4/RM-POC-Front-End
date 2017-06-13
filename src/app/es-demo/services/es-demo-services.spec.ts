@@ -17,16 +17,14 @@ describe('[es-demo-services.spec.ts] TransponderService class', () => {
 
     it('given new and non conflicting allocation to be added, should pass', function() {
       const newAllocation = new Allocation(20, 25, 15, 'Customer1', 'JP1', 'New Allocation');
-      expect(function() {
-        TransponderService.confirmAllocationHasNoConflict(allocations, newAllocation)
-      }).toBeTruthy();
+      const result = TransponderService.confirmAllocationHasNoConflict(allocations, newAllocation)
+      expect(result.passed).toBeTruthy();
     });
 
     it('given new and conflicting allocation to be added, should throw error', function() {
       const newAllocation = new Allocation(15, 25, 15, 'Customer1', 'JP1', 'New Allocation');
-      expect(function() {
-        TransponderService.confirmAllocationHasNoConflict(allocations, newAllocation)
-      }).toThrowError();
+      const result = TransponderService.confirmAllocationHasNoConflict(allocations, newAllocation)
+      expect(result.passed).toBeFalsy();
     });
   });
 
@@ -44,15 +42,14 @@ describe('[es-demo-services.spec.ts] TransponderService class', () => {
 
     it('given a non conflicting allocation, should pass', function() {
       const newAllocation = new Allocation(20, 25, 15, 'Customer1', 'JP1', 'New Allocation');
-      expect(TransponderService.verifyAllocationFrequency(newAllocation))
-        .toBeTruthy();
+      const result = TransponderService.verifyAllocationFrequency(newAllocation);
+      expect(result).toBeTruthy();
     });
 
     it('given allocation with start frequency larger than stop frequency, should throw error', function() {
       const newAllocation = new Allocation(36, 25, 15, 'Customer1', 'JP1', 'New Allocation');
-      expect(function() {
-        TransponderService.verifyAllocationFrequency(newAllocation)
-      }).toThrowError();
+      const result = TransponderService.verifyAllocationFrequency(newAllocation)
+      expect(result.passed).toBeFalsy();
     });
   });
 
@@ -70,16 +67,49 @@ describe('[es-demo-services.spec.ts] TransponderService class', () => {
 
     it('given new and non conflicting allocation to be added, should pass', function() {
       const newAllocation = new Allocation(20, 25, 15, 'Customer1', 'JP1', 'New Allocation');
-      expect(function() {
-        TransponderService.runAllNewAllocationVerifications(allocations, newAllocation)
-      }).toBeTruthy();
+      const results = TransponderService.runAllNewAllocationVerifications(500, allocations, newAllocation)
+
+      let allPassed = true;
+      for (const result of results) {
+        allPassed = allPassed && result.passed;
+      }
+
+      expect(allPassed).toBeTruthy();
     });
 
     it('given new and conflicting allocation to be added, should throw error', function() {
       const newAllocation = new Allocation(15, 25, 15, 'Customer1', 'JP1', 'New Allocation');
-      expect(function() {
-        TransponderService.runAllNewAllocationVerifications(allocations, newAllocation)
-      }).toThrowError();
+      const results = TransponderService.runAllNewAllocationVerifications(500, allocations, newAllocation)
+
+      let allPassed = true;
+      for (const result of results) {
+        allPassed = allPassed && result.passed;
+      }
+
+      expect(allPassed).toBeFalsy();
+    });
+
+    it('given new allocation with power usage within limit, should pass', function() {
+      const newAllocation = new Allocation(20, 25, 15, 'Customer1', 'JP1', 'New Allocation');
+      const results = TransponderService.runAllNewAllocationVerifications(100, allocations, newAllocation)
+
+      let allPassed = true;
+      for (const result of results) {
+        allPassed = allPassed && result.passed;
+      }
+
+      expect(allPassed).toBeTruthy();
+    });
+
+    it('given new allocation with power usage exceeding limit, should throw error', function() {
+      const newAllocation = new Allocation(15, 25, 5000, 'Customer1', 'JP1', 'New Allocation');
+      const results = TransponderService.runAllNewAllocationVerifications(100, allocations, newAllocation)
+      let allPassed = true;
+      for (const result of results) {
+        allPassed = allPassed && result.passed;
+      }
+
+      expect(allPassed).toBeFalsy();
     });
   });
 });

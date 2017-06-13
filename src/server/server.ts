@@ -2,9 +2,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as appGlobal from '../app/app.globals';
-import {EventRepository} from './event-repository';
 import {TransponderAddedEvent} from "../app/es-demo/events/transponder-added-event";
-import {Controller} from "./controller";
 import {EsEvent} from "../app/es-demo/events/es-event.abstract";
 import * as http from "http";
 import {CustomerAddedEvent} from "../app/es-demo/events/customer-added-event";
@@ -12,25 +10,55 @@ import {RootModelAddedEvent} from "../app/es-demo/events/root-model-added-event"
 import {RootModelModifiedEvent} from "../app/es-demo/events/root-model-modified-event";
 import {OriginatorAddedEvent} from "../app/es-demo/events/originator-added-event";
 import {RootModel} from "../app/es-demo/models/root-model";
+import {KeyValue} from "../app/es-demo/models/key-value";
+import {RmCommonController} from "./rm-server/rm-common-controller.service";
+import {RmCommandRepository} from "./rm-server/command/rm-command-repository.service";
+import {RmCommandController} from "./rm-server/command/rm-command-controller.service";
+import {RmCommonRepository} from "./rm-server/rm-common-repository.service";
 
+RmCommonController.initializeMaterializedView();
 
-export function run(callback: () => void, debugFlag: boolean): http.Server {
+export function run(serverPort: number, callback: () => void, debugFlag: boolean): http.Server {
   const app = express();
 
   app.use(cors());
   app.use(bodyParser.json());
 
   app.post('/events', function (request, response) {
-    Controller.insertEvents(request.body.events, request.body.parentId, (transponder) => {
+    RmCommandController.insertEvents(request.body.events, request.body.parentId, (transponder) => {
       response.send(request.body);
     });
   });
-  //
+
+  app.get('/rootModel/productionRootModelId', function(request, response) {
+    RmCommandRepository.getProductionRootModelId().then((rootModelId: string) => {
+      response.send(rootModelId);
+    }).catch((e) => {
+      response.status(400).send(e.message);
+    });
+  });
+
+  app.get('/rootModel/productionEventChain', function(request, response) {
+    RmCommandRepository.getProductionEventChain().then((events: EsEvent[]) => {
+      response.send(events);
+    }).catch((e) => {
+      response.status(400).send(e.message);
+    });
+  });
+
+  app.get('/dataNode/rmDemo', function(request, response) {
+    RmCommonRepository.getDataNode('RM-Demo').then((keyValue: KeyValue<string>) => {
+      response.send(keyValue);
+    }).catch((e) => {
+      response.status(400).send(e.message);
+    });
+  });
+
   app.get('/test/getChainOfEvents', function(request, response) {
-    EventRepository.getChainOfEvents(140).then((events: any) => {
+    RmCommandRepository.getChainOfEvents(140).then((events: any) => {
       response.send(events);
     }).catch((e: Error) => {
-      response.status(500).send(e.message);
+      response.status(400).send(e.message);
     });
   });
 
@@ -43,7 +71,7 @@ export function run(callback: () => void, debugFlag: boolean): http.Server {
       new OriginatorAddedEvent(null, 'James Pham')
     ];
 
-    Controller.insertEvents(events, null, function(rootModel: RootModel) {
+    RmCommandController.insertEvents(events, null, function(rootModel: RootModel) {
       response.send(rootModel);
     });
   });
@@ -64,7 +92,7 @@ export function run(callback: () => void, debugFlag: boolean): http.Server {
     response.send('It worked!');
   });
 
-  const server: http.Server = app.listen(appGlobal.serverPort, function () {
+  const server: http.Server = app.listen(serverPort, function () {
     if (debugFlag === true) {
       console.log('Server started at port, ' + appGlobal.serverPort);
     }
@@ -84,5 +112,5 @@ export function run(callback: () => void, debugFlag: boolean): http.Server {
 };
 
 if (require.main === module) {
-  run(null, true);
+  run(appGlobal.serverPort, null, true);
 }

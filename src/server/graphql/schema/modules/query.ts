@@ -8,6 +8,7 @@ export const typeDef = `
     testString: String
     # Test the /hello endpoint
     testHello: String
+    rootModel: RootModelType
   }
 `;
 

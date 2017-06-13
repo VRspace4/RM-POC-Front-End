@@ -11,17 +11,26 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
+var transponder_1 = require("../models/transponder");
+var app_globals_1 = require("../../app.globals");
 var TransponderModifiedEvent = (function (_super) {
     __extends(TransponderModifiedEvent, _super);
     function TransponderModifiedEvent(rootModel, transponderId, key, value) {
-        var _this = _super.call(this, rootModel, key, value, 'TransponderModifiedEvent') || this;
+        var _this = _super.call(this, rootModel, key, value, app_globals_1.RmEventType[app_globals_1.RmEventType.TransponderModifiedEvent]) || this;
         _this.transponderId = transponderId;
         return _this;
     }
     TransponderModifiedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         var transponderToChange = this.rootModel.getTransponder(this.transponderId);
         this.applyModifications(transponderToChange);
         return this.rootModel;
+    };
+    TransponderModifiedEvent.prototype.verifyProcess = function () {
+        var results = [];
+        results.push(this.verifyKeysAndValues(new transponder_1.Transponder('abc')));
+        results.push(this.verifyNameIdConflicts(this.rootModel.transponders));
+        return results;
     };
     return TransponderModifiedEvent;
 }(es_modification_event_1.EsModificationEvent));

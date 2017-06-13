@@ -11,14 +11,20 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
+var app_globals_1 = require("../../app.globals");
 var RootModelModifiedEvent = (function (_super) {
     __extends(RootModelModifiedEvent, _super);
     function RootModelModifiedEvent(rootModel, key, value) {
-        return _super.call(this, rootModel, key, value, 'RootModelModifiedEvent') || this;
+        return _super.call(this, rootModel, key, value, app_globals_1.RmEventType[app_globals_1.RmEventType.RootModelModifiedEvent]) || this;
     }
     RootModelModifiedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         this.applyModifications(this.rootModel);
         return this.rootModel;
+    };
+    RootModelModifiedEvent.prototype.verifyProcess = function () {
+        var result = this.verifyKeysAndValues(this.rootModel);
+        return [result];
     };
     return RootModelModifiedEvent;
 }(es_modification_event_1.EsModificationEvent));

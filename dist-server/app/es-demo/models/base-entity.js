@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var app_helpers_1 = require("../../app.helpers");
+var verification_output_1 = require("./verification-output");
 var BaseEntity = (function () {
     function BaseEntity(name, id) {
         this.name = name;
@@ -38,6 +39,30 @@ var BaseEntity = (function () {
         if (entityIndex >= 0) {
             entities.splice(entityIndex, 1);
         }
+    };
+    BaseEntity.prototype.verifyEntityNameDuplication = function (rootModel, entities) {
+        var result = new verification_output_1.VerificationOutput();
+        for (var _i = 0, entities_1 = entities; _i < entities_1.length; _i++) {
+            var entity = entities_1[_i];
+            if (this.name === entity.name) {
+                result.passed = false;
+                result.failedMessage = "There's already an entity with the same name, " + entity.name + ". Please choose another name.";
+                break;
+            }
+        }
+        return result;
+    };
+    BaseEntity.prototype.verifyEntityIdDuplication = function (rootModel, entities) {
+        var result = new verification_output_1.VerificationOutput();
+        for (var _i = 0, entities_2 = entities; _i < entities_2.length; _i++) {
+            var entity = entities_2[_i];
+            if (this.id === entity.id) {
+                result.passed = false;
+                result.failedMessage = "There's already an entity with the same ID, " + entity.id + "!";
+                break;
+            }
+        }
+        return result;
     };
     return BaseEntity;
 }());

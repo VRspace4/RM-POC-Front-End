@@ -10,7 +10,8 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var graphql_tools_1 = require("graphql-tools");
 var modules = [
-    require('./modules/query')
+    require('./modules/query'),
+    require('./modules/root-model/root-model-type')
 ];
 var mainDefs = ["\n  schema {\n    query: Query\n   }\n"];
 var resolvers = modules.reduce(function (state, m) {

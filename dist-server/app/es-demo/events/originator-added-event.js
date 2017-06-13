@@ -13,20 +13,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app_helpers_1 = require("../../app.helpers");
 var originator_1 = require("../models/originator");
 var es_event_abstract_1 = require("./es-event.abstract");
-// TODO create ResourceEvent
+var app_globals_1 = require("../../app.globals");
 var OriginatorAddedEvent = (function (_super) {
     __extends(OriginatorAddedEvent, _super);
     function OriginatorAddedEvent(rootModel, originatorName, originatorId) {
         if (originatorId === void 0) { originatorId = app_helpers_1.generateUUID(); }
-        var _this = _super.call(this, rootModel, 'OriginatorAddedEvent') || this;
+        var _this = _super.call(this, rootModel, app_globals_1.RmEventType[app_globals_1.RmEventType.OriginatorAddedEvent]) || this;
         _this.originatorName = originatorName;
         _this.originatorId = originatorId;
         return _this;
     }
     OriginatorAddedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         var newOriginator = new originator_1.Originator(this.originatorName, this.originatorId);
         this.rootModel.addOriginator(newOriginator);
         return this.rootModel;
+    };
+    OriginatorAddedEvent.prototype.verifyProcess = function () {
+        var originatorToBeAdded = new originator_1.Originator(this.originatorName, this.originatorId);
+        var result = originatorToBeAdded.verifyEntityNameDuplication(this.rootModel, this.rootModel.originators);
+        return [result];
     };
     return OriginatorAddedEvent;
 }(es_event_abstract_1.EsEvent));

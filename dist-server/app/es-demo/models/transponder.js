@@ -32,7 +32,7 @@ var Transponder = (function (_super) {
         return entity;
     };
     Transponder.prototype.addAllocation = function (allocation) {
-        if (transponder_service_1.TransponderService.runAllNewAllocationVerifications(this.allocations, allocation)) {
+        if (transponder_service_1.TransponderService.runAllNewAllocationVerifications(this.powerLimit, this.allocations, allocation)) {
             this.addEntity(allocation, this.allocations);
         }
     };

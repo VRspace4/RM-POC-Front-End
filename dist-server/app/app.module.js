@@ -42,6 +42,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
+            forms_1.ReactiveFormsModule,
             http_1.HttpModule,
             dashboards_module_1.DashboardsModule,
             layouts_module_1.LayoutsModule,

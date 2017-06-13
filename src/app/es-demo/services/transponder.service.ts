@@ -1,4 +1,5 @@
 import {Allocation} from "../models/allocation";
+import {VerificationOutput} from "../models/verification-output";
 export class TransponderService {
   /**
    * Run all allocation verification functions
@@ -6,11 +7,20 @@ export class TransponderService {
    * @param newAllocation
    * @returns {boolean} true if pass, otherwise an error will be thrown
    */
-  static runAllNewAllocationVerifications(allocations: Allocation[], newAllocation: Allocation): boolean {
-    this.verifyAllocationFrequency(newAllocation);
-    this.confirmAllocationHasNoConflict(allocations, newAllocation);
+  static runAllNewAllocationVerifications(powerLimit: number, allocations: Allocation[],
+                                          newAllocation: Allocation): VerificationOutput[] {
+    const result1 = this.verifyAllocationFrequency(newAllocation);
+    const result2 = this.confirmAllocationHasNoConflict(allocations, newAllocation);
+    const result3 = this.verifyPowerUsageWitihinLimits(powerLimit, allocations, newAllocation);
 
-    return true;
+    const results: VerificationOutput[] = [
+      result1, result2, result3
+    ]
+    // } catch (e) {
+    //   console.error(e.message);
+    //   return false;
+    // };
+    return results;
   }
 
   /**
@@ -19,17 +29,20 @@ export class TransponderService {
    * @param newAllocation
    * @returns {boolean} true if pass, otherwise an error will be thrown
    */
-  static confirmAllocationHasNoConflict(existingAllocations: Allocation[], newAllocation: Allocation): boolean {
+  static confirmAllocationHasNoConflict(existingAllocations: Allocation[], newAllocation: Allocation): VerificationOutput {
+    const result = new VerificationOutput();
     existingAllocations.forEach(function(allocation) {
-      if ((newAllocation.startFrequency > allocation.startFrequency &&
-        newAllocation.startFrequency < allocation.stopFrequency) ||
-        (newAllocation.stopFrequency > allocation.startFrequency &&
-        newAllocation.stopFrequency < allocation.stopFrequency)) {
-          throw new Error("Proposed allocation conflicts with existing allocation with name and ID of [" +
-            allocation.name + ", " + allocation.id + "]");
+      const lowerBound = (newAllocation.startFrequency > allocation.startFrequency &&
+      newAllocation.startFrequency < allocation.stopFrequency);
+      const upperBound = newAllocation.stopFrequency > allocation.startFrequency &&
+        newAllocation.stopFrequency < allocation.stopFrequency;
+      if (lowerBound || upperBound) {
+          result.passed = false;
+          result.failedMessage = "Proposed allocation conflicts with existing allocation with name and ID of [" +
+            allocation.name + ", " + allocation.id + "]";
       }
     });
-    return true;
+    return result;
   }
 
   /**
@@ -37,12 +50,30 @@ export class TransponderService {
    * @param newAllocation
    * @returns {boolean} true if pass, otherwise an error will be thrown
    */
-  static verifyAllocationFrequency(newAllocation: Allocation): boolean {
+  static verifyAllocationFrequency(newAllocation: Allocation): VerificationOutput {
+    const result = new VerificationOutput();
     if (newAllocation.startFrequency > newAllocation.stopFrequency) {
-      throw new Error("Allocation's start frequency, [" + newAllocation.startFrequency +
-        "], should not be greater than stop frequency, [" + newAllocation.stopFrequency + "].");
-    } else {
-      return true;
+      result.passed = false;
+      result.failedMessage = "Allocation's start frequency, [" + newAllocation.startFrequency +
+      "], should not be greater than stop frequency, [" + newAllocation.stopFrequency + "].";
     }
+
+    return result;
+  }
+
+  static verifyPowerUsageWitihinLimits(powerLimit: number, existingAllocations: Allocation[],
+                                       newAllocation: Allocation): VerificationOutput {
+    let totalPowerUsage = 0;
+    const result = new VerificationOutput();
+
+    for (const allocation of existingAllocations) {
+      totalPowerUsage += allocation.powerUsage;
+    }
+
+    if ((newAllocation.powerUsage + totalPowerUsage) > powerLimit) {
+      result.passed = false;
+      result.failedMessage = 'Allocation power usage on top of existing allocations exceeds total power limit!';
+    }
+    return result;
   }
 }

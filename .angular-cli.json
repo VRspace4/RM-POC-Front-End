@@ -69,7 +69,8 @@
         "../node_modules/ladda/dist/spin.min.js",
         "../node_modules/ladda/dist/ladda.min.js",
         "../node_modules/ladda/dist/ladda.jquery.min.js",
-        "../node_modules/sweetalert/dist/sweetalert.min.js"
+        "../node_modules/sweetalert/dist/sweetalert.min.js",
+        "../node_modules/deepstream.io-client-js/dist/deepstream.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

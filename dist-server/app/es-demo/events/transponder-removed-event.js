@@ -11,16 +11,23 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_event_abstract_1 = require("./es-event.abstract");
+var app_globals_1 = require("../../app.globals");
+var verification_output_1 = require("../models/verification-output");
 var TransponderRemovedEvent = (function (_super) {
     __extends(TransponderRemovedEvent, _super);
     function TransponderRemovedEvent(rootModel, transponderId) {
-        var _this = _super.call(this, rootModel, 'TransponderRemovedEvent') || this;
+        var _this = _super.call(this, rootModel, app_globals_1.RmEventType[app_globals_1.RmEventType.TransponderRemovedEvent]) || this;
         _this.transponderId = transponderId;
         return _this;
     }
     TransponderRemovedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         this.rootModel.removeTransponder(this.transponderId);
         return this.rootModel;
+    };
+    TransponderRemovedEvent.prototype.verifyProcess = function () {
+        var result = new verification_output_1.VerificationOutput();
+        return [result]; // nothing to verify
     };
     return TransponderRemovedEvent;
 }(es_event_abstract_1.EsEvent));

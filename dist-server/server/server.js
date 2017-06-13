@@ -4,28 +4,51 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var cors = require("cors");
 var appGlobal = require("../app/app.globals");
-var event_repository_1 = require("./event-repository");
 var transponder_added_event_1 = require("../app/es-demo/events/transponder-added-event");
-var controller_1 = require("./controller");
 var customer_added_event_1 = require("../app/es-demo/events/customer-added-event");
 var root_model_added_event_1 = require("../app/es-demo/events/root-model-added-event");
 var root_model_modified_event_1 = require("../app/es-demo/events/root-model-modified-event");
 var originator_added_event_1 = require("../app/es-demo/events/originator-added-event");
-function run(callback, debugFlag) {
+var rm_common_controller_service_1 = require("./rm-server/rm-common-controller.service");
+var rm_command_repository_service_1 = require("./rm-server/command/rm-command-repository.service");
+var rm_command_controller_service_1 = require("./rm-server/command/rm-command-controller.service");
+var rm_common_repository_service_1 = require("./rm-server/rm-common-repository.service");
+rm_common_controller_service_1.RmCommonController.initializeMaterializedView();
+function run(serverPort, callback, debugFlag) {
     var app = express();
     app.use(cors());
     app.use(bodyParser.json());
     app.post('/events', function (request, response) {
-        controller_1.Controller.insertEvents(request.body.events, request.body.parentId, function (transponder) {
+        rm_command_controller_service_1.RmCommandController.insertEvents(request.body.events, request.body.parentId, function (transponder) {
             response.send(request.body);
         });
     });
-    //
-    app.get('/test/getChainOfEvents', function (request, response) {
-        event_repository_1.EventRepository.getChainOfEvents(140).then(function (events) {
+    app.get('/rootModel/productionRootModelId', function (request, response) {
+        rm_command_repository_service_1.RmCommandRepository.getProductionRootModelId().then(function (rootModelId) {
+            response.send(rootModelId);
+        }).catch(function (e) {
+            response.status(400).send(e.message);
+        });
+    });
+    app.get('/rootModel/productionEventChain', function (request, response) {
+        rm_command_repository_service_1.RmCommandRepository.getProductionEventChain().then(function (events) {
             response.send(events);
         }).catch(function (e) {
-            response.status(500).send(e.message);
+            response.status(400).send(e.message);
+        });
+    });
+    app.get('/dataNode/rmDemo', function (request, response) {
+        rm_common_repository_service_1.RmCommonRepository.getDataNode('RM-Demo').then(function (keyValue) {
+            response.send(keyValue);
+        }).catch(function (e) {
+            response.status(400).send(e.message);
+        });
+    });
+    app.get('/test/getChainOfEvents', function (request, response) {
+        rm_command_repository_service_1.RmCommandRepository.getChainOfEvents(140).then(function (events) {
+            response.send(events);
+        }).catch(function (e) {
+            response.status(400).send(e.message);
         });
     });
     app.get('/test/defaultRootModel', function (request, response) {
@@ -36,7 +59,7 @@ function run(callback, debugFlag) {
             new customer_added_event_1.CustomerAddedEvent(null, 'Intelsat'),
             new originator_added_event_1.OriginatorAddedEvent(null, 'James Pham')
         ];
-        controller_1.Controller.insertEvents(events, null, function (rootModel) {
+        rm_command_controller_service_1.RmCommandController.insertEvents(events, null, function (rootModel) {
             response.send(rootModel);
         });
     });
@@ -55,7 +78,7 @@ function run(callback, debugFlag) {
     app.get('/hello', function (request, response) {
         response.send('It worked!');
     });
-    var server = app.listen(appGlobal.serverPort, function () {
+    var server = app.listen(serverPort, function () {
         if (debugFlag === true) {
             console.log('Server started at port, ' + appGlobal.serverPort);
         }
@@ -73,6 +96,6 @@ function run(callback, debugFlag) {
 exports.run = run;
 ;
 if (require.main === module) {
-    run(null, true);
+    run(appGlobal.serverPort, null, true);
 }
 //# sourceMappingURL=server.js.map

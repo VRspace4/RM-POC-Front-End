@@ -11,10 +11,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_event_abstract_1 = require("./es-event.abstract");
+var verification_output_1 = require("../models/verification-output");
+var app_globals_1 = require("../../app.globals");
 var AllocationRemovedEvent = (function (_super) {
     __extends(AllocationRemovedEvent, _super);
     function AllocationRemovedEvent(rootModel, transponderId, allocationId) {
-        var _this = _super.call(this, rootModel, 'AllocationRemovedEvent') || this;
+        var _this = _super.call(this, rootModel, app_globals_1.RmEventType[app_globals_1.RmEventType.AllocationRemovedEvent]) || this;
         _this.transponderId = transponderId;
         _this.allocationId = allocationId;
         return _this;
@@ -23,6 +25,9 @@ var AllocationRemovedEvent = (function (_super) {
         var transponder = this.rootModel.getTransponder(this.transponderId);
         transponder.removeAllocation(this.allocationId);
         return this.rootModel;
+    };
+    AllocationRemovedEvent.prototype.verifyProcess = function () {
+        return [new verification_output_1.VerificationOutput()]; // nothing to verify
     };
     return AllocationRemovedEvent;
 }(es_event_abstract_1.EsEvent));

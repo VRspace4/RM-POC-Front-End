@@ -22,7 +22,8 @@ export class Transponder extends BaseEntity implements ITransponder {
   }
 
   public addAllocation(allocation: Allocation) {
-    if (TransponderService.runAllNewAllocationVerifications(this.allocations, allocation)) {
+    if (TransponderService.runAllNewAllocationVerifications(this.powerLimit,
+        this.allocations, allocation)) {
       this.addEntity(allocation, this.allocations);
     }
   }
@@ -30,4 +31,5 @@ export class Transponder extends BaseEntity implements ITransponder {
   public removeAllocation(allocationId: string) {
     this.removeEntity(allocationId, this.allocations);
   }
+
 }

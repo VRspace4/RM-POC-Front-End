@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var verification_output_1 = require("../models/verification-output");
 var TransponderService = (function () {
     function TransponderService() {
     }
@@ -9,10 +10,18 @@ var TransponderService = (function () {
      * @param newAllocation
      * @returns {boolean} true if pass, otherwise an error will be thrown
      */
-    TransponderService.runAllNewAllocationVerifications = function (allocations, newAllocation) {
-        this.verifyAllocationFrequency(newAllocation);
-        this.confirmAllocationHasNoConflict(allocations, newAllocation);
-        return true;
+    TransponderService.runAllNewAllocationVerifications = function (powerLimit, allocations, newAllocation) {
+        var result1 = this.verifyAllocationFrequency(newAllocation);
+        var result2 = this.confirmAllocationHasNoConflict(allocations, newAllocation);
+        var result3 = this.verifyPowerUsageWitihinLimits(powerLimit, allocations, newAllocation);
+        var results = [
+            result1, result2, result3
+        ];
+        // } catch (e) {
+        //   console.error(e.message);
+        //   return false;
+        // };
+        return results;
     };
     /**
      * Confirms that the allocation start and stop frequency does not conflict with existing allocations
@@ -21,16 +30,19 @@ var TransponderService = (function () {
      * @returns {boolean} true if pass, otherwise an error will be thrown
      */
     TransponderService.confirmAllocationHasNoConflict = function (existingAllocations, newAllocation) {
+        var result = new verification_output_1.VerificationOutput();
         existingAllocations.forEach(function (allocation) {
-            if ((newAllocation.startFrequency > allocation.startFrequency &&
-                newAllocation.startFrequency < allocation.stopFrequency) ||
-                (newAllocation.stopFrequency > allocation.startFrequency &&
-                    newAllocation.stopFrequency < allocation.stopFrequency)) {
-                throw new Error("Proposed allocation conflicts with existing allocation with name and ID of [" +
-                    allocation.name + ", " + allocation.id + "]");
+            var lowerBound = (newAllocation.startFrequency > allocation.startFrequency &&
+                newAllocation.startFrequency < allocation.stopFrequency);
+            var upperBound = newAllocation.stopFrequency > allocation.startFrequency &&
+                newAllocation.stopFrequency < allocation.stopFrequency;
+            if (lowerBound || upperBound) {
+                result.passed = false;
+                result.failedMessage = "Proposed allocation conflicts with existing allocation with name and ID of [" +
+                    allocation.name + ", " + allocation.id + "]";
             }
         });
-        return true;
+        return result;
     };
     /**
      * Verifies that allocation's start frequency isn't greater than stop frequency.
@@ -38,13 +50,26 @@ var TransponderService = (function () {
      * @returns {boolean} true if pass, otherwise an error will be thrown
      */
     TransponderService.verifyAllocationFrequency = function (newAllocation) {
+        var result = new verification_output_1.VerificationOutput();
         if (newAllocation.startFrequency > newAllocation.stopFrequency) {
-            throw new Error("Allocation's start frequency, [" + newAllocation.startFrequency +
-                "], should not be greater than stop frequency, [" + newAllocation.stopFrequency + "].");
+            result.passed = false;
+            result.failedMessage = "Allocation's start frequency, [" + newAllocation.startFrequency +
+                "], should not be greater than stop frequency, [" + newAllocation.stopFrequency + "].";
         }
-        else {
-            return true;
+        return result;
+    };
+    TransponderService.verifyPowerUsageWitihinLimits = function (powerLimit, existingAllocations, newAllocation) {
+        var totalPowerUsage = 0;
+        var result = new verification_output_1.VerificationOutput();
+        for (var _i = 0, existingAllocations_1 = existingAllocations; _i < existingAllocations_1.length; _i++) {
+            var allocation = existingAllocations_1[_i];
+            totalPowerUsage += allocation.powerUsage;
         }
+        if ((newAllocation.powerUsage + totalPowerUsage) > powerLimit) {
+            result.passed = false;
+            result.failedMessage = 'Allocation power usage on top of existing allocations exceeds total power limit!';
+        }
+        return result;
     };
     return TransponderService;
 }());

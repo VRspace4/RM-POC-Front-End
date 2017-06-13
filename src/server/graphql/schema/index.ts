@@ -2,7 +2,8 @@ import {GraphQLSchema} from 'graphql';
 import {makeExecutableSchema,  addMockFunctionsToSchema} from 'graphql-tools';
 
 const modules = [
-  require('./modules/query')
+  require('./modules/query'),
+  require('./modules/root-model/root-model-type')
 ];
 
 const mainDefs = [`

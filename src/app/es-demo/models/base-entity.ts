@@ -1,4 +1,6 @@
 import {generateUUID} from "../../app.helpers";
+import {VerificationOutput} from "./verification-output";
+import {RootModel} from "./root-model";
 export abstract class BaseEntity {
   public id: string;
 
@@ -43,6 +45,32 @@ export abstract class BaseEntity {
     if (entityIndex >= 0) {
       entities.splice(entityIndex, 1);
     }
+  }
+
+  public verifyEntityNameDuplication(rootModel: RootModel, entities: BaseEntity[]): VerificationOutput {
+    const result = new VerificationOutput();
+
+    for (const entity of entities) {
+      if (this.name === entity.name) {
+        result.passed = false;
+        result.failedMessage = `There's already an entity with the same name, ${entity.name}. Please choose another name.`;
+        break;
+      }
+    }
+    return result;
+  }
+
+  public verifyEntityIdDuplication(rootModel: RootModel, entities: BaseEntity[]): VerificationOutput {
+    const result = new VerificationOutput();
+
+    for (const entity of entities) {
+      if (this.id === entity.id) {
+        result.passed = false;
+        result.failedMessage = `There's already an entity with the same ID, ${entity.id}!`;
+        break;
+      }
+    }
+    return result;
   }
 
 }

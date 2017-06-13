@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var transponder_1 = require("../models/transponder");
 var app_helpers_1 = require("../../app.helpers");
 var es_event_abstract_1 = require("./es-event.abstract");
+var app_globals_1 = require("../../app.globals");
 var TransponderAddedEvent = (function (_super) {
     __extends(TransponderAddedEvent, _super);
     function TransponderAddedEvent(rootModel, transponderName, transponderId, powerLimit, bandwidth, allocations) {
@@ -20,7 +21,7 @@ var TransponderAddedEvent = (function (_super) {
         if (powerLimit === void 0) { powerLimit = 100; }
         if (bandwidth === void 0) { bandwidth = 100; }
         if (allocations === void 0) { allocations = []; }
-        var _this = _super.call(this, rootModel, 'TransponderAddedEvent') || this;
+        var _this = _super.call(this, rootModel, app_globals_1.RmEventType[app_globals_1.RmEventType.TransponderAddedEvent]) || this;
         _this.transponderName = transponderName;
         _this.transponderId = transponderId;
         _this.powerLimit = powerLimit;
@@ -29,9 +30,15 @@ var TransponderAddedEvent = (function (_super) {
         return _this;
     }
     TransponderAddedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         var newTransponder = new transponder_1.Transponder(this.transponderName, this.transponderId, this.powerLimit, this.bandwidth, this.allocations);
         this.rootModel.addTransponder(newTransponder);
         return this.rootModel;
+    };
+    TransponderAddedEvent.prototype.verifyProcess = function () {
+        var transponderToBeAdded = new transponder_1.Transponder(this.transponderName, this.transponderId, this.powerLimit, this.bandwidth, this.allocations);
+        var result = transponderToBeAdded.verifyEntityNameDuplication(this.rootModel, this.rootModel.transponders);
+        return [result];
     };
     return TransponderAddedEvent;
 }(es_event_abstract_1.EsEvent));

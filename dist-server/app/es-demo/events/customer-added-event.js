@@ -13,19 +13,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app_helpers_1 = require("../../app.helpers");
 var customer_1 = require("../models/customer");
 var es_event_abstract_1 = require("./es-event.abstract");
+var app_globals_1 = require("../../app.globals");
 var CustomerAddedEvent = (function (_super) {
     __extends(CustomerAddedEvent, _super);
     function CustomerAddedEvent(rootModel, customerName, customerId) {
         if (customerId === void 0) { customerId = app_helpers_1.generateUUID(); }
-        var _this = _super.call(this, rootModel, 'CustomerAddedEvent') || this;
+        var _this = _super.call(this, rootModel, app_globals_1.RmEventType[app_globals_1.RmEventType.CustomerAddedEvent]) || this;
         _this.customerName = customerName;
         _this.customerId = customerId;
         return _this;
     }
     CustomerAddedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         var newCustomer = new customer_1.Customer(this.customerName, this.customerId);
         this.rootModel.addCustomer(newCustomer);
         return this.rootModel;
+    };
+    CustomerAddedEvent.prototype.verifyProcess = function () {
+        var newCustomer = new customer_1.Customer(this.customerName, this.customerId);
+        var result = newCustomer.verifyCustomerNameDuplication(this.rootModel);
+        return [result];
     };
     return CustomerAddedEvent;
 }(es_event_abstract_1.EsEvent));

@@ -9,8 +9,9 @@ import {Transponder} from "../app/es-demo/models/transponder";
 import {AllocationAddedEvent} from "../app/es-demo/events/allocation-added-event";
 import {Originator} from "../app/es-demo/models/originator";
 import {EsEvent} from "../app/es-demo/events/es-event.abstract";
-import {TransponderAddedEvent} from "../app/es-demo/events/transponder-added-event";
 import {RootModel} from "../app/es-demo/models/root-model";
+import {RmCommonController} from "./rm-server/rm-common-controller.service";
+import {RmCommandRepository} from "./rm-server/command/rm-command-repository.service";
 
 console.log('\n\n------======== (' + Date() + ') ========------\n');
 
@@ -31,7 +32,7 @@ describe('EventRepository class', () => {
   describe('serializeEvent() ', () => {
     it('should remove rootModel from the event object', function() {
       const customer = new CustomerAddedEvent(rootModel, 'Intelsat', 'id123');
-      const result: string = EventRepository.serializeEvent(customer);
+      const result: string = RmCommandRepository.serializeEvent(customer);
 
       expect(result).not.toContain('rootModel');
     });
@@ -54,7 +55,7 @@ describe('EventRepository class', () => {
       const jsonString: any = JSON.parse(JSON.stringify({events, parentId}));
 
       const deserializedEvent: EsEvent =
-        EventRepository.deserializeEvent(jsonString.events.shift(), rootModel);
+        RmCommonController.deserializeEvent(jsonString.events.shift(), rootModel);
 
       expect(deserializedEvent instanceof CustomerAddedEvent).toBeTruthy();
     });
@@ -86,11 +87,11 @@ describe('EventRepository class', () => {
 /**
  * Server endpoints
  */
-describe('Server endpoints', () => {
+describe('Server endpoint', () => {
   let serverInstance: http.Server;
 
   beforeEach(function (done: DoneFn) {
-    serverInstance = server.run(done, false);
+    serverInstance = server.run(appGlobal.serverPort, done, false);
   });
   afterEach(function (done: DoneFn) {
     serverInstance.close(done);
@@ -102,7 +103,7 @@ describe('Server endpoints', () => {
   describe('/hello', () => {
     it('should return a static test text', function (done: DoneFn) {
       expect(function() {
-        fetch(appGlobal.url + '/hello').then(function (response: Response) {
+        fetch(`${appGlobal.url}:${appGlobal.serverPort}/hello`).then(function (response: Response) {
           return response.text();
         }).then(function (response: any) {
           expect(response).toEqual('It worked!');

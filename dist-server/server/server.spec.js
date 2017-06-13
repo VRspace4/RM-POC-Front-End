@@ -3,12 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var appGlobal = require("../app/app.globals");
 var server = require("./server");
 var node_fetch_1 = require("node-fetch");
-var event_repository_1 = require("./event-repository");
 var customer_added_event_1 = require("../app/es-demo/events/customer-added-event");
 var transponder_1 = require("../app/es-demo/models/transponder");
 var allocation_added_event_1 = require("../app/es-demo/events/allocation-added-event");
 var originator_1 = require("../app/es-demo/models/originator");
 var root_model_1 = require("../app/es-demo/models/root-model");
+var rm_common_controller_service_1 = require("./rm-server/rm-common-controller.service");
+var rm_command_repository_service_1 = require("./rm-server/command/rm-command-repository.service");
 console.log('\n\n------======== (' + Date() + ') ========------\n');
 /**
  *
@@ -26,7 +27,7 @@ describe('EventRepository class', function () {
     describe('serializeEvent() ', function () {
         it('should remove rootModel from the event object', function () {
             var customer = new customer_added_event_1.CustomerAddedEvent(rootModel, 'Intelsat', 'id123');
-            var result = event_repository_1.EventRepository.serializeEvent(customer);
+            var result = rm_command_repository_service_1.RmCommandRepository.serializeEvent(customer);
             expect(result).not.toContain('rootModel');
         });
     });
@@ -42,7 +43,7 @@ describe('EventRepository class', function () {
             var events = [customerAddedEvent, allocationAddedEvent];
             var parentId = 123;
             var jsonString = JSON.parse(JSON.stringify({ events: events, parentId: parentId }));
-            var deserializedEvent = event_repository_1.EventRepository.deserializeEvent(jsonString.events.shift(), rootModel);
+            var deserializedEvent = rm_common_controller_service_1.RmCommonController.deserializeEvent(jsonString.events.shift(), rootModel);
             expect(deserializedEvent instanceof customer_added_event_1.CustomerAddedEvent).toBeTruthy();
         });
     });
@@ -70,10 +71,10 @@ describe('EventRepository class', function () {
 /**
  * Server endpoints
  */
-describe('Server endpoints', function () {
+describe('Server endpoint', function () {
     var serverInstance;
     beforeEach(function (done) {
-        serverInstance = server.run(done, false);
+        serverInstance = server.run(appGlobal.serverPort, done, false);
     });
     afterEach(function (done) {
         serverInstance.close(done);
@@ -84,7 +85,7 @@ describe('Server endpoints', function () {
     describe('/hello', function () {
         it('should return a static test text', function (done) {
             expect(function () {
-                node_fetch_1.default(appGlobal.url + '/hello').then(function (response) {
+                node_fetch_1.default(appGlobal.url + ":" + appGlobal.serverPort + "/hello").then(function (response) {
                     return response.text();
                 }).then(function (response) {
                     expect(response).toEqual('It worked!');

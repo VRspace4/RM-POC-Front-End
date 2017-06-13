@@ -11,16 +11,23 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_event_abstract_1 = require("./es-event.abstract");
+var app_globals_1 = require("../../app.globals");
 var CustomerRemovedEvent = (function (_super) {
     __extends(CustomerRemovedEvent, _super);
     function CustomerRemovedEvent(rootModel, customerId) {
-        var _this = _super.call(this, rootModel, 'CustomerRemovedEvent') || this;
+        var _this = _super.call(this, rootModel, app_globals_1.RmEventType[app_globals_1.RmEventType.CustomerRemovedEvent]) || this;
         _this.customerId = customerId;
         return _this;
     }
     CustomerRemovedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         this.rootModel.removeCustomer(this.customerId);
         return this.rootModel;
+    };
+    CustomerRemovedEvent.prototype.verifyProcess = function () {
+        var customerToBeRemoved = this.rootModel.getCustomer(this.customerId);
+        var result = customerToBeRemoved.verifyCustomerDeletion(this.rootModel);
+        return [result];
     };
     return CustomerRemovedEvent;
 }(es_event_abstract_1.EsEvent));

@@ -11,17 +11,27 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
+var app_globals_1 = require("../../app.globals");
 var OriginatorModifiedEvent = (function (_super) {
     __extends(OriginatorModifiedEvent, _super);
     function OriginatorModifiedEvent(rootModel, originatorId, key, value) {
-        var _this = _super.call(this, rootModel, key, value, 'OriginatorModified') || this;
+        var _this = _super.call(this, rootModel, key, value, app_globals_1.RmEventType[app_globals_1.RmEventType.OriginatorModifiedEvent]) || this;
         _this.originatorId = originatorId;
         return _this;
     }
     OriginatorModifiedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         var originatorToChange = this.rootModel.getOriginator(this.originatorId);
         this.applyModifications(originatorToChange);
         return this.rootModel;
+    };
+    OriginatorModifiedEvent.prototype.verifyProcess = function () {
+        var originatorToBeModified = this.rootModel.getOriginator(this.originatorId);
+        var results = [];
+        results.push(originatorToBeModified.verifyEntityNameDuplication(this.rootModel, this.rootModel.originators));
+        results.push(this.verifyKeysAndValues(originatorToBeModified));
+        results.push(this.verifyNameIdConflicts(this.rootModel.originators));
+        return results;
     };
     return OriginatorModifiedEvent;
 }(es_modification_event_1.EsModificationEvent));

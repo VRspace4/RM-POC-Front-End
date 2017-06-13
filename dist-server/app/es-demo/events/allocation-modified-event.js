@@ -11,19 +11,33 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
+var transponder_service_1 = require("../services/transponder.service");
+var app_globals_1 = require("../../app.globals");
 var AllocationModifiedEvent = (function (_super) {
     __extends(AllocationModifiedEvent, _super);
     function AllocationModifiedEvent(rootModel, transponderId, allocationId, key, value) {
-        var _this = _super.call(this, rootModel, key, value, 'AllocationModifiedEvent') || this;
+        var _this = _super.call(this, rootModel, key, value, app_globals_1.RmEventType[app_globals_1.RmEventType.AllocationModifiedEvent]) || this;
         _this.transponderId = transponderId;
         _this.allocationId = allocationId;
         return _this;
     }
     AllocationModifiedEvent.prototype.process = function () {
+        this.throwIfVerificationFails();
         var transponder = this.rootModel.getTransponder(this.transponderId);
         var allocationToChange = transponder.getAllocation(this.allocationId);
         this.applyModifications(allocationToChange);
         return this.rootModel;
+    };
+    AllocationModifiedEvent.prototype.verifyProcess = function () {
+        var transponder = this.rootModel.getTransponder(this.transponderId);
+        var allocationClone = Object.assign({}, transponder.getAllocation(this.allocationId));
+        // Apply modification to the clone and verify. This does not
+        // make modification to the official model.
+        this.applyModifications(allocationClone);
+        var results = transponder_service_1.TransponderService.runAllNewAllocationVerifications(transponder.powerLimit, transponder.allocations, allocationClone);
+        results.push(this.verifyKeysAndValues(allocationClone));
+        results.push(this.verifyNameIdConflicts(transponder.allocations));
+        return results;
     };
     return AllocationModifiedEvent;
 }(es_modification_event_1.EsModificationEvent));
