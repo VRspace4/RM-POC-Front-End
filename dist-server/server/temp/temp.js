@@ -1,55 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var kafka_node_1 = require("kafka-node");
-var avro = require("avsc");
-var avroSchema = {
-    name: 'MyAwesomeType',
-    type: 'record',
-    fields: [
-        {
-            name: 'id',
-            type: 'string'
-        }, {
-            name: 'timestamp',
-            type: 'double'
-        }, {
-            name: 'enumField',
-            type: {
-                name: 'EnumField',
-                type: 'enum',
-                symbols: ['sym1', 'sym2', 'sym3']
-            }
-        }
-    ]
-};
-var type = avro.parse(avroSchema);
-console.log('Waiting for a bit...');
-var client = new kafka_node_1.Client('rm-backend:2181', 'rm-demo-test-client');
-var topics = [{
-        topic: 'rm-demo'
-    }];
-var options = {
-    autoCommit: true,
-    fetchMaxWaitMs: 1000,
-    fetchMaxBytes: 1024 * 1024,
-    encoding: 'buffer'
-};
-var consumer = new kafka_node_1.HighLevelConsumer(client, topics, options);
+var readline = require("readline");
+var r1 = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+r1.on("SIGUSR2", function () {
+    console.log('inside r1');
+    process.emit("SIGUSR2");
+});
 process.on('SIGINT', function () {
     console.log('closing....mm');
-    consumer.close(true, function () {
-        process.exit();
-    });
+    process.exit();
 });
-consumer.on('message', function (message) {
-    console.log('message: ', message);
-    // const buf = new Buffer(message.value, 'binary'); // Read string into a buffer.
-    // const decodedMessage = type.fromBuffer(buf.slice(0)); // Skip prefix
-    // console.log('decoded: ', decodedMessage);
+// For nodemon restarts
+process.on('SIGUSR2', function () {
+    console.log('closing from nodemon...');
+    process.exit();
 });
-consumer.on('error', function (err) {
-    console.log('error', err);
-});
-//
-console.log('Runing 4');
+console.log('starting 7' +
+    '');
+setInterval(function () {
+    console.log('hi there');
+}, 2000);
 //# sourceMappingURL=temp.js.map
