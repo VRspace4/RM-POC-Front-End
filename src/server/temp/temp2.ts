@@ -1,5 +1,3 @@
-console.log('started!');
-setTimeout(() => {
-  console.log('after timeout');
-}, 5000);
-console.log('done...');
+// import * as temp from './temp';
+
+console.log('inside temp2');

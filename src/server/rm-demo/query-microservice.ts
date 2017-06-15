@@ -1,8 +1,8 @@
 import {HighLevelConsumer, KeyedMessage, Client, ZKOptions, Topic, ConsumerOptions} from 'kafka-node';
 
 setTimeout(() => {
-  console.log('starting nowxx');
-  const client = new Client('rm-backend:2181', 'rm-demo-test-client');
+  console.log('Starting message consumer...');
+  const client = new Client('rm:2181', 'rm-demo-test-client');
 
   const topics: Array<Topic> = [{
     topic: 'rm-demo'
@@ -12,29 +12,30 @@ setTimeout(() => {
     autoCommit: true,
     fetchMaxWaitMs: 1000,
     fetchMaxBytes: 1024 * 1024,
-    encoding: 'buffer'
+    encoding: 'utf8'
   };
 
   const consumer = new HighLevelConsumer(client, topics, options);
 
   process.on('SIGINT', function () {
-    console.log('closing....mm');
+    console.log('Shutting down message consumer...');
     consumer.close(true, function () {
       process.exit();
     });
   });
 
-  // For nodemon restarts
+  // For nodemonxxxbbb
   process.once('SIGUSR2', function () {
-    console.log('closing from nodemon...');
-    consumer.close(true, function () {
-      process.exit();
+    consumer.close(false, function () {
+      console.log('Restarting message consumer...');
+      process.kill(process.pid, 'SIGUSR2');
     });
   });
 
 
   consumer.on('message', function (message: any) {
-    console.log('message: ', message.value);
+    console.log('object: ', message);
+    console.log('message: ', JSON.parse(message.value));
     // const buf = new Buffer(message.value, 'binary'); // Read string into a buffer.
     // const decodedMessage = type.fromBuffer(buf.slice(0)); // Skip prefix
     // console.log('decoded: ', decodedMessage);
@@ -44,7 +45,4 @@ setTimeout(() => {
     console.log('error', err);
   });
 
-}, 8000);
-
-
-console.log('Runing 12');
+}, 3000);

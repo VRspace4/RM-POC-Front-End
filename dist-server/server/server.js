@@ -9,10 +9,10 @@ var customer_added_event_1 = require("../app/es-demo/events/customer-added-event
 var root_model_added_event_1 = require("../app/es-demo/events/root-model-added-event");
 var root_model_modified_event_1 = require("../app/es-demo/events/root-model-modified-event");
 var originator_added_event_1 = require("../app/es-demo/events/originator-added-event");
-var rm_common_controller_service_1 = require("./rm-server/rm-common-controller.service");
-var rm_command_repository_service_1 = require("./rm-server/command/rm-command-repository.service");
-var rm_command_controller_service_1 = require("./rm-server/command/rm-command-controller.service");
-var rm_common_repository_service_1 = require("./rm-server/rm-common-repository.service");
+var rm_common_controller_service_1 = require("./rm-demo/common/rm-common-controller.service");
+var rm_command_repository_service_1 = require("./rm-demo/command/rm-command-repository.service");
+var rm_command_controller_service_1 = require("./rm-demo/command/rm-command-controller.service");
+var rm_common_repository_service_1 = require("./rm-demo/common/rm-common-repository.service");
 rm_common_controller_service_1.RmCommonController.initializeMaterializedView();
 function run(serverPort, callback, debugFlag) {
     var app = express();

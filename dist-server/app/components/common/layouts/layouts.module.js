@@ -12,7 +12,7 @@ var router_1 = require("@angular/router");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 var basicLayout_component_1 = require("./basicLayout.component");
 var blankLayout_component_1 = require("./blankLayout.component");
-var topNavigationlayout_component_1 = require("./topNavigationlayout.component");
+var topNavigationLayout_component_1 = require("./topNavigationLayout.component");
 var navigation_component_1 = require("./../navigation/navigation.component");
 var footer_component_1 = require("./../footer/footer.component");
 var topnavbar_component_1 = require("./../topnavbar/topnavbar.component");
@@ -30,7 +30,7 @@ LayoutsModule = __decorate([
             basicLayout_component_1.BasicLayoutComponent,
             blankLayout_component_1.BlankLayoutComponent,
             navigation_component_1.NavigationComponent,
-            topNavigationlayout_component_1.TopNavigationLayoutComponent,
+            topNavigationLayout_component_1.TopNavigationLayoutComponent,
             topnavbar_component_1.TopNavbarComponent,
             topnavigationnavbar_component_1.TopNavigationNavbarComponent,
             basic_layout_no_top_component_1.BasicLayoutNoTopComponent
@@ -45,7 +45,7 @@ LayoutsModule = __decorate([
             basicLayout_component_1.BasicLayoutComponent,
             blankLayout_component_1.BlankLayoutComponent,
             navigation_component_1.NavigationComponent,
-            topNavigationlayout_component_1.TopNavigationLayoutComponent,
+            topNavigationLayout_component_1.TopNavigationLayoutComponent,
             topnavbar_component_1.TopNavbarComponent,
             topnavigationnavbar_component_1.TopNavigationNavbarComponent,
             basic_layout_no_top_component_1.BasicLayoutNoTopComponent

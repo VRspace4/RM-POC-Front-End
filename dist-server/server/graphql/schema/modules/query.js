@@ -6,10 +6,10 @@ exports.typeDef = "\n  # Possible queries that can be executed\n  type Query {\n
 exports.resolver = {
     Query: {
         testString: function () {
-            return appGlobal.url + ":" + appGlobal.serverPort + "/hello";
+            return appGlobal.GeneralGlobals.serverHostname + ":" + appGlobal.serverPort + "/hello";
         },
         testHello: function () {
-            node_fetch_1.default(appGlobal.url + ":" + appGlobal.serverPort + "/hello").then(function (response) {
+            node_fetch_1.default(appGlobal.GeneralGlobals.serverHostname + ":" + appGlobal.serverPort + "/hello").then(function (response) {
                 return response.text();
             });
         }

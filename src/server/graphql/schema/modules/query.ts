@@ -15,10 +15,10 @@ export const typeDef = `
 export const resolver = {
   Query: {
     testString() {
-      return `${appGlobal.url}:${appGlobal.serverPort}/hello`;
+      return `${appGlobal.GeneralGlobals.serverHostname}:${appGlobal.serverPort}/hello`;
     },
     testHello() {
-        fetch(`${appGlobal.url}:${appGlobal.serverPort}/hello`).then(function (response) {
+        fetch(`${appGlobal.GeneralGlobals.serverHostname}:${appGlobal.serverPort}/hello`).then(function (response) {
           return response.text();
         });
     }

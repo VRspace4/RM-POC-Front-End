@@ -21,12 +21,12 @@ var TopNavigationLayoutComponent = (function () {
 }());
 TopNavigationLayoutComponent = __decorate([
     core_1.Component({
-        selector: 'topnavigationlayout',
-        templateUrl: 'topNavigationlayout.template.html',
+        selector: 'top-navigation-layout',
+        templateUrl: 'topNavigationLayout.template.html',
         host: {
             '(window:resize)': 'onResize()'
         }
     })
 ], TopNavigationLayoutComponent);
 exports.TopNavigationLayoutComponent = TopNavigationLayoutComponent;
-//# sourceMappingURL=topNavigationlayout.component.js.map
+//# sourceMappingURL=topNavigationLayout.component.js.map

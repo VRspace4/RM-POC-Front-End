@@ -13,7 +13,7 @@ import {LoginComponent} from './views/appviews/login.component';
 import {BasicLayoutNoTopComponent} from './components/common/layouts/basic-layout-no-top/basic-layout-no-top.component';
 import {BlankLayoutComponent} from './components/common/layouts/blankLayout.component';
 import {BasicLayoutComponent} from './components/common/layouts/basicLayout.component';
-import {TopNavigationLayoutComponent} from './components/common/layouts/topNavigationlayout.component';
+import {TopNavigationLayoutComponent} from './components/common/layouts/topNavigationLayout.component';
 
 import {ResourceManagerUiComponent} from './views/resource-manager-ui/resource-manager-ui.component';
 import {EsDemoComponent} from './views/es-demo/es-demo.component';
@@ -37,7 +37,7 @@ export const ROUTES: Routes = [
   {
     path: 'rmdemo', component: BasicLayoutComponent,
     children: [
-      {path: 'apple', component: RmFullComponent}
+      {path: 'rmfull', component: RmFullComponent}
     ]
   },
   // {

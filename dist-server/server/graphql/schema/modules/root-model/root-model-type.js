@@ -13,7 +13,7 @@ exports.typeDef = "\ntype RootModelType {\n  name: String\n  id: String\n  event
 exports.resolver = {
     RootModelType: {
         name: function () {
-            node_fetch_1.default(app_globals_1.url + ":" + app_globals_1.serverPort + "/hello").then(function (response) {
+            node_fetch_1.default(app_globals_1.GeneralGlobals.serverHostname + ":" + app_globals_1.GeneralGlobals.serverPort + "/hello").then(function (response) {
                 return response.text();
             });
         },

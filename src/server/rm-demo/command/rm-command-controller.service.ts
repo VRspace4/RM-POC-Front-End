@@ -2,7 +2,7 @@ import {RootModel} from "../../../app/es-demo/models/root-model";
 import {EventRepository} from "../../event-repository";
 import {EsEvent} from "../../../app/es-demo/events/es-event.abstract";
 import {RmCommandRepository} from "./rm-command-repository.service";
-import {RmCommonController} from "../rm-common-controller.service";
+import {RmCommonController} from "../common/rm-common-controller.service";
 import {RootModelAddedEvent} from "../../../app/es-demo/events/root-model-added-event";
 
 export class RmCommandController {

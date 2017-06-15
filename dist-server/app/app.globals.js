@@ -1,10 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.url = 'http://localhost';
 exports.serverPort = 4500;
 exports.graphqlPort = 4300;
-exports.neo4jRMDemoDataName = 'RM-Demo';
-exports.neo4jProductionRootModelName = 'productionRootModelId';
 var Neo4jGlobals = (function () {
     function Neo4jGlobals() {
     }
@@ -32,11 +29,28 @@ var RmEventType;
     RmEventType[RmEventType["AllocationModifiedEvent"] = 13] = "AllocationModifiedEvent";
     RmEventType[RmEventType["AllocationRemovedEvent"] = 14] = "AllocationRemovedEvent";
 })(RmEventType = exports.RmEventType || (exports.RmEventType = {}));
+var GeneralGlobals = (function () {
+    function GeneralGlobals() {
+    }
+    return GeneralGlobals;
+}());
+GeneralGlobals.serverHostname = 'rm';
+GeneralGlobals.serverPort = 4500;
+GeneralGlobals.graphQLPort = 4300;
+exports.GeneralGlobals = GeneralGlobals;
 var DsGlobals = (function () {
     function DsGlobals() {
     }
     return DsGlobals;
 }());
-DsGlobals.serverURI = 'localhost:6020';
+DsGlobals.serverURI = 'rm:6020';
 exports.DsGlobals = DsGlobals;
+var KafkaGlobals = (function () {
+    function KafkaGlobals() {
+    }
+    return KafkaGlobals;
+}());
+KafkaGlobals.topicName = Neo4jGlobals.rmDemoDataName.toLowerCase();
+KafkaGlobals.topicPartition = '0';
+exports.KafkaGlobals = KafkaGlobals;
 //# sourceMappingURL=app.globals.js.map

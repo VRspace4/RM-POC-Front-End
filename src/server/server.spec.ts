@@ -1,4 +1,3 @@
-import * as appGlobal from '../app/app.globals';
 import * as server from './server';
 import * as http from 'http';
 import fetch from 'node-fetch';
@@ -10,8 +9,9 @@ import {AllocationAddedEvent} from "../app/es-demo/events/allocation-added-event
 import {Originator} from "../app/es-demo/models/originator";
 import {EsEvent} from "../app/es-demo/events/es-event.abstract";
 import {RootModel} from "../app/es-demo/models/root-model";
-import {RmCommonController} from "./rm-server/rm-common-controller.service";
-import {RmCommandRepository} from "./rm-server/command/rm-command-repository.service";
+import {RmCommonController} from "./rm-demo/common/rm-common-controller.service";
+import {RmCommandRepository} from "./rm-demo/command/rm-command-repository.service";
+import {GeneralGlobals} from "../app/app.globals";
 
 console.log('\n\n------======== (' + Date() + ') ========------\n');
 
@@ -91,7 +91,7 @@ describe('Server endpoint', () => {
   let serverInstance: http.Server;
 
   beforeEach(function (done: DoneFn) {
-    serverInstance = server.run(appGlobal.serverPort, done, false);
+    serverInstance = server.run(GeneralGlobals.serverPort, done, false);
   });
   afterEach(function (done: DoneFn) {
     serverInstance.close(done);
@@ -103,7 +103,7 @@ describe('Server endpoint', () => {
   describe('/hello', () => {
     it('should return a static test text', function (done: DoneFn) {
       expect(function() {
-        fetch(`${appGlobal.url}:${appGlobal.serverPort}/hello`).then(function (response: Response) {
+        fetch(`${GeneralGlobals.serverHostname}:${GeneralGlobals.serverPort}/hello`).then(function (response: Response) {
           return response.text();
         }).then(function (response: any) {
           expect(response).toEqual('It worked!');

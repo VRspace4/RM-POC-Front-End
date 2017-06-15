@@ -1,9 +1,8 @@
-import {KeyValue} from "../../app/es-demo/models/key-value"
-import {Neo4jGlobals} from "../../app/app.globals";
-import {EsEvent} from "../../app/es-demo/events/es-event.abstract";
-import {RootModel} from "../../app/es-demo/models/root-model";
-import {RmCommandRepository} from "./command/rm-command-repository.service";
+import {KeyValue} from "../../../app/es-demo/models/key-value"
+import {Neo4jGlobals} from "../../../app/app.globals";
+import {RmCommandRepository} from '../command/rm-command-repository.service';
 
+//
 export class RmCommonRepository {
 
   static getDataNode(dataNodeName: string): Promise<KeyValue<string>> {

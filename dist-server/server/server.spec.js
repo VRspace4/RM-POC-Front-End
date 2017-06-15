@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var appGlobal = require("../app/app.globals");
 var server = require("./server");
 var node_fetch_1 = require("node-fetch");
 var customer_added_event_1 = require("../app/es-demo/events/customer-added-event");
@@ -8,8 +7,9 @@ var transponder_1 = require("../app/es-demo/models/transponder");
 var allocation_added_event_1 = require("../app/es-demo/events/allocation-added-event");
 var originator_1 = require("../app/es-demo/models/originator");
 var root_model_1 = require("../app/es-demo/models/root-model");
-var rm_common_controller_service_1 = require("./rm-server/rm-common-controller.service");
-var rm_command_repository_service_1 = require("./rm-server/command/rm-command-repository.service");
+var rm_common_controller_service_1 = require("./rm-demo/common/rm-common-controller.service");
+var rm_command_repository_service_1 = require("./rm-demo/command/rm-command-repository.service");
+var app_globals_1 = require("../app/app.globals");
 console.log('\n\n------======== (' + Date() + ') ========------\n');
 /**
  *
@@ -74,7 +74,7 @@ describe('EventRepository class', function () {
 describe('Server endpoint', function () {
     var serverInstance;
     beforeEach(function (done) {
-        serverInstance = server.run(appGlobal.serverPort, done, false);
+        serverInstance = server.run(app_globals_1.GeneralGlobals.serverPort, done, false);
     });
     afterEach(function (done) {
         serverInstance.close(done);
@@ -85,7 +85,7 @@ describe('Server endpoint', function () {
     describe('/hello', function () {
         it('should return a static test text', function (done) {
             expect(function () {
-                node_fetch_1.default(appGlobal.url + ":" + appGlobal.serverPort + "/hello").then(function (response) {
+                node_fetch_1.default(app_globals_1.GeneralGlobals.serverHostname + ":" + app_globals_1.GeneralGlobals.serverPort + "/hello").then(function (response) {
                     return response.text();
                 }).then(function (response) {
                     expect(response).toEqual('It worked!');

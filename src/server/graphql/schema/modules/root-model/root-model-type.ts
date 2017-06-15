@@ -1,4 +1,4 @@
-import {url, serverPort} from '../../../../../app/app.globals';
+import {GeneralGlobals} from '../../../../../app/app.globals';
 import fetch from 'node-fetch';
 
 export const typeDef = `
@@ -20,7 +20,7 @@ type RootModelType {
 export const resolver = {
   RootModelType: {
     name() {
-      fetch(`${url}:${serverPort}/hello`).then(function (response) {
+      fetch(`${GeneralGlobals.serverHostname}:${GeneralGlobals.serverPort}/hello`).then(function (response) {
         return response.text();
       });
     },

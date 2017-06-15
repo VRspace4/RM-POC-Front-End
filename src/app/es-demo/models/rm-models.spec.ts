@@ -11,6 +11,7 @@ describe('RM Models', () => {
 
   describe('Transponder', () => {
     it('should have a valid object', function() {
+      rootModel.addTransponder(new Transponder('Transponder 1'));
       expect(rootModel.transponders[0].name).toBe('Transponder 1');
     });
   });

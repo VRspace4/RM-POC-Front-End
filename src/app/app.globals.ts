@@ -1,9 +1,5 @@
-export const url = 'http://localhost';
 export const serverPort = 4500;
 export const graphqlPort = 4300;
-
-export const neo4jRMDemoDataName = 'RM-Demo';
-export const neo4jProductionRootModelName = 'productionRootModelId';
 
 export class Neo4jGlobals {
   static rmDemoDataName = 'RM-Demo';
@@ -29,7 +25,17 @@ export enum RmEventType {
   AllocationRemovedEvent
 }
 
-export class DsGlobals {
-  static serverURI = 'localhost:6020';
+export class GeneralGlobals {
+  static serverHostname = 'rm';
+  static serverPort = 4500;
+  static graphQLPort = 4300;
 }
 
+export class DsGlobals {
+  static serverURI = 'rm:6020';
+}
+
+export class KafkaGlobals {
+  static topicName = Neo4jGlobals.rmDemoDataName.toLowerCase();
+  static topicPartition = '0';
+}

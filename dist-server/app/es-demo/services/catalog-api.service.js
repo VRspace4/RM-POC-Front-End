@@ -18,7 +18,7 @@ var CatalogApiService = CatalogApiService_1 = (function () {
     }
     CatalogApiService.getCatalog = function (eventId) {
         return new Promise(function (resolve, reject) {
-            fetch(appGlobal.url + '/catalog/' + eventId).then(function (response) {
+            fetch(appGlobal.GeneralGlobals.serverHostname + '/catalog/' + eventId).then(function (response) {
                 return response.json();
             }).then(function (object) {
                 var catalog = CatalogApiService_1.deserializeCatalog(object);
@@ -29,7 +29,7 @@ var CatalogApiService = CatalogApiService_1 = (function () {
     };
     CatalogApiService.getDefaultCatalog = function () {
         return new Promise(function (resolve, reject) {
-            fetch(appGlobal.url + '/default').then(function (response) {
+            fetch(appGlobal.GeneralGlobals.serverHostname + '/default').then(function (response) {
                 return response.json();
             }).then(function (object) {
                 resolve(CatalogApiService_1.deserializeCatalog(object));
@@ -38,7 +38,7 @@ var CatalogApiService = CatalogApiService_1 = (function () {
     };
     CatalogApiService.getAllCatalogEvents = function (catalogId) {
         return new Promise(function (resolve, reject) {
-            fetch(appGlobal.url + '/events/' + catalogId).then(function (response) {
+            fetch(appGlobal.GeneralGlobals.serverHostname + '/events/' + catalogId).then(function (response) {
                 return response.json();
             }).then(function (object) {
                 resolve(object.events);
@@ -67,7 +67,7 @@ var CatalogApiService = CatalogApiService_1 = (function () {
                 body: JSON.stringify({ events: events, parentId: parentId })
             };
             console.log('appendEvents', JSON.stringify({ events: events, parentId: parentId }));
-            fetch(appGlobal.url + '/events/', payload).then(function (response) {
+            fetch(appGlobal.GeneralGlobals.serverHostname + '/events/', payload).then(function (response) {
                 return response.json();
             }).then(function (object) {
                 var catalog = CatalogApiService_1.deserializeCatalog(object);
@@ -83,7 +83,7 @@ var CatalogApiService = CatalogApiService_1 = (function () {
                 method: 'delete',
                 headers: myHeaders
             };
-            fetch(appGlobal.url + '/events/' + eventId, payload).then(function (response) {
+            fetch(appGlobal.GeneralGlobals.serverHostname + '/events/' + eventId, payload).then(function (response) {
                 return response.json();
             }).then(function (object) {
                 var catalog = CatalogApiService_1.deserializeCatalog(object);

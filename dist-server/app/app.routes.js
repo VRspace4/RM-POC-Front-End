@@ -30,7 +30,7 @@ exports.ROUTES = [
     {
         path: 'rmdemo', component: basicLayout_component_1.BasicLayoutComponent,
         children: [
-            { path: 'apple', component: rm_full_component_1.RmFullComponent }
+            { path: 'rmfull', component: rm_full_component_1.RmFullComponent }
         ]
     },
     // {

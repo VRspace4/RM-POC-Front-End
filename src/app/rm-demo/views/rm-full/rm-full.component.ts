@@ -25,7 +25,8 @@ class DataPoint implements IDataPoint {
 @Component({
   selector: 'app-rm-full',
   templateUrl: './rm-full.component.html',
-  styleUrls: ['./rm-full.component.css']
+  styleUrls: ['./rm-full.component.css'],
+  providers: [DsService]
 })
 
 // function generateDataPoints(rootModel: RootModel, allocat): DataPoint {

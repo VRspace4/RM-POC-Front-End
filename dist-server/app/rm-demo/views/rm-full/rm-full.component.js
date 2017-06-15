@@ -93,7 +93,8 @@ RmFullComponent = __decorate([
     core_1.Component({
         selector: 'app-rm-full',
         templateUrl: './rm-full.component.html',
-        styleUrls: ['./rm-full.component.css']
+        styleUrls: ['./rm-full.component.css'],
+        providers: [ds_service_1.DsService]
     })
     // function generateDataPoints(rootModel: RootModel, allocat): DataPoint {
     //   const dataPoints: DataPoint[];

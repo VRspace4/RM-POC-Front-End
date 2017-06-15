@@ -11,10 +11,10 @@ import {RootModelModifiedEvent} from "../app/es-demo/events/root-model-modified-
 import {OriginatorAddedEvent} from "../app/es-demo/events/originator-added-event";
 import {RootModel} from "../app/es-demo/models/root-model";
 import {KeyValue} from "../app/es-demo/models/key-value";
-import {RmCommonController} from "./rm-server/rm-common-controller.service";
-import {RmCommandRepository} from "./rm-server/command/rm-command-repository.service";
-import {RmCommandController} from "./rm-server/command/rm-command-controller.service";
-import {RmCommonRepository} from "./rm-server/rm-common-repository.service";
+import {RmCommonController} from "./rm-demo/common/rm-common-controller.service";
+import {RmCommandRepository} from "./rm-demo/command/rm-command-repository.service";
+import {RmCommandController} from "./rm-demo/command/rm-command-controller.service";
+import {RmCommonRepository} from "./rm-demo/common/rm-common-repository.service";
 
 RmCommonController.initializeMaterializedView();
 

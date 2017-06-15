@@ -3,13 +3,13 @@ import {EsEvent} from "../../../app/es-demo/events/es-event.abstract";
 import {Neo4jGlobals} from "../../../app/app.globals";
 import {RootModel} from "../../../app/es-demo/models/root-model";
 import {RmCommandController} from "./rm-command-controller.service";
-import {RmCommonController} from "../rm-common-controller.service";
+import {RmCommonController} from "../common/rm-common-controller.service";
 import {RootModelAddedEvent} from "../../../app/es-demo/events/root-model-added-event";
 
-const uri = 'bolt://localhost';
+const uri = 'bolt://rm';
 
 export class RmCommandRepository {
-  static _session = neo4j.driver(uri, neo4j.auth.basic('neo4j', '9colada')).session();
+  static _session = neo4j.driver(uri, neo4j.auth.basic('neo4j', 'Resman1989#')).session();
 
   /**
    * Gets the production path of all events and not any of the branch paths.
