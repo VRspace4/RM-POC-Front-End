@@ -9,22 +9,24 @@ var customer_added_event_1 = require("../../../app/es-demo/events/customer-added
 var root_model_added_event_1 = require("../../../app/es-demo/events/root-model-added-event");
 var root_model_modified_event_1 = require("../../../app/es-demo/events/root-model-modified-event");
 var originator_added_event_1 = require("../../../app/es-demo/events/originator-added-event");
-var rm_common_controller_service_1 = require("../../rm-demo/common/rm-common-controller.service");
 var rm_command_repository_service_1 = require("../../rm-demo/command/rm-command-repository.service");
 var rm_command_controller_service_1 = require("../../rm-demo/command/rm-command-controller.service");
-var rm_common_repository_service_1 = require("../../rm-demo/common/rm-common-repository.service");
-rm_common_controller_service_1.RmCommonController.initializeMaterializedView();
-var CommandRestServer = (function () {
-    function CommandRestServer() {
+var RmCommandRestServer = (function () {
+    function RmCommandRestServer() {
     }
-    CommandRestServer.run = function (serverPort, callback, debugFlag) {
+    RmCommandRestServer.startServer = function (serverPort, postServerStatusMessages, callback) {
         var app = express();
         app.use(cors());
         app.use(bodyParser.json());
-        app.post('/events', function (request, response) {
-            rm_command_controller_service_1.RmCommandController.insertEvents(request.body.events, request.body.parentId, function (transponder) {
-                response.send(request.body);
-            });
+        app.post('/events', function (request, response, next) {
+            // Verify formatting
+            var events = request.body.events;
+            var verifyFormattingResult = rm_command_controller_service_1.RmCommandController.verifyEventsFormatting(events);
+            if (verifyFormattingResult.verificationResult.passed === false) {
+                response.send(verifyFormattingResult);
+                return next();
+            }
+            // Verify event processing()
         });
         app.get('/rootModel/productionRootModelId', function (request, response) {
             rm_command_repository_service_1.RmCommandRepository.getProductionRootModelId().then(function (rootModelId) {
@@ -41,7 +43,7 @@ var CommandRestServer = (function () {
             });
         });
         app.get('/dataNode/rmDemo', function (request, response) {
-            rm_common_repository_service_1.RmCommonRepository.getDataNode('RM-Demo').then(function (keyValue) {
+            rm_command_repository_service_1.RmCommandRepository.getDataNode('RM-Demo').then(function (keyValue) {
                 response.send(keyValue);
             }).catch(function (e) {
                 response.status(400).send(e.message);
@@ -82,7 +84,7 @@ var CommandRestServer = (function () {
             response.send('It worked!');
         });
         var server = app.listen(serverPort, function () {
-            if (debugFlag === true) {
+            if (postServerStatusMessages === true) {
                 console.log('Server started at port, ' + appGlobal.serverPort);
             }
             if (callback) {
@@ -90,15 +92,15 @@ var CommandRestServer = (function () {
             }
         });
         server.on('close', function () {
-            if (debugFlag === true) {
+            if (postServerStatusMessages === true) {
                 console.log('Server closed');
             }
         });
         return server;
     };
-    return CommandRestServer;
+    return RmCommandRestServer;
 }());
-exports.CommandRestServer = CommandRestServer;
+exports.RmCommandRestServer = RmCommandRestServer;
 ;
 // if (require.main === module) {
 //   run(appGlobal.serverPort, null, true);

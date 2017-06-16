@@ -5,11 +5,46 @@ import {RootModel} from "../../../app/es-demo/models/root-model";
 import {RmCommandController} from "./rm-command-controller.service";
 import {RmCommonController} from "../common/rm-common-controller.service";
 import {RootModelAddedEvent} from "../../../app/es-demo/events/root-model-added-event";
+import {KeyValue} from "../../../app/es-demo/types/key-value";
 
 const uri = 'bolt://rm';
 
 export class RmCommandRepository {
   static _session = neo4j.driver(uri, neo4j.auth.basic('neo4j', 'Resman1989#')).session();
+
+  static getDataNode(dataNodeName: string): Promise<KeyValue<string>> {
+    const command = `MATCH (dataNode:Data {name: '${dataNodeName}'}) RETURN dataNode`;
+    return new Promise((resolve, reject) => {
+      RmCommandRepository._session.run(command).then(result => {
+        const keys: string[] = [];
+        const values: string[] = [];
+        if (result.records.length > 0) {
+          const resultObj = result.records[0].get(0).properties;
+          for (const key in resultObj) {
+            if (resultObj.hasOwnProperty(key)) {
+              keys.push(key);
+              values.push(resultObj[key]);
+            }
+            ;
+          }
+          ;
+        }
+
+        const keyValue = new KeyValue<string>(keys, values);
+
+        resolve(keyValue);
+      }).catch((e) => {
+        reject(e);
+      });
+    });
+  }
+
+  static setDataNode(dataNodeName: string, key: string, value: string) {
+    const command = `MERGE (n:Data {name: '${Neo4jGlobals.rmDemoDataName}'}) 
+                      SET n.${key} = '${value}'
+                      RETURN n`;
+    return RmCommandRepository._session.run(command);
+  }
 
   /**
    * Gets the production path of all events and not any of the branch paths.
@@ -29,8 +64,10 @@ export class RmCommandRepository {
 
         if (result.records.length > 0) {
           // Deserialize root event
-          const rootEvent = RmCommonController.deserializeEvent(result.records[0].get(0).start.properties,
+          const deserializationResult = RmCommandController.deserializeEvent(result.records[0].get(0).start.properties,
             rootModel);
+
+          const rootEvent = deserializationResult.output;
 
           if (rootEvent instanceof RootModelAddedEvent) {
             rootModel = rootEvent.rootModel;
@@ -41,7 +78,8 @@ export class RmCommandRepository {
             for (const record of result.records) {
               if (fieldLength < record.get(0).length) {
                 fieldLength++;
-                const event: EsEvent = RmCommonController.deserializeEvent(record.get(0).end.properties, rootModel);
+                const deserializeResult = RmCommandController.deserializeEvent(record.get(0).end.properties, rootModel);
+                const event: EsEvent = deserializeResult.output;
                 event.rootModel = rootModel;
                 events.push(event);
               } else {
@@ -62,7 +100,7 @@ export class RmCommandRepository {
     });
   }
 
-  static ensureNodeExist(eventName: string): Promise<any> {
+  static async ensureNodeExist(eventName: string): Promise<any> {
     const command = `MERGE (n:Event {name: '${eventName}'}) RETURN n`;
     return this._session.run(command);
   }
@@ -86,7 +124,8 @@ export class RmCommandRepository {
         let rootModel: RootModel;
 
         const events: EsEvent[] = result.records.map((record) => {
-          const event: EsEvent = RmCommonController.deserializeEvent(record.get(0).properties, rootModel);
+          const deserializResult = RmCommandController.deserializeEvent(record.get(0).properties, rootModel);
+          const event: EsEvent = deserializResult.output;
           rootModel = event.rootModel;
 
           return event;

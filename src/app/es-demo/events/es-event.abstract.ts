@@ -1,5 +1,5 @@
 import {RootModel} from "../models/root-model";
-import {VerificationOutput} from "../models/verification-output";
+import {VerificationOutput} from "../types/verification-output";
 import {createVerify} from "crypto";
 
 export abstract class EsEvent {

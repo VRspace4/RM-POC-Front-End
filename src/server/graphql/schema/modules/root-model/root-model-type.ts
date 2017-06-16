@@ -20,7 +20,7 @@ type RootModelType {
 export const resolver = {
   RootModelType: {
     name() {
-      fetch(`${GeneralGlobals.serverHostname}:${GeneralGlobals.serverPort}/hello`).then(function (response) {
+      fetch(`${GeneralGlobals.serverHostname}:${GeneralGlobals.restServerPort}/hello`).then(function (response) {
         return response.text();
       });
     },

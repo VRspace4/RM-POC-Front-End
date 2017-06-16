@@ -1,6 +1,6 @@
 import {BaseEntity} from "./base-entity";
 import {generateUUID} from "../../app.helpers";
-import {VerificationOutput} from "./verification-output";
+import {VerificationOutput} from "../types/verification-output";
 import {RootModel} from "./root-model";
 
 export class Customer extends BaseEntity {

@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var base_entity_1 = require("./base-entity");
 var app_helpers_1 = require("../../app.helpers");
-var verification_output_1 = require("./verification-output");
+var verification_output_1 = require("../types/verification-output");
 var Originator = (function (_super) {
     __extends(Originator, _super);
     function Originator(name, id) {

@@ -1,5 +1,5 @@
 import {generateUUID} from "../../app.helpers";
-import {VerificationOutput} from "./verification-output";
+import {VerificationOutput} from "../types/verification-output";
 import {RootModel} from "./root-model";
 export abstract class BaseEntity {
   public id: string;

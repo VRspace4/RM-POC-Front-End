@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_event_abstract_1 = require("./es-event.abstract");
-var verification_output_1 = require("../models/verification-output");
+var verification_output_1 = require("../types/verification-output");
 var EsModificationEvent = (function (_super) {
     __extends(EsModificationEvent, _super);
     function EsModificationEvent(rootModel, keys, values, name) {

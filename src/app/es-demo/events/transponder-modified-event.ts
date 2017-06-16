@@ -1,7 +1,7 @@
 import {EsModificationEvent} from "./es-modification-event";
 import {RootModel} from "../models/root-model";
 import {Transponder} from "../models/transponder";
-import {VerificationOutput} from "../models/verification-output";
+import {VerificationOutput} from "../types/verification-output";
 import {RmEventType} from "../../app.globals";
 
 export class TransponderModifiedEvent extends EsModificationEvent {

@@ -2,7 +2,7 @@ import {generateUUID} from "../../app.helpers";
 import {Customer} from "../models/customer";
 import {EsEvent} from "./es-event.abstract";
 import {RootModel} from "../models/root-model";
-import {VerificationOutput} from "../models/verification-output";
+import {VerificationOutput} from "../types/verification-output";
 import {RmEventType} from "../../app.globals";
 
 export class CustomerAddedEvent extends EsEvent {

@@ -1,5 +1,5 @@
 import {Allocation} from "../models/allocation";
-import {VerificationOutput} from "../models/verification-output";
+import {VerificationOutput} from "../types/verification-output";
 export class TransponderService {
   /**
    * Run all allocation verification functions

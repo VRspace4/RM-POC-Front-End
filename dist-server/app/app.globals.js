@@ -35,7 +35,7 @@ var GeneralGlobals = (function () {
     return GeneralGlobals;
 }());
 GeneralGlobals.serverHostname = 'rm';
-GeneralGlobals.serverPort = 4500;
+GeneralGlobals.restServerPort = 4500;
 GeneralGlobals.graphQLPort = 4300;
 exports.GeneralGlobals = GeneralGlobals;
 var DsGlobals = (function () {
@@ -50,6 +50,7 @@ var KafkaGlobals = (function () {
     }
     return KafkaGlobals;
 }());
+KafkaGlobals.uri = 'rm:2181';
 KafkaGlobals.topicName = Neo4jGlobals.rmDemoDataName.toLowerCase();
 KafkaGlobals.topicPartition = '0';
 exports.KafkaGlobals = KafkaGlobals;

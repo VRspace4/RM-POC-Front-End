@@ -1,7 +1,7 @@
 import {RootModel} from "../models/root-model";
 import {EsEvent} from "./es-event.abstract";
 import {RmEventType} from "../../app.globals";
-import {VerificationOutput} from "../models/verification-output";
+import {VerificationOutput} from "../types/verification-output";
 
 export class TransponderRemovedEvent extends EsEvent {
   constructor(

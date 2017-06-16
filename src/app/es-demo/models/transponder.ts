@@ -3,7 +3,7 @@ import {Allocation} from "./allocation";
 import {BaseEntity} from "./base-entity";
 import {generateUUID} from "../../app.helpers";
 import {TransponderService} from "../services/transponder.service";
-import {ITransponder} from "./transponder.interface";
+import {ITransponder} from "../types/transponder.interface";
 
 export class Transponder extends BaseEntity implements ITransponder {
   constructor(

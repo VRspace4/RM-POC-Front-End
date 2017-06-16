@@ -1,7 +1,7 @@
 import {BaseEntity} from "../models/base-entity";
 import {EsEvent} from "./es-event.abstract";
 import {RootModel} from "../models/root-model";
-import {VerificationOutput} from "../models/verification-output";
+import {VerificationOutput} from "../types/verification-output";
 import {RmEventType} from "../../app.globals";
 
 export abstract class EsModificationEvent extends EsEvent {

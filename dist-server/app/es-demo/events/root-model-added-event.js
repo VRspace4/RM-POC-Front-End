@@ -13,8 +13,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app_helpers_1 = require("../../app.helpers");
 var es_event_abstract_1 = require("./es-event.abstract");
 var root_model_1 = require("../models/root-model");
-var verification_output_1 = require("../models/verification-output");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
+//
 var RootModelAddedEvent = (function (_super) {
     __extends(RootModelAddedEvent, _super);
     function RootModelAddedEvent(rootModel, rootModelName, rootModelId, transponders, customers, originators) {
@@ -29,10 +30,10 @@ var RootModelAddedEvent = (function (_super) {
         _this.transponders = transponders;
         _this.customers = customers;
         _this.originators = originators;
-        _this.rootModel = new root_model_1.RootModel(_this.rootModelName, _this.rootModelId, null, _this.transponders, _this.customers, _this.originators);
         return _this;
     }
     RootModelAddedEvent.prototype.process = function () {
+        this.rootModel = new root_model_1.RootModel(this.rootModelName, this.rootModelId, null, this.transponders, this.customers, this.originators);
         return this.rootModel;
     };
     RootModelAddedEvent.prototype.verifyProcess = function () {

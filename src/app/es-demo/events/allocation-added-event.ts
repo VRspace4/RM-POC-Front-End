@@ -5,7 +5,7 @@ import {RootModel} from "../models/root-model";
 import {Transponder} from "../models/transponder";
 import {IAllocation} from "../models/allocation-interface";
 import {TransponderService} from "../services/transponder.service";
-import {VerificationOutput} from "../models/verification-output";
+import {VerificationOutput} from "../types/verification-output";
 import {RmEventType} from "../../app.globals";
 
 export class AllocationAddedEvent extends EsEvent implements IAllocation {

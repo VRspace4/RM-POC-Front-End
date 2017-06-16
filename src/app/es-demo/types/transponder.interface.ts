@@ -1,4 +1,4 @@
-import {Allocation} from "./allocation";
+import {Allocation} from "../models/allocation";
 
 export interface ITransponder {
   powerLimit: number;

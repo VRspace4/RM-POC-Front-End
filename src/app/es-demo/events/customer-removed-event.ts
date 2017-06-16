@@ -1,6 +1,6 @@
 import {RootModel} from "../models/root-model";
 import {EsEvent} from "./es-event.abstract";
-import {VerificationOutput} from "../models/verification-output";
+import {VerificationOutput} from "../types/verification-output";
 import {Customer} from "../models/customer";
 import {RmEventType} from "../../app.globals";
 

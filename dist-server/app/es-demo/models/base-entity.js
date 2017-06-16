@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var app_helpers_1 = require("../../app.helpers");
-var verification_output_1 = require("./verification-output");
+var verification_output_1 = require("../types/verification-output");
 var BaseEntity = (function () {
     function BaseEntity(name, id) {
         this.name = name;

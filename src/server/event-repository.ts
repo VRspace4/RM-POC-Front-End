@@ -17,7 +17,7 @@ import {TransponderRemovedEvent} from "../app/es-demo/events/transponder-removed
 import {CustomerRemovedEvent} from "../app/es-demo/events/customer-removed-event";
 import {OriginatorRemovedEvent} from "../app/es-demo/events/originator-removed-event";
 import {AllocationRemovedEvent} from "../app/es-demo/events/allocation-removed-event";
-import {KeyValue} from "../app/es-demo/models/key-value";
+import {KeyValue} from "../app/es-demo/types/key-value";
 
 
 export class EventRepository {

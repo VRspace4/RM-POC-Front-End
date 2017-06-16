@@ -1,7 +1,7 @@
 import {BaseEntity} from "./base-entity";
 import {generateUUID} from "../../app.helpers";
 import {RootModel} from "./root-model";
-import {VerificationOutput} from "./verification-output";
+import {VerificationOutput} from "../types/verification-output";
 
 export class Originator extends BaseEntity {
   constructor (

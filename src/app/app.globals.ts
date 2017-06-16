@@ -27,7 +27,7 @@ export enum RmEventType {
 
 export class GeneralGlobals {
   static serverHostname = 'rm';
-  static serverPort = 4500;
+  static restServerPort = 4500;
   static graphQLPort = 4300;
 }
 
@@ -36,6 +36,7 @@ export class DsGlobals {
 }
 
 export class KafkaGlobals {
+  static uri = 'rm:2181';
   static topicName = Neo4jGlobals.rmDemoDataName.toLowerCase();
   static topicPartition = '0';
 }

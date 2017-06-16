@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var verification_output_1 = require("../models/verification-output");
+var verification_output_1 = require("../types/verification-output");
 var TransponderService = (function () {
     function TransponderService() {
     }

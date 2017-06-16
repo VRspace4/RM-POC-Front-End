@@ -9,7 +9,7 @@ import {Originator} from "./models/originator";
 import {Allocation} from "./models/allocation";
 import {TransponderService} from "./services/transponder.service";
 import {RootModel} from "./models/root-model";
-import {VerificationOutput} from "./models/verification-output";
+import {VerificationOutput} from "./types/verification-output";
 
 describe('es-demo-models-events-services', () => {
   let rootModel: RootModel;
