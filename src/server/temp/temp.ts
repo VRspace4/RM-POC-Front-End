@@ -1,15 +1,14 @@
-import {EsEvent} from "../../app/es-demo/events/es-event.abstract";
-import {CustomerAddedEvent} from "../../app/es-demo/events/customer-added-event";
-import {RmCommandController} from "../rm-demo/command/rm-command-controller.service";
-import {RmMessageProducer} from "../rm-demo/command/rm-message-producer.service";
-const jsonStr: any = '{name:"RootModelAddedEvent",parent:null,rootModelName:' +
-  '"Production",rootModelId:"60a2b078",transponders:[],customers:[],originators:[]}';
-// const testObj: EsEvent =
-console.log(jsonStr.name);
+class TestClassA {
+  constructor(
+    public inputStr: string,
+    public inputNumber = 123,
+    public inputStr2 = 'abc'
+  ) {}
+}
 
+const testObj = {
+  inputStr: 'xxx',
+  inputNumber: 999
+};
 
-const customer = new CustomerAddedEvent(null, 'Intelsat');
-const customerSerialized = RmMessageProducer.serializeEvent(customer);
-console.log(customer);
-console.log(customerSerialized);
-
+const testClassA = new TestClassA(testObj.inputStr, 55, 'ddd');

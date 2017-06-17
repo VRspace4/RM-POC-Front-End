@@ -68,4 +68,5 @@ export class RootModel extends BaseEntity {
   public removeOriginator(originatorId: string): void {
     this.removeEntity(originatorId, this.originators);
   }
+
 }

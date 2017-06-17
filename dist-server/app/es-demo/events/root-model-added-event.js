@@ -30,10 +30,10 @@ var RootModelAddedEvent = (function (_super) {
         _this.transponders = transponders;
         _this.customers = customers;
         _this.originators = originators;
+        _this.rootModel = new root_model_1.RootModel(_this.rootModelName, _this.rootModelId, null, _this.transponders, _this.customers, _this.originators);
         return _this;
     }
     RootModelAddedEvent.prototype.process = function () {
-        this.rootModel = new root_model_1.RootModel(this.rootModelName, this.rootModelId, null, this.transponders, this.customers, this.originators);
         return this.rootModel;
     };
     RootModelAddedEvent.prototype.verifyProcess = function () {

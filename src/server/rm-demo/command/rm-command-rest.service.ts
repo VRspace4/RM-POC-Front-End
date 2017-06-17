@@ -18,6 +18,8 @@ import {RmCommonRepository} from "../../rm-demo/common/rm-common-repository.serv
 import {forEach} from "@angular/router/src/utils/collection";
 import {VerificationOutput} from "../../../app/es-demo/types/verification-output";
 import {ResponseMessage, ResponseMessageType} from "../../../app/es-demo/types/response-message";
+import {RmMessageProducer} from "./rm-message-producer.service";
+import {ReturnWithResponseMsg} from "../../../app/es-demo/types/return-with-response-message.type";
 
 
 export class RmCommandRestServer {
@@ -36,8 +38,11 @@ export class RmCommandRestServer {
         return next();
       }
 
-      // Verify event processing()
-
+      // Events verified, commit them
+      RmMessageProducer.commitEvents(events)
+        .then((result: ReturnWithResponseMsg<number>) => {
+          response.send(result.responseMessage);
+        });
     });
 
     app.get('/rootModel/productionRootModelId', function(request, response) {

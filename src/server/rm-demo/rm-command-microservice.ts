@@ -13,7 +13,7 @@ import {CustomerAddedEvent} from "../../app/es-demo/events/customer-added-event"
 async function main() {
   const mainVariables = new MainVariables(null);
   // const messageProducer = new RmMessageProducer();
-  // RmCommandRestServer.startServer(GeneralGlobals.restServerPort, true, null);
+  RmCommandRestServer.startServer(GeneralGlobals.restServerPort, true, null);
   // RmMessageConsumer.startServer();
   // RmMessageOffset.testOffset();
 

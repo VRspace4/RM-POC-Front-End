@@ -36,6 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var rm_command_controller_service_1 = require("./command/rm-command-controller.service");
+var rm_command_rest_service_1 = require("./command/rm-command-rest.service");
+var app_globals_1 = require("../../app/app.globals");
 var main_variables_1 = require("../../app/es-demo/types/main-variables");
 function main() {
     return __awaiter(this, void 0, void 0, function () {
@@ -44,6 +46,8 @@ function main() {
             switch (_a.label) {
                 case 0:
                     mainVariables = new main_variables_1.MainVariables(null);
+                    // const messageProducer = new RmMessageProducer();
+                    rm_command_rest_service_1.RmCommandRestServer.startServer(app_globals_1.GeneralGlobals.restServerPort, true, null);
                     return [4 /*yield*/, rm_command_controller_service_1.RmCommandController.initialize()];
                 case 1:
                     rootModel = _a.sent();

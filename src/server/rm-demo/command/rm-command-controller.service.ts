@@ -24,6 +24,8 @@ import {ResponseMessage, ResponseMessageType} from "../../../app/es-demo/types/r
 import {MainVariables} from "../../../app/es-demo/types/main-variables";
 import {RmMessageProducer} from "./rm-message-producer.service";
 import {EventAndMsgOffset} from "../../../app/es-demo/types/event-and-msg-offset.type";
+import {generateUUID} from "../../../app/app.helpers";
+import {ReturnWithResponseMsg} from "../../../app/es-demo/types/return-with-response-message.type";
 
 export class RmCommandController {
   private static _rootModel: RootModel;
@@ -68,7 +70,7 @@ export class RmCommandController {
       });
       outputVerification.passed = true;
       outputResponse.type = ResponseMessageType[ResponseMessageType.success];
-      outputResponse.title = `Event committed`;
+      outputResponse.title = `Events committed`;
       outputResponse.message = `The event(s) (${eventList}) have been committed.`;
     } else {
       outputVerification.passed = false;
@@ -89,7 +91,7 @@ export class RmCommandController {
       case 'RootModelAddedEvent':
         const rootModelAddedEvent = <RootModelAddedEvent>event;
         convertedEvent = new RootModelAddedEvent(rootModel, rootModelAddedEvent.rootModelName,
-          rootModelAddedEvent.rootModelId, rootModelAddedEvent.transponders,
+          generateUUID(), rootModelAddedEvent.transponders,
           rootModelAddedEvent.customers, rootModelAddedEvent.originators);
         break;
 
@@ -101,8 +103,7 @@ export class RmCommandController {
 
       case 'TransponderAddedEvent':
         const transponderAddedEvent = <TransponderAddedEvent>event;
-        convertedEvent = new TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName,
-          transponderAddedEvent.transponderId);
+        convertedEvent = new TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName);
         break;
 
       case 'TransponderModifiedEvent':
@@ -118,8 +119,7 @@ export class RmCommandController {
 
       case 'CustomerAddedEvent':
         const customerAddedEvent = <CustomerAddedEvent>event;
-        convertedEvent = new CustomerAddedEvent(rootModel, customerAddedEvent.customerName,
-          customerAddedEvent.customerId);
+        convertedEvent = new CustomerAddedEvent(rootModel, customerAddedEvent.customerName);
         break;
 
       case 'CustomerModifiedEvent':
@@ -134,8 +134,7 @@ export class RmCommandController {
 
       case 'OriginatorAddedEvent':
         const originatorAddedEvent = <OriginatorAddedEvent>event;
-        convertedEvent = new OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName,
-          originatorAddedEvent.originatorId);
+        convertedEvent = new OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName);
         break;
 
       case 'OriginatorModifiedEvent':
@@ -153,8 +152,7 @@ export class RmCommandController {
         const allocationAddedEvent = <AllocationAddedEvent>event;
         convertedEvent = new AllocationAddedEvent(rootModel, allocationAddedEvent.transponderId, allocationAddedEvent.startFrequency,
           allocationAddedEvent.stopFrequency, allocationAddedEvent.powerUsage, allocationAddedEvent.customerId,
-          allocationAddedEvent.originatorId, allocationAddedEvent.allocationName,
-          allocationAddedEvent.allocationId);
+          allocationAddedEvent.originatorId, allocationAddedEvent.allocationName);
         break;
 
       case 'AllocationModifiedEvent':
@@ -208,7 +206,7 @@ export class RmCommandController {
   public static async initialize(): Promise<RootModel> {
     return new Promise<RootModel>(async function(resolve, reject) {
       // Get all events and its offset number from message broker
-      const eventChainAndOffset = await RmMessageProducer.fetchEventsFromOffset(16);
+      const eventChainAndOffset = await RmMessageProducer.fetchEventsFromOffset(23);
       RmMessageProducer.createClient();
       await RmMessageProducer.startProducerClient();
       // Look for the latest instance of RootModelAddedEvent in reverse order
@@ -226,10 +224,13 @@ export class RmCommandController {
       if (rootModelEventIndex === -1) {
         const rootModelAddedEvent = new RootModelAddedEvent(null, 'Production');
         const transponderAddedEvent = new TransponderAddedEvent(null, 'Transponder 1');
-        RmMessageProducer.commitEvents([rootModelAddedEvent, transponderAddedEvent]);
+        RmMessageProducer.commitEvents([rootModelAddedEvent, transponderAddedEvent])
+          .then((result: ReturnWithResponseMsg<number>) => {
+            console.log(result);
+          });
       } else {
         const eventsToBeProcessed: EsEvent[] = [];
-        for (let i = 2; i < eventChainAndOffset.length; i++) {
+        for (let i = rootModelEventIndex; i < eventChainAndOffset.length; i++) {
           const result =  RmCommandController.deserializeEvent(eventChainAndOffset[i].event, null);
           if (result.verificationResult.passed) {
             eventsToBeProcessed.push(result.output);
@@ -243,6 +244,8 @@ export class RmCommandController {
 
     });
   }
+
+
 
   /**
    * Prepares the graph database and create a production event path if

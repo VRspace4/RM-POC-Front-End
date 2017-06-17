@@ -15,15 +15,20 @@ var transponder_1 = require("../models/transponder");
 var app_globals_1 = require("../../app.globals");
 var TransponderModifiedEvent = (function (_super) {
     __extends(TransponderModifiedEvent, _super);
-    function TransponderModifiedEvent(rootModel, transponderId, key, value) {
-        var _this = _super.call(this, rootModel, key, value, app_globals_1.RmEventType[app_globals_1.RmEventType.TransponderModifiedEvent]) || this;
+    function TransponderModifiedEvent(rootModel, transponderId, keys, values) {
+        var _this = _super.call(this, rootModel, keys, values, app_globals_1.RmEventType[app_globals_1.RmEventType.TransponderModifiedEvent]) || this;
         _this.transponderId = transponderId;
         return _this;
     }
     TransponderModifiedEvent.prototype.process = function () {
         this.throwIfVerificationFails();
         var transponderToChange = this.rootModel.getTransponder(this.transponderId);
-        this.applyModifications(transponderToChange);
+        if (typeof transponderToChange !== 'undefined') {
+            this.applyModifications(transponderToChange);
+        }
+        else {
+            throw new Error('Invalid transponder id');
+        }
         return this.rootModel;
     };
     TransponderModifiedEvent.prototype.verifyProcess = function () {

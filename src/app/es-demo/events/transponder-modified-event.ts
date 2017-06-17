@@ -8,15 +8,19 @@ export class TransponderModifiedEvent extends EsModificationEvent {
   constructor(
     rootModel: RootModel,
     public transponderId: string,
-    key: string[],
-    value: string[]
+    keys: string[],
+    values: string[]
   ) {
-    super(rootModel, key, value, RmEventType[RmEventType.TransponderModifiedEvent]);
+    super(rootModel, keys, values, RmEventType[RmEventType.TransponderModifiedEvent]);
   }
   process(): RootModel {
     this.throwIfVerificationFails();
     const transponderToChange: Transponder = this.rootModel.getTransponder(this.transponderId);
-    this.applyModifications(transponderToChange);
+    if (typeof transponderToChange !== 'undefined') {
+      this.applyModifications(transponderToChange);
+    } else {
+      throw new Error('Invalid transponder id');
+    }
     return this.rootModel;
   }
 

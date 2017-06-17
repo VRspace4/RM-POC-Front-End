@@ -1,103 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" line="232" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" line="151" mnemonic="1" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e247cd20-fb4a-4e03-9e5c-43c54a7ce6bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/es-demo/types/event-and-msg-offset.type.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/es-demo/types/main-variables.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/es-demo/types/response-message.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-offset.service.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-message-consumer.service.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/server/rm-demo/command-microservice.ts" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/es-demo/models/key-value.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/types/key-value.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/es-demo/models/root-model.interface.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/types/root-model.interface.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/es-demo/models/transponder.interface.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/types/transponder.interface.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/es-demo/models/verification-output.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/types/verification-output.ts" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/server/rm-demo/query-microservice.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/es-demo/types/broker-message.type.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/es-demo/types/return-with-response-message.type.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/app.globals.js" afterPath="$PROJECT_DIR$/dist-server/app/app.globals.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/app.globals.js.map" afterPath="$PROJECT_DIR$/dist-server/app/app.globals.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-removed-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-removed-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-removed-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-removed-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.abstract.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.abstract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.abstract.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.abstract.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-modification-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-modification-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-modification-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-modification-event.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-added-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-added-event.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-added-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-added-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-removed-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-removed-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-removed-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-removed-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/base-entity.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/base-entity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/base-entity.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/base-entity.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/customer.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/customer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/customer.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/customer.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/originator.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/originator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/originator.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/originator.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/services/transponder.service.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/services/transponder.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/services/transponder.service.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/services/transponder.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/root-model-type.js" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/root-model-type.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/root-model-type.js.map" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/root-model-type.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-modified-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-modified-event.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-modified-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-modified-event.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/root-model.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/root-model.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-repository.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-repository.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-repository.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-repository.service.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-message-producer.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-message-producer.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-message-producer.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-message-producer.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-controller.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-controller.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-controller.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-controller.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-repository.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-repository.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-repository.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-repository.service.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-controller.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-controller.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-controller.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-controller.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/server.js" afterPath="$PROJECT_DIR$/dist-server/server/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/server.js.map" afterPath="$PROJECT_DIR$/dist-server/server/server.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/server.spec.js" afterPath="$PROJECT_DIR$/dist-server/server/server.spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/server.spec.js.map" afterPath="$PROJECT_DIR$/dist-server/server/server.spec.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/temp.js" afterPath="$PROJECT_DIR$/dist-server/temp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/temp.js.map" afterPath="$PROJECT_DIR$/dist-server/temp.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.globals.ts" afterPath="$PROJECT_DIR$/src/app/app.globals.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/es-demo-models-events.spec.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/es-demo-models-events.spec.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/allocation-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/allocation-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/allocation-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/allocation-removed-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/customer-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/customer-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/customer-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/customer-removed-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/es-modification-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/es-modification-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/originator-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/originator-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/originator-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/originator-removed-event.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/root-model-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/root-model-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/transponder-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/transponder-removed-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/base-entity.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/base-entity.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/customer.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/customer.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/originator.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/originator.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/transponder.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/transponder.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/services/transponder.service.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/services/transponder.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/event-repository.ts" afterPath="$PROJECT_DIR$/src/server/event-repository.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model/root-model-type.ts" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model/root-model-type.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/root-model.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/root-model.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-repository.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-repository.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-controller.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-controller.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-repository.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-repository.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-controller.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-controller.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/server.spec.ts" afterPath="$PROJECT_DIR$/src/server/server.spec.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/server.ts" afterPath="$PROJECT_DIR$/src/server/server.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/temp/temp.ts" afterPath="$PROJECT_DIR$/src/server/temp/temp.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/temp.ts" afterPath="$PROJECT_DIR$/src/temp.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/coverage/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -146,11 +90,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="rm-command-microservice.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rm-command-microservice.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            <state relative-caret-position="340">
+              <caret line="19" column="51" lean-forward="false" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rm-command-rest.service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="48" column="33" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -159,38 +113,63 @@
       <file leaf-file-name="rm-command-controller.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="820">
-              <caret line="240" column="8" lean-forward="false" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+            <state relative-caret-position="301">
+              <caret line="108" column="38" lean-forward="true" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="root-model-added-event.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts">
+      <file leaf-file-name="rm-message-consumer.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="25" column="2" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
+            <state relative-caret-position="181">
+              <caret line="82" column="95" lean-forward="false" selection-start-line="82" selection-start-column="95" selection-end-line="82" selection-end-column="95" />
+              <folding>
+                <element signature="e#0#93#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rm-query-microservice.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#71#0" expanded="true" />
+                <marker date="1497678400410" expanded="true" signature="570:571" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rm-query-rest.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transponder-added-event.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts">
+      <file leaf-file-name="transponder-modified-event.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="612">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="es-event.abstract.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts">
+      <file leaf-file-name="customer-added-event.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            <state relative-caret-position="238">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -199,40 +178,8 @@
       <file leaf-file-name="rm-message-producer.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="155" column="38" lean-forward="true" selection-start-line="155" selection-start-column="38" selection-end-line="155" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="temp.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#67#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rm-command-repository.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-repository.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="verification-output.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/verification-output.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+            <state relative-caret-position="465">
+              <caret line="164" column="44" lean-forward="false" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -242,7 +189,7 @@
         <entry file="file://$PROJECT_DIR$/node_modules/@types/kafka-node/index.d.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="329">
-              <caret line="101" column="17" lean-forward="false" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
+              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -259,36 +206,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>the first eve</find>
-      <find>the first even</find>
-      <find>the first event</find>
-      <find>eve</find>
-      <find>event.p</find>
-      <find>event.pro</find>
-      <find>event.proc</find>
-      <find>event.proces</find>
-      <find>event.process</find>
-      <find>root</find>
-      <find>options</find>
-      <find>client</find>
-      <find>clien</find>
-      <find>console</find>
-      <find>msgOffset</find>
-      <find>promiseOutput</find>
-      <find>ready</find>
-      <find>console.om</find>
-      <find>event.process()</find>
+      <find>e</find>
+      <find>The event is</find>
+      <find>The event is inva</find>
+      <find>The event is invalid</find>
+      <find>const resultVerify \= new ResponseMessage\(\)\;\n      let resultMsgOffset \= \-1\;\n      console\.log\(\'Sent payload to broker\: \'\, payload\)\;\n      if \(error\) \{\n        resultVerify\.type \= ResponseMessageType\[ResponseMessageType\.error\]\;\n        resultVerify\.title \= \`Error while committing\`\;\n        resultVerify\.message \= \`Unable to commit message to broker\: \$\{error\}\`\;\n      \} else \{\n        resultVerify\.type \= ResponseMessageType\[ResponseMessageType\.success\]\;\n        resultVerify\.title \= \'Commit successful\'\;\n        resultVerify\.message \= \`The events have been committed successfully\!\`\;\n        resultMsgOffset \= result\[KafkaGlobals\.topicName\]\[KafkaGlobals\.topicPartition\]\;\n      \}\n      output\.responseMessage \= resultVerify\;\n      output\.output \= resultMsgOffset\;</find>
       <find>a</find>
-      <find>resolve</find>
+      <find>await function</find>
+      <find>retu</find>
+      <find>return new promise</find>
+      <find>async</find>
+      <find>asy</find>
+      <find>swai</find>
+      <find>swa</find>
+      <find>s</find>
       <find>await</find>
-      <find>on</find>
-      <find>on('re</find>
-      <find>on('rea</find>
-      <find>on('read</find>
-      <find>on('ready</find>
-      <find>ser</find>
-      <find>serialize</find>
-      <find>fail</find>
+      <find>con</find>
+      <find>consumer</find>
+      <find>consumer.on('w</find>
+      <find>consumer.on('message</find>
+      <find>consumer.on('messag</find>
+      <find>consumer.on('messa</find>
+      <find>consumer.on('me</find>
+      <find>consumer.on</find>
+      <find>consumer.on(</find>
+      <find>consumer.on('</find>
+      <find>consumer.on('m</find>
+      <find>consumer.on('mes</find>
+      <find>consumer.on('mess</find>
+      <find>.</find>
+      <find>.then</find>
     </findStrings>
     <replaceStrings>
       <replace>rm-demo</replace>
@@ -297,6 +244,7 @@
     <dirStrings>
       <dir>C:\dev\POC-Front-End-Sync\src</dir>
       <dir>C:\dev\POC-Front-End-Sync\src\app\es-demo\models</dir>
+      <dir>C:\dev\POC-Front-End-Sync\node_modules\kafka-node\</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -310,8 +258,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/components/common/layouts/layouts.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/common/layouts/topNavigationLayout.component.ts" />
         <option value="$PROJECT_DIR$/src/server/broker-enabled/query-microservice.ts" />
         <option value="$PROJECT_DIR$/src/server/broker-enabled/command-microservice.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/command-microservice.ts" />
@@ -333,29 +279,36 @@
         <option value="$PROJECT_DIR$/src/server/server.spec.ts" />
         <option value="$PROJECT_DIR$/src/server/server.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-repository.service.ts" />
-        <option value="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-controller.service.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model/root-model-type.ts" />
         <option value="$PROJECT_DIR$/src/temp.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/models/return-with-verifcation.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/transponder.interface.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/root-model.interface.ts" />
-        <option value="$PROJECT_DIR$/src/app/es-demo/types/response-message.ts" />
-        <option value="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-controller.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-repository.service.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/main-variables.ts" />
-        <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
         <option value="$PROJECT_DIR$/src/app/app.globals.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-offset.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-message-consumer.service.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/return-with-verifcation.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/event-and-msg-offset.type.ts" />
-        <option value="$PROJECT_DIR$/src/server/temp/temp.ts" />
-        <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" />
         <option value="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js" />
+        <option value="$PROJECT_DIR$/src/app/es-demo/types/broker-message.type.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-controller.service.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts" />
-        <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/es-demo/models/root-model.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-controller.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts" />
+        <option value="$PROJECT_DIR$/src/app/es-demo/types/response-message.ts" />
+        <option value="$PROJECT_DIR$/src/app/es-demo/types/return-with-response-message.type.ts" />
+        <option value="$PROJECT_DIR$/src/server/temp/temp.ts" />
+        <option value="$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts" />
       </list>
     </option>
   </component>
@@ -646,6 +599,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="es-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -656,13 +635,13 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist-server/server/temp/temp.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/kafka-node/lib" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="C:\dev\POC-Front-End-Sync\node_modules\tslint" />
     <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="typescript-compiler-editor-notification" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="deserial&#9;null&#9;null&#10;rootmodel&#9;null&#9;null&#10;initialize&#9;null&#9;null&#10;commitEve&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="fetch&#9;null&#9;null&#10;deserial&#9;null&#9;null&#10;rootmodel&#9;null&#9;null&#10;initialize&#9;null&#9;null&#10;commitEve&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -685,7 +664,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.rm-command-microservice">
+  <component name="RunManager" selected="Node.js.rm-query-microservice">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -1095,9 +1074,13 @@
     <configuration default="false" name="Test" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="temp.js" working-dir="$PROJECT_DIR$/dist-server/server/temp">
       <method />
     </configuration>
-    <list size="2">
+    <configuration default="false" name="rm-query-microservice" type="NodeJSConfigurationType" factoryName="Node.js" singleton="false" path-to-node="project" path-to-js-file="dist-server/server/rm-demo/rm-query-microservice.js" working-dir="$PROJECT_DIR$">
+      <method />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Node.js.rm-command-microservice" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.Test" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.rm-query-microservice" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -1116,12 +1099,12 @@
       <workItem from="1497424385259" duration="3775000" />
       <workItem from="1497429030203" duration="29757000" />
       <workItem from="1497497934170" duration="226000" />
-      <workItem from="1497501788373" duration="61595000" />
+      <workItem from="1497501788373" duration="103273000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95353000" />
+    <option name="totallyTimeSpent" value="137031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="0" width="1522" height="1941" extended-state="0" />
@@ -1142,7 +1125,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943243" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26267606" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26267606" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943243" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1150,7 +1133,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3996489" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3996489" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1170,141 +1153,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="72" />
+      <option name="time" value="173" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/views/dashboards/dashboard1.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#canvas#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/dashboards/dashboard2.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="19" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/graphql/graphql-server.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/ws/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/ws/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="125" column="1" lean-forward="false" selection-start-line="125" selection-start-column="1" selection-end-line="125" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/karma.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="47" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/npm-debug.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/transponder.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/rm-models.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/resource-manager-ui/resource-manager-ui.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1327,14 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-query-controller.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1371,26 +1216,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/base-entity.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/transponder.interface.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1407,29 +1232,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/response-message.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="8" column="29" lean-forward="false" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/key-value.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/common/rm-common-controller.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#66#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1465,22 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="43" lean-forward="false" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.globals.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="802">
@@ -1493,10 +1284,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
           <caret line="31" column="9" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#112#0" expanded="true" />
-            <marker date="1497581286837" expanded="true" signature="450:1490" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1510,14 +1298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/return-with-verifcation.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/event-and-msg-offset.type.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1526,52 +1306,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/verification-output.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@types/kafka-node/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="101" column="17" lean-forward="false" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="155" column="38" lean-forward="true" selection-start-line="155" selection-start-column="38" selection-end-line="155" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="614">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1584,10 +1322,158 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="70" column="27" lean-forward="true" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/broker-message.type.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-query-controller.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#65#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/root-model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/common/rm-common-controller.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/kafka-node/lib/protocol/protocol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="175" column="18" lean-forward="false" selection-start-line="175" selection-start-column="18" selection-end-line="175" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="1" column="62" lean-forward="false" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
+          <folding>
+            <marker date="1497678077106" expanded="true" signature="1225:1822" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="1225:3703" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="1290:1340" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="1384:1552" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="1493:1540" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="1622:1814" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="1670:1802" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="1906:3670" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="2022:2079" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="2098:2222" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="2246:3631" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="2440:3333" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="2548:2860" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="2630:2842" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="2695:2820" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="2909:3319" ph="{...}" />
+            <marker date="1497678077106" expanded="true" signature="3351:3621" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/verification-output.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/response-message.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/return-with-verifcation.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/return-with-response-message.type.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding>
+            <marker date="1497670120797" expanded="true" signature="91:196" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/add-category-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/allocation-added-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="199" column="28" lean-forward="false" selection-start-line="199" selection-start-column="28" selection-end-line="199" selection-end-column="28" />
+        <state relative-caret-position="363">
+          <caret line="200" column="28" lean-forward="false" selection-start-line="200" selection-start-column="28" selection-end-line="200" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1600,18 +1486,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/transponder.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="240" column="8" lean-forward="false" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+        <state relative-caret-position="272">
+          <caret line="13" column="11" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-modification-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="19" column="51" lean-forward="false" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/base-entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/kafka-node/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="164" column="44" lean-forward="false" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
-          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="108" column="38" lean-forward="true" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="82" column="95" lean-forward="false" selection-start-line="82" selection-start-column="95" selection-end-line="82" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#71#0" expanded="true" />
+            <marker date="1497678400410" expanded="true" signature="570:571" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="48" column="33" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
           <folding />
         </state>
       </provider>

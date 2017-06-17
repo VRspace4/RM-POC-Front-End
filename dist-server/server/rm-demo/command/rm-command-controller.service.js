@@ -54,6 +54,7 @@ var transponder_modified_event_1 = require("../../../app/es-demo/events/transpon
 var root_model_modified_event_1 = require("../../../app/es-demo/events/root-model-modified-event");
 var response_message_1 = require("../../../app/es-demo/types/response-message");
 var rm_message_producer_service_1 = require("./rm-message-producer.service");
+var app_helpers_1 = require("../../../app/app.helpers");
 var RmCommandController = (function () {
     function RmCommandController() {
     }
@@ -93,7 +94,7 @@ var RmCommandController = (function () {
             });
             outputVerification.passed = true;
             outputResponse.type = response_message_1.ResponseMessageType[response_message_1.ResponseMessageType.success];
-            outputResponse.title = "Event committed";
+            outputResponse.title = "Events committed";
             outputResponse.message = "The event(s) (" + eventList_1 + ") have been committed.";
         }
         else {
@@ -111,7 +112,7 @@ var RmCommandController = (function () {
         switch (event.name) {
             case 'RootModelAddedEvent':
                 var rootModelAddedEvent = event;
-                convertedEvent = new root_model_added_event_1.RootModelAddedEvent(rootModel, rootModelAddedEvent.rootModelName, rootModelAddedEvent.rootModelId, rootModelAddedEvent.transponders, rootModelAddedEvent.customers, rootModelAddedEvent.originators);
+                convertedEvent = new root_model_added_event_1.RootModelAddedEvent(rootModel, rootModelAddedEvent.rootModelName, app_helpers_1.generateUUID(), rootModelAddedEvent.transponders, rootModelAddedEvent.customers, rootModelAddedEvent.originators);
                 break;
             case 'RootModelModifiedEvent':
                 var rootModelModifiedEvent = event;
@@ -119,7 +120,7 @@ var RmCommandController = (function () {
                 break;
             case 'TransponderAddedEvent':
                 var transponderAddedEvent = event;
-                convertedEvent = new transponder_added_event_1.TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName, transponderAddedEvent.transponderId);
+                convertedEvent = new transponder_added_event_1.TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName);
                 break;
             case 'TransponderModifiedEvent':
                 var transponderModifiedEvent = event;
@@ -131,7 +132,7 @@ var RmCommandController = (function () {
                 break;
             case 'CustomerAddedEvent':
                 var customerAddedEvent = event;
-                convertedEvent = new customer_added_event_1.CustomerAddedEvent(rootModel, customerAddedEvent.customerName, customerAddedEvent.customerId);
+                convertedEvent = new customer_added_event_1.CustomerAddedEvent(rootModel, customerAddedEvent.customerName);
                 break;
             case 'CustomerModifiedEvent':
                 var customerModifiedEvent = event;
@@ -142,7 +143,7 @@ var RmCommandController = (function () {
                 break;
             case 'OriginatorAddedEvent':
                 var originatorAddedEvent = event;
-                convertedEvent = new originator_added_event_1.OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName, originatorAddedEvent.originatorId);
+                convertedEvent = new originator_added_event_1.OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName);
                 break;
             case 'OriginatorModifiedEvent':
                 var originatorModifiedEvent = event;
@@ -154,7 +155,7 @@ var RmCommandController = (function () {
                 break;
             case 'AllocationAddedEvent':
                 var allocationAddedEvent = event;
-                convertedEvent = new allocation_added_event_1.AllocationAddedEvent(rootModel, allocationAddedEvent.transponderId, allocationAddedEvent.startFrequency, allocationAddedEvent.stopFrequency, allocationAddedEvent.powerUsage, allocationAddedEvent.customerId, allocationAddedEvent.originatorId, allocationAddedEvent.allocationName, allocationAddedEvent.allocationId);
+                convertedEvent = new allocation_added_event_1.AllocationAddedEvent(rootModel, allocationAddedEvent.transponderId, allocationAddedEvent.startFrequency, allocationAddedEvent.stopFrequency, allocationAddedEvent.powerUsage, allocationAddedEvent.customerId, allocationAddedEvent.originatorId, allocationAddedEvent.allocationName);
                 break;
             case 'AllocationModifiedEvent':
                 var allocationModifiedEvent = event;
@@ -199,7 +200,7 @@ var RmCommandController = (function () {
                             var eventChainAndOffset, rootModelEventIndex, rootModelEventOffset, i, rootModelAddedEvent, transponderAddedEvent, eventsToBeProcessed, i, result, rootModel;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, rm_message_producer_service_1.RmMessageProducer.fetchEventsFromOffset(16)];
+                                    case 0: return [4 /*yield*/, rm_message_producer_service_1.RmMessageProducer.fetchEventsFromOffset(23)];
                                     case 1:
                                         eventChainAndOffset = _a.sent();
                                         rm_message_producer_service_1.RmMessageProducer.createClient();
@@ -219,11 +220,14 @@ var RmCommandController = (function () {
                                         if (rootModelEventIndex === -1) {
                                             rootModelAddedEvent = new root_model_added_event_1.RootModelAddedEvent(null, 'Production');
                                             transponderAddedEvent = new transponder_added_event_1.TransponderAddedEvent(null, 'Transponder 1');
-                                            rm_message_producer_service_1.RmMessageProducer.commitEvents([rootModelAddedEvent, transponderAddedEvent]);
+                                            rm_message_producer_service_1.RmMessageProducer.commitEvents([rootModelAddedEvent, transponderAddedEvent])
+                                                .then(function (result) {
+                                                console.log(result);
+                                            });
                                         }
                                         else {
                                             eventsToBeProcessed = [];
-                                            for (i = 2; i < eventChainAndOffset.length; i++) {
+                                            for (i = rootModelEventIndex; i < eventChainAndOffset.length; i++) {
                                                 result = RmCommandController.deserializeEvent(eventChainAndOffset[i].event, null);
                                                 if (result.verificationResult.passed) {
                                                     eventsToBeProcessed.push(result.output);

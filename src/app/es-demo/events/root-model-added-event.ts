@@ -18,10 +18,10 @@ export class RootModelAddedEvent extends EsEvent implements IRootModel {
     public originators: Originator[] = []
   ) {
     super(null, RmEventType[RmEventType.RootModelAddedEvent]);
-  }
-  process(): RootModel {
     this.rootModel = new RootModel(this.rootModelName, this.rootModelId, null,
       this.transponders, this.customers, this.originators);
+  }
+  process(): RootModel {
     return this.rootModel;
   }
 

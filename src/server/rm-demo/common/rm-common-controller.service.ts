@@ -23,8 +23,5 @@ import {ReturnWithVerification} from "../../../app/es-demo/types/return-with-ver
 import {VerificationOutput} from "../../../app/es-demo/types/verification-output";
 
 export class RmCommonController {
-  static _testVar: RootModel;
-
-
 
 }

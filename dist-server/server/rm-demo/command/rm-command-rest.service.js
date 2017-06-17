@@ -11,6 +11,7 @@ var root_model_modified_event_1 = require("../../../app/es-demo/events/root-mode
 var originator_added_event_1 = require("../../../app/es-demo/events/originator-added-event");
 var rm_command_repository_service_1 = require("../../rm-demo/command/rm-command-repository.service");
 var rm_command_controller_service_1 = require("../../rm-demo/command/rm-command-controller.service");
+var rm_message_producer_service_1 = require("./rm-message-producer.service");
 var RmCommandRestServer = (function () {
     function RmCommandRestServer() {
     }
@@ -26,7 +27,11 @@ var RmCommandRestServer = (function () {
                 response.send(verifyFormattingResult);
                 return next();
             }
-            // Verify event processing()
+            // Events verified, commit them
+            rm_message_producer_service_1.RmMessageProducer.commitEvents(events)
+                .then(function (result) {
+                response.send(result.responseMessage);
+            });
         });
         app.get('/rootModel/productionRootModelId', function (request, response) {
             rm_command_repository_service_1.RmCommandRepository.getProductionRootModelId().then(function (rootModelId) {
