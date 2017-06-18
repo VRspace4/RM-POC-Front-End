@@ -27,12 +27,14 @@ export enum RmEventType {
 
 export class GeneralGlobals {
   static serverHostname = 'rm';
-  static restServerPort = 4500;
+  static commandRestPort = 4500;
+  static queryRestPort = 4600;
   static graphQLPort = 4300;
 }
 
 export class DsGlobals {
   static serverURI = 'rm:6020';
+  static rootModelRecordName = 'rm-demo/rootModel';
 }
 
 export class KafkaGlobals {

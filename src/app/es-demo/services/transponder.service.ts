@@ -15,7 +15,7 @@ export class TransponderService {
 
     const results: VerificationOutput[] = [
       result1, result2, result3
-    ]
+    ];
     // } catch (e) {
     //   console.error(e.message);
     //   return false;
@@ -32,13 +32,13 @@ export class TransponderService {
   static confirmAllocationHasNoConflict(existingAllocations: Allocation[], newAllocation: Allocation): VerificationOutput {
     const result = new VerificationOutput();
     existingAllocations.forEach(function(allocation) {
-      const lowerBound = (newAllocation.startFrequency > allocation.startFrequency &&
-      newAllocation.startFrequency < allocation.stopFrequency);
-      const upperBound = newAllocation.stopFrequency > allocation.startFrequency &&
-        newAllocation.stopFrequency < allocation.stopFrequency;
+      const lowerBound = (newAllocation.startFrequency >= allocation.startFrequency &&
+      newAllocation.startFrequency <= allocation.stopFrequency);
+      const upperBound = newAllocation.stopFrequency >= allocation.startFrequency &&
+        newAllocation.stopFrequency <= allocation.stopFrequency;
       if (lowerBound || upperBound) {
           result.passed = false;
-          result.failedMessage = "Proposed allocation conflicts with existing allocation with name and ID of [" +
+          result.failedMessage = "Proposed allocation conflicts with existing allocation, [" +
             allocation.name + ", " + allocation.id + "]";
       }
     });

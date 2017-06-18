@@ -35,43 +35,55 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var rm_command_controller_service_1 = require("./command/rm-command-controller.service");
-var rm_command_rest_service_1 = require("./command/rm-command-rest.service");
-var app_globals_1 = require("../../app/app.globals");
-var main_variables_1 = require("../../app/es-demo/types/main-variables");
+var rm_message_consumer_service_1 = require("./query/rm-message-consumer.service");
 var root_model_1 = require("../../app/es-demo/models/root-model");
+var rm_deepstream_client_1 = require("./realtime/rm-deepstream-client");
+// const rootModelRecordName = 'rmdemo/rootModel';
+// this.rootModelRecord = this.ds.dsInstance.record.getRecord(rootModelRecordName);
+// this.rootModelRecord.whenReady((record) => {
+//   console.log('rootModelRecord', record);
+// });
+// this.rootModelRecord.subscribe(this.rootModelChanged, true);
+// }
+//
+// rootModelChanged(data) {
+//   console.log('rootModel changed', data);
+// }
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var mainVariables, e_1;
+        var rootModel;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 2, , 3]);
-                    mainVariables = new main_variables_1.MainVariables(new root_model_1.RootModel(''));
-                    // const messageProducer = new RmMessageProducer();
-                    rm_command_rest_service_1.RmCommandRestServer.startServer(mainVariables, app_globals_1.GeneralGlobals.commandRestPort, true, null);
-                    // RmMessageConsumer.startServer();
-                    // RmMessageOffset.testOffset();
-                    return [4 /*yield*/, rm_command_controller_service_1.RmCommandController.start(mainVariables)
-                            .then(function (currentRootModel) {
-                            console.log(currentRootModel.transponders);
-                        })
-                            .catch(function (e) {
-                            console.error(e);
-                        })];
+                    rootModel = new root_model_1.RootModel('');
+                    return [4 /*yield*/, rm_deepstream_client_1.RmDeepstreamClient.startDeepstreamClient()];
                 case 1:
-                    // RmMessageConsumer.startServer();
-                    // RmMessageOffset.testOffset();
                     _a.sent();
-                    return [3 /*break*/, 3];
-                case 2:
-                    e_1 = _a.sent();
-                    console.log(e_1);
-                    return [3 /*break*/, 3];
-                case 3: return [2 /*return*/];
+                    rm_message_consumer_service_1.RmMessageConsumer.startConsumingEvents(rootModel, 0, function (message) {
+                        var processResult = rm_message_consumer_service_1.RmMessageConsumer.processRawEventToRootModel(message.value, rootModel);
+                        if (rootModel.name !== '' && !processResult.passed) {
+                            throw new Error(processResult.failedMessage);
+                        }
+                        else if (rootModel.name !== '') {
+                            // console.log('\n\n---====== Change detected ======--- \n', rootModel);
+                            rm_deepstream_client_1.RmDeepstreamClient.setRootModelRecord(rootModel);
+                        }
+                    }.bind(this));
+                    process.on('SIGINT', function () {
+                        console.log('Shutting down deepstream client...');
+                        rm_deepstream_client_1.RmDeepstreamClient.dsInstance.close();
+                        process.exit();
+                    });
+                    // For nodemon restarts..
+                    process.once('SIGUSR2', function () {
+                        rm_deepstream_client_1.RmDeepstreamClient.dsInstance.close();
+                        console.log('Restarting deepstream client...');
+                        process.kill(process.pid, 'SIGUSR2');
+                    });
+                    return [2 /*return*/];
             }
         });
     });
 }
 main();
-//# sourceMappingURL=rm-command-microservice.js.map
+//# sourceMappingURL=rm-realtime-microservice.js.map

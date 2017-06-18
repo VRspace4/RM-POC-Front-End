@@ -1,9 +1,9 @@
 
 import {RmMessageConsumer} from "./query/rm-message-consumer.service";
 import {BrokerMessage} from "../../app/es-demo/types/broker-message.type";
-import {RmQueryController} from "./query/rm-query-controller.service";
 import {RootModel} from "../../app/es-demo/models/root-model";
-import * as Rx from 'rxjs/Rx';
+import {RmQueryRestServer} from "./query/rm-query-rest.service";
+import {GeneralGlobals} from "../../app/app.globals";
 
 async function main() {
   const rootModel = new RootModel('');
@@ -17,7 +17,7 @@ async function main() {
       }
   }.bind(this));
 
-
+  RmQueryRestServer.startServer(rootModel, GeneralGlobals.queryRestPort, true, null);
 
 }
 

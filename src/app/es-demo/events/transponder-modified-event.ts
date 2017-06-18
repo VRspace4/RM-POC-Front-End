@@ -13,7 +13,7 @@ export class TransponderModifiedEvent extends EsModificationEvent {
   ) {
     super(rootModel, keys, values, RmEventType[RmEventType.TransponderModifiedEvent]);
   }
-  process(): RootModel {
+  public process(): RootModel {
     this.throwIfVerificationFails();
     const transponderToChange: Transponder = this.rootModel.getTransponder(this.transponderId);
     if (typeof transponderToChange !== 'undefined') {
@@ -24,7 +24,24 @@ export class TransponderModifiedEvent extends EsModificationEvent {
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure transponderId exists
+    const transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+    result = this.checkIfIdExists(this.transponderId, transponderIndex , 'transponder ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+  protected verifyProcess(): VerificationOutput[] {
     const results: VerificationOutput[] = [];
     results.push(this.verifyKeysAndValues(new Transponder('abc')));
     results.push(this.verifyNameIdConflicts(this.rootModel.transponders));

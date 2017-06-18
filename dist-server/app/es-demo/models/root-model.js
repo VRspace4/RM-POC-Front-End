@@ -26,6 +26,9 @@ var RootModel = (function (_super) {
         _this.originators = originators;
         return _this;
     }
+    // public copyPropertiesTo(externalRootModel: RootModel) {
+    //   for (const keyName in )
+    // }
     /**************** Transponder **********************/
     RootModel.prototype.addTransponder = function (newTransponder) {
         this.addEntity(newTransponder, this.transponders);

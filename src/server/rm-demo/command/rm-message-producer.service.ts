@@ -22,6 +22,17 @@ static createClient(): void {
   });
 }
 
+static stopProducer() {
+  this.producer.close(null);
+}
+
+static async stopClient(): Promise<any> {
+  return new Promise<any>((resolve, reject) => {
+    this.client.close(() => {
+      resolve(null);
+    });
+  });
+}
 /**
  * Start the Kafka Producer server
  * @returns {Promise<void>}
@@ -64,7 +75,7 @@ static startProducerClient(): Promise<void> {
  * @param startingOffsetNum
  * @returns {Promise<Array<EventAndMsgOffset>>}
  */
-public static fetchEventsFromOffset(startingOffsetNum: number): Promise<Array<EventAndMsgOffset>> {
+public static async fetchEventsFromOffset(startingOffsetNum: number): Promise<Array<EventAndMsgOffset>> {
   return new Promise<Array<EventAndMsgOffset>>((resolve, reject) => {
 
     const promiseOutput: EventAndMsgOffset[] = [];
@@ -87,43 +98,51 @@ public static fetchEventsFromOffset(startingOffsetNum: number): Promise<Array<Ev
     RmMessageProducer.createClient();
     const offset = new Offset(RmMessageProducer.client);
     let latestOffsetNum: number;
-    offset.fetchLatestOffsets([KafkaGlobals.topicName], (error, data) => {
+    offset.fetchLatestOffsets([KafkaGlobals.topicName], async function(error, data) {
       if (error) {
         reject(error);
       } else {
         latestOffsetNum = data[KafkaGlobals.topicName][KafkaGlobals.topicPartition.toString()];
-      }
-    });
 
-    // Begin retrieving all the events
-    const consumer = new Consumer(RmMessageProducer.client, topics, options);
-    let eventMsgOffset = startingOffsetNum;
+        if (startingOffsetNum < latestOffsetNum) {
+          // Begin retrieving all the events
+          const consumer = new Consumer(RmMessageProducer.client, topics, options);
+          let eventMsgOffset = startingOffsetNum;
 
-    consumer.on('message', function (message: any) {
-      let event: EsEvent;
-      try {
-        event = JSON.parse(message.value);
-      } catch (e) {
-        // Ignore error
-        return;
-      } finally {
-        if (typeof event !== "undefined") {
-          const msgOffset: number = parseInt(message.offset, 10);
-          promiseOutput.push(new EventAndMsgOffset(event, msgOffset));
-        }
+          consumer.on('message', function (message: any) {
+            let event: EsEvent;
+            try {
+              event = JSON.parse(message.value);
+            } catch (e) {
+              // Ignore error
+              return;
+            } finally {
+              if (typeof event !== "undefined") {
+                const msgOffset: number = parseInt(message.offset, 10);
+                promiseOutput.push(new EventAndMsgOffset(event, msgOffset));
+              }
 
-        if (eventMsgOffset >= latestOffsetNum - 1) {
-          consumer.close(false, () => {
+              if (eventMsgOffset >= latestOffsetNum - 1) {
+                consumer.close(false, () => {
+                });
+                resolve(promiseOutput);
+              }
+              eventMsgOffset++;
+            }
           });
+
+          consumer.on('error', function (err) {
+            reject(err);
+          });
+        } else {
+          // The start offset number was set to be greater than the latest offset
+          // return right away
+          await RmMessageProducer.stopClient();
           resolve(promiseOutput);
         }
-        eventMsgOffset++;
       }
     });
 
-    consumer.on('error', function (err) {
-      reject(err);
-    });
   });
 }
 

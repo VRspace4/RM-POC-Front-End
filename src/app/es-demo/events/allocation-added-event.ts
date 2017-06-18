@@ -21,9 +21,10 @@ export class AllocationAddedEvent extends EsEvent implements IAllocation {
     public allocationId: string = generateUUID()
   ) {
     super(rootModel, RmEventType[RmEventType.AllocationAddedEvent]);
+    this.allocationId = this.ifEmptyGenerateUUID(allocationId);
   }
 
-  process(): RootModel {
+  public process(): RootModel {
     this.throwIfVerificationFails();
     const newAllocation = new Allocation(
       this.startFrequency, this.stopFrequency, this.powerUsage, this.customerId,
@@ -36,7 +37,36 @@ export class AllocationAddedEvent extends EsEvent implements IAllocation {
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure customerId exists
+    const customerIndex = this.rootModel.getCustomerIndex(this.customerId);
+    result = this.checkIfIdExists(this.customerId, customerIndex, 'customer ID');
+    if (result.passed === false) {
+      return result;
+    }
+    // Make sure originatorId exists
+    const originatorIndex = this.rootModel.getOriginatorIndex(this.originatorId);
+    result = this.checkIfIdExists(this.originatorId, originatorIndex, 'originator ID');
+    if (result.passed === false) {
+      return result;
+    }
+    // Make sure transponderId exists
+    const transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+    result = this.checkIfIdExists(this.transponderId, transponderIndex, 'transponder ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+  protected verifyProcess(): VerificationOutput[] {
     const transponder: Transponder = this.rootModel.getTransponder(this.transponderId);
     const allocation = new Allocation(this.startFrequency, this.stopFrequency,
       this.powerUsage, this.customerId, this.originatorId, this.allocationName,

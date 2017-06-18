@@ -30,11 +30,28 @@ var RootModelAddedEvent = (function (_super) {
         _this.transponders = transponders;
         _this.customers = customers;
         _this.originators = originators;
-        _this.rootModel = new root_model_1.RootModel(_this.rootModelName, _this.rootModelId, null, _this.transponders, _this.customers, _this.originators);
+        _this.rootModelId = _this.ifEmptyGenerateUUID(rootModelId);
+        var newRootModel = new root_model_1.RootModel(_this.rootModelName, _this.rootModelId, null, _this.transponders, _this.customers, _this.originators);
+        var copyResults = newRootModel.copyPropertiesTo(rootModel);
+        if (copyResults.passed === false) {
+            throw new Error("Unable to apply new root model. " + copyResults.failedMessage);
+        }
         return _this;
     }
     RootModelAddedEvent.prototype.process = function () {
         return this.rootModel;
+    };
+    RootModelAddedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure rootModelName is valid
+        result = this.checkIfValidBasicValue(this.rootModelName);
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
     };
     RootModelAddedEvent.prototype.verifyProcess = function () {
         return [new verification_output_1.VerificationOutput()]; // nothing to verify

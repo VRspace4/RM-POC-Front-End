@@ -15,16 +15,17 @@ var rm_message_producer_service_1 = require("./rm-message-producer.service");
 var RmCommandRestServer = (function () {
     function RmCommandRestServer() {
     }
-    RmCommandRestServer.startServer = function (serverPort, postServerStatusMessages, callback) {
+    RmCommandRestServer.startServer = function (mainVariables, serverPort, postServerStatusMessages, callback) {
         var app = express();
         app.use(cors());
         app.use(bodyParser.json());
         app.post('/events', function (request, response, next) {
+            console.log(mainVariables.rootModel);
             // Verify formatting
             var events = request.body.events;
-            var verifyFormattingResult = rm_command_controller_service_1.RmCommandController.verifyEventsFormatting(events);
+            var verifyFormattingResult = rm_command_controller_service_1.RmCommandController.verifyEventsToBeCommitted(mainVariables, events);
             if (verifyFormattingResult.verificationResult.passed === false) {
-                response.send(verifyFormattingResult);
+                response.send(verifyFormattingResult.output);
                 return next();
             }
             // Events verified, commit them

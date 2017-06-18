@@ -1,6 +1,7 @@
 import {RootModel} from "../models/root-model";
 import {VerificationOutput} from "../types/verification-output";
 import {createVerify} from "crypto";
+import {generateUUID} from "../../app.helpers";
 
 export abstract class EsEvent {
   constructor(
@@ -10,23 +11,61 @@ export abstract class EsEvent {
   ) {}
 
   abstract process(): RootModel;
-  abstract verifyProcess(): VerificationOutput[];
+  protected abstract verifyProcess(): VerificationOutput[];
+  abstract verifyEvent(): VerificationOutput;
 
   protected throwIfVerificationFails() {
     const results  = this.verifyProcess();
-    let resultOutput = 'The following verification(s) failed and was not handled:\n';
-    let allPassed = true;
+    const combinedResults = this.combineAllVerifications(results);
 
-    for (const result of results) {
-      if (result.passed === false) {
-        resultOutput = result.failedMessage + '\n';
-          allPassed = false;
+    if (combinedResults.passed === false) {
+      throw new Error(combinedResults.failedMessage);
+    }
+  }
+
+  protected combineAllVerifications(verifications: VerificationOutput[]): VerificationOutput {
+    const result = new VerificationOutput();
+    result.failedMessage = 'The following verification(s) failed and was not handled:\n';
+
+    for (const verification of verifications) {
+      if (verification.passed === false) {
+        result.failedMessage = verification.failedMessage + '\n';
+        result.passed = false;
       }
     }
 
-    if (allPassed === false) {
-      throw new Error(resultOutput);
-    }
+    return result;
+  }
 
+  protected ifEmptyGenerateUUID(id: string): string {
+    let returnId: string;
+    if (this.checkIfValidBasicValue<string>(id).passed === false)  {
+      returnId = generateUUID();
+    } else {
+      returnId = id;
+    }
+    return returnId;
+  }
+
+  protected checkIfValidBasicValue<T>(value: T): VerificationOutput {
+    const result = new VerificationOutput();
+    if (value === null || typeof value === 'undefined')  {
+      result.passed = false;
+      result.failedMessage = "The value cannot be undefined!";
+    } else if (typeof value === 'string' && value === '') {
+      result.passed = false;
+      result.failedMessage = "The string value cannot be empty!";
+    }
+    return result;
+  }
+
+  protected checkIfIdExists(newId: string, existingId: number, idType: string): VerificationOutput {
+    const result = new VerificationOutput();
+    if (existingId < 0) {
+      result.passed = false;
+      result.failedMessage = `The ${idType}, ${newId}, does not exist!`;
+      return result;
+    }
+    return result;
   }
 }

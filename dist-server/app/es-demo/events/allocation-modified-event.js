@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
 var transponder_service_1 = require("../services/transponder.service");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var AllocationModifiedEvent = (function (_super) {
     __extends(AllocationModifiedEvent, _super);
@@ -27,6 +28,25 @@ var AllocationModifiedEvent = (function (_super) {
         var allocationToChange = transponder.getAllocation(this.allocationId);
         this.applyModifications(allocationToChange);
         return this.rootModel;
+    };
+    AllocationModifiedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure transponderId exists
+        var transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+        result = this.checkIfIdExists(this.transponderId, transponderIndex, 'transponder ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Make sure allocationId exists
+        var allocationIndex = this.rootModel.transponders[transponderIndex].getAllocationIndex(this.allocationId);
+        result = this.checkIfIdExists(this.allocationId, allocationIndex, 'allocation ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
     };
     AllocationModifiedEvent.prototype.verifyProcess = function () {
         var transponder = this.rootModel.getTransponder(this.transponderId);

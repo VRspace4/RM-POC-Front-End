@@ -15,6 +15,10 @@ export class RootModel extends BaseEntity {
     super(name, id);
   }
 
+  // public copyPropertiesTo(externalRootModel: RootModel) {
+  //   for (const keyName in )
+  // }
+
   /**************** Transponder **********************/
 
   public addTransponder(newTransponder: Transponder): void {

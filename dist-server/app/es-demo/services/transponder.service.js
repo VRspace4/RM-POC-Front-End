@@ -32,13 +32,13 @@ var TransponderService = (function () {
     TransponderService.confirmAllocationHasNoConflict = function (existingAllocations, newAllocation) {
         var result = new verification_output_1.VerificationOutput();
         existingAllocations.forEach(function (allocation) {
-            var lowerBound = (newAllocation.startFrequency > allocation.startFrequency &&
-                newAllocation.startFrequency < allocation.stopFrequency);
-            var upperBound = newAllocation.stopFrequency > allocation.startFrequency &&
-                newAllocation.stopFrequency < allocation.stopFrequency;
+            var lowerBound = (newAllocation.startFrequency >= allocation.startFrequency &&
+                newAllocation.startFrequency <= allocation.stopFrequency);
+            var upperBound = newAllocation.stopFrequency >= allocation.startFrequency &&
+                newAllocation.stopFrequency <= allocation.stopFrequency;
             if (lowerBound || upperBound) {
                 result.passed = false;
-                result.failedMessage = "Proposed allocation conflicts with existing allocation with name and ID of [" +
+                result.failedMessage = "Proposed allocation conflicts with existing allocation, [" +
                     allocation.name + ", " + allocation.id + "]";
             }
         });

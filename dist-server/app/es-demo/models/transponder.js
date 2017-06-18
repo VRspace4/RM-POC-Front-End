@@ -31,6 +31,9 @@ var Transponder = (function (_super) {
         var entity = this.getEntity(allocationId, this.allocations);
         return entity;
     };
+    Transponder.prototype.getAllocationIndex = function (allocationId) {
+        return this.getEntityIndex(allocationId, this.allocations);
+    };
     Transponder.prototype.addAllocation = function (allocation) {
         if (transponder_service_1.TransponderService.runAllNewAllocationVerifications(this.powerLimit, this.allocations, allocation)) {
             this.addEntity(allocation, this.allocations);

@@ -12,16 +12,34 @@ export class OriginatorAddedEvent extends EsEvent {
     public originatorId: string = generateUUID()
   ) {
     super(rootModel, RmEventType[RmEventType.OriginatorAddedEvent]);
+    this.originatorId = this.ifEmptyGenerateUUID(originatorId);
+
   }
 
-  process(): RootModel {
+  public process(): RootModel {
     this.throwIfVerificationFails();
     const newOriginator = new Originator(this.originatorName, this.originatorId);
     this.rootModel.addOriginator(newOriginator);
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure originatorName is valid
+    result = this.checkIfValidBasicValue<string>(this.originatorName);
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+  protected verifyProcess(): VerificationOutput[] {
     const originatorToBeAdded = new Originator(this.originatorName, this.originatorId);
     const result = originatorToBeAdded.verifyEntityNameDuplication(this.rootModel, this.rootModel.originators);
     return [result];

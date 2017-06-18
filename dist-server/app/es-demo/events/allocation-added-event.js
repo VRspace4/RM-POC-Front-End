@@ -14,6 +14,7 @@ var app_helpers_1 = require("../../app.helpers");
 var allocation_1 = require("../models/allocation");
 var es_event_abstract_1 = require("./es-event.abstract");
 var transponder_service_1 = require("../services/transponder.service");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var AllocationAddedEvent = (function (_super) {
     __extends(AllocationAddedEvent, _super);
@@ -29,6 +30,7 @@ var AllocationAddedEvent = (function (_super) {
         _this.originatorId = originatorId;
         _this.allocationName = allocationName;
         _this.allocationId = allocationId;
+        _this.allocationId = _this.ifEmptyGenerateUUID(allocationId);
         return _this;
     }
     AllocationAddedEvent.prototype.process = function () {
@@ -37,6 +39,31 @@ var AllocationAddedEvent = (function (_super) {
         var transponderToChange = this.rootModel.getTransponder(this.transponderId);
         transponderToChange.addAllocation(newAllocation);
         return this.rootModel;
+    };
+    AllocationAddedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure customerId exists
+        var customerIndex = this.rootModel.getCustomerIndex(this.customerId);
+        result = this.checkIfIdExists(this.customerId, customerIndex, 'customer ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Make sure originatorId exists
+        var originatorIndex = this.rootModel.getOriginatorIndex(this.originatorId);
+        result = this.checkIfIdExists(this.originatorId, originatorIndex, 'originator ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Make sure transponderId exists
+        var transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+        result = this.checkIfIdExists(this.transponderId, transponderIndex, 'transponder ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
     };
     AllocationAddedEvent.prototype.verifyProcess = function () {
         var transponder = this.rootModel.getTransponder(this.transponderId);

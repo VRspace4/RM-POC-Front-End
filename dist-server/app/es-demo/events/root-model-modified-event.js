@@ -22,6 +22,12 @@ var RootModelModifiedEvent = (function (_super) {
         this.applyModifications(this.rootModel);
         return this.rootModel;
     };
+    RootModelModifiedEvent.prototype.verifyEvent = function () {
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
+    };
     RootModelModifiedEvent.prototype.verifyProcess = function () {
         var result = this.verifyKeysAndValues(this.rootModel);
         return [result];

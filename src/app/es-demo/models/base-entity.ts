@@ -15,6 +15,42 @@ export abstract class BaseEntity {
     }
   }
 
+  public copyPropertiesTo(entity: BaseEntity): VerificationOutput {
+    const result = new VerificationOutput();
+    const commonFailString = `Attempting to copy properties over failed.`;
+
+    if (entity === null || typeof entity === 'undefined') {
+      result.passed = false;
+      result.failedMessage = commonFailString + `The entity cannot be undefined or null!`;
+      return result;
+    }
+
+    let keyName: string;
+
+    // Make sure the two entities are of the same kind
+    for (keyName in this) {
+      if (typeof this[keyName.toString()] !== 'function') {
+        if (!entity.hasOwnProperty(keyName)) {
+          result.passed = false;
+          result.failedMessage = commonFailString + `The property named, ${keyName}, doesn't exist!`;
+          return result;
+        }
+      }
+    }
+
+    // Finally make the copy
+    for (keyName in this) {
+      if (typeof this[keyName.toString()] !== 'function') {
+        if (entity.hasOwnProperty(keyName)) {
+          entity[keyName.toString()] = this[keyName.toString()];
+        }
+      }
+    }
+
+
+    return result;
+  }
+
   // TODO To test
   protected getEntity(entityId: string, entities: BaseEntity[]): BaseEntity {
     const matchedEntity: BaseEntity = entities
@@ -29,10 +65,10 @@ export abstract class BaseEntity {
   protected getEntityIndex(entityId: string, entities: BaseEntity[]): number {
     const entityIndex: number = entities
       .findIndex((entity: BaseEntity) => entity.id === entityId);
-    if (entityIndex < 0) {
-      throw new Error('The entity with id, [' + entityId + '], ' +
-        'does not exist!');
-    }
+    // if (entityIndex < 0) {
+    //   throw new Error('The entity with id, [' + entityId + '], ' +
+    //     'does not exist!');
+    // }
     return entityIndex;
   }
 

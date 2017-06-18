@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ds_service_1 = require("../../../services/ds.service");
+var app_globals_1 = require("../../../app.globals");
 ;
 var DataPoint = (function () {
     function DataPoint(x, y, text) {
@@ -22,19 +23,45 @@ var DataPoint = (function () {
 }());
 var RmFullComponent = (function () {
     function RmFullComponent(ds) {
+        var _this = this;
         this.ds = ds;
-        var rootModelRecordName = 'rmdemo/rootModel';
+        var rootModelRecordName = app_globals_1.DsGlobals.rootModelRecordName;
         this.rootModelRecord = this.ds.dsInstance.record.getRecord(rootModelRecordName);
         this.rootModelRecord.whenReady(function (record) {
-            console.log('rootModelRecord', record);
+            console.log('rootModelRecord ready!', record);
+            _this.rootModelRecord.subscribe(function (rootModel) {
+                _this.updateCustomerTable(rootModel.customers);
+            }, true);
         });
-        this.rootModelRecord.subscribe(this.rootModelChanged, true);
     }
+    RmFullComponent.prototype.testFunc = function () {
+        console.log('this is a test');
+    };
     RmFullComponent.prototype.rootModelChanged = function (data) {
         console.log('rootModel changed', data);
+        // this.updateCustomerTable(data.customers);
+        this.testFunc();
     };
     RmFullComponent.prototype.ngOnInit = function () {
         this.renderDonut();
+        //    this.testFunc();
+    };
+    RmFullComponent.prototype.updateCustomerTable = function (customers) {
+        var tbody = $("#tbody-customers");
+        tbody.empty();
+        customers.forEach(function (customer) {
+            tbody
+                .append($('<tr>')
+                .append($('<td>')
+                .append(customer.id))
+                .append($('<td>')
+                .append(customer.name))
+                .append($('<td>')
+                .append($('<button/>', {
+                text: 'remove',
+                class: 'btn btn-primary btn-small'
+            }))));
+        });
     };
     RmFullComponent.prototype.renderDonut = function () {
         var dataPoints = [{ x: 'ABC', y: 53.3, text: "Australia" },

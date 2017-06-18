@@ -4,6 +4,8 @@ import {Originator} from "app/es-demo/models/originator";
 import {RootModel} from "../../../es-demo/models/root-model";
 import * as deepstream from 'deepstream.io-client-js';
 import {DsService} from "../../../services/ds.service";
+import {DsGlobals} from "../../../app.globals";
+import {Customer} from "../../../es-demo/models/customer";
 
 
 declare var $: any;
@@ -50,24 +52,53 @@ export class RmFullComponent implements OnInit {
   constructor(
     private ds: DsService,
   ) {
-    const rootModelRecordName = 'rmdemo/rootModel';
+    const rootModelRecordName = DsGlobals.rootModelRecordName;
     this.rootModelRecord = this.ds.dsInstance.record.getRecord(rootModelRecordName);
     this.rootModelRecord.whenReady((record) => {
-      console.log('rootModelRecord', record);
+      console.log('rootModelRecord ready!', record);
+      this.rootModelRecord.subscribe((rootModel: RootModel) => {
+        this.updateCustomerTable(rootModel.customers);
+      }, true);
     });
-    this.rootModelRecord.subscribe(this.rootModelChanged, true);
   }
 
-  rootModelChanged(data) {
+  testFunc() {
+    console.log('this is a test');
+  }
+
+  rootModelChanged(data: RootModel) {
     console.log('rootModel changed', data);
+    // this.updateCustomerTable(data.customers);
+    this.testFunc();
   }
 
   ngOnInit() {
     this.renderDonut();
-
+//    this.testFunc();
   }
 
+  updateCustomerTable(customers: Customer[]) {
+    const tbody = $("#tbody-customers");
 
+    tbody.empty();
+    customers.forEach((customer) => {
+      tbody
+        .append($('<tr>')
+          .append($('<td>')
+            .append(customer.id)
+          )
+          .append($('<td>')
+            .append(customer.name)
+          )
+          .append($('<td>')
+            .append($('<button/>', {
+              text: 'remove',
+              class: 'btn btn-primary btn-small'
+            }))
+          )
+        );
+    });
+  }
 
   renderDonut() {
     const dataPoints: IDataPoint[] = [{ x: 'ABC', y: 53.3, text: "Australia" },

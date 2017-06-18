@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
 var transponder_1 = require("../models/transponder");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var TransponderModifiedEvent = (function (_super) {
     __extends(TransponderModifiedEvent, _super);
@@ -30,6 +31,19 @@ var TransponderModifiedEvent = (function (_super) {
             throw new Error('Invalid transponder id');
         }
         return this.rootModel;
+    };
+    TransponderModifiedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure transponderId exists
+        var transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+        result = this.checkIfIdExists(this.transponderId, transponderIndex, 'transponder ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
     };
     TransponderModifiedEvent.prototype.verifyProcess = function () {
         var results = [];

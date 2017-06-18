@@ -12,6 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
 var customer_1 = require("../models/customer");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var CustomerModifiedEvent = (function (_super) {
     __extends(CustomerModifiedEvent, _super);
@@ -25,6 +26,19 @@ var CustomerModifiedEvent = (function (_super) {
         var customerToChange = this.rootModel.getCustomer(this.customerId);
         this.applyModifications(customerToChange);
         return this.rootModel;
+    };
+    CustomerModifiedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure customerId exists
+        var customerIndex = this.rootModel.getTransponderIndex(this.customerId);
+        result = this.checkIfIdExists(this.customerId, customerIndex, 'customer ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
     };
     CustomerModifiedEvent.prototype.verifyProcess = function () {
         var results = [];

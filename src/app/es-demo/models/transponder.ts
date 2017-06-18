@@ -21,6 +21,10 @@ export class Transponder extends BaseEntity implements ITransponder {
     return <Allocation>entity;
   }
 
+  public getAllocationIndex(allocationId: string): number {
+    return this.getEntityIndex(allocationId, this.allocations);
+  }
+
   public addAllocation(allocation: Allocation) {
     if (TransponderService.runAllNewAllocationVerifications(this.powerLimit,
         this.allocations, allocation)) {

@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "test-watch": "nodemon ./dist-server/server/temp/temp.js",
     "local-client-start-watch": "ng serve --host localhost --sourcemaps true --hmr -e=hmr",
     "client-start-watch": "ng serve --host rm --sourcemaps true --hmr -e=hmr",
     "client-test-watch": "ng test --sourcemaps=true --colors=true",

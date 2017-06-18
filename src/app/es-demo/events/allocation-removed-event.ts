@@ -13,13 +13,38 @@ export class AllocationRemovedEvent extends EsEvent {
     super(rootModel, RmEventType[RmEventType.AllocationRemovedEvent]);
   }
 
-  process(): RootModel {
+  public process(): RootModel {
     const transponder: Transponder = this.rootModel.getTransponder(this.transponderId);
     transponder.removeAllocation(this.allocationId);
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure transponderId exists
+    const transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+    result = this.checkIfIdExists(this.transponderId, transponderIndex, 'transponder ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Make sure allocationId exists
+    const allocationIndex = this.rootModel.transponders[transponderIndex].getAllocationIndex(this.allocationId);
+    result = this.checkIfIdExists(this.allocationId, allocationIndex, 'allocation ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+
+  protected verifyProcess(): VerificationOutput[] {
     return [new VerificationOutput()]; // nothing to verify
   }
 }

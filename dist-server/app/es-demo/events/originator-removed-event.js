@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_event_abstract_1 = require("./es-event.abstract");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var OriginatorRemovedEvent = (function (_super) {
     __extends(OriginatorRemovedEvent, _super);
@@ -23,6 +24,19 @@ var OriginatorRemovedEvent = (function (_super) {
         this.throwIfVerificationFails();
         this.rootModel.removeOriginator(this.originatorId);
         return this.rootModel;
+    };
+    OriginatorRemovedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure originatorId exists
+        var originatorIndex = this.rootModel.getTransponderIndex(this.originatorId);
+        result = this.checkIfIdExists(this.originatorId, originatorIndex, 'originator ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
     };
     OriginatorRemovedEvent.prototype.verifyProcess = function () {
         var originatorToBeRemoved = this.rootModel.getOriginator(this.originatorId);

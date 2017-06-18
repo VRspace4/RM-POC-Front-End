@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var es_modification_event_1 = require("./es-modification-event");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var OriginatorModifiedEvent = (function (_super) {
     __extends(OriginatorModifiedEvent, _super);
@@ -24,6 +25,19 @@ var OriginatorModifiedEvent = (function (_super) {
         var originatorToChange = this.rootModel.getOriginator(this.originatorId);
         this.applyModifications(originatorToChange);
         return this.rootModel;
+    };
+    OriginatorModifiedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure originatorId exists
+        var originatorIndex = this.rootModel.getTransponderIndex(this.originatorId);
+        result = this.checkIfIdExists(this.originatorId, originatorIndex, 'originator ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
     };
     OriginatorModifiedEvent.prototype.verifyProcess = function () {
         var originatorToBeModified = this.rootModel.getOriginator(this.originatorId);

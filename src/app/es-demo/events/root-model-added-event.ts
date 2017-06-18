@@ -18,14 +18,37 @@ export class RootModelAddedEvent extends EsEvent implements IRootModel {
     public originators: Originator[] = []
   ) {
     super(null, RmEventType[RmEventType.RootModelAddedEvent]);
-    this.rootModel = new RootModel(this.rootModelName, this.rootModelId, null,
+    this.rootModelId = this.ifEmptyGenerateUUID(rootModelId);
+    const newRootModel = new RootModel(this.rootModelName, this.rootModelId, null,
       this.transponders, this.customers, this.originators);
+
+    const copyResults = newRootModel.copyPropertiesTo(rootModel);
+    if (copyResults.passed === false) {
+      throw new Error(`Unable to apply new root model. ${copyResults.failedMessage}`);
+    }
   }
-  process(): RootModel {
+  public process(): RootModel {
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure rootModelName is valid
+    result = this.checkIfValidBasicValue<string>(this.rootModelName);
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+
+  public verifyProcess(): VerificationOutput[] {
     return [new VerificationOutput()]; // nothing to verify
   }
 

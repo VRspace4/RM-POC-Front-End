@@ -16,7 +16,8 @@ export class AllocationModifiedEvent extends EsModificationEvent {
   ) {
     super(rootModel, key, value, RmEventType[RmEventType.AllocationModifiedEvent]);
   }
-  process(): RootModel {
+
+  public process(): RootModel {
     this.throwIfVerificationFails();
     const transponder: Transponder = this.rootModel.getTransponder(this.transponderId);
     const allocationToChange: Allocation = transponder.getAllocation(this.allocationId);
@@ -26,7 +27,31 @@ export class AllocationModifiedEvent extends EsModificationEvent {
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure transponderId exists
+    const transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+    result = this.checkIfIdExists(this.transponderId, transponderIndex, 'transponder ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Make sure allocationId exists
+    const allocationIndex = this.rootModel.transponders[transponderIndex].getAllocationIndex(this.allocationId);
+    result = this.checkIfIdExists(this.allocationId, allocationIndex, 'allocation ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+  protected verifyProcess(): VerificationOutput[] {
     const transponder: Transponder = this.rootModel.getTransponder(this.transponderId);
     const allocationClone: Allocation = Object.assign({}, transponder.getAllocation(this.allocationId));
 

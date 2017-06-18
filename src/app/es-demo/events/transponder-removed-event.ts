@@ -11,13 +11,31 @@ export class TransponderRemovedEvent extends EsEvent {
     super(rootModel, RmEventType[RmEventType.TransponderRemovedEvent]);
   }
 
-  process(): RootModel {
+  public process(): RootModel {
     this.throwIfVerificationFails();
     this.rootModel.removeTransponder(this.transponderId);
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure transponderId exists
+    const transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+    result = this.checkIfIdExists(this.transponderId, transponderIndex , 'transponder ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+
+  protected verifyProcess(): VerificationOutput[] {
     const result = new VerificationOutput();
     return [result]; // nothing to verify
   }

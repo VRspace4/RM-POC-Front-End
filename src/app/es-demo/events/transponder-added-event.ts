@@ -16,9 +16,12 @@ export class TransponderAddedEvent extends EsEvent implements ITransponder {
     public bandwidth: number = 100,
     public allocations: Allocation[] = []
   ) {
-      super(rootModel, RmEventType[RmEventType.TransponderAddedEvent]);
+    super(rootModel, RmEventType[RmEventType.TransponderAddedEvent]);
+    this.transponderId = this.ifEmptyGenerateUUID(transponderId);
+
   }
-  process(): RootModel {
+
+  public process(): RootModel {
     this.throwIfVerificationFails();
     const newTransponder = new Transponder(
       this.transponderName, this.transponderId, this.powerLimit, this.bandwidth,
@@ -27,7 +30,24 @@ export class TransponderAddedEvent extends EsEvent implements ITransponder {
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+      // Make sure transponderName is valid
+      result = this.checkIfValidBasicValue<string>(this.transponderName);
+      if (result.passed === false) {
+        return result;
+      }
+
+      // Verify process()
+      const verifyProcessResults = this.verifyProcess();
+      result = this.combineAllVerifications(verifyProcessResults);
+
+    return result;
+  }
+
+
+  protected verifyProcess(): VerificationOutput[] {
     const transponderToBeAdded = new Transponder(this.transponderName, this.transponderId,
       this.powerLimit, this.bandwidth, this.allocations);
 

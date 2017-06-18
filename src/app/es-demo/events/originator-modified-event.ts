@@ -13,14 +13,31 @@ export class OriginatorModifiedEvent extends EsModificationEvent {
   ) {
     super(rootModel, key, value, RmEventType[RmEventType.OriginatorModifiedEvent]);
   }
-  process(): RootModel {
+  public process(): RootModel {
     this.throwIfVerificationFails();
     const originatorToChange: Originator = this.rootModel.getOriginator(this.originatorId);
     this.applyModifications(originatorToChange);
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure originatorId exists
+    const originatorIndex = this.rootModel.getTransponderIndex(this.originatorId);
+    result = this.checkIfIdExists(this.originatorId, originatorIndex , 'originator ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+  public verifyProcess(): VerificationOutput[] {
     const originatorToBeModified = this.rootModel.getOriginator(this.originatorId);
     const results: VerificationOutput[] = [];
 

@@ -40,14 +40,17 @@ export class RmCommandController {
    * @param events
    * @returns {ResponseMessage}
    */
-  public static verifyEventsFormatting(events: EsEvent[]): ReturnWithVerification<ResponseMessage> {
+  public static verifyEventsToBeCommitted(mainVariables: MainVariables, events: EsEvent[]): ReturnWithVerification<ResponseMessage> {
     const deserializationResults: VerificationOutput[] = [];
     const outputResponse = new ResponseMessage();
     const outputVerification = new VerificationOutput();
 
     if (events.length > 0) {
       for (let i = 0; i < events.length; i++) {
-          const result = this.deserializeEvent(events[i], null);
+          const result = this.deserializeEvent(events[i], mainVariables.rootModel);
+          if (result.verificationResult.passed === true) {
+            result.verificationResult = result.output.verifyEvent();
+          }
           deserializationResults.push(result.verificationResult);
       }
     } else {
@@ -91,7 +94,7 @@ export class RmCommandController {
       case 'RootModelAddedEvent':
         const rootModelAddedEvent = <RootModelAddedEvent>event;
         convertedEvent = new RootModelAddedEvent(rootModel, rootModelAddedEvent.rootModelName,
-          generateUUID(), rootModelAddedEvent.transponders,
+          rootModelAddedEvent.rootModelId, rootModelAddedEvent.transponders,
           rootModelAddedEvent.customers, rootModelAddedEvent.originators);
         break;
 
@@ -103,7 +106,8 @@ export class RmCommandController {
 
       case 'TransponderAddedEvent':
         const transponderAddedEvent = <TransponderAddedEvent>event;
-        convertedEvent = new TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName);
+        convertedEvent = new TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName,
+          transponderAddedEvent.transponderId, transponderAddedEvent.powerLimit, transponderAddedEvent.bandwidth);
         break;
 
       case 'TransponderModifiedEvent':
@@ -119,7 +123,8 @@ export class RmCommandController {
 
       case 'CustomerAddedEvent':
         const customerAddedEvent = <CustomerAddedEvent>event;
-        convertedEvent = new CustomerAddedEvent(rootModel, customerAddedEvent.customerName);
+        convertedEvent = new CustomerAddedEvent(rootModel, customerAddedEvent.customerName,
+          customerAddedEvent.customerId);
         break;
 
       case 'CustomerModifiedEvent':
@@ -134,7 +139,8 @@ export class RmCommandController {
 
       case 'OriginatorAddedEvent':
         const originatorAddedEvent = <OriginatorAddedEvent>event;
-        convertedEvent = new OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName);
+        convertedEvent = new OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName,
+          originatorAddedEvent.originatorId);
         break;
 
       case 'OriginatorModifiedEvent':
@@ -152,7 +158,7 @@ export class RmCommandController {
         const allocationAddedEvent = <AllocationAddedEvent>event;
         convertedEvent = new AllocationAddedEvent(rootModel, allocationAddedEvent.transponderId, allocationAddedEvent.startFrequency,
           allocationAddedEvent.stopFrequency, allocationAddedEvent.powerUsage, allocationAddedEvent.customerId,
-          allocationAddedEvent.originatorId, allocationAddedEvent.allocationName);
+          allocationAddedEvent.originatorId, allocationAddedEvent.allocationName, allocationAddedEvent.allocationId);
         break;
 
       case 'AllocationModifiedEvent':
@@ -173,7 +179,7 @@ export class RmCommandController {
     }
 
     if (result.passed === true) {
-      result = RmCommandController.verifyEventObject(event, convertedEvent);
+      result = RmCommandController.verifyEventKeyNames(event, convertedEvent);
     }
 
     const output = new ReturnWithVerification(result, convertedEvent);
@@ -183,7 +189,7 @@ export class RmCommandController {
   }
 
 
-  static verifyEventObject(eventObject: any, eventActual: EsEvent): VerificationOutput {
+  static verifyEventKeyNames(eventObject: any, eventActual: EsEvent): VerificationOutput {
     const result = new VerificationOutput();
 
     for (const keyName in eventObject) {
@@ -203,10 +209,12 @@ export class RmCommandController {
    *    and create a new transponder. Then process the events to return the root model
    * 3. If an instance exist, process the event and return the root model
    */
-  public static async initialize(): Promise<RootModel> {
+  public static async start(mainVariables: MainVariables): Promise<RootModel> {
     return new Promise<RootModel>(async function(resolve, reject) {
       // Get all events and its offset number from message broker
-      const eventChainAndOffset = await RmMessageProducer.fetchEventsFromOffset(23);
+      const eventChainAndOffset = await RmMessageProducer.fetchEventsFromOffset(39);
+      // console.log(eventChainAndOffset);
+      // const eventChainAndOffset = null;
       RmMessageProducer.createClient();
       await RmMessageProducer.startProducerClient();
       // Look for the latest instance of RootModelAddedEvent in reverse order
@@ -222,24 +230,31 @@ export class RmCommandController {
 
       // Generate the starting sequence of events to create a new root model
       if (rootModelEventIndex === -1) {
-        const rootModelAddedEvent = new RootModelAddedEvent(null, 'Production');
+        const rootModelAddedEvent = new RootModelAddedEvent(mainVariables.rootModel, 'Production');
         const transponderAddedEvent = new TransponderAddedEvent(null, 'Transponder 1');
-        RmMessageProducer.commitEvents([rootModelAddedEvent, transponderAddedEvent])
+        const customerAddedEvent = new CustomerAddedEvent(null, 'Intelsat');
+        const originatorAddedEvent = new OriginatorAddedEvent(null, 'James Pham');
+
+        RmMessageProducer.commitEvents([rootModelAddedEvent, transponderAddedEvent, customerAddedEvent, originatorAddedEvent])
           .then((result: ReturnWithResponseMsg<number>) => {
+            console.log('Committed the following events to the message broker: ');
             console.log(result);
           });
       } else {
         const eventsToBeProcessed: EsEvent[] = [];
         for (let i = rootModelEventIndex; i < eventChainAndOffset.length; i++) {
-          const result =  RmCommandController.deserializeEvent(eventChainAndOffset[i].event, null);
+          const result =  RmCommandController.deserializeEvent(eventChainAndOffset[i].event, mainVariables.rootModel);
           if (result.verificationResult.passed) {
             eventsToBeProcessed.push(result.output);
           } else {
+            RmMessageProducer.stopProducer();
             reject(result.verificationResult.failedMessage);
+            return null;
           }
         }
-        const rootModel = RmCommandController.processEventsToRootModel(eventsToBeProcessed);
-        resolve(rootModel);
+
+        mainVariables.rootModel = RmCommandController.processEventsToRootModel(eventsToBeProcessed);
+        resolve(mainVariables.rootModel);
       }
 
     });
@@ -295,11 +310,15 @@ export class RmCommandController {
     let rootModel: RootModel = null;
 
     eventChain.forEach((event) => {
-      if (event instanceof RootModelAddedEvent) {
-        rootModel = event.process();
-      } else {
-        event.rootModel = rootModel;
-        event.process();
+      try {
+        if (event instanceof RootModelAddedEvent) {
+          rootModel = event.process();
+        } else {
+          event.rootModel = rootModel;
+          event.process();
+        }
+      } catch (e) {
+        console.error(`The event, ${event.name}, was unable to process! \n ${e}`);
       }
     });
 

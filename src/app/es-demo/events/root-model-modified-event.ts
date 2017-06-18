@@ -11,13 +11,22 @@ export class RootModelModifiedEvent extends EsModificationEvent {
   ) {
     super(rootModel, key, value, RmEventType[RmEventType.RootModelModifiedEvent]);
   }
-  process(): RootModel {
+  public process(): RootModel {
     this.throwIfVerificationFails();
     this.applyModifications(this.rootModel);
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+
+  protected verifyProcess(): VerificationOutput[] {
     const result = this.verifyKeysAndValues(this.rootModel);
     return [result];
   }

@@ -26,6 +26,11 @@ describe('RM Events', () => {
       expect(matchedTransponder.name).toBe('Transponder 2');
       expect(matchedTransponder.id).toBeDefined();
     });
+    it('verifyEvents() should pass, given the correct parameters', function() {
+      const transponderAddedEvent = new TransponderAddedEvent(rootModel, 'Test Transponder 1');
+      const result = transponderAddedEvent.verifyEvent();
+      expect(result.passed).toBeTruthy();
+    });
   });
 
   describe(RmEventType[RmEventType.TransponderModifiedEvent], () => {

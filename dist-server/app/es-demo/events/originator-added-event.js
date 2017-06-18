@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app_helpers_1 = require("../../app.helpers");
 var originator_1 = require("../models/originator");
 var es_event_abstract_1 = require("./es-event.abstract");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var OriginatorAddedEvent = (function (_super) {
     __extends(OriginatorAddedEvent, _super);
@@ -21,6 +22,7 @@ var OriginatorAddedEvent = (function (_super) {
         var _this = _super.call(this, rootModel, app_globals_1.RmEventType[app_globals_1.RmEventType.OriginatorAddedEvent]) || this;
         _this.originatorName = originatorName;
         _this.originatorId = originatorId;
+        _this.originatorId = _this.ifEmptyGenerateUUID(originatorId);
         return _this;
     }
     OriginatorAddedEvent.prototype.process = function () {
@@ -28,6 +30,18 @@ var OriginatorAddedEvent = (function (_super) {
         var newOriginator = new originator_1.Originator(this.originatorName, this.originatorId);
         this.rootModel.addOriginator(newOriginator);
         return this.rootModel;
+    };
+    OriginatorAddedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure originatorName is valid
+        result = this.checkIfValidBasicValue(this.originatorName);
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
     };
     OriginatorAddedEvent.prototype.verifyProcess = function () {
         var originatorToBeAdded = new originator_1.Originator(this.originatorName, this.originatorId);

@@ -1,14 +1,12 @@
-class TestClassA {
-  constructor(
-    public inputStr: string,
-    public inputNumber = 123,
-    public inputStr2 = 'abc'
-  ) {}
-}
-
-const testObj = {
-  inputStr: 'xxx',
-  inputNumber: 999
-};
-
-const testClassA = new TestClassA(testObj.inputStr, 55, 'ddd');
+// import {RootModel} from "../../app/es-demo/models/root-model";
+// import {RootModelAddedEvent} from "../../app/es-demo/events/root-model-added-event";
+// import {Transponder} from "../../app/es-demo/models/transponder";
+//
+// let rootModel = new Transponder('main');
+// //
+// try {
+//   const rootModelAddedEvent = new RootModelAddedEvent(rootModel, 'new root');
+// } catch (e) {
+//   console.error('failed!' + e);
+// }
+// console.log(rootModel);

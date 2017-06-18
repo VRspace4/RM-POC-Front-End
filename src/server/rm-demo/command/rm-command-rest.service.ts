@@ -20,21 +20,24 @@ import {VerificationOutput} from "../../../app/es-demo/types/verification-output
 import {ResponseMessage, ResponseMessageType} from "../../../app/es-demo/types/response-message";
 import {RmMessageProducer} from "./rm-message-producer.service";
 import {ReturnWithResponseMsg} from "../../../app/es-demo/types/return-with-response-message.type";
+import {MainVariables} from "../../../app/es-demo/types/main-variables";
 
 
 export class RmCommandRestServer {
-  static startServer(serverPort: number, postServerStatusMessages: boolean, callback: () => void): http.Server {
+  static startServer(mainVariables: MainVariables, serverPort: number,
+                     postServerStatusMessages: boolean, callback: () => void): http.Server {
     const app = express();
 
     app.use(cors());
     app.use(bodyParser.json());
 
     app.post('/events', function (request, response, next) {
+      console.log(mainVariables.rootModel);
       // Verify formatting
       const events = request.body.events;
-      const verifyFormattingResult = RmCommandController.verifyEventsFormatting(events);
+      const verifyFormattingResult = RmCommandController.verifyEventsToBeCommitted(mainVariables, events);
       if (verifyFormattingResult.verificationResult.passed === false) {
-        response.send(verifyFormattingResult);
+        response.send(verifyFormattingResult.output);
         return next();
       }
 

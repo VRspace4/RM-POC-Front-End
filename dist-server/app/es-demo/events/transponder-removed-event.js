@@ -25,6 +25,19 @@ var TransponderRemovedEvent = (function (_super) {
         this.rootModel.removeTransponder(this.transponderId);
         return this.rootModel;
     };
+    TransponderRemovedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure transponderId exists
+        var transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+        result = this.checkIfIdExists(this.transponderId, transponderIndex, 'transponder ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
+    };
     TransponderRemovedEvent.prototype.verifyProcess = function () {
         var result = new verification_output_1.VerificationOutput();
         return [result]; // nothing to verify

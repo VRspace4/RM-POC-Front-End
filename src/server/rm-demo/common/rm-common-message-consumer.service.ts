@@ -1,7 +1,7 @@
 import {HighLevelConsumer, KeyedMessage, Client, ZKOptions, Topic, ConsumerOptions, Consumer} from 'kafka-node';
 import {KafkaGlobals} from "../../../app/app.globals";
 
-export class RmMessageConsumer {
+export class RmCommonMessageConsumer {
   static startServer() {
     setTimeout(() => {
       console.log(`Starting message consumer on topic, ${KafkaGlobals.topicName}...`);

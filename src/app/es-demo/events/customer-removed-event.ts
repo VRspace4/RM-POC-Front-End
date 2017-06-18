@@ -12,13 +12,30 @@ export class CustomerRemovedEvent extends EsEvent {
     super(rootModel, RmEventType[RmEventType.CustomerRemovedEvent]);
   }
 
-  process(): RootModel {
+  public process(): RootModel {
     this.throwIfVerificationFails();
     this.rootModel.removeCustomer(this.customerId);
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    // Make sure customerId exists
+    const customerIndex = this.rootModel.getTransponderIndex(this.customerId);
+    result = this.checkIfIdExists(this.customerId, customerIndex , 'customer ID');
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
+  protected verifyProcess(): VerificationOutput[] {
     const customerToBeRemoved = this.rootModel.getCustomer(this.customerId);
     const result = customerToBeRemoved.verifyCustomerDeletion(this.rootModel);
     return [result];

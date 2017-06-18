@@ -26,6 +26,25 @@ var AllocationRemovedEvent = (function (_super) {
         transponder.removeAllocation(this.allocationId);
         return this.rootModel;
     };
+    AllocationRemovedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure transponderId exists
+        var transponderIndex = this.rootModel.getTransponderIndex(this.transponderId);
+        result = this.checkIfIdExists(this.transponderId, transponderIndex, 'transponder ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Make sure allocationId exists
+        var allocationIndex = this.rootModel.transponders[transponderIndex].getAllocationIndex(this.allocationId);
+        result = this.checkIfIdExists(this.allocationId, allocationIndex, 'allocation ID');
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
+    };
     AllocationRemovedEvent.prototype.verifyProcess = function () {
         return [new verification_output_1.VerificationOutput()]; // nothing to verify
     };

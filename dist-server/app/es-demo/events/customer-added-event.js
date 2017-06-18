@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var app_helpers_1 = require("../../app.helpers");
 var customer_1 = require("../models/customer");
 var es_event_abstract_1 = require("./es-event.abstract");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var CustomerAddedEvent = (function (_super) {
     __extends(CustomerAddedEvent, _super);
@@ -21,8 +22,20 @@ var CustomerAddedEvent = (function (_super) {
         var _this = _super.call(this, rootModel, app_globals_1.RmEventType[app_globals_1.RmEventType.CustomerAddedEvent]) || this;
         _this.customerName = customerName;
         _this.customerId = customerId;
+        _this.customerId = _this.ifEmptyGenerateUUID(customerId);
         return _this;
     }
+    CustomerAddedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        result = this.checkIfValidBasicValue(this.customerName);
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        var combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+        return combinedVerifyProcessResults;
+    };
     CustomerAddedEvent.prototype.process = function () {
         this.throwIfVerificationFails();
         var newCustomer = new customer_1.Customer(this.customerName, this.customerId);

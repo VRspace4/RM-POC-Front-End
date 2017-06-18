@@ -12,7 +12,24 @@ export class CustomerAddedEvent extends EsEvent {
     public customerId: string = generateUUID()
   ) {
     super(rootModel, RmEventType[RmEventType.CustomerAddedEvent]);
+    this.customerId = this.ifEmptyGenerateUUID(customerId);
   }
+
+  public verifyEvent(): VerificationOutput {
+    let result = new VerificationOutput();
+
+    result = this.checkIfValidBasicValue<string>(this.customerName);
+    if (result.passed === false) {
+      return result;
+    }
+
+    // Verify process()
+    const verifyProcessResults = this.verifyProcess();
+    const combinedVerifyProcessResults = this.combineAllVerifications(verifyProcessResults);
+
+    return combinedVerifyProcessResults;
+  }
+
   process(): RootModel {
     this.throwIfVerificationFails();
     const newCustomer = new Customer(this.customerName, this.customerId);
@@ -20,7 +37,7 @@ export class CustomerAddedEvent extends EsEvent {
     return this.rootModel;
   }
 
-  verifyProcess(): VerificationOutput[] {
+  protected verifyProcess(): VerificationOutput[] {
     const newCustomer = new Customer(this.customerName, this.customerId);
 
     const result = newCustomer.verifyCustomerNameDuplication(this.rootModel);

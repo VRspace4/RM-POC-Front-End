@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var verification_output_1 = require("../types/verification-output");
+var app_helpers_1 = require("../../app.helpers");
 var EsEvent = (function () {
     function EsEvent(rootModel, name, parent) {
         if (parent === void 0) { parent = null; }
@@ -9,18 +11,53 @@ var EsEvent = (function () {
     }
     EsEvent.prototype.throwIfVerificationFails = function () {
         var results = this.verifyProcess();
-        var resultOutput = 'The following verification(s) failed and was not handled:\n';
-        var allPassed = true;
-        for (var _i = 0, results_1 = results; _i < results_1.length; _i++) {
-            var result = results_1[_i];
-            if (result.passed === false) {
-                resultOutput = result.failedMessage + '\n';
-                allPassed = false;
+        var combinedResults = this.combineAllVerifications(results);
+        if (combinedResults.passed === false) {
+            throw new Error(combinedResults.failedMessage);
+        }
+    };
+    EsEvent.prototype.combineAllVerifications = function (verifications) {
+        var result = new verification_output_1.VerificationOutput();
+        result.failedMessage = 'The following verification(s) failed and was not handled:\n';
+        for (var _i = 0, verifications_1 = verifications; _i < verifications_1.length; _i++) {
+            var verification = verifications_1[_i];
+            if (verification.passed === false) {
+                result.failedMessage = verification.failedMessage + '\n';
+                result.passed = false;
             }
         }
-        if (allPassed === false) {
-            throw new Error(resultOutput);
+        return result;
+    };
+    EsEvent.prototype.ifEmptyGenerateUUID = function (id) {
+        var returnId;
+        if (this.checkIfValidBasicValue(id).passed === false) {
+            returnId = app_helpers_1.generateUUID();
         }
+        else {
+            returnId = id;
+        }
+        return returnId;
+    };
+    EsEvent.prototype.checkIfValidBasicValue = function (value) {
+        var result = new verification_output_1.VerificationOutput();
+        if (value === null || typeof value === 'undefined') {
+            result.passed = false;
+            result.failedMessage = "The value cannot be undefined!";
+        }
+        else if (typeof value === 'string' && value === '') {
+            result.passed = false;
+            result.failedMessage = "The string value cannot be empty!";
+        }
+        return result;
+    };
+    EsEvent.prototype.checkIfIdExists = function (newId, existingId, idType) {
+        var result = new verification_output_1.VerificationOutput();
+        if (existingId < 0) {
+            result.passed = false;
+            result.failedMessage = "The " + idType + ", " + newId + ", does not exist!";
+            return result;
+        }
+        return result;
     };
     return EsEvent;
 }());

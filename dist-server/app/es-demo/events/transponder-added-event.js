@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var transponder_1 = require("../models/transponder");
 var app_helpers_1 = require("../../app.helpers");
 var es_event_abstract_1 = require("./es-event.abstract");
+var verification_output_1 = require("../types/verification-output");
 var app_globals_1 = require("../../app.globals");
 var TransponderAddedEvent = (function (_super) {
     __extends(TransponderAddedEvent, _super);
@@ -27,6 +28,7 @@ var TransponderAddedEvent = (function (_super) {
         _this.powerLimit = powerLimit;
         _this.bandwidth = bandwidth;
         _this.allocations = allocations;
+        _this.transponderId = _this.ifEmptyGenerateUUID(transponderId);
         return _this;
     }
     TransponderAddedEvent.prototype.process = function () {
@@ -34,6 +36,18 @@ var TransponderAddedEvent = (function (_super) {
         var newTransponder = new transponder_1.Transponder(this.transponderName, this.transponderId, this.powerLimit, this.bandwidth, this.allocations);
         this.rootModel.addTransponder(newTransponder);
         return this.rootModel;
+    };
+    TransponderAddedEvent.prototype.verifyEvent = function () {
+        var result = new verification_output_1.VerificationOutput();
+        // Make sure transponderName is valid
+        result = this.checkIfValidBasicValue(this.transponderName);
+        if (result.passed === false) {
+            return result;
+        }
+        // Verify process()
+        var verifyProcessResults = this.verifyProcess();
+        result = this.combineAllVerifications(verifyProcessResults);
+        return result;
     };
     TransponderAddedEvent.prototype.verifyProcess = function () {
         var transponderToBeAdded = new transponder_1.Transponder(this.transponderName, this.transponderId, this.powerLimit, this.bandwidth, this.allocations);

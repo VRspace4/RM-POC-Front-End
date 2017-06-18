@@ -54,7 +54,6 @@ var transponder_modified_event_1 = require("../../../app/es-demo/events/transpon
 var root_model_modified_event_1 = require("../../../app/es-demo/events/root-model-modified-event");
 var response_message_1 = require("../../../app/es-demo/types/response-message");
 var rm_message_producer_service_1 = require("./rm-message-producer.service");
-var app_helpers_1 = require("../../../app/app.helpers");
 var RmCommandController = (function () {
     function RmCommandController() {
     }
@@ -65,13 +64,16 @@ var RmCommandController = (function () {
      * @param events
      * @returns {ResponseMessage}
      */
-    RmCommandController.verifyEventsFormatting = function (events) {
+    RmCommandController.verifyEventsToBeCommitted = function (mainVariables, events) {
         var deserializationResults = [];
         var outputResponse = new response_message_1.ResponseMessage();
         var outputVerification = new verification_output_1.VerificationOutput();
         if (events.length > 0) {
             for (var i = 0; i < events.length; i++) {
-                var result = this.deserializeEvent(events[i], null);
+                var result = this.deserializeEvent(events[i], mainVariables.rootModel);
+                if (result.verificationResult.passed === true) {
+                    result.verificationResult = result.output.verifyEvent();
+                }
                 deserializationResults.push(result.verificationResult);
             }
         }
@@ -112,7 +114,7 @@ var RmCommandController = (function () {
         switch (event.name) {
             case 'RootModelAddedEvent':
                 var rootModelAddedEvent = event;
-                convertedEvent = new root_model_added_event_1.RootModelAddedEvent(rootModel, rootModelAddedEvent.rootModelName, app_helpers_1.generateUUID(), rootModelAddedEvent.transponders, rootModelAddedEvent.customers, rootModelAddedEvent.originators);
+                convertedEvent = new root_model_added_event_1.RootModelAddedEvent(rootModel, rootModelAddedEvent.rootModelName, rootModelAddedEvent.rootModelId, rootModelAddedEvent.transponders, rootModelAddedEvent.customers, rootModelAddedEvent.originators);
                 break;
             case 'RootModelModifiedEvent':
                 var rootModelModifiedEvent = event;
@@ -120,7 +122,7 @@ var RmCommandController = (function () {
                 break;
             case 'TransponderAddedEvent':
                 var transponderAddedEvent = event;
-                convertedEvent = new transponder_added_event_1.TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName);
+                convertedEvent = new transponder_added_event_1.TransponderAddedEvent(rootModel, transponderAddedEvent.transponderName, transponderAddedEvent.transponderId, transponderAddedEvent.powerLimit, transponderAddedEvent.bandwidth);
                 break;
             case 'TransponderModifiedEvent':
                 var transponderModifiedEvent = event;
@@ -132,7 +134,7 @@ var RmCommandController = (function () {
                 break;
             case 'CustomerAddedEvent':
                 var customerAddedEvent = event;
-                convertedEvent = new customer_added_event_1.CustomerAddedEvent(rootModel, customerAddedEvent.customerName);
+                convertedEvent = new customer_added_event_1.CustomerAddedEvent(rootModel, customerAddedEvent.customerName, customerAddedEvent.customerId);
                 break;
             case 'CustomerModifiedEvent':
                 var customerModifiedEvent = event;
@@ -143,7 +145,7 @@ var RmCommandController = (function () {
                 break;
             case 'OriginatorAddedEvent':
                 var originatorAddedEvent = event;
-                convertedEvent = new originator_added_event_1.OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName);
+                convertedEvent = new originator_added_event_1.OriginatorAddedEvent(rootModel, originatorAddedEvent.originatorName, originatorAddedEvent.originatorId);
                 break;
             case 'OriginatorModifiedEvent':
                 var originatorModifiedEvent = event;
@@ -155,7 +157,7 @@ var RmCommandController = (function () {
                 break;
             case 'AllocationAddedEvent':
                 var allocationAddedEvent = event;
-                convertedEvent = new allocation_added_event_1.AllocationAddedEvent(rootModel, allocationAddedEvent.transponderId, allocationAddedEvent.startFrequency, allocationAddedEvent.stopFrequency, allocationAddedEvent.powerUsage, allocationAddedEvent.customerId, allocationAddedEvent.originatorId, allocationAddedEvent.allocationName);
+                convertedEvent = new allocation_added_event_1.AllocationAddedEvent(rootModel, allocationAddedEvent.transponderId, allocationAddedEvent.startFrequency, allocationAddedEvent.stopFrequency, allocationAddedEvent.powerUsage, allocationAddedEvent.customerId, allocationAddedEvent.originatorId, allocationAddedEvent.allocationName, allocationAddedEvent.allocationId);
                 break;
             case 'AllocationModifiedEvent':
                 var allocationModifiedEvent = event;
@@ -170,12 +172,12 @@ var RmCommandController = (function () {
                 result.failedMessage = 'The event is invalid - [' + JSON.stringify(event) + ']!';
         }
         if (result.passed === true) {
-            result = RmCommandController.verifyEventObject(event, convertedEvent);
+            result = RmCommandController.verifyEventKeyNames(event, convertedEvent);
         }
         var output = new return_with_verifcation_1.ReturnWithVerification(result, convertedEvent);
         return output;
     };
-    RmCommandController.verifyEventObject = function (eventObject, eventActual) {
+    RmCommandController.verifyEventKeyNames = function (eventObject, eventActual) {
         var result = new verification_output_1.VerificationOutput();
         for (var keyName in eventObject) {
             if (eventActual.hasOwnProperty(keyName) === false) {
@@ -192,17 +194,19 @@ var RmCommandController = (function () {
      *    and create a new transponder. Then process the events to return the root model
      * 3. If an instance exist, process the event and return the root model
      */
-    RmCommandController.initialize = function () {
+    RmCommandController.start = function (mainVariables) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, new Promise(function (resolve, reject) {
                         return __awaiter(this, void 0, void 0, function () {
-                            var eventChainAndOffset, rootModelEventIndex, rootModelEventOffset, i, rootModelAddedEvent, transponderAddedEvent, eventsToBeProcessed, i, result, rootModel;
+                            var eventChainAndOffset, rootModelEventIndex, rootModelEventOffset, i, rootModelAddedEvent, transponderAddedEvent, customerAddedEvent, originatorAddedEvent, eventsToBeProcessed, i, result;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, rm_message_producer_service_1.RmMessageProducer.fetchEventsFromOffset(23)];
+                                    case 0: return [4 /*yield*/, rm_message_producer_service_1.RmMessageProducer.fetchEventsFromOffset(39)];
                                     case 1:
                                         eventChainAndOffset = _a.sent();
+                                        // console.log(eventChainAndOffset);
+                                        // const eventChainAndOffset = null;
                                         rm_message_producer_service_1.RmMessageProducer.createClient();
                                         return [4 /*yield*/, rm_message_producer_service_1.RmMessageProducer.startProducerClient()];
                                     case 2:
@@ -218,26 +222,31 @@ var RmCommandController = (function () {
                                         }
                                         // Generate the starting sequence of events to create a new root model
                                         if (rootModelEventIndex === -1) {
-                                            rootModelAddedEvent = new root_model_added_event_1.RootModelAddedEvent(null, 'Production');
+                                            rootModelAddedEvent = new root_model_added_event_1.RootModelAddedEvent(mainVariables.rootModel, 'Production');
                                             transponderAddedEvent = new transponder_added_event_1.TransponderAddedEvent(null, 'Transponder 1');
-                                            rm_message_producer_service_1.RmMessageProducer.commitEvents([rootModelAddedEvent, transponderAddedEvent])
+                                            customerAddedEvent = new customer_added_event_1.CustomerAddedEvent(null, 'Intelsat');
+                                            originatorAddedEvent = new originator_added_event_1.OriginatorAddedEvent(null, 'James Pham');
+                                            rm_message_producer_service_1.RmMessageProducer.commitEvents([rootModelAddedEvent, transponderAddedEvent, customerAddedEvent, originatorAddedEvent])
                                                 .then(function (result) {
+                                                console.log('Committed the following events to the message broker: ');
                                                 console.log(result);
                                             });
                                         }
                                         else {
                                             eventsToBeProcessed = [];
                                             for (i = rootModelEventIndex; i < eventChainAndOffset.length; i++) {
-                                                result = RmCommandController.deserializeEvent(eventChainAndOffset[i].event, null);
+                                                result = RmCommandController.deserializeEvent(eventChainAndOffset[i].event, mainVariables.rootModel);
                                                 if (result.verificationResult.passed) {
                                                     eventsToBeProcessed.push(result.output);
                                                 }
                                                 else {
+                                                    rm_message_producer_service_1.RmMessageProducer.stopProducer();
                                                     reject(result.verificationResult.failedMessage);
+                                                    return [2 /*return*/, null];
                                                 }
                                             }
-                                            rootModel = RmCommandController.processEventsToRootModel(eventsToBeProcessed);
-                                            resolve(rootModel);
+                                            mainVariables.rootModel = RmCommandController.processEventsToRootModel(eventsToBeProcessed);
+                                            resolve(mainVariables.rootModel);
                                         }
                                         return [2 /*return*/];
                                 }
@@ -292,12 +301,17 @@ var RmCommandController = (function () {
     RmCommandController.processEventsToRootModel = function (eventChain) {
         var rootModel = null;
         eventChain.forEach(function (event) {
-            if (event instanceof root_model_added_event_1.RootModelAddedEvent) {
-                rootModel = event.process();
+            try {
+                if (event instanceof root_model_added_event_1.RootModelAddedEvent) {
+                    rootModel = event.process();
+                }
+                else {
+                    event.rootModel = rootModel;
+                    event.process();
+                }
             }
-            else {
-                event.rootModel = rootModel;
-                event.process();
+            catch (e) {
+                console.error("The event, " + event.name + ", was unable to process! \n " + e);
             }
         });
         return rootModel;

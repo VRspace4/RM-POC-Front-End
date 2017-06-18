@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var kafka_node_1 = require("kafka-node");
 var app_globals_1 = require("../../../app/app.globals");
-var RmMessageConsumer = (function () {
-    function RmMessageConsumer() {
+var RmCommonMessageConsumer = (function () {
+    function RmCommonMessageConsumer() {
     }
-    RmMessageConsumer.startServer = function () {
+    RmCommonMessageConsumer.startServer = function () {
         setTimeout(function () {
             console.log("Starting message consumer on topic, " + app_globals_1.KafkaGlobals.topicName + "...");
             var client = new kafka_node_1.Client(app_globals_1.KafkaGlobals.uri, 'rm-demo-test-client-test-1');
@@ -43,7 +43,7 @@ var RmMessageConsumer = (function () {
             });
         }, 3000);
     };
-    return RmMessageConsumer;
+    return RmCommonMessageConsumer;
 }());
-exports.RmMessageConsumer = RmMessageConsumer;
+exports.RmCommonMessageConsumer = RmCommonMessageConsumer;
 //# sourceMappingURL=rm-common-message-consumer.service.js.map

@@ -37,6 +37,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var rm_message_consumer_service_1 = require("./query/rm-message-consumer.service");
 var root_model_1 = require("../../app/es-demo/models/root-model");
+var rm_query_rest_service_1 = require("./query/rm-query-rest.service");
+var app_globals_1 = require("../../app/app.globals");
 function main() {
     return __awaiter(this, void 0, void 0, function () {
         var rootModel;
@@ -51,6 +53,7 @@ function main() {
                     console.log('\n\n---====== Change detected ======--- \n', rootModel);
                 }
             }.bind(this));
+            rm_query_rest_service_1.RmQueryRestServer.startServer(rootModel, app_globals_1.GeneralGlobals.queryRestPort, true, null);
             return [2 /*return*/];
         });
     });
