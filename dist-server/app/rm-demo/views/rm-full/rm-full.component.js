@@ -23,17 +23,29 @@ var DataPoint = (function () {
 }());
 var RmFullComponent = (function () {
     function RmFullComponent(ds) {
-        var _this = this;
         this.ds = ds;
+        this.selectedTransponderIndex = 0;
+    }
+    RmFullComponent.prototype.ngOnInit = function () {
+        this.renderDonut();
+        this.configureDeepStream();
+    };
+    RmFullComponent.prototype.configureDeepStream = function () {
+        var _this = this;
         var rootModelRecordName = app_globals_1.DsGlobals.rootModelRecordName;
         this.rootModelRecord = this.ds.dsInstance.record.getRecord(rootModelRecordName);
         this.rootModelRecord.whenReady(function (record) {
             console.log('rootModelRecord ready!', record);
             _this.rootModelRecord.subscribe(function (rootModel) {
+                var selectedTransponder = rootModel.transponders[_this.selectedTransponderIndex];
                 _this.updateCustomerTable(rootModel.customers);
+                _this.updateTransponderDropDown(rootModel.transponders);
+                _this.updateTransponderTable(rootModel.transponders);
+                _this.updateOriginatorTable(rootModel.originators);
+                _this.updateAllocationChart(selectedTransponder.allocations, selectedTransponder.name);
             }, true);
         });
-    }
+    };
     RmFullComponent.prototype.testFunc = function () {
         console.log('this is a test');
     };
@@ -42,9 +54,82 @@ var RmFullComponent = (function () {
         // this.updateCustomerTable(data.customers);
         this.testFunc();
     };
-    RmFullComponent.prototype.ngOnInit = function () {
-        this.renderDonut();
-        //    this.testFunc();
+    RmFullComponent.prototype.setUiEvents = function () {
+        $("#transponderDropDown").change(function () {
+            alert("Hello!");
+        });
+    };
+    RmFullComponent.prototype.updateTransponderDropDown = function (transponders) {
+        var dropDown = $("#transponderDropDown");
+        dropDown.empty();
+        transponders.forEach(function (transponder) {
+            dropDown
+                .append($('<li>')
+                .append($('<a>')
+                .append(transponder.name)));
+        });
+        dropDown.find("li").on("click", "a", function () {
+            alert($(this).parent('li').index());
+            console.log(dropDown[0].innerText);
+        });
+    };
+    RmFullComponent.prototype.updateAllocationChart = function (allocations, transponderName) {
+        var chart = $("#transponderDonut").ejChart("instance");
+        //chart.model.title.subtitle.text = transponderName;
+    };
+    RmFullComponent.prototype.updateTransponderTable = function (transponders) {
+        var header = $("#allocationsTableHeader");
+        header[0].innerText = "Allocations for " + transponders[this.selectedTransponderIndex].name;
+        console.log(header);
+        var tbody = $("#tbody-transponders");
+        tbody.empty();
+        transponders.forEach(function (transponder) {
+            tbody
+                .append($('<tr>')
+                .append($('<td>')
+                .append(transponder.id))
+                .append($('<td>')
+                .append(transponder.name))
+                .append($('<td>')
+                .append(transponder.powerLimit))
+                .append($('<td>')
+                .append(transponder.bandwidth))
+                .append($('<td>')
+                .append(transponder.allocations.length))
+                .append($('<td>')
+                .append($('<i>', {
+                // text: 'remove',
+                class: 'fa fa-edit fa-lg text-navy'
+            }))
+                .append('&nbsp;&nbsp;&nbsp;')
+                .append($('<i>', {
+                // text: 'remove',
+                class: 'fa fa-remove fa-lg text-navy'
+            }))));
+        });
+    };
+    // <i class="fa fa-check text-navy"></i>
+    RmFullComponent.prototype.updateOriginatorTable = function (originators) {
+        var tbody = $("#tbody-originators");
+        tbody.empty();
+        originators.forEach(function (originator) {
+            tbody
+                .append($('<tr>')
+                .append($('<td>')
+                .append(originator.id))
+                .append($('<td>')
+                .append(originator.name))
+                .append($('<td>')
+                .append($('<i>', {
+                // text: 'remove',
+                class: 'fa fa-edit fa-lg text-navy'
+            }))
+                .append('&nbsp;&nbsp;&nbsp;')
+                .append($('<i>', {
+                // text: 'remove',
+                class: 'fa fa-remove fa-lg text-navy'
+            }))));
+        });
     };
     RmFullComponent.prototype.updateCustomerTable = function (customers) {
         var tbody = $("#tbody-customers");
@@ -57,9 +142,14 @@ var RmFullComponent = (function () {
                 .append($('<td>')
                 .append(customer.name))
                 .append($('<td>')
-                .append($('<button/>', {
-                text: 'remove',
-                class: 'btn btn-primary btn-small'
+                .append($('<i>', {
+                // text: 'remove',
+                class: 'fa fa-edit fa-lg text-navy'
+            }))
+                .append('&nbsp;&nbsp;&nbsp;')
+                .append($('<i>', {
+                // text: 'remove',
+                class: 'fa fa-remove fa-lg text-navy'
             }))));
         });
     };
@@ -88,7 +178,7 @@ var RmFullComponent = (function () {
                         },
                         tooltip: { visible: true, format: "#point.x# : #point.y#%" },
                         border: { width: 1, color: 'white' },
-                        name: 'Agricultural land',
+                        name: 'Allocations',
                         type: "doughnut",
                         enableAnimation: true,
                         labelPosition: 'outside',
@@ -98,13 +188,25 @@ var RmFullComponent = (function () {
                         endAngle: 90
                     }
                 ],
-                title: { text: 'Agricultural land in 2011 (% of land area)' },
+                title: {
+                    text: 'Bandwidth Allocations',
+                    subTitle: {
+                        maximumWidth: 50,
+                        font: {
+                            opacity: 1,
+                            fontfamily: "Segoe UI",
+                            fontstyle: 'normal',
+                            size: '12px'
+                        },
+                        textAlignment: 'center',
+                        text: "(Transponder 1)",
+                    }
+                },
                 isResponsive: true,
-                size: { height: "600" },
+                size: { height: "500" },
                 seriesRendering: "seriesRender",
                 load: "loadTheme",
                 legend: { visible: false, shape: 'circle' },
-                // palette: [ "#2F4050", "#F8AC59", "#24C6C8", "#1D84C6","#ED5666"]
                 theme: 'flatlight'
             });
         });

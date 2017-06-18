@@ -40,7 +40,7 @@ var TransponderAddedEvent = (function (_super) {
     TransponderAddedEvent.prototype.verifyEvent = function () {
         var result = new verification_output_1.VerificationOutput();
         // Make sure transponderName is valid
-        result = this.checkIfValidBasicValue(this.transponderName);
+        result = this.checkIfValidBasicValue(this.transponderName, 'Transponder Name');
         if (result.passed === false) {
             return result;
         }

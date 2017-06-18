@@ -52,7 +52,7 @@ var RmMessageConsumer = (function () {
             processingResult.failedMessage = 'Invalid JSON string';
         }
         if (jsonEvent) {
-            var deserializationResult = rm_command_controller_service_1.RmCommandController.deserializeEvent(jsonEvent, null);
+            var deserializationResult = rm_command_controller_service_1.RmCommandController.deserializeEvent(jsonEvent, rootModel);
             if (deserializationResult.verificationResult.passed) {
                 if (deserializationResult.output instanceof root_model_added_event_1.RootModelAddedEvent) {
                     for (var keyName in deserializationResult.output.rootModel) {

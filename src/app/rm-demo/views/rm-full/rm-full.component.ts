@@ -6,6 +6,7 @@ import * as deepstream from 'deepstream.io-client-js';
 import {DsService} from "../../../services/ds.service";
 import {DsGlobals} from "../../../app.globals";
 import {Customer} from "../../../es-demo/models/customer";
+import {Transponder} from "../../../es-demo/models/transponder";
 
 
 declare var $: any;
@@ -49,15 +50,29 @@ class DataPoint implements IDataPoint {
 
 export class RmFullComponent implements OnInit {
   public rootModelRecord: deepstreamIO.Record;
+  public selectedTransponderIndex = 0;
+
   constructor(
     private ds: DsService,
-  ) {
+  ) {}
+
+  ngOnInit() {
+    this.renderDonut();
+    this.configureDeepStream();
+  }
+
+  configureDeepStream() {
     const rootModelRecordName = DsGlobals.rootModelRecordName;
     this.rootModelRecord = this.ds.dsInstance.record.getRecord(rootModelRecordName);
     this.rootModelRecord.whenReady((record) => {
       console.log('rootModelRecord ready!', record);
       this.rootModelRecord.subscribe((rootModel: RootModel) => {
+        const selectedTransponder = rootModel.transponders[this.selectedTransponderIndex];
         this.updateCustomerTable(rootModel.customers);
+        this.updateTransponderDropDown(rootModel.transponders);
+        this.updateTransponderTable(rootModel.transponders);
+        this.updateOriginatorTable(rootModel.originators);
+        this.updateAllocationChart(selectedTransponder.allocations, selectedTransponder.name);
       }, true);
     });
   }
@@ -72,9 +87,103 @@ export class RmFullComponent implements OnInit {
     this.testFunc();
   }
 
-  ngOnInit() {
-    this.renderDonut();
-//    this.testFunc();
+  setUiEvents() {
+    $("#transponderDropDown").change(function(){
+      alert("Hello!");
+    });
+  }
+
+  updateTransponderDropDown(transponders: Transponder[]) {
+    const dropDown = $("#transponderDropDown");
+
+    dropDown.empty();
+    transponders.forEach((transponder) => {
+      dropDown
+        .append($('<li>')
+          .append($('<a>')
+            .append(transponder.name))
+        );
+    });
+
+    dropDown.find("li").on("click", "a", function () {
+      alert($(this).parent('li').index());
+      console.log(dropDown[0].innerText);
+    });
+  }
+
+  updateAllocationChart(allocations: Allocation[], transponderName: string) {
+    const chart = $("#transponderDonut").ejChart("instance");
+    //chart.model.title.subtitle.text = transponderName;
+  }
+
+  updateTransponderTable(transponders: Transponder[]) {
+    const header = $("#allocationsTableHeader");
+    header[0].innerText = `Allocations for ${transponders[this.selectedTransponderIndex].name}`;
+    console.log(header);
+    const tbody = $("#tbody-transponders");
+
+    tbody.empty();
+    transponders.forEach((transponder) => {
+
+      tbody
+        .append($('<tr>')
+          .append($('<td>')
+            .append(transponder.id)
+          )
+          .append($('<td>')
+            .append(transponder.name)
+          )
+          .append($('<td>')
+            .append(transponder.powerLimit)
+          )
+          .append($('<td>')
+            .append(transponder.bandwidth)
+          )
+          .append($('<td>')
+            .append(transponder.allocations.length)
+          )
+          .append($('<td>')
+            .append($('<i>', {
+              // text: 'remove',
+              class: 'fa fa-edit fa-lg text-navy'
+            }))
+            .append('&nbsp;&nbsp;&nbsp;')
+            .append($('<i>', {
+              // text: 'remove',
+              class: 'fa fa-remove fa-lg text-navy'
+            }))
+
+          )
+        );
+    });
+  }
+// <i class="fa fa-check text-navy"></i>
+  updateOriginatorTable(originators: Originator[]) {
+    const tbody = $("#tbody-originators");
+
+    tbody.empty();
+    originators.forEach((originator) => {
+      tbody
+        .append($('<tr>')
+          .append($('<td>')
+            .append(originator.id)
+          )
+          .append($('<td>')
+            .append(originator.name)
+          )
+          .append($('<td>')
+            .append($('<i>', {
+              // text: 'remove',
+              class: 'fa fa-edit fa-lg text-navy'
+            }))
+            .append('&nbsp;&nbsp;&nbsp;')
+            .append($('<i>', {
+              // text: 'remove',
+              class: 'fa fa-remove fa-lg text-navy'
+            }))
+          )
+        );
+    });
   }
 
   updateCustomerTable(customers: Customer[]) {
@@ -91,9 +200,14 @@ export class RmFullComponent implements OnInit {
             .append(customer.name)
           )
           .append($('<td>')
-            .append($('<button/>', {
-              text: 'remove',
-              class: 'btn btn-primary btn-small'
+            .append($('<i>', {
+              // text: 'remove',
+              class: 'fa fa-edit fa-lg text-navy'
+            }))
+            .append('&nbsp;&nbsp;&nbsp;')
+            .append($('<i>', {
+              // text: 'remove',
+              class: 'fa fa-remove fa-lg text-navy'
             }))
           )
         );
@@ -130,7 +244,7 @@ export class RmFullComponent implements OnInit {
                   },
                 tooltip: { visible: true, format : "#point.x# : #point.y#%" },
                 border: { width: 1, color: 'white' },
-                name: 'Agricultural land',
+                name: 'Allocations',
                 type: "doughnut",
                 enableAnimation: true,
                 labelPosition: 'outside',
@@ -140,13 +254,27 @@ export class RmFullComponent implements OnInit {
                 endAngle: 90
               }
             ],
-          title: { text: 'Agricultural land in 2011 (% of land area)' },
+          title: {
+            text: 'Bandwidth Allocations',
+            subTitle:
+              {
+                maximumWidth:50,
+                font:
+                  {
+                    opacity: 1,
+                    fontfamily: "Segoe UI",
+                    fontstyle: 'normal',
+                    size: '12px'
+                  },
+                textAlignment: 'center',
+                text: "(Transponder 1)",
+              }
+          },
           isResponsive: true,
-          size: {height: "600"},
+          size: {height: "500"},
           seriesRendering: "seriesRender",
           load: "loadTheme",
           legend: { visible: false, shape: 'circle' },
-          // palette: [ "#2F4050", "#F8AC59", "#24C6C8", "#1D84C6","#ED5666"]
           theme: 'flatlight'
         });
     });

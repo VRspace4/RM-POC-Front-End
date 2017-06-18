@@ -67,7 +67,7 @@ export class RmMessageConsumer {
       }
 
       if (jsonEvent) {
-        const deserializationResult = RmCommandController.deserializeEvent(jsonEvent, null);
+        const deserializationResult = RmCommandController.deserializeEvent(jsonEvent, rootModel);
         if (deserializationResult.verificationResult.passed) {
           if (deserializationResult.output instanceof RootModelAddedEvent) {
             for (const keyName in deserializationResult.output.rootModel) {

@@ -34,7 +34,7 @@ export class TransponderAddedEvent extends EsEvent implements ITransponder {
     let result = new VerificationOutput();
 
       // Make sure transponderName is valid
-      result = this.checkIfValidBasicValue<string>(this.transponderName);
+      result = this.checkIfValidBasicValue<string>(this.transponderName, 'Transponder Name');
       if (result.passed === false) {
         return result;
       }

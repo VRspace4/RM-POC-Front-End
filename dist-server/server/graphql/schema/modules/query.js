@@ -1,15 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var appGlobal = require("../../../../app/app.globals");
+var app_globals_1 = require("../../../../app/app.globals");
 var node_fetch_1 = require("node-fetch");
-exports.typeDef = "\n  # Possible queries that can be executed\n  type Query {\n    # test String\n    testString: String\n    # Test the /hello endpoint\n    testHello: String\n    rootModel: RootModelType\n  }\n";
+exports.typeDef = "\n  # Possible queries that can be executed\n  type Query {\n    # test String\n    testString: String\n    # Test the /hello endpoint\n    helloWorld: String\n    rootModel: RootModelType\n  }\n";
 exports.resolver = {
     Query: {
         testString: function () {
-            return appGlobal.GeneralGlobals.serverHostname + ":" + appGlobal.serverPort + "/hello";
+            return 'test';
         },
-        testHello: function () {
-            node_fetch_1.default(appGlobal.GeneralGlobals.serverHostname + ":" + appGlobal.serverPort + "/hello").then(function (response) {
+        helloWorld: function () {
+            node_fetch_1.default(app_globals_1.GeneralGlobals.serverHostname + ":" + app_globals_1.GeneralGlobals.commandRestPort + "/helloworld")
+                .then(function (response) {
                 return response.text();
             });
         }

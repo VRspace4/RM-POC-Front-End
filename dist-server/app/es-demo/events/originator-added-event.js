@@ -34,7 +34,7 @@ var OriginatorAddedEvent = (function (_super) {
     OriginatorAddedEvent.prototype.verifyEvent = function () {
         var result = new verification_output_1.VerificationOutput();
         // Make sure originatorName is valid
-        result = this.checkIfValidBasicValue(this.originatorName);
+        result = this.checkIfValidBasicValue(this.originatorName, 'Originator Name');
         if (result.passed === false) {
             return result;
         }

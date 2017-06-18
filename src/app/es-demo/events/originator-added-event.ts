@@ -27,7 +27,7 @@ export class OriginatorAddedEvent extends EsEvent {
     let result = new VerificationOutput();
 
     // Make sure originatorName is valid
-    result = this.checkIfValidBasicValue<string>(this.originatorName);
+    result = this.checkIfValidBasicValue<string>(this.originatorName, 'Originator Name');
     if (result.passed === false) {
       return result;
     }

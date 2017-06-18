@@ -106,8 +106,8 @@ export class RmCommandRestServer {
     // });
     //
     //
-    app.get('/hello', function (request, response) {
-      response.send('It worked!');
+    app.get('/helloworld', function (request, response) {
+      response.send('Hello, world!');
     });
 
     const server: http.Server = app.listen(serverPort, function () {

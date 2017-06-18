@@ -212,8 +212,9 @@ export class RmCommandController {
   public static async start(mainVariables: MainVariables): Promise<RootModel> {
     return new Promise<RootModel>(async function(resolve, reject) {
       // Get all events and its offset number from message broker
-      const eventChainAndOffset = await RmMessageProducer.fetchEventsFromOffset(39);
-      // console.log(eventChainAndOffset);
+      const eventChainAndOffset = await RmMessageProducer.fetchEventsFromOffset(46);
+      console.log('---------============ Fetched events from broker ============---------');
+      console.log(eventChainAndOffset);
       // const eventChainAndOffset = null;
       RmMessageProducer.createClient();
       await RmMessageProducer.startProducerClient();

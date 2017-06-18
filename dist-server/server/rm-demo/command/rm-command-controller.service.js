@@ -202,10 +202,11 @@ var RmCommandController = (function () {
                             var eventChainAndOffset, rootModelEventIndex, rootModelEventOffset, i, rootModelAddedEvent, transponderAddedEvent, customerAddedEvent, originatorAddedEvent, eventsToBeProcessed, i, result;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, rm_message_producer_service_1.RmMessageProducer.fetchEventsFromOffset(39)];
+                                    case 0: return [4 /*yield*/, rm_message_producer_service_1.RmMessageProducer.fetchEventsFromOffset(46)];
                                     case 1:
                                         eventChainAndOffset = _a.sent();
-                                        // console.log(eventChainAndOffset);
+                                        console.log('---------============ Fetched events from broker ============---------');
+                                        console.log(eventChainAndOffset);
                                         // const eventChainAndOffset = null;
                                         rm_message_producer_service_1.RmMessageProducer.createClient();
                                         return [4 /*yield*/, rm_message_producer_service_1.RmMessageProducer.startProducerClient()];

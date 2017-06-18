@@ -27,7 +27,7 @@ var CustomerAddedEvent = (function (_super) {
     }
     CustomerAddedEvent.prototype.verifyEvent = function () {
         var result = new verification_output_1.VerificationOutput();
-        result = this.checkIfValidBasicValue(this.customerName);
+        result = this.checkIfValidBasicValue(this.customerName, 'Customer Name');
         if (result.passed === false) {
             return result;
         }

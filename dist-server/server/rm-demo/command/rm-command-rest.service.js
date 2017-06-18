@@ -86,8 +86,8 @@ var RmCommandRestServer = (function () {
         // });
         //
         //
-        app.get('/hello', function (request, response) {
-            response.send('It worked!');
+        app.get('/helloworld', function (request, response) {
+            response.send('Hello, world!');
         });
         var server = app.listen(serverPort, function () {
             if (postServerStatusMessages === true) {

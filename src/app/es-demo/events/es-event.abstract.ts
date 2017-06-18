@@ -39,7 +39,7 @@ export abstract class EsEvent {
 
   protected ifEmptyGenerateUUID(id: string): string {
     let returnId: string;
-    if (this.checkIfValidBasicValue<string>(id).passed === false)  {
+    if (this.checkIfValidBasicValue<string>(id, 'ID').passed === false)  {
       returnId = generateUUID();
     } else {
       returnId = id;
@@ -47,11 +47,11 @@ export abstract class EsEvent {
     return returnId;
   }
 
-  protected checkIfValidBasicValue<T>(value: T): VerificationOutput {
+  protected checkIfValidBasicValue<T>(value: T, propertyName: string): VerificationOutput {
     const result = new VerificationOutput();
     if (value === null || typeof value === 'undefined')  {
       result.passed = false;
-      result.failedMessage = "The value cannot be undefined!";
+      result.failedMessage = `The property named, ${propertyName}, cannot be undefined!`;
     } else if (typeof value === 'string' && value === '') {
       result.passed = false;
       result.failedMessage = "The string value cannot be empty!";

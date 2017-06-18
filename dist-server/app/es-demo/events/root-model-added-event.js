@@ -44,7 +44,7 @@ var RootModelAddedEvent = (function (_super) {
     RootModelAddedEvent.prototype.verifyEvent = function () {
         var result = new verification_output_1.VerificationOutput();
         // Make sure rootModelName is valid
-        result = this.checkIfValidBasicValue(this.rootModelName);
+        result = this.checkIfValidBasicValue(this.rootModelName, 'Root Model Name');
         if (result.passed === false) {
             return result;
         }

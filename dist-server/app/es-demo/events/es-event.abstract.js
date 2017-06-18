@@ -30,7 +30,7 @@ var EsEvent = (function () {
     };
     EsEvent.prototype.ifEmptyGenerateUUID = function (id) {
         var returnId;
-        if (this.checkIfValidBasicValue(id).passed === false) {
+        if (this.checkIfValidBasicValue(id, 'ID').passed === false) {
             returnId = app_helpers_1.generateUUID();
         }
         else {
@@ -38,11 +38,11 @@ var EsEvent = (function () {
         }
         return returnId;
     };
-    EsEvent.prototype.checkIfValidBasicValue = function (value) {
+    EsEvent.prototype.checkIfValidBasicValue = function (value, propertyName) {
         var result = new verification_output_1.VerificationOutput();
         if (value === null || typeof value === 'undefined') {
             result.passed = false;
-            result.failedMessage = "The value cannot be undefined!";
+            result.failedMessage = "The property named, " + propertyName + ", cannot be undefined!";
         }
         else if (typeof value === 'string' && value === '') {
             result.passed = false;

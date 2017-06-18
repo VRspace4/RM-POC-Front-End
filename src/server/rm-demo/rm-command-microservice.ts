@@ -21,10 +21,6 @@ async function main() {
       .catch((e) => {
         console.error(e);
       });
-    // RmMessageProducer.createClient();
-    // await RmMessageProducer.startProducerClient();
-    // RmMessageProducer.commitEvents([new CustomerAddedEvent(null, 'Customer 1')]);
-    // mainVariables.rootModel = await RmCommandController.initialize();
   } catch (e) {
     console.log(e);
   }

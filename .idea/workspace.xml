@@ -1,152 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" line="243" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="114" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="227" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e247cd20-fb4a-4e03-9e5c-43c54a7ce6bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/rm-demo/realtime/rm-deepstream-client.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-realtime-microservice.ts" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.interface.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.interface.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-events.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-events.spec.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-add-event.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-add-event.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model.interface.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model.interface.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/key-value.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/key-value.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/return-with-verifcation.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/return-with-verifcation.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/root-model.interface.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/root-model.interface.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/transponder.interface.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/transponder.interface.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/verification-output.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/verification-output.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/rm-demo/services/rm.services.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/app/rm-demo/services/rm.services.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/broker-enabled/command-microservice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/broker-enabled/command-microservice.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/broker-enabled/query-microservice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/broker-enabled/query-microservice.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/controller.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/controller.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model-type.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model-type.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command-microservice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command-microservice.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query-microservice.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query-microservice.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/command/rm-command-controller.service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/command/rm-command-controller.service.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/command/rm-command-repository.service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/command/rm-command-repository.service.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/command/rm-command.service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/command/rm-command.service.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/query/rm-query-controller.service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/query/rm-query-controller.service.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/query/rm-query-repository.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/query/rm-query-repository.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/query/rm-query.service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/query/rm-query.service.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/rm-common-controller.service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/rm-common-controller.service.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/rm-common-repository.service.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist-server/server/rm-server/rm-common-repository.service.js.map" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/app.globals.js" afterPath="$PROJECT_DIR$/dist-server/app/app.globals.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/app.globals.js.map" afterPath="$PROJECT_DIR$/dist-server/app/app.globals.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-added-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-added-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-added-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-added-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-modified-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-modified-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-modified-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-modified-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-removed-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-removed-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-removed-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/allocation-removed-event.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-added-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-added-event.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-added-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-added-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-modified-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-modified-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-modified-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-modified-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-removed-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-removed-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-removed-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-removed-event.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.abstract.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.abstract.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.abstract.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/es-event.abstract.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-added-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-added-event.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-added-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-added-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-modified-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-modified-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-modified-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-modified-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-removed-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-removed-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-removed-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-removed-event.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-added-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-added-event.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-added-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-added-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-modified-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-modified-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-modified-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/root-model-modified-event.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-added-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-added-event.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-added-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-added-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-modified-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-modified-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-modified-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-modified-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-removed-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-removed-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-removed-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/transponder-removed-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/base-entity.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/base-entity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/base-entity.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/base-entity.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/root-model.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/root-model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/root-model.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/root-model.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/transponder.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/transponder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/transponder.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/transponder.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js" afterPath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js.map" afterPath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/root-model-type.js" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/root-model-type.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/root-model-type.js.map" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/root-model-type.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/query.js" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/query.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/query.js.map" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/query.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-message-producer.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-message-producer.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-message-producer.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-message-producer.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-message-consumer.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-message-consumer.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-message-consumer.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/common/rm-common-message-consumer.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-rest.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-rest.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-rest.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-rest.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-command-microservice.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.globals.ts" afterPath="$PROJECT_DIR$/src/app/app.globals.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/allocation-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/allocation-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/allocation-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/allocation-removed-event.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/customer-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/customer-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/customer-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/customer-removed-event.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/originator-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/originator-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/originator-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/originator-removed-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/rm-events.spec.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/rm-events.spec.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/root-model-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/root-model-modified-event.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/transponder-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/transponder-removed-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/base-entity.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/base-entity.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/root-model.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/root-model.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/transponder.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/transponder.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/services/transponder.service.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/services/transponder.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" afterPath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" afterPath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model/root-model-type.ts" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model/root-model-type.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-message-consumer.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-message-consumer.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/temp/temp.ts" afterPath="$PROJECT_DIR$/src/server/temp/temp.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/coverage/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -161,65 +56,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DockManager">
-    <window id="2">
+    <window id="1">
       <content type="file-editors">
         <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-            <file leaf-file-name="transponder-added-event.ts" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts">
+          <leaf>
+            <file leaf-file-name="rm-command-rest.service.ts" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1122">
-                    <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="rm-command-controller.service.ts" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="646">
-                    <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="rm-message-producer.service.ts" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="103">
-                    <caret line="154" column="14" lean-forward="false" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="event-and-msg-offset.type.ts" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/event-and-msg-offset.type.ts">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="34">
-                    <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="es-event.abstract.ts" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1190">
-                    <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="transponder.ts" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/transponder.ts">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="646">
-                    <caret line="24" column="63" lean-forward="false" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
+                  <state relative-caret-position="2652">
+                    <caret line="110" column="7" lean-forward="false" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="7" />
                     <folding />
                   </state>
                 </provider>
@@ -236,171 +81,108 @@
       <file leaf-file-name="rm-command-microservice.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="68">
+              <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rm-command-rest.service.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts">
+      <file leaf-file-name="graphql-server.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/graphql/graphql-server.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="27" column="70" lean-forward="false" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rm-events.spec.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/rm-events.spec.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="root-model-added-event.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts">
+      <file leaf-file-name="query.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="transponder-modified-event.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="41" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rm-command-controller.service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="208" column="32" lean-forward="true" selection-start-line="208" selection-start-column="32" selection-end-line="208" selection-end-column="32" />
+            <state relative-caret-position="340">
+              <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
-                <marker date="1497749245656" expanded="true" signature="4200:23863" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="12583:17409" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="12636:17397" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="12661:17382" ph="[...]" />
-                <marker date="1497749245656" expanded="true" signature="12664:12674" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="12715:17380" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="12792:17356" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="13078:17328" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="13130:17298" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="13175:13272" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="13186:13195" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="13316:13780" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="13430:13543" ph="//..." />
-                <marker date="1497749245656" expanded="true" signature="13698:13707" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="13824:17264" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="14103:14587" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="14265:14545" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="14771:15884" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="15605:15840" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="15930:17201" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="16113:16944" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="16351:16495" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="16549:16898" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="16830:16840" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="17252:17262" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="17423:17657" ph="/** Prepares the graph database and create a production event path if ...*/" />
-                <marker date="1497749245656" expanded="true" signature="17711:20469" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="17772:20461" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="17991:20449" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="18027:20435" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="18056:18198" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="18067:18076" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="18226:18651" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="18335:18497" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="18532:18541" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="18679:20013" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="18941:18950" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="19610:19962" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="19999:20008" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="20041:20142" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="20052:20061" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="20170:20355" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="20383:20417" ph="..." />
-                <marker date="1497749245656" expanded="true" signature="20394:20404" ph="/*...*/" />
-                <marker date="1497749245656" expanded="true" signature="20544:21110" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="20620:21076" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="20638:20932" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="20723:20791" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="20813:20918" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="20955:21066" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="21116:21415" ph="/** First make sure the event processing of the root model is valid. ...*/" />
-                <marker date="1497749245656" expanded="true" signature="21505:22628" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="21570:22552" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="21842:22540" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="21954:22072" ph="//..." />
-                <marker date="1497749245656" expanded="true" signature="22167:22253" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="22275:22361" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="22566:22622" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="22696:23232" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="22741:22863" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="22877:22994" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="23049:23224" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="23094:23212" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="23303:23828" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="23359:23820" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="23474:23808" ph="{...}" />
-                <marker date="1497749245656" expanded="true" signature="23524:23587" ph="{...}" />
+                <element signature="e#0#59#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="allocation-modified-event.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts">
+      <file leaf-file-name="rm-command-mutation.service.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="allocation-added-event.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/allocation-added-event.ts">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="727">
-              <caret line="74" column="39" lean-forward="false" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+            <state relative-caret-position="292">
+              <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rm-command-controller.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-450">
+              <caret line="211" column="22" lean-forward="false" selection-start-line="211" selection-start-column="22" selection-end-line="211" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rm-full.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="49">
+              <caret line="73" column="27" lean-forward="false" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="n#div#1;n#div#1;n#div#1;n#!!top" expanded="false" />
+                <marker date="1497768125935" expanded="true" signature="2449:3697" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transponder.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/services/transponder.service.ts">
+      <file leaf-file-name="rm-full.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state relative-caret-position="204">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="originator-added-event.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts">
+      <file leaf-file-name="app.globals.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/app.globals.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="339">
+              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="catalog-api.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/es-demo/services/catalog-api.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="81" column="33" lean-forward="false" selection-start-line="65" selection-start-column="2" selection-end-line="87" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -416,36 +198,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>new Root</find>
-      <find>new RootMod</find>
-      <find>new RootModel</find>
-      <find>new RootModelA</find>
-      <find>new RootModelAdd</find>
-      <find>new RootModelAdde</find>
-      <find>new RootModelAdded</find>
-      <find>new RootModelAddedE</find>
-      <find>new RootModelAddedEve</find>
-      <find>new RootModelAddedEvent</find>
-      <find>reje</find>
-      <find>reject(</find>
-      <find>reject</find>
-      <find>TransponderAddedEvent</find>
-      <find>'t</find>
-      <find>'Trans</find>
-      <find>'Transpond</find>
-      <find>'Transponder</find>
-      <find>'TransponderA</find>
-      <find>'TransponderAd</find>
-      <find>'TransponderAdde</find>
-      <find>'TransponderAdded</find>
-      <find>'TransponderAddedEve</find>
-      <find>'TransponderAddedEvent'</find>
-      <find>TransponderAddedEvent'</find>
-      <find>promiseOutput</find>
-      <find>id</find>
-      <find>console.lo</find>
-      <find>resolve</find>
-      <find>rootModel</find>
+      <find>the value cannot</find>
+      <find>the value cannot b</find>
+      <find>transponders</find>
+      <find>data-toggle</find>
+      <find>Transponders</find>
+      <find>customers</find>
+      <find>add Cuso</find>
+      <find>Customer</find>
+      <find>add customer</find>
+      <find>width</find>
+      <find>select trans</find>
+      <find>select T</find>
+      <find>title</find>
+      <find>text</find>
+      <find>the value cannot be</find>
+      <find>@</find>
+      <find>@Injector</find>
+      <find>@Injecto</find>
+      <find>@Inject</find>
+      <find>@Injec</find>
+      <find>@Inje</find>
+      <find>@Inj</find>
+      <find>@In</find>
+      <find>@I</find>
+      <find>I</find>
+      <find>Injectable</find>
+      <find>@Injectable</find>
+      <find>hello</find>
+      <find>Allocations</find>
+      <find>graphql</find>
     </findStrings>
     <replaceStrings>
       <replace>rm-demo</replace>
@@ -468,9 +250,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model/root-model-type.ts" />
-        <option value="$PROJECT_DIR$/src/temp.ts" />
-        <option value="$PROJECT_DIR$/src/app/es-demo/models/return-with-verifcation.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/transponder.interface.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/root-model.interface.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-repository.service.ts" />
@@ -484,15 +263,12 @@
         <option value="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-controller.service.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/response-message.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/types/return-with-response-message.type.ts" />
-        <option value="$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/common/rm-common-message-consumer.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" />
         <option value="$PROJECT_DIR$/src/app/app.globals.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/realtime/rm-deepstream-client.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/rm-realtime-microservice.ts" />
-        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/app/es-demo/models/transponder.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts" />
@@ -508,17 +284,23 @@
         <option value="$PROJECT_DIR$/src/app/es-demo/models/base-entity.ts" />
         <option value="$PROJECT_DIR$/src/server/temp/temp.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/allocation-added-event.ts" />
+        <option value="$PROJECT_DIR$/src/app/es-demo/events/rm-events.spec.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/es-demo/services/transponder.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts" />
+        <option value="$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts" />
-        <option value="$PROJECT_DIR$/src/app/es-demo/events/rm-events.spec.ts" />
-        <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" />
+        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts" />
-        <option value="$PROJECT_DIR$/src/app/es-demo/services/transponder.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts" />
+        <option value="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" />
       </list>
     </option>
   </component>
@@ -532,9 +314,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="width" value="1522" />
-    <option name="height" value="1941" />
+    <option name="x" value="-13" />
+    <option name="width" value="1525" />
+    <option name="height" value="1943" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -682,6 +464,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graphql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -704,7 +508,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="es-demo" />
+              <option name="myItemId" value="rm-demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rm-full" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rm-demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -727,62 +561,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="es-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="types" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POC-Front-End-Sync" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POC-Front-End-Sync" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="es-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POC-Front-End-Sync" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POC-Front-End-Sync" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="es-demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="events" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -793,7 +571,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist-server/server/rm-demo/rm-realtime-microservice.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist-server/server/graphql/graphql-server.js" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="C:\dev\POC-Front-End-Sync\node_modules\tslint" />
@@ -822,7 +600,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.rm-command-microservice">
+  <component name="RunManager" selected="Node.js.graphql server">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -1238,11 +1016,15 @@
     <configuration default="false" name="rm-realtime-microservice" type="NodeJSConfigurationType" factoryName="Node.js" singleton="false" path-to-node="project" path-to-js-file="dist-server/server/rm-demo/rm-realtime-microservice.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
-    <list size="4">
+    <configuration default="false" name="graphql server" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="dist-server/server/graphql/graphql-server.js" working-dir="$PROJECT_DIR$">
+      <method />
+    </configuration>
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Node.js.rm-command-microservice" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.Test" />
       <item index="2" class="java.lang.String" itemvalue="Node.js.rm-query-microservice" />
       <item index="3" class="java.lang.String" itemvalue="Node.js.rm-realtime-microservice" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.graphql server" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -1264,46 +1046,45 @@
       <workItem from="1497501788373" duration="109939000" />
       <workItem from="1497685212793" duration="6666000" />
       <workItem from="1497720771464" duration="21375000" />
-      <workItem from="1497743569192" duration="6890000" />
+      <workItem from="1497743569192" duration="21560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178628000" />
+    <option name="totallyTimeSpent" value="193298000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="0" width="1522" height="1941" extended-state="0" />
-    <editor active="true" />
+    <frame x="-13" y="0" width="1525" height="1943" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35184103" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943243" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26267606" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2051432" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1484512" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38281706" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26212227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27911058" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1318,7 +1099,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="329" />
+      <option name="time" value="338" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1327,62 +1108,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="1" column="62" lean-forward="false" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/verification-output.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/response-message.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/return-with-verifcation.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/return-with-response-message.type.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/add-category-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-modification-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/graphql/schema/modules/root-model/root-model-type.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="22" column="63" lean-forward="false" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
@@ -1401,16 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="1447" column="5" lean-forward="false" selection-start-line="1447" selection-start-column="5" selection-end-line="1447" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1972">
-          <caret line="58" column="9" lean-forward="false" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#93#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1433,16 +1148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-realtime-microservice.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#70#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/deepstream.io-client-js/src/client.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -1450,43 +1155,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="83" column="21" lean-forward="false" selection-start-line="83" selection-start-column="21" selection-end-line="83" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#56#0" expanded="false" />
-            <element signature="n#!!block;n#renderDonut#0;n#RmFullComponent#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.globals.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="41" column="9" lean-forward="false" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@types/kafka-node/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
           <caret line="80" column="4" lean-forward="false" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1518,6 +1190,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1525,6 +1198,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1532,6 +1206,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="30" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1584,25 +1259,25 @@
         <state relative-caret-position="252">
           <caret line="123" column="31" lean-forward="true" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
           <folding>
-            <marker date="1497746072044" expanded="true" signature="2850:12428" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="5219:10307" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="5280:10299" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="5333:10287" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="5358:10272" ph="[...]" />
-            <marker date="1497746072044" expanded="true" signature="5412:10270" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="6409:10246" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="6490:10218" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="6629:10186" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="6685:10152" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="10365:10548" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="10605:12389" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="10676:10739" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="10790:11020" ph="[...]" />
-            <marker date="1497746072044" expanded="true" signature="10791:11019" ph="{&quot;topic&quot;: app_globals_1.KafkaGlobals.topicName...}" />
-            <marker date="1497746072044" expanded="true" signature="11076:12381" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="11156:12369" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="11464:11767" ph="{...}" />
-            <marker date="1497746072044" expanded="true" signature="11789:12218" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="2850:12428" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="5219:10307" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="5280:10299" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="5333:10287" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="5358:10272" ph="[...]" />
+            <marker date="1497771442995" expanded="true" signature="5412:10270" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="6409:10246" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="6490:10218" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="6629:10186" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="6685:10152" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="10365:10548" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="10605:12389" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="10676:10739" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="10790:11020" ph="[...]" />
+            <marker date="1497771442995" expanded="true" signature="10791:11019" ph="{&quot;topic&quot;: app_globals_1.KafkaGlobals.topicName...}" />
+            <marker date="1497771442995" expanded="true" signature="11076:12381" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="11156:12369" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="11464:11767" ph="{...}" />
+            <marker date="1497771442995" expanded="true" signature="11789:12218" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1617,26 +1292,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-modified-event.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="41" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1646,7 +1305,7 @@
         <state relative-caret-position="409">
           <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#47#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1659,26 +1318,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-message-producer.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
           <caret line="154" column="14" lean-forward="false" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="61" column="12" lean-forward="false" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1691,95 +1334,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="208" column="32" lean-forward="true" selection-start-line="208" selection-start-column="32" selection-end-line="208" selection-end-column="32" />
           <folding>
-            <marker date="1497749245656" expanded="true" signature="4200:23863" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="12583:17409" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="12636:17397" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="12661:17382" ph="[...]" />
-            <marker date="1497749245656" expanded="true" signature="12664:12674" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="12715:17380" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="12792:17356" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="13078:17328" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="13130:17298" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="13175:13272" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="13186:13195" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="13316:13780" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="13430:13543" ph="//..." />
-            <marker date="1497749245656" expanded="true" signature="13698:13707" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="13824:17264" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="14103:14587" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="14265:14545" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="14771:15884" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="15605:15840" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="15930:17201" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="16113:16944" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="16351:16495" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="16549:16898" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="16830:16840" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="17252:17262" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="17423:17657" ph="/** Prepares the graph database and create a production event path if ...*/" />
-            <marker date="1497749245656" expanded="true" signature="17711:20469" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="17772:20461" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="17991:20449" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="18027:20435" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="18056:18198" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="18067:18076" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="18226:18651" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="18335:18497" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="18532:18541" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="18679:20013" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="18941:18950" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="19610:19962" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="19999:20008" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="20041:20142" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="20052:20061" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="20170:20355" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="20383:20417" ph="..." />
-            <marker date="1497749245656" expanded="true" signature="20394:20404" ph="/*...*/" />
-            <marker date="1497749245656" expanded="true" signature="20544:21110" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="20620:21076" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="20638:20932" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="20723:20791" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="20813:20918" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="20955:21066" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="21116:21415" ph="/** First make sure the event processing of the root model is valid. ...*/" />
-            <marker date="1497749245656" expanded="true" signature="21505:22628" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="21570:22552" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="21842:22540" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="21954:22072" ph="//..." />
-            <marker date="1497749245656" expanded="true" signature="22167:22253" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="22275:22361" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="22566:22622" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="22696:23232" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="22741:22863" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="22877:22994" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="23049:23224" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="23094:23212" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="23303:23828" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="23359:23820" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="23474:23808" ph="{...}" />
-            <marker date="1497749245656" expanded="true" signature="23524:23587" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="4200:23987" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="12583:17533" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="12636:17521" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="12661:17506" ph="[...]" />
+            <marker date="1497771443105" expanded="true" signature="12664:12674" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="12715:17504" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="12792:17480" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="13078:17452" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="13130:17422" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="13175:13272" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="13186:13195" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="13316:13904" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="13430:13667" ph="//..." />
+            <marker date="1497771443105" expanded="true" signature="13822:13831" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="13948:17388" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="14227:14711" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="14389:14669" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="14895:16008" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="15729:15964" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="16054:17325" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="16237:17068" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="16475:16619" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="16673:17022" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="16954:16964" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="17376:17386" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="17547:17781" ph="/** Prepares the graph database and create a production event path if ...*/" />
+            <marker date="1497771443105" expanded="true" signature="17835:20593" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="17896:20585" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="18115:20573" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="18151:20559" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="18180:18322" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="18191:18200" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="18350:18775" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="18459:18621" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="18656:18665" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="18803:20137" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="19065:19074" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="19734:20086" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="20123:20132" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="20165:20266" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="20176:20185" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="20294:20479" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="20507:20541" ph="..." />
+            <marker date="1497771443105" expanded="true" signature="20518:20528" ph="/*...*/" />
+            <marker date="1497771443105" expanded="true" signature="20668:21234" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="20744:21200" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="20762:21056" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="20847:20915" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="20937:21042" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="21079:21190" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="21240:21539" ph="/** First make sure the event processing of the root model is valid. ...*/" />
+            <marker date="1497771443105" expanded="true" signature="21629:22752" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="21694:22676" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="21966:22664" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="22078:22196" ph="//..." />
+            <marker date="1497771443105" expanded="true" signature="22291:22377" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="22399:22485" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="22690:22746" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="22820:23356" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="22865:22987" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="23001:23118" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="23173:23348" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="23218:23336" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="23427:23952" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="23483:23944" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="23598:23932" ph="{...}" />
+            <marker date="1497771443105" expanded="true" signature="23648:23711" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1793,14 +1420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/services/transponder.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -1809,10 +1428,210 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/verification-output.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-realtime-microservice.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="23" column="61" lean-forward="false" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="64" column="22" lean-forward="false" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="29" column="86" lean-forward="false" selection-start-line="29" selection-start-column="86" selection-end-line="29" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="845">
+          <caret line="51" column="49" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="27" column="41" lean-forward="false" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="61" column="3" lean-forward="false" selection-start-line="61" selection-start-column="3" selection-end-line="61" selection-end-column="3" />
+          <folding>
+            <marker date="1497769239376" expanded="true" signature="3877:4891" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="3905:3977" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="3981:4055" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4059:4139" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4143:4222" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4226:4314" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4318:4891" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4347:4891" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4473:4479" ph="&amp;nbsp;" />
+            <marker date="1497769239376" expanded="true" signature="4479:4485" ph="&amp;nbsp;" />
+            <marker date="1497769239376" expanded="true" signature="4485:4491" ph="&amp;nbsp;" />
+            <marker date="1497769239376" expanded="true" signature="4519:4891" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4895:5595" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4923:4994" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="4998:5071" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="5075:5595" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="5599:8484" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="5627:5696" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="5700:5771" ph="..." />
+            <marker date="1497769239376" expanded="true" signature="5775:8484" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/services/catalog-api.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="73" column="27" lean-forward="false" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+          <folding>
+            <element signature="n#div#1;n#div#1;n#div#1;n#!!top" expanded="false" />
+            <marker date="1497768125935" expanded="true" signature="2449:3697" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/chart.js/dist/docs/gitbook/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15784">
+          <caret line="8" column="2056" lean-forward="false" selection-start-line="8" selection-start-column="2056" selection-end-line="8" selection-end-column="2056" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/graphql/graphql-server.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="211" column="22" lean-forward="false" selection-start-line="211" selection-start-column="22" selection-end-line="211" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.globals.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/services/catalog-api.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="81" column="33" lean-forward="false" selection-start-line="65" selection-start-column="2" selection-end-line="87" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="27" column="70" lean-forward="false" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+        <state relative-caret-position="2652">
+          <caret line="110" column="7" lean-forward="false" selection-start-line="110" selection-start-column="7" selection-end-line="110" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

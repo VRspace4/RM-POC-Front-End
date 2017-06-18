@@ -35,7 +35,7 @@ export class RootModelAddedEvent extends EsEvent implements IRootModel {
     let result = new VerificationOutput();
 
     // Make sure rootModelName is valid
-    result = this.checkIfValidBasicValue<string>(this.rootModelName);
+    result = this.checkIfValidBasicValue<string>(this.rootModelName, 'Root Model Name');
     if (result.passed === false) {
       return result;
     }

@@ -18,7 +18,7 @@ export class CustomerAddedEvent extends EsEvent {
   public verifyEvent(): VerificationOutput {
     let result = new VerificationOutput();
 
-    result = this.checkIfValidBasicValue<string>(this.customerName);
+    result = this.checkIfValidBasicValue<string>(this.customerName, 'Customer Name');
     if (result.passed === false) {
       return result;
     }

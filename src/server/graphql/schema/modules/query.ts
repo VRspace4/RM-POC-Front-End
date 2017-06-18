@@ -1,4 +1,4 @@
-import * as appGlobal from '../../../../app/app.globals';
+import {GeneralGlobals} from '../../../../app/app.globals';
 import fetch from 'node-fetch';
 
 export const typeDef = `
@@ -7,7 +7,7 @@ export const typeDef = `
     # test String
     testString: String
     # Test the /hello endpoint
-    testHello: String
+    helloWorld: String
     rootModel: RootModelType
   }
 `;
@@ -15,12 +15,13 @@ export const typeDef = `
 export const resolver = {
   Query: {
     testString() {
-      return `${appGlobal.GeneralGlobals.serverHostname}:${appGlobal.serverPort}/hello`;
+      return 'test';
     },
-    testHello() {
-        fetch(`${appGlobal.GeneralGlobals.serverHostname}:${appGlobal.serverPort}/hello`).then(function (response) {
-          return response.text();
-        });
+    helloWorld() {
+        fetch(`${GeneralGlobals.serverHostname}:${GeneralGlobals.commandRestPort}/helloworld`)
+          .then(function (response) {
+            return response.text();
+          });
     }
   }
 };
