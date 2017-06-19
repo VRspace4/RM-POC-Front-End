@@ -19,55 +19,84 @@
   <!--<div class="wrapper wrapper-content animated fadeInRight">-->
   <div class="row ">
     <!--<div class="row dashboard-header">-->
-      <div class="col-lg-7">
-        <div class="input-group-btn">
-          <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">Select Transponder(s)&nbsp;&nbsp;<span class="caret"></span></button>
-          <ul class="dropdown-menu" id="transponderDropDown">
-            <li><a href="#">Action</a></li>
-          </ul>
-        </div>
-        <div id="transponderDonut"></div>
+    <div class="col-lg-6">
+      <div class="input-group-btn">
+        <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" aria-expanded="false">Select
+          Transponder(s)&nbsp;&nbsp;<span class="caret"></span></button>
+        <ul class="dropdown-menu" id="transponderDropDown">
+          <li><a href="#">Action</a></li>
+        </ul>
       </div>
-      <div class="col-lg-5">
-        <div class="ibox float-e-margins">
-          <div class="ibox-title">
-            <h5 id="allocationsTableHeader">Allocations</h5>
-            <div class="ibox-tools">
-              <a class="collapse-link">
-                <i class="fa fa-chevron-up"></i>
-              </a>
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#/starterview">
-                <i class="fa fa-wrench"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-user">
-                <li><a href="#">Config option 1</a>
-                </li>
-                <li><a href="#">Config option 2</a>
-                </li>
-              </ul>
-            </div>
+      <div id="transponderDonut"></div>
+    </div>
+    <div class="col-lg-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Add New Allocation</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#/starterview">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="#">Config option 1</a>
+              </li>
+              <li><a href="#">Config option 2</a>
+              </li>
+            </ul>
           </div>
-          <div class="ibox-content">
-            <button type="button" data-toggle="modal" data-target="#modalAddTransponder" class="btn btn-primary btn-sm">Add Allocations</button>
+        </div>
+        <div class="ibox-content">
+          <div class="frame">
+            <div class="txt">Range</div>
+            <br/>
+            <div id="rangeSlider"></div>
+          </div>
+        </div>
 
-            <table class="table table-bordered">
-              <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Power Limit</th>
-                <th>Bandwidth</th>
-                <th># of Allocations</th>
-                <th>Actions</th>
-              </tr>
-              </thead>
-              <tbody id="tbody-allocations">
-              </tbody>
-            </table>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5 id="allocationsTableHeader">Allocations</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#/starterview">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="#">Config option 1</a>
+              </li>
+              <li><a href="#">Config option 2</a>
+              </li>
+            </ul>
           </div>
         </div>
+        <div class="ibox-content">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Start Freq</th>
+              <th>Stop Freq</th>
+              <th>Power Usage</th>
+              <th>Customer Name</th>
+              <th>Originator Name</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-allocations">
+            </tbody>
+          </table>
+        </div>
       </div>
-    <!--</div>-->
+    </div>
   </div>
 
   <div class="row">
@@ -91,7 +120,9 @@
           </div>
         </div>
         <div class="ibox-content">
-          <button type="button" data-toggle="modal" data-target="#modalAddTransponder" class="btn btn-primary btn-sm">Add Transponder</button>
+          <button id="mainAddTransponderBtn" type="button" class="btn btn-primary btn-sm">
+            Add Transponder
+          </button>
 
           <table class="table table-bordered">
             <thead>
@@ -130,7 +161,8 @@
           </div>
         </div>
         <div class="ibox-content">
-          <button type="button" data-toggle="modal" data-target="#modalAddCategory" class="btn btn-primary btn-sm">Add Customer</button>
+          <button id="mainAddCustomerBtn" type="button" class="btn btn-primary btn-sm">Add Customer
+          </button>
 
           <table class="table table-bordered">
             <thead>
@@ -166,8 +198,6 @@
           </div>
         </div>
         <div class="ibox-content">
-          <button type="button" data-toggle="modal" data-target="#modalAddCategory" class="btn btn-primary btn-sm">Add Originator</button>
-
           <table class="table table-bordered">
             <thead>
             <tr>
@@ -184,4 +214,64 @@
     </div>
   </div>
 
+</div>
+
+<!--Add Transponder modal-->
+<div class="modal inmodal fade" id="modalTransponder" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+          class="sr-only">Close</span></button>
+        <i class="fa fa-vcard modal-icon"></i>
+        <h4 class="modal-title" id="modalTitleTransponder">Transponder</h4>
+        <small class="font-bold">Fill in the following information to add a new transponder.</small>
+      </div>
+      <form role="addCustomer" id="transponderForm">
+        <div class="modal-body">
+          <div class="form-group"><label>Transponder name</label> <input type="text"
+                                                                         placeholder="Enter transponder name"
+                                                                         class="form-control" id="transponderName"
+                                                                         name="transponderName"></div>
+          <div class="form-group"><label>Power limit</label> <input type="number" placeholder="Enter power limit"
+                                                                    class="form-control" id="transponderPowerLimit"
+                                                                    name="transponderPowerLimit"></div>
+          <div class="form-group"><label>Total bandwidth</label> <input type="number"
+                                                                        placeholder="Enter total bandwidth"
+                                                                        class="form-control" id="transponderBandwidth"
+                                                                        name="transponderBandwidth"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" id="btnAddTransponder">Submit</button>
+          <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--Add Customer modal-->
+<div class="modal inmodal fade" id="modalCustomer" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+          class="sr-only">Close</span></button>
+        <i class="fa fa-vcard modal-icon"></i>
+        <h4 class="modal-title" id="modalTitleCustomer">Customer</h4>
+        <small class="font-bold">Fill in the following information to create a new customer.</small>
+      </div>
+      <form role="addCustomer" id="customerForm">
+        <div class="modal-body">
+          <div class="form-group"><label>Customer name</label> <input type="text" placeholder="Enter customer name"
+                                                                      class="form-control" id="customerName"
+                                                                      name="customerName"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" id="btnAddCustomer">Submit</button>
+          <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

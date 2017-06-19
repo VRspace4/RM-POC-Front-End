@@ -5,6 +5,7 @@ var cors = require("cors");
 var bodyParser = require("body-parser");
 var graphql_server_express_1 = require("graphql-server-express");
 var schema_1 = require("./schema");
+var rm_command_mutation_service_1 = require("./services/rm-command-mutation.service");
 exports.GRAPHQL_ROUTE = '/graphql';
 exports.GRAPHIQL_ROUTE = '/graphiql';
 function verbosePrint(port, enableGraphiql) {
@@ -33,7 +34,18 @@ function main(options) {
     }
     var testConnector = new TestConnector();
     app.use(exports.GRAPHQL_ROUTE, bodyParser.json(), graphql_server_express_1.graphqlExpress({
-        context: {},
+        context: {
+            sendHello: rm_command_mutation_service_1.sendHello,
+            addCustomer: rm_command_mutation_service_1.addCustomer,
+            removeCustomer: rm_command_mutation_service_1.removeCustomer,
+            addTransponder: rm_command_mutation_service_1.addTransponder,
+            removeTransponder: rm_command_mutation_service_1.removeTransponder,
+            addOriginator: rm_command_mutation_service_1.addOriginator,
+            removeOriginator: rm_command_mutation_service_1.removeOriginator,
+            resetRootModel: rm_command_mutation_service_1.resetRootModel,
+            addAllocation: rm_command_mutation_service_1.addAllocation,
+            removeAllocation: rm_command_mutation_service_1.removeAllocation
+        },
         schema: schema_1.Schema
     }));
     if (options.enableGraphiql) {

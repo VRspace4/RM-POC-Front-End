@@ -22,7 +22,7 @@ export class CustomerRemovedEvent extends EsEvent {
     let result = new VerificationOutput();
 
     // Make sure customerId exists
-    const customerIndex = this.rootModel.getTransponderIndex(this.customerId);
+    const customerIndex = this.rootModel.getCustomerIndex(this.customerId);
     result = this.checkIfIdExists(this.customerId, customerIndex , 'customer ID');
     if (result.passed === false) {
       return result;

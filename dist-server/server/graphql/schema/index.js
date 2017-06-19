@@ -9,11 +9,18 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var graphql_tools_1 = require("graphql-tools");
+//
 var modules = [
     require('./modules/query'),
-    require('./modules/root-model/root-model-type')
+    require('./modules/mutation'),
+    require('./modules/response-message.type'),
+    require('./modules/customer.type'),
+    require('./modules/originator.type'),
+    require('./modules/allocation.type'),
+    require('./modules/transponder.type'),
+    require('./modules/root-model.type')
 ];
-var mainDefs = ["\n  schema {\n    query: Query\n   }\n"];
+var mainDefs = ["\n  schema {\n    query: Query,\n    mutation: Mutation\n   }\n"];
 var resolvers = modules.reduce(function (state, m) {
     if (!m.resolver) {
         return state;

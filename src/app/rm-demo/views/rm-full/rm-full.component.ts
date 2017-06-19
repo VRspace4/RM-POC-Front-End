@@ -4,12 +4,14 @@ import {Originator} from "app/es-demo/models/originator";
 import {RootModel} from "../../../es-demo/models/root-model";
 import * as deepstream from 'deepstream.io-client-js';
 import {DsService} from "../../../services/ds.service";
-import {DsGlobals} from "../../../app.globals";
+import {DsGlobals, GeneralGlobals} from "../../../app.globals";
 import {Customer} from "../../../es-demo/models/customer";
 import {Transponder} from "../../../es-demo/models/transponder";
-
+import {EsEvent} from "../../../es-demo/events/es-event.abstract";
 
 declare var $: any;
+declare var ej: any;
+declare var toastr: any;
 
 interface IDataPoint {
   x: string;
@@ -50,32 +52,173 @@ class DataPoint implements IDataPoint {
 
 export class RmFullComponent implements OnInit {
   public rootModelRecord: deepstreamIO.Record;
+  public eventRecord: deepstreamIO.Record;
+  public eventRecordFlag = false;
   public selectedTransponderIndex = 0;
 
   constructor(
-    private ds: DsService,
+    private ds: DsService
   ) {}
 
   ngOnInit() {
+    this.initializeToastr();
+    this.initializeListeners();
+    this.initializeFormHandler();
     this.renderDonut();
+    this.renderSliders();
     this.configureDeepStream();
   }
 
+  initializeToastr() {
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "progressBar": true,
+      "preventDuplicates": true,
+      "positionClass": "toast-top-right",
+      "onclick": null,
+      "showDuration": "400",
+      "hideDuration": "1000",
+      "timeOut": "7000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    };
+  }
+
+  initializeListeners() {
+    $('#mainAddCustomerBtn').click($.proxy(function() {
+      this.resetForms();
+      $('#modalTitleCustomer')[0].innerHTML = 'Add Customer';
+      $('#modalCustomer').modal('show');
+    }, this));
+
+    $('#mainAddTransponderBtn').click($.proxy(function() {
+      this.resetForms();
+      $('#modalTitleTransponder')[0].innerHTML = 'Add Transponder';
+      $('#modalTransponder').modal('show');
+    }, this));
+  }
+
+  initializeFormHandler() {
+    $('#customerForm').validate({
+      rules: {
+        customerName: {
+          required: true
+        }
+      },
+      submitHandler: function(form) {
+        //
+        // const myHeaders = new Headers();
+        // myHeaders.append('Content-Type', 'application/json');
+        //
+        // const payload = {
+        //   method: 'post',
+        //   headers: myHeaders,
+        //   body: JSON.stringify({events: events, parentId})
+        // };
+        fetch(GeneralGlobals.commandRestUri + '/helloworld').then(function (response) {
+          return response.text();
+        }).then( function (object: any) {
+          console.log('************', object);
+          // toastr.success('Without any options', 'Simple notification! ' + object);
+        });
+        $('#modalCustomer').modal('hide');
+        /*
+         const payload = {
+         method: 'post',
+         headers: myHeaders,
+         body: JSON.stringify({events: events, parentId})
+         };
+         console.log('appendEvents', JSON.stringify({events: events, parentId}));
+         fetch(appGlobal.GeneralGlobals.serverHostname + '/events/', payload).then(function (response: Response) {
+         return response.json();
+         }).then(function (object) {
+         const catalog = CatalogApiService.deserializeCatalog(object);
+
+         resolve(catalog);
+         })
+         */
+      }
+    });
+    $('#transponderForm').validate({
+      rules: {
+        transponderName: {
+          required: true
+        },
+        transponderPowerLimit: {
+          required: true,
+          min: 0
+        },
+        transponderBandwidth: {
+          required: true,
+          min: 0
+        }
+      },
+      submitHandler: function(form) {
+        alert('submitted!');
+        $('#modalCustomer').modal('hide');
+      }
+    });
+  }
+
+  resetForms() {
+    $('customerName').val('');
+    $('transponderName').val('');
+    $('transponderPowerLimit').val('');
+    $('transponderBandwidth').val('');
+  }
+
+
+  renderSliders() {
+    $("#rangeSlider").ejSlider({
+      sliderType: ej.SliderType.Range,
+      values: [30, 60],
+      minValue: 0,
+      maxValue: 100,
+      showScale: true,
+    });
+  }
+
   configureDeepStream() {
+    // configure rootModelRecordName
     const rootModelRecordName = DsGlobals.rootModelRecordName;
     this.rootModelRecord = this.ds.dsInstance.record.getRecord(rootModelRecordName);
     this.rootModelRecord.whenReady((record) => {
       console.log('rootModelRecord ready!', record);
       this.rootModelRecord.subscribe((rootModel: RootModel) => {
-        const selectedTransponder = rootModel.transponders[this.selectedTransponderIndex];
+        let selectedTransponder: Transponder;
+        if (rootModel.transponders.length > 0) {
+          selectedTransponder = rootModel.transponders[this.selectedTransponderIndex];
+          this.updateAllocationChart(selectedTransponder.allocations, selectedTransponder.name);
+          this.updateAllocationTable(selectedTransponder.allocations, selectedTransponder.name,
+                      rootModel.customers, rootModel.originators);
+        }
         this.updateCustomerTable(rootModel.customers);
         this.updateTransponderDropDown(rootModel.transponders);
         this.updateTransponderTable(rootModel.transponders);
         this.updateOriginatorTable(rootModel.originators);
-        this.updateAllocationChart(selectedTransponder.allocations, selectedTransponder.name);
+      }, true);
+    });
+
+    // configure eventRecordName
+    const eventRecordName = DsGlobals.eventRecordName;
+    this.eventRecord = this.ds.dsInstance.record.getRecord(eventRecordName);
+    this.eventRecord.whenReady((record) => {
+      console.log('eventRecord ready!', record);
+      this.eventRecord.subscribe((event: EsEvent) => {
+        if (this.eventRecordFlag) {
+          delete event.rootModel;
+          toastr.success('', event.name);
+        } else {
+          this.eventRecordFlag = true;
+        }
       }, true);
     });
   }
+
 
   testFunc() {
     console.log('this is a test');
@@ -113,13 +256,68 @@ export class RmFullComponent implements OnInit {
 
   updateAllocationChart(allocations: Allocation[], transponderName: string) {
     const chart = $("#transponderDonut").ejChart("instance");
-    //chart.model.title.subtitle.text = transponderName;
+    // chart.model.title.subtitle.text = transponderName;
+  }
+
+  updateAllocationTable(allocations: Allocation[], transponderName: string,
+                customers: Customer[], originators: Originator[]) {
+    const tbody = $("#tbody-allocations");
+
+    tbody.empty();
+    allocations.forEach((allocation) => {
+      const matchingCustomer: Customer = customers
+        .find((customer: Customer) => customer.id === allocation.customerId);
+
+      const matchingOriginator: Originator = originators
+        .find((originator: Originator) => originator.id === allocation.originatorId);
+
+      tbody
+        .append($('<tr>')
+          .append($('<td>')
+            .append(allocation.id)
+          )
+          .append($('<td>')
+            .append(allocation.name)
+          )
+          .append($('<td>')
+            .append(allocation.startFrequency)
+          )
+          .append($('<td>')
+            .append(allocation.stopFrequency)
+          )
+          .append($('<td>')
+            .append(allocation.powerUsage)
+          )
+          .append($('<td>')
+            .append(matchingCustomer.name)
+          )
+          .append($('<td>')
+            .append(matchingOriginator.name)
+          )
+          .append($('<td>')
+            .append($('<i>', {
+              // text: 'remove',
+              class: 'fa fa-edit fa-lg text-navy'
+            }))
+            .append('&nbsp;&nbsp;&nbsp;')
+            .append($('<i>', {
+              // text: 'remove',
+              class: 'fa fa-remove fa-lg text-navy'
+            }))
+
+          )
+        );
+    });
   }
 
   updateTransponderTable(transponders: Transponder[]) {
     const header = $("#allocationsTableHeader");
-    header[0].innerText = `Allocations for ${transponders[this.selectedTransponderIndex].name}`;
-    console.log(header);
+    if (transponders.length > 0) {
+      header[0].innerText = `Allocations for ${transponders[this.selectedTransponderIndex].name}`;
+    } else {
+      header[0].innerText = `Allocations (No transponder)`;
+    };
+
     const tbody = $("#tbody-transponders");
 
     tbody.empty();

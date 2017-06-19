@@ -1,5 +1,7 @@
 import {GeneralGlobals} from '../../../../app/app.globals';
 import fetch from 'node-fetch';
+// import rp = require('request-promise');
+// import * as rp from 'request-promise';
 
 export const typeDef = `
   # Possible queries that can be executed
@@ -7,21 +9,56 @@ export const typeDef = `
     # test String
     testString: String
     # Test the /hello endpoint
-    helloWorld: String
-    rootModel: RootModelType
+    testQuery: String
+    rootModel: RootModel
+    customers: [Customer]
+    originators: [Originator]
+    transponders: [Transponder]
+    allocations(transponderId: String!): [Allocation]
   }
 `;
 
+//
 export const resolver = {
   Query: {
     testString() {
       return 'test';
     },
-    helloWorld() {
-        fetch(`${GeneralGlobals.serverHostname}:${GeneralGlobals.commandRestPort}/helloworld`)
-          .then(function (response) {
-            return response.text();
-          });
+    testQuery() {
+      return fetch(`${GeneralGlobals.commandRestUri}/helloworld`).then((res) => {
+        return res.text();
+      }).then((body) => {
+        return (body);
+      });
+    },
+    customers() {
+      return fetch(`${GeneralGlobals.commandRestUri}/customers`).then((res) => {
+        return res.json();
+      }).then((body) => {
+        return (body);
+      });
+    },
+    originators() {
+      return fetch(`${GeneralGlobals.commandRestUri}/originators`).then((res) => {
+        return res.json();
+      }).then((body) => {
+        return (body);
+      });
+    },
+    transponders() {
+      return fetch(`${GeneralGlobals.commandRestUri}/transponders`).then((res) => {
+        return res.json();
+      }).then((body) => {
+        return (body);
+      });
+    },
+    allocations(root, args, ctx) {
+      console.log('************', args.transponderId);
+      return fetch(`${GeneralGlobals.commandRestUri}/allocations/${args.transponderId}`).then((res) => {
+        return res.json();
+      }).then((body) => {
+        return (body);
+      });
     }
   }
 };

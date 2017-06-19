@@ -44,8 +44,38 @@ export class RmCommandRestServer {
       // Events verified, commit them
       RmMessageProducer.commitEvents(events)
         .then((result: ReturnWithResponseMsg<number>) => {
+          events.forEach((event: EsEvent) => {
+            const convertedEvent = RmCommandController.deserializeEvent(event, mainVariables.rootModel);
+            convertedEvent.output.process();
+          });
           response.send(result.responseMessage);
         });
+    });
+
+    app.post('/helloworld', function (request, response, next) {
+      console.log(`[REST] Received POST from /helloworld (${request.body}`);
+      response.send(`Hello, ${request.body.name}!`);
+    });
+
+    app.get('/customers', function(request, response) {
+      response.send(mainVariables.rootModel.customers);
+    });
+
+    app.get('/originators', function(request, response) {
+      response.send(mainVariables.rootModel.originators);
+    });
+
+    app.get('/transponders', function(request, response) {
+      response.send(mainVariables.rootModel.transponders);
+    });
+
+    app.get('/rootModel', function(request, response) {
+      response.send(mainVariables.rootModel);
+    });
+
+    app.get('/allocations/:transponderId', function(request, response) {
+      const allocation = mainVariables.rootModel.getTransponder(request.params.transponderId).allocations;
+      response.send(allocation);
     });
 
     app.get('/rootModel/productionRootModelId', function(request, response) {
@@ -107,7 +137,8 @@ export class RmCommandRestServer {
     //
     //
     app.get('/helloworld', function (request, response) {
-      response.send('Hello, world!');
+      console.log(`[REST] Received GET from /helloworld (${request.body}`);
+      response.send('Hello, worldxxx!');
     });
 
     const server: http.Server = app.listen(serverPort, function () {

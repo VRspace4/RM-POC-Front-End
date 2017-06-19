@@ -3,6 +3,10 @@ import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
 import {graphqlExpress, graphiqlExpress} from 'graphql-server-express';
 import {Schema} from './schema';
+import {
+  addCustomer, addAllocation, addOriginator, addTransponder, sendHello, resetRootModel,
+  removeCustomer, removeTransponder, removeOriginator, removeAllocation
+} from './services/rm-command-mutation.service';
 
 export const GRAPHQL_ROUTE = '/graphql';
 export const GRAPHIQL_ROUTE = '/graphiql';
@@ -37,7 +41,16 @@ export function main(options: IMainOptions) {
   const testConnector = new TestConnector();
   app.use(GRAPHQL_ROUTE, bodyParser.json(), graphqlExpress({
     context: {
-
+      sendHello,
+      addCustomer,
+      removeCustomer,
+      addTransponder,
+      removeTransponder,
+      addOriginator,
+      removeOriginator,
+      resetRootModel,
+      addAllocation,
+      removeAllocation
     },
     schema: Schema
   }));

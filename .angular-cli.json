@@ -26,10 +26,11 @@
         "../node_modules/jqwidgets-framework/jqwidgets/styles/jqx.base.css",
         "../node_modules/syncfusion-javascript/Content/ej/web/ribbon-css/ej.icons.css",
         "../node_modules/syncfusion-javascript/Content/ej/web/responsive-css/ej.responsive.css",
-        "../node_modules/syncfusion-javascript/Content/ej/web/default-theme/ej.web.all.min.css",
+        "../node_modules/syncfusion-javascript/Content/ej/web/office-365/ej.web.all.min.css",
         "./custom-lib/visjs/dist/vis.css",
         "../node_modules/ladda/dist/ladda-themeless.min.css",
         "../node_modules/sweetalert/dist/sweetalert.css",
+        "../node_modules/toastr/build/toastr.min.css",
         "./assets/styles/custom/custom-styles.scss",
         "styles.scss"
       ],
@@ -70,6 +71,8 @@
         "../node_modules/ladda/dist/ladda.min.js",
         "../node_modules/ladda/dist/ladda.jquery.min.js",
         "../node_modules/sweetalert/dist/sweetalert.min.js",
+        "../node_modules/toastr/build/toastr.min.js",
+        "../node_modules/jquery-slimscroll/jquery.slimscroll.js",
         "../node_modules/deepstream.io-client-js/dist/deepstream.js"
       ],
       "environmentSource": "environments/environment.ts",

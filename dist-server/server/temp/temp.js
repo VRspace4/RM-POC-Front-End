@@ -1,13 +1,9 @@
-// import {RootModel} from "../../app/es-demo/models/root-model";
-// import {RootModelAddedEvent} from "../../app/es-demo/events/root-model-added-event";
-// import {Transponder} from "../../app/es-demo/models/transponder";
-//
-// let rootModel = new Transponder('main');
-// //
-// try {
-//   const rootModelAddedEvent = new RootModelAddedEvent(rootModel, 'new root');
-// } catch (e) {
-//   console.error('failed!' + e);
-// }
-// console.log(rootModel);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var node_fetch_1 = require("node-fetch");
+node_fetch_1.default('http://localhost:4500/helloworld').then(function (res) {
+    return res.text();
+}).then(function (body) {
+    console.log(body);
+});
 //# sourceMappingURL=temp.js.map

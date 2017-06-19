@@ -29,12 +29,15 @@ export class GeneralGlobals {
   static serverHostname = 'rm';
   static commandRestPort = 4500;
   static queryRestPort = 4600;
-  static graphQLPort = 4300;
+  static graphQLPort = 4000;
+  static commandRestUri = `http://localhost:${GeneralGlobals.commandRestPort}`;
+  static graphQlUri = `http://localhost:${GeneralGlobals.graphQLPort}`;
 }
 
 export class DsGlobals {
   static serverURI = 'rm:6020';
   static rootModelRecordName = 'rm-demo/rootModel';
+  static eventRecordName = 'rm-demo/event';
 }
 
 export class KafkaGlobals {

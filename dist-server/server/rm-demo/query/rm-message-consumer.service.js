@@ -5,6 +5,7 @@ var app_globals_1 = require("../../../app/app.globals");
 var verification_output_1 = require("../../../app/es-demo/types/verification-output");
 var root_model_added_event_1 = require("../../../app/es-demo/events/root-model-added-event");
 var rm_command_controller_service_1 = require("../command/rm-command-controller.service");
+var return_with_verifcation_1 = require("../../../app/es-demo/types/return-with-verifcation");
 var RmMessageConsumer = (function () {
     function RmMessageConsumer() {
     }
@@ -42,6 +43,7 @@ var RmMessageConsumer = (function () {
         });
     };
     RmMessageConsumer.processRawEventToRootModel = function (rawEvent, rootModel) {
+        var returnWithVerification = new return_with_verifcation_1.ReturnWithVerification();
         var processingResult = new verification_output_1.VerificationOutput();
         var jsonEvent;
         try {
@@ -53,6 +55,7 @@ var RmMessageConsumer = (function () {
         }
         if (jsonEvent) {
             var deserializationResult = rm_command_controller_service_1.RmCommandController.deserializeEvent(jsonEvent, rootModel);
+            returnWithVerification.output = deserializationResult.output;
             if (deserializationResult.verificationResult.passed) {
                 if (deserializationResult.output instanceof root_model_added_event_1.RootModelAddedEvent) {
                     for (var keyName in deserializationResult.output.rootModel) {
@@ -78,7 +81,8 @@ var RmMessageConsumer = (function () {
                     + (" " + deserializationResult.verificationResult.failedMessage);
             }
         }
-        return processingResult;
+        returnWithVerification.verificationResult = processingResult;
+        return returnWithVerification;
     };
     return RmMessageConsumer;
 }());

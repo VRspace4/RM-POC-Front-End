@@ -28,7 +28,7 @@ var OriginatorRemovedEvent = (function (_super) {
     OriginatorRemovedEvent.prototype.verifyEvent = function () {
         var result = new verification_output_1.VerificationOutput();
         // Make sure originatorId exists
-        var originatorIndex = this.rootModel.getTransponderIndex(this.originatorId);
+        var originatorIndex = this.rootModel.getOriginatorIndex(this.originatorId);
         result = this.checkIfIdExists(this.originatorId, originatorIndex, 'originator ID');
         if (result.passed === false) {
             return result;

@@ -17,6 +17,11 @@ var RmDeepstreamClient = (function () {
             console.error(error);
         });
     };
+    RmDeepstreamClient.setRmEventRecord = function (event) {
+        this.dsInstance.record.setData(app_globals_1.DsGlobals.eventRecordName, event, function (error) {
+            console.error(error);
+        });
+    };
     return RmDeepstreamClient;
 }());
 exports.RmDeepstreamClient = RmDeepstreamClient;

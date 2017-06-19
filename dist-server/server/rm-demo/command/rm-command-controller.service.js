@@ -47,6 +47,7 @@ var allocation_added_event_1 = require("../../../app/es-demo/events/allocation-a
 var originator_removed_event_1 = require("../../../app/es-demo/events/originator-removed-event");
 var originator_modified_event_1 = require("../../../app/es-demo/events/originator-modified-event");
 var originator_added_event_1 = require("../../../app/es-demo/events/originator-added-event");
+var customer_removed_event_1 = require("../../../app/es-demo/events/customer-removed-event");
 var customer_modified_event_1 = require("../../../app/es-demo/events/customer-modified-event");
 var customer_added_event_1 = require("../../../app/es-demo/events/customer-added-event");
 var transponder_removed_event_1 = require("../../../app/es-demo/events/transponder-removed-event");
@@ -74,6 +75,7 @@ var RmCommandController = (function () {
                 if (result.verificationResult.passed === true) {
                     result.verificationResult = result.output.verifyEvent();
                 }
+                events[i] = result.output;
                 deserializationResults.push(result.verificationResult);
             }
         }
@@ -104,7 +106,7 @@ var RmCommandController = (function () {
             outputVerification.failedMessage = 'See ResponseMessage object';
             outputResponse.type = response_message_1.ResponseMessageType[response_message_1.ResponseMessageType.error];
             outputResponse.title = "Failed to process";
-            outputResponse.message = "Failed to process the following event(s). " + failOutputString;
+            outputResponse.message = "Failed to process the event(s). " + failOutputString;
         }
         return new return_with_verifcation_1.ReturnWithVerification(outputVerification, outputResponse);
     };
@@ -141,7 +143,8 @@ var RmCommandController = (function () {
                 convertedEvent = new customer_modified_event_1.CustomerModifiedEvent(rootModel, customerModifiedEvent.customerId, customerModifiedEvent.keys, customerModifiedEvent.values);
                 break;
             case 'CustomerRemovedEvent':
-                convertedEvent = event;
+                var customerRemovedEvent = event;
+                convertedEvent = new customer_removed_event_1.CustomerRemovedEvent(rootModel, customerRemovedEvent.customerId);
                 break;
             case 'OriginatorAddedEvent':
                 var originatorAddedEvent = event;
@@ -174,6 +177,7 @@ var RmCommandController = (function () {
         if (result.passed === true) {
             result = RmCommandController.verifyEventKeyNames(event, convertedEvent);
         }
+        event = convertedEvent;
         var output = new return_with_verifcation_1.ReturnWithVerification(result, convertedEvent);
         return output;
     };

@@ -61,11 +61,12 @@ function main() {
                     _a.sent();
                     rm_message_consumer_service_1.RmMessageConsumer.startConsumingEvents(rootModel, 0, function (message) {
                         var processResult = rm_message_consumer_service_1.RmMessageConsumer.processRawEventToRootModel(message.value, rootModel);
-                        if (rootModel.name !== '' && !processResult.passed) {
-                            throw new Error(processResult.failedMessage);
+                        if (rootModel.name !== '' && !processResult.verificationResult.passed) {
+                            throw new Error(processResult.verificationResult.failedMessage);
                         }
                         else if (rootModel.name !== '') {
                             // console.log('\n\n---====== Change detected ======--- \n', rootModel);
+                            rm_deepstream_client_1.RmDeepstreamClient.setRmEventRecord(processResult.output);
                             rm_deepstream_client_1.RmDeepstreamClient.setRootModelRecord(rootModel);
                         }
                     }.bind(this));

@@ -22,10 +22,11 @@ async function main() {
 
   RmMessageConsumer.startConsumingEvents(rootModel, 0, function(message: BrokerMessage) {
     const processResult = RmMessageConsumer.processRawEventToRootModel(message.value, rootModel);
-    if (rootModel.name !== '' && !processResult.passed) {
-      throw new Error(processResult.failedMessage);
+    if (rootModel.name !== '' && !processResult.verificationResult.passed) {
+      throw new Error(processResult.verificationResult.failedMessage);
     } else if (rootModel.name !== '') {
       // console.log('\n\n---====== Change detected ======--- \n', rootModel);
+      RmDeepstreamClient.setRmEventRecord(processResult.output);
       RmDeepstreamClient.setRootModelRecord(rootModel);
     }
   }.bind(this));

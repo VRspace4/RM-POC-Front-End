@@ -51,6 +51,7 @@ export class RmCommandController {
           if (result.verificationResult.passed === true) {
             result.verificationResult = result.output.verifyEvent();
           }
+          events[i] = result.output;
           deserializationResults.push(result.verificationResult);
       }
     } else {
@@ -80,7 +81,7 @@ export class RmCommandController {
       outputVerification.failedMessage = 'See ResponseMessage object';
       outputResponse.type = ResponseMessageType[ResponseMessageType.error];
       outputResponse.title = `Failed to process`;
-      outputResponse.message = `Failed to process the following event(s). ${failOutputString}`;
+      outputResponse.message = `Failed to process the event(s). ${failOutputString}`;
     }
 
     return new ReturnWithVerification(outputVerification, outputResponse);
@@ -134,7 +135,8 @@ export class RmCommandController {
         break;
 
       case 'CustomerRemovedEvent':
-        convertedEvent = <CustomerRemovedEvent>event;
+        const customerRemovedEvent = <CustomerRemovedEvent>event;
+        convertedEvent = new CustomerRemovedEvent(rootModel, customerRemovedEvent.customerId);
         break;
 
       case 'OriginatorAddedEvent':
@@ -181,6 +183,8 @@ export class RmCommandController {
     if (result.passed === true) {
       result = RmCommandController.verifyEventKeyNames(event, convertedEvent);
     }
+
+    event = convertedEvent;
 
     const output = new ReturnWithVerification(result, convertedEvent);
 

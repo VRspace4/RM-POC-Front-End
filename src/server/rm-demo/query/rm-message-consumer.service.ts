@@ -8,6 +8,7 @@ import {VerificationOutput} from "../../../app/es-demo/types/verification-output
 import {RootModelAddedEvent} from "../../../app/es-demo/events/root-model-added-event";
 import {RmCommandController} from "../command/rm-command-controller.service";
 import {EsEvent} from "../../../app/es-demo/events/es-event.abstract";
+import {ReturnWithVerification} from "../../../app/es-demo/types/return-with-verifcation";
 
 export class RmMessageConsumer {
 
@@ -56,42 +57,45 @@ export class RmMessageConsumer {
     });
   }
 
-  static processRawEventToRootModel(rawEvent: any, rootModel: RootModel): VerificationOutput {
-      const processingResult = new VerificationOutput();
-      let jsonEvent: EsEvent;
-      try {
-        jsonEvent = JSON.parse(rawEvent);
-      } catch (e) {
-        processingResult.passed = false;
-        processingResult.failedMessage = 'Invalid JSON string';
-      }
+  static processRawEventToRootModel(rawEvent: any, rootModel: RootModel): ReturnWithVerification<EsEvent> {
+    const returnWithVerification = new ReturnWithVerification<EsEvent>();
+    const processingResult = new VerificationOutput();
 
-      if (jsonEvent) {
-        const deserializationResult = RmCommandController.deserializeEvent(jsonEvent, rootModel);
-        if (deserializationResult.verificationResult.passed) {
-          if (deserializationResult.output instanceof RootModelAddedEvent) {
-            for (const keyName in deserializationResult.output.rootModel) {
-              if (rootModel.hasOwnProperty(keyName)) {
-                rootModel[keyName] = deserializationResult.output.rootModel[keyName];
-              }
-            }
-          } else if (rootModel.name !== '') {
-            deserializationResult.output.rootModel = rootModel;
-            try {
-              deserializationResult.output.process();
-            } catch (e) {
-              console.error('Skipping the following event: ', deserializationResult.output.name);
-              // console.error(e);
+    let jsonEvent: EsEvent;
+    try {
+      jsonEvent = JSON.parse(rawEvent);
+    } catch (e) {
+      processingResult.passed = false;
+      processingResult.failedMessage = 'Invalid JSON string';
+    }
+
+    if (jsonEvent) {
+      const deserializationResult = RmCommandController.deserializeEvent(jsonEvent, rootModel);
+      returnWithVerification.output = deserializationResult.output;
+      if (deserializationResult.verificationResult.passed) {
+        if (deserializationResult.output instanceof RootModelAddedEvent) {
+          for (const keyName in deserializationResult.output.rootModel) {
+            if (rootModel.hasOwnProperty(keyName)) {
+              rootModel[keyName] = deserializationResult.output.rootModel[keyName];
             }
           }
-        } else {
-          processingResult.passed = false;
-          processingResult.failedMessage = `Unable to apply the raw event into the root model, ${rawEvent}.`
-            + ` ${deserializationResult.verificationResult.failedMessage}`;
+        } else if (rootModel.name !== '') {
+          deserializationResult.output.rootModel = rootModel;
+          try {
+            deserializationResult.output.process();
+          } catch (e) {
+            console.error('Skipping the following event: ', deserializationResult.output.name);
+            // console.error(e);
+          }
         }
+      } else {
+        processingResult.passed = false;
+        processingResult.failedMessage = `Unable to apply the raw event into the root model, ${rawEvent}.`
+          + ` ${deserializationResult.verificationResult.failedMessage}`;
       }
-
-    return processingResult;
+    }
+    returnWithVerification.verificationResult = processingResult;
+    return returnWithVerification;
 
   }
 

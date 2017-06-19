@@ -22,7 +22,7 @@ export class OriginatorRemovedEvent extends EsEvent {
     let result = new VerificationOutput();
 
     // Make sure originatorId exists
-    const originatorIndex = this.rootModel.getTransponderIndex(this.originatorId);
+    const originatorIndex = this.rootModel.getOriginatorIndex(this.originatorId);
     result = this.checkIfIdExists(this.originatorId, originatorIndex , 'originator ID');
     if (result.passed === false) {
       return result;

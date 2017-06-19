@@ -1,6 +1,7 @@
 import * as deepstream from 'deepstream.io-client-js';
 import {DsGlobals} from "../../../app/app.globals";
 import {RootModel} from "../../../app/es-demo/models/root-model";
+import {EsEvent} from "../../../app/es-demo/events/es-event.abstract";
 
 export class RmDeepstreamClient {
   static dsInstance;
@@ -16,6 +17,12 @@ export class RmDeepstreamClient {
   public static setRootModelRecord(rootModel: RootModel) {
     this.dsInstance.record.setData(DsGlobals.rootModelRecordName, rootModel, (error) => {
       console.log(rootModel);
+      console.error(error);
+    });
+  }
+
+  public static setRmEventRecord(event: EsEvent) {
+    this.dsInstance.record.setData(DsGlobals.eventRecordName, event, (error) => {
       console.error(error);
     });
   }

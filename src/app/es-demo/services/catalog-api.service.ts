@@ -83,7 +83,7 @@ export class CatalogApiService {
         const catalog = CatalogApiService.deserializeCatalog(object);
 
         resolve(catalog);
-      })
+      });
     });
   }
 

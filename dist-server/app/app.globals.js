@@ -37,7 +37,9 @@ var GeneralGlobals = (function () {
 GeneralGlobals.serverHostname = 'rm';
 GeneralGlobals.commandRestPort = 4500;
 GeneralGlobals.queryRestPort = 4600;
-GeneralGlobals.graphQLPort = 4300;
+GeneralGlobals.graphQLPort = 4000;
+GeneralGlobals.commandRestUri = "http://localhost:" + GeneralGlobals.commandRestPort;
+GeneralGlobals.graphQlUri = "http://localhost:" + GeneralGlobals.graphQLPort;
 exports.GeneralGlobals = GeneralGlobals;
 var DsGlobals = (function () {
     function DsGlobals() {
@@ -46,6 +48,7 @@ var DsGlobals = (function () {
 }());
 DsGlobals.serverURI = 'rm:6020';
 DsGlobals.rootModelRecordName = 'rm-demo/rootModel';
+DsGlobals.eventRecordName = 'rm-demo/event';
 exports.DsGlobals = DsGlobals;
 var KafkaGlobals = (function () {
     function KafkaGlobals() {

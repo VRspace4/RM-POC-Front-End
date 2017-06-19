@@ -28,7 +28,7 @@ var CustomerRemovedEvent = (function (_super) {
     CustomerRemovedEvent.prototype.verifyEvent = function () {
         var result = new verification_output_1.VerificationOutput();
         // Make sure customerId exists
-        var customerIndex = this.rootModel.getTransponderIndex(this.customerId);
+        var customerIndex = this.rootModel.getCustomerIndex(this.customerId);
         result = this.checkIfIdExists(this.customerId, customerIndex, 'customer ID');
         if (result.passed === false) {
             return result;

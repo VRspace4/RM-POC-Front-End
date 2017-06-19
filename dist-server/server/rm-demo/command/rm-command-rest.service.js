@@ -31,8 +31,32 @@ var RmCommandRestServer = (function () {
             // Events verified, commit them
             rm_message_producer_service_1.RmMessageProducer.commitEvents(events)
                 .then(function (result) {
+                events.forEach(function (event) {
+                    var convertedEvent = rm_command_controller_service_1.RmCommandController.deserializeEvent(event, mainVariables.rootModel);
+                    convertedEvent.output.process();
+                });
                 response.send(result.responseMessage);
             });
+        });
+        app.post('/helloworld', function (request, response, next) {
+            console.log("[REST] Received POST from /helloworld (" + request.body);
+            response.send("Hello, " + request.body.name + "!");
+        });
+        app.get('/customers', function (request, response) {
+            response.send(mainVariables.rootModel.customers);
+        });
+        app.get('/originators', function (request, response) {
+            response.send(mainVariables.rootModel.originators);
+        });
+        app.get('/transponders', function (request, response) {
+            response.send(mainVariables.rootModel.transponders);
+        });
+        app.get('/rootModel', function (request, response) {
+            response.send(mainVariables.rootModel);
+        });
+        app.get('/allocations/:transponderId', function (request, response) {
+            var allocation = mainVariables.rootModel.getTransponder(request.params.transponderId).allocations;
+            response.send(allocation);
         });
         app.get('/rootModel/productionRootModelId', function (request, response) {
             rm_command_repository_service_1.RmCommandRepository.getProductionRootModelId().then(function (rootModelId) {
@@ -87,7 +111,8 @@ var RmCommandRestServer = (function () {
         //
         //
         app.get('/helloworld', function (request, response) {
-            response.send('Hello, world!');
+            console.log("[REST] Received GET from /helloworld (" + request.body);
+            response.send('Hello, worldxxx!');
         });
         var server = app.listen(serverPort, function () {
             if (postServerStatusMessages === true) {

@@ -1,14 +1,21 @@
 import {GraphQLSchema} from 'graphql';
 import {makeExecutableSchema,  addMockFunctionsToSchema} from 'graphql-tools';
-
+//
 const modules = [
   require('./modules/query'),
-  require('./modules/root-model/root-model-type')
+  require('./modules/mutation'),
+  require('./modules/response-message.type'),
+  require('./modules/customer.type'),
+  require('./modules/originator.type'),
+  require('./modules/allocation.type'),
+  require('./modules/transponder.type'),
+  require('./modules/root-model.type')
 ];
 
 const mainDefs = [`
   schema {
-    query: Query
+    query: Query,
+    mutation: Mutation
    }
 `];
 

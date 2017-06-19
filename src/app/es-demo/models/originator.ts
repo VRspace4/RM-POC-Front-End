@@ -24,7 +24,7 @@ export class Originator extends BaseEntity {
             `Cannot delete the originator, ${this.name}. It's currently assigned to at least one allocation.`;
           break;
         }
-        if (result.passed = false) {
+        if (result.passed === false) {
           break;
         }
       }
