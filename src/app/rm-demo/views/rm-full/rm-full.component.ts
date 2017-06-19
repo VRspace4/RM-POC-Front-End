@@ -19,6 +19,7 @@ interface IDataPoint {
   text: string;
 };
 
+
 class DataPoint implements IDataPoint {
   constructor(
     public x: string,
@@ -51,6 +52,7 @@ class DataPoint implements IDataPoint {
 
 
 export class RmFullComponent implements OnInit {
+  public rootModel: RootModel;
   public rootModelRecord: deepstreamIO.Record;
   public eventRecord: deepstreamIO.Record;
   public eventRecordFlag = false;
@@ -126,21 +128,7 @@ export class RmFullComponent implements OnInit {
           // toastr.success('Without any options', 'Simple notification! ' + object);
         });
         $('#modalCustomer').modal('hide');
-        /*
-         const payload = {
-         method: 'post',
-         headers: myHeaders,
-         body: JSON.stringify({events: events, parentId})
-         };
-         console.log('appendEvents', JSON.stringify({events: events, parentId}));
-         fetch(appGlobal.GeneralGlobals.serverHostname + '/events/', payload).then(function (response: Response) {
-         return response.json();
-         }).then(function (object) {
-         const catalog = CatalogApiService.deserializeCatalog(object);
 
-         resolve(catalog);
-         })
-         */
       }
     });
     $('#transponderForm').validate({
@@ -187,19 +175,9 @@ export class RmFullComponent implements OnInit {
     const rootModelRecordName = DsGlobals.rootModelRecordName;
     this.rootModelRecord = this.ds.dsInstance.record.getRecord(rootModelRecordName);
     this.rootModelRecord.whenReady((record) => {
-      console.log('rootModelRecord ready!', record);
       this.rootModelRecord.subscribe((rootModel: RootModel) => {
-        let selectedTransponder: Transponder;
-        if (rootModel.transponders.length > 0) {
-          selectedTransponder = rootModel.transponders[this.selectedTransponderIndex];
-          this.updateAllocationChart(selectedTransponder.allocations, selectedTransponder.name);
-          this.updateAllocationTable(selectedTransponder.allocations, selectedTransponder.name,
-                      rootModel.customers, rootModel.originators);
-        }
-        this.updateCustomerTable(rootModel.customers);
-        this.updateTransponderDropDown(rootModel.transponders);
-        this.updateTransponderTable(rootModel.transponders);
-        this.updateOriginatorTable(rootModel.originators);
+        this.rootModel = rootModel;
+        this.updateRootModel(rootModel);
       }, true);
     });
 
@@ -219,6 +197,19 @@ export class RmFullComponent implements OnInit {
     });
   }
 
+  updateRootModel(rootModel: RootModel) {
+    let selectedTransponder: Transponder;
+    if (rootModel.transponders.length > 0) {
+      selectedTransponder = rootModel.transponders[this.selectedTransponderIndex];
+      this.updateAllocationChart(selectedTransponder.allocations, selectedTransponder);
+      this.updateAllocationTable(selectedTransponder.allocations, selectedTransponder.name,
+        rootModel.customers, rootModel.originators);
+    }
+    this.updateCustomerTable(rootModel.customers);
+    this.updateTransponderDropDown(rootModel.transponders);
+    this.updateTransponderTable(rootModel.transponders);
+    this.updateOriginatorTable(rootModel.originators);
+  }
 
   testFunc() {
     console.log('this is a test');
@@ -240,23 +231,66 @@ export class RmFullComponent implements OnInit {
     const dropDown = $("#transponderDropDown");
 
     dropDown.empty();
-    transponders.forEach((transponder) => {
+    transponders.forEach((transponder, index) => {
       dropDown
-        .append($('<li>')
+        .append($('<li>',
+          {click: () => {
+            this.selectedTransponderIndex = index;
+            this.updateRootModel(this.rootModel);
+          }})
           .append($('<a>')
-            .append(transponder.name))
+            .append(transponder.name)
+          )
         );
     });
 
-    dropDown.find("li").on("click", "a", function () {
-      alert($(this).parent('li').index());
-      console.log(dropDown[0].innerText);
-    });
   }
 
-  updateAllocationChart(allocations: Allocation[], transponderName: string) {
+  updateAllocationChart(allocations: Allocation[], transponder: Transponder) {
     const chart = $("#transponderDonut").ejChart("instance");
-    // chart.model.title.subtitle.text = transponderName;
+    chart.model.title.subTitle.text = transponder.name;
+    chart.redraw();
+
+    allocations.sort((a, b): number => {
+      if (a.startFrequency < b.startFrequency) {
+        return -1;
+      } else if (a.startFrequency > b.startFrequency) {
+        return 1;
+      }
+        return 0;
+    });
+
+    const emptyString = '';
+    const newDataPoints: IDataPoint[] = [];
+    if (allocations[0].startFrequency > 0) {
+      newDataPoints.push({x: '0 - ' + allocations[0].startFrequency.toString(),
+                          text: emptyString,
+                          y: allocations[0].startFrequency});
+    }
+    allocations.forEach((allocation, index) => {
+      newDataPoints.push({x: allocation.name,
+                          text: allocation.name,
+                          y: allocation.stopFrequency - allocation.startFrequency});
+      if (index === allocations.length - 1) {
+        if (allocation.stopFrequency < transponder.bandwidth) {
+          newDataPoints.push({x: `${allocation.stopFrequency} - ${transponder.bandwidth}`,
+                              text: emptyString,
+                              y: transponder.bandwidth - allocation.stopFrequency});
+        }
+      } else if ((allocation.stopFrequency + 1) < allocations[index + 1].startFrequency) {
+        newDataPoints.push({x: `${allocation.stopFrequency} - ${allocations[index + 1].startFrequency}`,
+                            text: emptyString,
+                            y: allocations[index + 1].startFrequency - allocation.stopFrequency});
+      }
+    });
+
+    chart.model.series[0].points = newDataPoints;
+    newDataPoints.forEach((newDataPoint, index) => {
+      if (newDataPoint.text === emptyString) {
+        chart.model.series[0].points[index].fill = "#F3F3F4";
+      }
+    });
+    chart.redraw();
   }
 
   updateAllocationTable(allocations: Allocation[], transponderName: string,
@@ -413,7 +447,7 @@ export class RmFullComponent implements OnInit {
   }
 
   renderDonut() {
-    const dataPoints: IDataPoint[] = [{ x: 'ABC', y: 53.3, text: "Australia" },
+    const dataPoints = [{ x: 'ABC', y: 53.3, text: "Australia" },
       { x: 'Available', y: null, text: "" },
       { x: 'China', y: 55.7, text: "China" },
       { x: 'India', y: 60.5, text: "India" },
@@ -456,7 +490,7 @@ export class RmFullComponent implements OnInit {
             text: 'Bandwidth Allocations',
             subTitle:
               {
-                maximumWidth:50,
+                maximumWidth: 50,
                 font:
                   {
                     opacity: 1,

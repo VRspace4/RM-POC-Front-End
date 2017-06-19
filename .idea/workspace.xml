@@ -1,93 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="412" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="449" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="276" mnemonic="5" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e247cd20-fb4a-4e03-9e5c-43c54a7ce6bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/allocation.type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/allocation.type.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/customer.type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/customer.type.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/mutation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/mutation.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/originator.type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/originator.type.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/response-message.type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/response-message.type.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model.type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model.type.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/originator.type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/root-model/originator.type.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/transponder.type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/transponder.type.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/allocation.type.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/customer.type.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/mutation.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/originator.type.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/response-message.type.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model.type.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/transponder.type.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yarn-error.log" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model/root-model-type.ts" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.angular-cli.json" afterPath="$PROJECT_DIR$/.angular-cli.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/app.globals.js" afterPath="$PROJECT_DIR$/dist-server/app/app.globals.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/app.globals.js.map" afterPath="$PROJECT_DIR$/dist-server/app/app.globals.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-removed-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-removed-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-removed-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/customer-removed-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-removed-event.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-removed-event.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-removed-event.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/events/originator-removed-event.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/customer.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/customer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/customer.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/customer.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/originator.js" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/originator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/models/originator.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/models/originator.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/es-demo/services/catalog-api.service.js.map" afterPath="$PROJECT_DIR$/dist-server/app/es-demo/services/catalog-api.service.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js" afterPath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js.map" afterPath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/graphql-server.js" afterPath="$PROJECT_DIR$/dist-server/server/graphql/graphql-server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/graphql-server.js.map" afterPath="$PROJECT_DIR$/dist-server/server/graphql/graphql-server.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/index.js" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/index.js.map" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/index.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/query.js" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/query.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/query.js.map" afterPath="$PROJECT_DIR$/dist-server/server/graphql/schema/modules/query.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/services/rm-command-mutation.service.js" afterPath="$PROJECT_DIR$/dist-server/server/graphql/services/rm-command-mutation.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/services/rm-command-mutation.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/graphql/services/rm-command-mutation.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-controller.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-message-consumer.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/realtime/rm-deepstream-client.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/realtime/rm-deepstream-client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/realtime/rm-deepstream-client.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/realtime/rm-deepstream-client.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-query-microservice.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-realtime-microservice.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-realtime-microservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-realtime-microservice.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/rm-realtime-microservice.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.globals.ts" afterPath="$PROJECT_DIR$/src/app/app.globals.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/customer-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/customer-removed-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/events/originator-removed-event.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/events/originator-removed-event.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/customer.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/customer.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/models/originator.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/models/originator.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/es-demo/services/catalog-api.service.ts" afterPath="$PROJECT_DIR$/src/app/es-demo/services/catalog-api.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" afterPath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" afterPath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/graphql-server.ts" afterPath="$PROJECT_DIR$/src/server/graphql/graphql-server.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/schema/index.ts" afterPath="$PROJECT_DIR$/src/server/graphql/schema/index.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts" afterPath="$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" afterPath="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/query/rm-message-consumer.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/realtime/rm-deepstream-client.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/realtime/rm-deepstream-client.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/rm-realtime-microservice.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/rm-realtime-microservice.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/temp/temp.ts" afterPath="$PROJECT_DIR$/src/server/temp/temp.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/coverage/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -101,61 +26,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="3">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-            <file leaf-file-name="es-demo.component.html" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/app/views/es-demo/es-demo.component.html">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="549">
-                    <caret line="204" column="52" lean-forward="false" selection-start-line="204" selection-start-column="37" selection-end-line="204" selection-end-column="52" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="rm-full.component.html" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="97">
-                    <caret line="223" column="35" lean-forward="false" selection-start-line="223" selection-start-column="35" selection-end-line="223" selection-end-column="35" />
-                    <folding>
-                      <element signature="n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-                      <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-                      <element signature="e#6897#6904#1" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="es-demo.component.ts" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/app/views/es-demo/es-demo.component.ts">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="1170">
-                    <caret line="119" column="9" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="119" selection-end-column="9" />
-                    <folding>
-                      <element signature="e#0#50#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="rm-command-controller.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts">
+      <file leaf-file-name="rm-full.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-              <folding />
+            <state relative-caret-position="257">
+              <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="31" />
+              <folding>
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="e#6897#6904#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,11 +45,31 @@
       <file leaf-file-name="rm-full.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="248" column="7" lean-forward="false" selection-start-line="248" selection-start-column="7" selection-end-line="248" selection-end-column="7" />
+            <state relative-caret-position="177">
+              <caret line="276" column="23" lean-forward="false" selection-start-line="276" selection-start-column="23" selection-end-line="276" selection-end-column="23" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rm-full.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="temp.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -208,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+              <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -234,26 +136,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rm-realtime-microservice.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/rm-realtime-microservice.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customer.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/customer.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -265,13 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>btnSubmitProduct</find>
-      <find>form</find>
-      <find>form rol</find>
-      <find>validate</find>
-      <find>add customer</find>
-      <find>customer</find>
-      <find>mainAddCu</find>
       <find>Add Customer</find>
       <find>reset</find>
       <find>productFormModal</find>
@@ -287,7 +162,6 @@
       <find>&quot;lint&quot;</find>
       <find>modalTitle</find>
       <find>addCategoryForm</find>
-      <find>alert</find>
       <find>submi</find>
       <find>swee</find>
       <find>animate</find>
@@ -295,6 +169,14 @@
       <find>fetch</find>
       <find>toastr</find>
       <find>addCustom</find>
+      <find>select</find>
+      <find>alert</find>
+      <find>updateTransponderDropDown</find>
+      <find>dropdown</find>
+      <find>subtitle</find>
+      <find>dataPoints</find>
+      <find>updatealloc</find>
+      <find>sponderDonut</find>
     </findStrings>
     <replaceStrings>
       <replace>rm-demo</replace>
@@ -339,7 +221,6 @@
         <option value="$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/root-model-added-event.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts" />
-        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/rm-command-microservice.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/customer-added-event.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/response-message.type.ts" />
@@ -351,7 +232,6 @@
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model.type.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/index.ts" />
         <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" />
-        <option value="$PROJECT_DIR$/src/server/temp/temp.ts" />
         <option value="$PROJECT_DIR$/src/server/temp/client.ts" />
         <option value="$PROJECT_DIR$/src/app/client.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
@@ -362,7 +242,6 @@
         <option value="$PROJECT_DIR$/src/server/rm-demo/rm-realtime-microservice.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/services/catalog-api.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/mutation.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/graphql-server.ts" />
@@ -373,6 +252,9 @@
         <option value="$PROJECT_DIR$/src/app/es-demo/models/originator.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts" />
+        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/temp/temp.ts" />
+        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" />
       </list>
     </option>
   </component>
@@ -386,9 +268,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="width" value="1522" />
-    <option name="height" value="1941" />
+    <option name="x" value="-14" />
+    <option name="width" value="1542" />
+    <option name="height" value="1946" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -466,11 +348,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="temp" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -488,37 +366,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="graphql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POC-Front-End-Sync" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemId" value="rm-demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="graphql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="rm-full" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -536,45 +396,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="graphql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schema" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POC-Front-End-Sync" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="POC-Front-End-Sync" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="graphql" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schema" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="rm-demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -591,7 +417,7 @@
     <property name="node.js.selected.package.tslint" value="C:\dev\POC-Front-End-Sync\node_modules\tslint" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="typescript-compiler-editor-notification" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="deserial&#9;null&#9;null&#10;fetch&#9;null&#9;null&#10;rootmodel&#9;null&#9;null&#10;initialize&#9;null&#9;null&#10;commitEve&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="updatedrop&#9;null&#9;null&#10;updateDrop&#9;null&#9;null&#10;deserial&#9;null&#9;null&#10;fetch&#9;null&#9;null&#10;rootmodel&#9;null&#9;null&#10;initialize&#9;null&#9;null&#10;commitEve&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -614,7 +440,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.rm-realtime-microservice">
+  <component name="RunManager" selected="Node.js.rm-query-microservice">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -1061,15 +887,15 @@
       <workItem from="1497685212793" duration="6666000" />
       <workItem from="1497720771464" duration="21375000" />
       <workItem from="1497743569192" duration="56818000" />
-      <workItem from="1497831633960" duration="31271000" />
+      <workItem from="1497831633960" duration="41894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259827000" />
+    <option name="totallyTimeSpent" value="270450000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="0" width="1522" height="1941" extended-state="0" />
+    <frame x="-14" y="0" width="1542" height="1946" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1078,10 +904,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943243" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847142" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24982554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24985372" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1090,10 +916,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943243" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28496197" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2841307" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4634289" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2612676" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18844807" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25889742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1357519" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1125,14 +951,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/transponder-added-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
@@ -1312,14 +1130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/rm-demo/services/rm.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1356,10 +1166,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/es-demo/es-demo.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
+        <state relative-caret-position="1195">
           <caret line="119" column="9" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="119" selection-end-column="9" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1500,18 +1310,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="223" column="35" lean-forward="false" selection-start-line="223" selection-start-column="35" selection-end-line="223" selection-end-column="35" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="e#6897#6904#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/originator-removed-event.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1549,15 +1347,42 @@
     <entry file="file://$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="31" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="e#6897#6904#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="248" column="7" lean-forward="false" selection-start-line="248" selection-start-column="7" selection-end-line="248" selection-end-column="7" />
+        <state relative-caret-position="177">
+          <caret line="276" column="23" lean-forward="false" selection-start-line="276" selection-start-column="23" selection-end-line="276" selection-end-column="23" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>
