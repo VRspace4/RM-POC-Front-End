@@ -8,10 +8,13 @@ import {DsGlobals, GeneralGlobals} from "../../../app.globals";
 import {Customer} from "../../../es-demo/models/customer";
 import {Transponder} from "../../../es-demo/models/transponder";
 import {EsEvent} from "../../../es-demo/events/es-event.abstract";
+import {ResponseMessage, ResponseMessageType} from "../../../es-demo/types/response-message";
+import {RmCommandMutation} from "../../services/rm-command-mutation-library.service";
 
 declare var $: any;
 declare var ej: any;
 declare var toastr: any;
+declare var swal: any;
 
 interface IDataPoint {
   x: string;
@@ -112,21 +115,25 @@ export class RmFullComponent implements OnInit {
         }
       },
       submitHandler: function(form) {
-        //
-        // const myHeaders = new Headers();
-        // myHeaders.append('Content-Type', 'application/json');
-        //
-        // const payload = {
-        //   method: 'post',
-        //   headers: myHeaders,
-        //   body: JSON.stringify({events: events, parentId})
-        // };
-        fetch(GeneralGlobals.commandRestUri + '/helloworld').then(function (response) {
-          return response.text();
-        }).then( function (object: any) {
-          console.log('************', object);
-          // toastr.success('Without any options', 'Simple notification! ' + object);
-        });
+        const customerName = $('#customerName').val();
+        RmCommandMutation.addCustomer(customerName)
+          .then((response: ResponseMessage) => {
+            if (response.type === ResponseMessageType[ResponseMessageType.success]) {
+              swal({
+                title: `Customer created`,
+                text: `The customer, ${customerName} has been created successfully.`,
+                type: "success"
+              });
+            } else {
+              swal({
+                title: response.title,
+                text: response.message,
+                type: "error"
+              });
+            }
+          });
+
+
         $('#modalCustomer').modal('hide');
 
       }
@@ -146,17 +153,36 @@ export class RmFullComponent implements OnInit {
         }
       },
       submitHandler: function(form) {
-        alert('submitted!');
-        $('#modalCustomer').modal('hide');
+        const transponderName = $('#transponderName').val();
+        RmCommandMutation.addTransponder(transponderName,
+                  $('#transponderPowerLimit').val(),
+                  $('#transponderBandwidth').val())
+          .then((response: ResponseMessage) => {
+            if (response.type === ResponseMessageType[ResponseMessageType.success]) {
+              swal({
+                title: `Transponder created`,
+                text: `The transponder, ${transponderName} has been created successfully.`,
+                type: "success"
+              });
+            } else {
+              swal({
+                title: response.title,
+                text: response.message,
+                type: "error"
+              });
+            }
+          });
+
+        $('#modalTransponder').modal('hide');
       }
     });
   }
 
   resetForms() {
-    $('customerName').val('');
-    $('transponderName').val('');
-    $('transponderPowerLimit').val('');
-    $('transponderBandwidth').val('');
+    $('#customerName').val('');
+    $('#transponderName').val('');
+    $('#transponderPowerLimit').val('');
+    $('#transponderBandwidth').val('');
   }
 
 
@@ -249,44 +275,59 @@ export class RmFullComponent implements OnInit {
   updateAllocationChart(allocations: Allocation[], transponder: Transponder) {
     const chart = $("#transponderDonut").ejChart("instance");
     chart.model.title.subTitle.text = transponder.name;
+    chart.model.series[0].points = [];
     chart.redraw();
-
-    allocations.sort((a, b): number => {
-      if (a.startFrequency < b.startFrequency) {
-        return -1;
-      } else if (a.startFrequency > b.startFrequency) {
-        return 1;
-      }
-        return 0;
-    });
 
     const emptyString = '';
     const newDataPoints: IDataPoint[] = [];
-    if (allocations[0].startFrequency > 0) {
-      newDataPoints.push({x: '0 - ' + allocations[0].startFrequency.toString(),
-                          text: emptyString,
-                          y: allocations[0].startFrequency});
-    }
-    allocations.forEach((allocation, index) => {
-      newDataPoints.push({x: allocation.name,
-                          text: allocation.name,
-                          y: allocation.stopFrequency - allocation.startFrequency});
-      if (index === allocations.length - 1) {
-        if (allocation.stopFrequency < transponder.bandwidth) {
-          newDataPoints.push({x: `${allocation.stopFrequency} - ${transponder.bandwidth}`,
-                              text: emptyString,
-                              y: transponder.bandwidth - allocation.stopFrequency});
+
+    if (allocations.length === 0) {
+      newDataPoints.push({x: `0 - ${transponder.bandwidth}`, text: emptyString, y: transponder.bandwidth});
+    } else {
+      allocations.sort((a, b): number => {
+        if (a.startFrequency < b.startFrequency) {
+          return -1;
+        } else if (a.startFrequency > b.startFrequency) {
+          return 1;
         }
-      } else if ((allocation.stopFrequency + 1) < allocations[index + 1].startFrequency) {
-        newDataPoints.push({x: `${allocation.stopFrequency} - ${allocations[index + 1].startFrequency}`,
-                            text: emptyString,
-                            y: allocations[index + 1].startFrequency - allocation.stopFrequency});
+        return 0;
+      });
+
+      if (allocations[0].startFrequency > 0) {
+        newDataPoints.push({
+          x: '0 - ' + allocations[0].startFrequency.toString(),
+          text: emptyString,
+          y: allocations[0].startFrequency
+        });
       }
-    });
+      allocations.forEach((allocation, index) => {
+        newDataPoints.push({
+          x: allocation.name,
+          text: allocation.name,
+          y: allocation.stopFrequency - allocation.startFrequency
+        });
+        if (index === allocations.length - 1) {
+          if (allocation.stopFrequency < transponder.bandwidth) {
+            newDataPoints.push({
+              x: `${allocation.stopFrequency} - ${transponder.bandwidth}`,
+              text: emptyString,
+              y: transponder.bandwidth - allocation.stopFrequency
+            });
+          }
+        } else if ((allocation.stopFrequency + 1) < allocations[index + 1].startFrequency) {
+          newDataPoints.push({
+            x: `${allocation.stopFrequency} - ${allocations[index + 1].startFrequency}`,
+            text: emptyString,
+            y: allocations[index + 1].startFrequency - allocation.stopFrequency
+          });
+        }
+      });
+    }
 
     chart.model.series[0].points = newDataPoints;
     newDataPoints.forEach((newDataPoint, index) => {
       if (newDataPoint.text === emptyString) {
+        console.log('Empty!');
         chart.model.series[0].points[index].fill = "#F3F3F4";
       }
     });
@@ -433,13 +474,37 @@ export class RmFullComponent implements OnInit {
           )
           .append($('<td>')
             .append($('<i>', {
-              // text: 'remove',
               class: 'fa fa-edit fa-lg text-navy'
             }))
             .append('&nbsp;&nbsp;&nbsp;')
             .append($('<i>', {
               // text: 'remove',
-              class: 'fa fa-remove fa-lg text-navy'
+              class: 'fa fa-remove fa-lg text-navy',
+              click: () => {
+                swal({
+                  title: "Are you sure?",
+                  text: `Are you sure you want to delete the customer, ${customer.name}`,
+                  type: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#DD6B55",
+                  confirmButtonText: "Yes, delete it",
+                  closeOnConfirm: false
+                }, function () {
+                  RmCommandMutation.removeCustomer(customer.id)
+                    .then((response: ResponseMessage) => {
+                      if (response.type === ResponseMessageType[ResponseMessageType.success]) {
+                        swal("Customer deleted", `The customer, ${customer.name}, has been deleted.`, "success");
+                      } else {
+                        swal({
+                          title: response.title,
+                          text: response.message,
+                          type: "error"
+                        });
+                      }
+                    });
+                });
+
+              }
             }))
           )
         );

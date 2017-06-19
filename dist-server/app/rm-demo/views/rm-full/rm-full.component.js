@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ds_service_1 = require("../../../services/ds.service");
 var app_globals_1 = require("../../../app.globals");
+var response_message_1 = require("../../../es-demo/types/response-message");
+var rm_command_mutation_library_service_1 = require("../../services/rm-command-mutation-library.service");
 ;
 var DataPoint = (function () {
     function DataPoint(x, y, text) {
@@ -73,20 +75,23 @@ var RmFullComponent = (function () {
                 }
             },
             submitHandler: function (form) {
-                //
-                // const myHeaders = new Headers();
-                // myHeaders.append('Content-Type', 'application/json');
-                //
-                // const payload = {
-                //   method: 'post',
-                //   headers: myHeaders,
-                //   body: JSON.stringify({events: events, parentId})
-                // };
-                fetch(app_globals_1.GeneralGlobals.commandRestUri + '/helloworld').then(function (response) {
-                    return response.text();
-                }).then(function (object) {
-                    console.log('************', object);
-                    // toastr.success('Without any options', 'Simple notification! ' + object);
+                var customerName = $('#customerName').val();
+                rm_command_mutation_library_service_1.RmCommandMutation.addCustomer(customerName)
+                    .then(function (response) {
+                    if (response.type === response_message_1.ResponseMessageType[response_message_1.ResponseMessageType.success]) {
+                        swal({
+                            title: "Customer created",
+                            text: "The customer, " + customerName + " has been created successfully.",
+                            type: "success"
+                        });
+                    }
+                    else {
+                        swal({
+                            title: response.title,
+                            text: response.message,
+                            type: "error"
+                        });
+                    }
                 });
                 $('#modalCustomer').modal('hide');
             }
@@ -106,16 +111,33 @@ var RmFullComponent = (function () {
                 }
             },
             submitHandler: function (form) {
-                alert('submitted!');
-                $('#modalCustomer').modal('hide');
+                var transponderName = $('#transponderName').val();
+                rm_command_mutation_library_service_1.RmCommandMutation.addTransponder(transponderName, $('#transponderPowerLimit').val(), $('#transponderBandwidth').val())
+                    .then(function (response) {
+                    if (response.type === response_message_1.ResponseMessageType[response_message_1.ResponseMessageType.success]) {
+                        swal({
+                            title: "Transponder created",
+                            text: "The transponder, " + transponderName + " has been created successfully.",
+                            type: "success"
+                        });
+                    }
+                    else {
+                        swal({
+                            title: response.title,
+                            text: response.message,
+                            type: "error"
+                        });
+                    }
+                });
+                $('#modalTransponder').modal('hide');
             }
         });
     };
     RmFullComponent.prototype.resetForms = function () {
-        $('customerName').val('');
-        $('transponderName').val('');
-        $('transponderPowerLimit').val('');
-        $('transponderBandwidth').val('');
+        $('#customerName').val('');
+        $('#transponderName').val('');
+        $('#transponderPowerLimit').val('');
+        $('#transponderBandwidth').val('');
     };
     RmFullComponent.prototype.renderSliders = function () {
         $("#rangeSlider").ejSlider({
@@ -195,43 +217,58 @@ var RmFullComponent = (function () {
     RmFullComponent.prototype.updateAllocationChart = function (allocations, transponder) {
         var chart = $("#transponderDonut").ejChart("instance");
         chart.model.title.subTitle.text = transponder.name;
+        chart.model.series[0].points = [];
         chart.redraw();
-        allocations.sort(function (a, b) {
-            if (a.startFrequency < b.startFrequency) {
-                return -1;
-            }
-            else if (a.startFrequency > b.startFrequency) {
-                return 1;
-            }
-            return 0;
-        });
         var emptyString = '';
         var newDataPoints = [];
-        if (allocations[0].startFrequency > 0) {
-            newDataPoints.push({ x: '0 - ' + allocations[0].startFrequency.toString(),
-                text: emptyString,
-                y: allocations[0].startFrequency });
+        if (allocations.length === 0) {
+            newDataPoints.push({ x: "0 - " + transponder.bandwidth, text: emptyString, y: transponder.bandwidth });
         }
-        allocations.forEach(function (allocation, index) {
-            newDataPoints.push({ x: allocation.name,
-                text: allocation.name,
-                y: allocation.stopFrequency - allocation.startFrequency });
-            if (index === allocations.length - 1) {
-                if (allocation.stopFrequency < transponder.bandwidth) {
-                    newDataPoints.push({ x: allocation.stopFrequency + " - " + transponder.bandwidth,
-                        text: emptyString,
-                        y: transponder.bandwidth - allocation.stopFrequency });
+        else {
+            allocations.sort(function (a, b) {
+                if (a.startFrequency < b.startFrequency) {
+                    return -1;
                 }
-            }
-            else if ((allocation.stopFrequency + 1) < allocations[index + 1].startFrequency) {
-                newDataPoints.push({ x: allocation.stopFrequency + " - " + allocations[index + 1].startFrequency,
+                else if (a.startFrequency > b.startFrequency) {
+                    return 1;
+                }
+                return 0;
+            });
+            if (allocations[0].startFrequency > 0) {
+                newDataPoints.push({
+                    x: '0 - ' + allocations[0].startFrequency.toString(),
                     text: emptyString,
-                    y: allocations[index + 1].startFrequency - allocation.stopFrequency });
+                    y: allocations[0].startFrequency
+                });
             }
-        });
+            allocations.forEach(function (allocation, index) {
+                newDataPoints.push({
+                    x: allocation.name,
+                    text: allocation.name,
+                    y: allocation.stopFrequency - allocation.startFrequency
+                });
+                if (index === allocations.length - 1) {
+                    if (allocation.stopFrequency < transponder.bandwidth) {
+                        newDataPoints.push({
+                            x: allocation.stopFrequency + " - " + transponder.bandwidth,
+                            text: emptyString,
+                            y: transponder.bandwidth - allocation.stopFrequency
+                        });
+                    }
+                }
+                else if ((allocation.stopFrequency + 1) < allocations[index + 1].startFrequency) {
+                    newDataPoints.push({
+                        x: allocation.stopFrequency + " - " + allocations[index + 1].startFrequency,
+                        text: emptyString,
+                        y: allocations[index + 1].startFrequency - allocation.stopFrequency
+                    });
+                }
+            });
+        }
         chart.model.series[0].points = newDataPoints;
         newDataPoints.forEach(function (newDataPoint, index) {
             if (newDataPoint.text === emptyString) {
+                console.log('Empty!');
                 chart.model.series[0].points[index].fill = "#F3F3F4";
             }
         });
@@ -344,13 +381,37 @@ var RmFullComponent = (function () {
                 .append(customer.name))
                 .append($('<td>')
                 .append($('<i>', {
-                // text: 'remove',
                 class: 'fa fa-edit fa-lg text-navy'
             }))
                 .append('&nbsp;&nbsp;&nbsp;')
                 .append($('<i>', {
                 // text: 'remove',
-                class: 'fa fa-remove fa-lg text-navy'
+                class: 'fa fa-remove fa-lg text-navy',
+                click: function () {
+                    swal({
+                        title: "Are you sure?",
+                        text: "Are you sure you want to delete the customer, " + customer.name,
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it",
+                        closeOnConfirm: false
+                    }, function () {
+                        rm_command_mutation_library_service_1.RmCommandMutation.removeCustomer(customer.id)
+                            .then(function (response) {
+                            if (response.type === response_message_1.ResponseMessageType[response_message_1.ResponseMessageType.success]) {
+                                swal("Customer deleted", "The customer, " + customer.name + ", has been deleted.", "success");
+                            }
+                            else {
+                                swal({
+                                    title: response.title,
+                                    text: response.message,
+                                    type: "error"
+                                });
+                            }
+                        });
+                    });
+                }
             }))));
         });
     };

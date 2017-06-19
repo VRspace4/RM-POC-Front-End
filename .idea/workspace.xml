@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="449" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="276" mnemonic="5" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="312" mnemonic="5" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="118" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e247cd20-fb4a-4e03-9e5c-43c54a7ce6bd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/rm-demo/services/rm-command-mutation-library.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js" afterPath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js.map" afterPath="$PROJECT_DIR$/dist-server/app/rm-demo/views/rm-full/rm-full.component.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" afterPath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" afterPath="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" afterPath="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/temp/temp.ts" afterPath="$PROJECT_DIR$/src/server/temp/temp.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/coverage/" />
@@ -29,26 +32,82 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="rm-full.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rm-full.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="31" />
+            <state relative-caret-position="111">
+              <caret line="63" column="30" lean-forward="false" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
               <folding>
-                <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="e#6897#6904#1" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+                <element signature="e#7827#7834#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rm-full.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rm-full.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="276" column="23" lean-forward="false" selection-start-line="276" selection-start-column="23" selection-end-line="276" selection-end-column="23" />
+            <state relative-caret-position="277">
+              <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="response-message.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/response-message.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="response-message.type.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/graphql/schema/modules/response-message.type.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rm-command-mutation.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lib.es6.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es6.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="20606" column="14" lean-forward="false" selection-start-line="20606" selection-start-column="14" selection-end-line="20606" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rm-command-mutation-library.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/rm-demo/services/rm-command-mutation-library.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="14" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#69#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,41 +126,11 @@
       <file leaf-file-name="temp.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="originator-removed-event.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/originator-removed-event.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="1100">
+              <caret line="87" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="originator.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/es-demo/models/originator.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rm-command-rest.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -111,26 +140,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="38" column="9" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/graphql/schema/index.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graphql-server.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/graphql/graphql-server.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,50 +156,51 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Add Customer</find>
-      <find>reset</find>
-      <find>productFormModal</find>
-      <find>helloworld</find>
-      <find>f</find>
-      <find>myHeaders</find>
-      <find>export</find>
-      <find>request</find>
-      <find>rp</find>
-      <find>request-</find>
-      <find>apollo</find>
-      <find>allocation</find>
-      <find>&quot;lint&quot;</find>
-      <find>modalTitle</find>
-      <find>addCategoryForm</find>
-      <find>submi</find>
-      <find>swee</find>
-      <find>animate</find>
-      <find>rootModelRecordName</find>
-      <find>fetch</find>
-      <find>toastr</find>
       <find>addCustom</find>
       <find>select</find>
       <find>alert</find>
       <find>updateTransponderDropDown</find>
-      <find>dropdown</find>
       <find>subtitle</find>
       <find>dataPoints</find>
       <find>updatealloc</find>
       <find>sponderDonut</find>
+      <find>f</find>
+      <find>fetch</find>
+      <find>sw</find>
+      <find>swi</find>
+      <find>swti</find>
+      <find>swtic</find>
+      <find>swtich</find>
+      <find>switch{</find>
+      <find>switch</find>
+      <find>submitHand</find>
+      <find>dropdown</find>
+      <find>s</find>
+      <find>submitHandler</find>
+      <find>c</find>
+      <find>modalT</find>
+      <find>modalTransponder</find>
+      <find>add transpon</find>
+      <find>) =&gt; {</find>
+      <find>categoryName</find>
+      <find>rm</find>
+      <find>&quot;error&quot;</find>
+      <find>swal</find>
     </findStrings>
     <replaceStrings>
       <replace>rm-demo</replace>
       <replace>convertedEvent =</replace>
       <replace>request</replace>
       <replace>RequestPromise</replace>
+      <replace>): Promise&lt;ResponseMessage&gt; {</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\dev\POC-Front-End-Sync\src</dir>
       <dir>C:\dev\POC-Front-End-Sync\src\app\es-demo\models</dir>
       <dir>C:\dev\POC-Front-End-Sync\node_modules\kafka-node\</dir>
       <dir>C:\dev\POC-Front-End-Sync\</dir>
-      <dir>C:\dev\POC-Front-End-Sync\src\</dir>
       <dir>C:\dev\POC-Front-End-Sync\src\app</dir>
+      <dir>C:\dev\POC-Front-End-Sync\src\</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -204,8 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts" />
-        <option value="$PROJECT_DIR$/src/app/es-demo/events/allocation-removed-event.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/customer-modified-event.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/originator-modified-event.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/root-model-modified-event.ts" />
@@ -231,7 +239,6 @@
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/transponder.type.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/root-model.type.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/index.ts" />
-        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" />
         <option value="$PROJECT_DIR$/src/server/temp/client.ts" />
         <option value="$PROJECT_DIR$/src/app/client.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
@@ -243,7 +250,6 @@
         <option value="$PROJECT_DIR$/src/server/rm-demo/rm-query-microservice.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/services/catalog-api.service.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/mutation.ts" />
-        <option value="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/graphql-server.ts" />
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-controller.service.ts" />
         <option value="$PROJECT_DIR$/src/app/es-demo/events/customer-removed-event.ts" />
@@ -253,8 +259,12 @@
         <option value="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
         <option value="$PROJECT_DIR$/src/server/graphql/schema/modules/query.ts" />
         <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation-library.service.ts" />
         <option value="$PROJECT_DIR$/src/server/temp/temp.ts" />
+        <option value="$PROJECT_DIR$/src/app/rm-demo/services/rm-command-mutation-library.service.ts" />
+        <option value="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" />
         <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html" />
       </list>
     </option>
   </component>
@@ -268,9 +278,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-14" />
-    <option name="width" value="1542" />
-    <option name="height" value="1946" />
+    <option name="x" value="-11" />
+    <option name="width" value="1522" />
+    <option name="height" value="1941" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -348,6 +358,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graphql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graphql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="POC-Front-End-Sync" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -403,6 +461,10 @@
               <option name="myItemId" value="rm-demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -421,11 +483,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\POC-Front-End-Sync\src\app\rm-demo\services" />
       <recent name="C:\dev\POC-Front-End-Sync\src\server\graphql\schema\modules" />
       <recent name="C:\dev\POC-Front-End-Sync\src\app\es-demo\types" />
       <recent name="C:\dev\POC-Front-End-Sync\src\server\rm-demo" />
       <recent name="C:\dev\POC-Front-End-Sync\src\server\rm-demo\common" />
-      <recent name="C:\dev\POC-Front-End-Sync\src\server\rm-demo\query" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -870,6 +932,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_FIELDS,HIDE_INHERITED,HIDE_INHERITED_FROM_OBJECT" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -887,15 +952,15 @@
       <workItem from="1497685212793" duration="6666000" />
       <workItem from="1497720771464" duration="21375000" />
       <workItem from="1497743569192" duration="56818000" />
-      <workItem from="1497831633960" duration="41894000" />
+      <workItem from="1497831633960" duration="48366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270450000" />
+    <option name="totallyTimeSpent" value="276922000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-14" y="0" width="1542" height="1946" extended-state="0" />
+    <frame x="-11" y="0" width="1522" height="1941" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -907,19 +972,20 @@
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847142" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24982554" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24929577" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24985372" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="GraphQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943243" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2841307" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18844807" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25889742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963827" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18899941" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2915493" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1357519" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -951,38 +1017,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/allocation-modified-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/customer-modified-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#60#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-modification-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/originator-added-event.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="29" column="86" lean-forward="false" selection-start-line="29" selection-start-column="86" selection-end-line="29" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/originator-modified-event.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1250,16 +1284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#56#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/es-demo/events/es-event.abstract.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="946">
@@ -1315,7 +1339,7 @@
         <state relative-caret-position="238">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#47#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1360,31 +1384,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
+    <entry file="file://$PROJECT_DIR$/src/server/graphql/schema/modules/response-message.type.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es6.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="31" />
+        <state relative-caret-position="396">
+          <caret line="20606" column="14" lean-forward="false" selection-start-line="20606" selection-start-column="14" selection-end-line="20606" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/es-demo/types/response-message.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/temp/temp.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="e#6897#6904#1" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/services/rm-command-mutation-library.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="276" column="23" lean-forward="false" selection-start-line="276" selection-start-column="23" selection-end-line="276" selection-end-column="23" />
+        <state relative-caret-position="277">
+          <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="63" column="30" lean-forward="false" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#1;n#!!top" expanded="false" />
+            <element signature="e#7827#7834#1" expanded="true" />
           </folding>
         </state>
       </provider>

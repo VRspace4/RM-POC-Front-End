@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var app_globals_1 = require("../../../app/app.globals");
 var node_fetch_1 = require("node-fetch");
+var rm_command_mutation_library_service_1 = require("./rm-command-mutation-library.service");
 var controllerEventsUri = app_globals_1.GeneralGlobals.commandRestUri + "/events";
 exports.sendHello = function (name) {
     return node_fetch_1.default(controllerEventsUri, {
@@ -15,182 +16,56 @@ exports.sendHello = function (name) {
     });
 };
 exports.addCustomer = function (name) {
-    var bodyString = {
-        events: [
-            {
-                name: 'CustomerAddedEvent',
-                customerName: name
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.addCustomer(name)
+        .then(function (object) {
         return object;
     });
 };
 exports.removeCustomer = function (id) {
-    var bodyString = {
-        events: [
-            {
-                name: 'CustomerRemovedEvent',
-                customerId: id
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.removeCustomer(id)
+        .then(function (object) {
         return object;
     });
 };
 exports.addTransponder = function (name, powerLimit, bandwidth) {
-    var bodyString = {
-        events: [
-            {
-                name: 'TransponderAddedEvent',
-                transponderName: name,
-                powerLimit: powerLimit,
-                bandwidth: bandwidth
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.addTransponder(name, powerLimit, bandwidth)
+        .then(function (object) {
         return object;
     });
 };
 exports.removeTransponder = function (id) {
-    var bodyString = {
-        events: [
-            {
-                name: 'TransponderRemovedEvent',
-                transponderId: id
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.removeTransponder(id)
+        .then(function (object) {
         return object;
     });
 };
 exports.addAllocation = function (allocationName, startFrequency, stopFrequency, powerUsage, transponderId, customerId, originatorId) {
-    var bodyString = {
-        events: [
-            {
-                name: 'AllocationAddedEvent',
-                allocationName: allocationName,
-                startFrequency: startFrequency,
-                stopFrequency: stopFrequency,
-                powerUsage: powerUsage,
-                transponderId: transponderId,
-                customerId: customerId,
-                originatorId: originatorId
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.addAllocation(allocationName, startFrequency, stopFrequency, powerUsage, transponderId, customerId, originatorId)
+        .then(function (object) {
         return object;
     });
 };
 exports.removeAllocation = function (transponderId, allocationId) {
-    var bodyString = {
-        events: [
-            {
-                name: 'AllocationRemovedEvent',
-                transponderId: transponderId,
-                allocationId: allocationId
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.removeAllocation(transponderId, allocationId)
+        .then(function (object) {
         return object;
     });
 };
 exports.resetRootModel = function (name) {
-    var bodyString = {
-        events: [
-            {
-                name: 'RootModelAddedEvent',
-                rootModelName: name
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.resetRootModel(name)
+        .then(function (object) {
         return object;
     });
 };
 exports.addOriginator = function (name) {
-    var bodyString = {
-        events: [
-            {
-                name: 'OriginatorAddedEvent',
-                originatorName: name
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.addOriginator(name)
+        .then(function (object) {
         return object;
     });
 };
 exports.removeOriginator = function (id) {
-    var bodyString = {
-        events: [
-            {
-                name: 'OriginatorRemovedEvent',
-                originatorId: id
-            }
-        ]
-    };
-    return node_fetch_1.default(controllerEventsUri, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyString)
-    }).then(function (response) {
-        return response.json();
-    }).then(function (object) {
+    return rm_command_mutation_library_service_1.RmCommandMutation.removeOriginator(id)
+        .then(function (object) {
         return object;
     });
 };
