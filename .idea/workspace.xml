@@ -5,24 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/app/rm-demo/views/rm-full/rm-full.component.ts" line="118" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e247cd20-fb4a-4e03-9e5c-43c54a7ce6bd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/app.globals.js" afterPath="$PROJECT_DIR$/dist-server/app/app.globals.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/app/app.globals.js.map" afterPath="$PROJECT_DIR$/dist-server/app/app.globals.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/services/rm-command-mutation.service.js" afterPath="$PROJECT_DIR$/dist-server/server/graphql/services/rm-command-mutation.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/graphql/services/rm-command-mutation.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/graphql/services/rm-command-mutation.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/command/rm-command-rest.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-rest.service.js" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-rest.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-rest.service.js.map" afterPath="$PROJECT_DIR$/dist-server/server/rm-demo/query/rm-query-rest.service.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" afterPath="$PROJECT_DIR$/dist-server/server/temp/temp.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/app.globals.ts" afterPath="$PROJECT_DIR$/src/app/app.globals.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" afterPath="$PROJECT_DIR$/src/server/graphql/services/rm-command-mutation.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/command/rm-command-rest.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts" afterPath="$PROJECT_DIR$/src/server/rm-demo/query/rm-query-rest.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/temp/temp.ts" afterPath="$PROJECT_DIR$/src/server/temp/temp.ts" />
-    </list>
+    <list default="true" id="e247cd20-fb4a-4e03-9e5c-43c54a7ce6bd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/coverage/" />
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/dist-server/" />
@@ -953,7 +936,7 @@
     <option name="totallyTimeSpent" value="280134000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1489" y="0" width="1522" height="1941" extended-state="1" />
+    <frame x="1489" y="0" width="1522" height="1941" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
