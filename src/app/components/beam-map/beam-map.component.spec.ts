@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BeamMapComponent } from './beam-map.component';
+import {NO_ERRORS_SCHEMA} from "@angular/core";
 
 describe('BeamMapComponent', () => {
   let component: BeamMapComponent;
@@ -8,7 +9,8 @@ describe('BeamMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BeamMapComponent ]
+      declarations: [ BeamMapComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));

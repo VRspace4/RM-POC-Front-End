@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import {Router} from '@angular/router';
 import 'jquery-slimscroll';
 import {smoothlyMenu} from '../../../app.helpers';
@@ -10,7 +10,7 @@ declare var jQuery: any;
   templateUrl: 'navigation.template.html'
 })
 
-export class NavigationComponent {
+export class NavigationComponent implements  AfterViewInit {
 
   constructor(private router: Router) {}
 
@@ -24,7 +24,7 @@ export class NavigationComponent {
     }
   }
 
-  activeRoute(routename: string): boolean{
+  activeRoute(routename: string): boolean {
     return this.router.url.indexOf(routename) > -1;
   }
 

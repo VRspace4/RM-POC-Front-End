@@ -10,11 +10,22 @@
     "experimentalDecorators": true,
     "target": "es5",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "node_modules/deepstream.io-client-js/src/client.d.ts"
     ],
     "lib": [
       "es2016",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "src/custom-lib",
+    "src/assets",
+    "src/environments",
+    "dist",
+    "e2e",
+    ".idea",
+    "vendor"
+  ]
 }

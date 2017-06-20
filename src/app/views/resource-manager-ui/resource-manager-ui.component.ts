@@ -9,6 +9,7 @@ import {BeamMapComponent} from '../../components/beam-map/beam-map.component';
 
 declare var vis: any;
 declare var ej: any;
+declare var $: any;
 
 @Component({
   selector: 'app-resource-manager-ui',
