@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var bodyParser = require("body-parser");
 var cors = require("cors");
-var appGlobal = require("../../../app/app.globals");
 var RmQueryRestServer = (function () {
     function RmQueryRestServer() {
     }
@@ -28,7 +27,7 @@ var RmQueryRestServer = (function () {
         });
         var server = app.listen(serverPort, function () {
             if (postServerStatusMessages === true) {
-                console.log('Server started at port, ' + appGlobal.serverPort);
+                console.log('Server started at port, ' + serverPort);
             }
             if (callback) {
                 callback();

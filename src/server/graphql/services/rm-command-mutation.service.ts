@@ -1,7 +1,7 @@
 import {GeneralGlobals} from "../../../app/app.globals";
 import fetch from 'node-fetch';
 import {ResponseMessage} from "../../../app/es-demo/types/response-message";
-import {RmCommandMutation} from "./rm-command-mutation-library.service";
+import {RmCommandMutation} from "../../../app/rm-demo/services/rm-command-mutation-library.service";
 
 const controllerEventsUri = `${GeneralGlobals.commandRestUri}/events`;
 

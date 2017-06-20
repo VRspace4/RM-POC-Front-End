@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var app_globals_1 = require("../../../app/app.globals");
 var node_fetch_1 = require("node-fetch");
-var rm_command_mutation_library_service_1 = require("./rm-command-mutation-library.service");
+var rm_command_mutation_library_service_1 = require("../../../app/rm-demo/services/rm-command-mutation-library.service");
 var controllerEventsUri = app_globals_1.GeneralGlobals.commandRestUri + "/events";
 exports.sendHello = function (name) {
     return node_fetch_1.default(controllerEventsUri, {

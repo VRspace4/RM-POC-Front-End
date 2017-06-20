@@ -1,7 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.serverPort = 4500;
-exports.graphqlPort = 4300;
 var Neo4jGlobals = (function () {
     function Neo4jGlobals() {
     }
@@ -34,19 +32,19 @@ var GeneralGlobals = (function () {
     }
     return GeneralGlobals;
 }());
-GeneralGlobals.serverHostname = 'rm';
-GeneralGlobals.commandRestPort = 4500;
-GeneralGlobals.queryRestPort = 4600;
-GeneralGlobals.graphQLPort = 4000;
-GeneralGlobals.commandRestUri = "http://localhost:" + GeneralGlobals.commandRestPort;
-GeneralGlobals.graphQlUri = "http://localhost:" + GeneralGlobals.graphQLPort;
+GeneralGlobals.serverHostname = process.env.RM_HOSTNAME || 'http://localhost';
+GeneralGlobals.commandRestPort = process.env.RM_CMD_REST_PORT || 4500;
+GeneralGlobals.queryRestPort = process.env.RM_QUERY_REST_PORT || 4600;
+GeneralGlobals.graphQLPort = process.env.RM_GRAPHQL_PORT || 4000;
+GeneralGlobals.commandRestUri = GeneralGlobals.serverHostname + ":" + GeneralGlobals.commandRestPort;
+GeneralGlobals.graphQlUri = GeneralGlobals.serverHostname + ":" + GeneralGlobals.graphQLPort;
 exports.GeneralGlobals = GeneralGlobals;
 var DsGlobals = (function () {
     function DsGlobals() {
     }
     return DsGlobals;
 }());
-DsGlobals.serverURI = 'rm:6020';
+DsGlobals.serverURI = process.env.RM_DEEPSTREAM_URI || 'rm:6020';
 DsGlobals.rootModelRecordName = 'rm-demo/rootModel';
 DsGlobals.eventRecordName = 'rm-demo/event';
 exports.DsGlobals = DsGlobals;
@@ -55,7 +53,7 @@ var KafkaGlobals = (function () {
     }
     return KafkaGlobals;
 }());
-KafkaGlobals.uri = 'rm:2181';
+KafkaGlobals.uri = process.env.RM_KAFKA_URI || 'rm:2181';
 KafkaGlobals.topicName = Neo4jGlobals.rmDemoDataName.toLowerCase();
 KafkaGlobals.topicPartition = '0';
 exports.KafkaGlobals = KafkaGlobals;

@@ -35,7 +35,7 @@ export class RmQueryRestServer {
 
     const server: http.Server = app.listen(serverPort, function () {
       if (postServerStatusMessages === true) {
-        console.log('Server started at port, ' + appGlobal.serverPort);
+        console.log('Server started at port, ' + serverPort);
       }
 
       if (callback) {

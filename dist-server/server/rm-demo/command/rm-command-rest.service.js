@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var bodyParser = require("body-parser");
 var cors = require("cors");
-var appGlobal = require("../../../app/app.globals");
 var transponder_added_event_1 = require("../../../app/es-demo/events/transponder-added-event");
 var customer_added_event_1 = require("../../../app/es-demo/events/customer-added-event");
 var root_model_added_event_1 = require("../../../app/es-demo/events/root-model-added-event");
@@ -116,7 +115,7 @@ var RmCommandRestServer = (function () {
         });
         var server = app.listen(serverPort, function () {
             if (postServerStatusMessages === true) {
-                console.log('Server started at port, ' + appGlobal.serverPort);
+                console.log('Server started at port, ' + serverPort);
             }
             if (callback) {
                 callback();
